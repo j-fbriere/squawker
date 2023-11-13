@@ -585,26 +585,6 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
                                               child: Column(
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
-                                              Consumer<SavedTweetModel>(builder: (context, model, child) {
-                                                var isSaved = model.isSaved(tweet.idStr!);
-                                                if (isSaved) {
-                                                  return createSheetButton(
-                                                    L10n.of(context).unsave,
-                                                    Icons.bookmark_border_rounded,
-                                                    () async {
-                                                      await model.deleteSavedTweet(tweet.idStr!);
-                                                      Navigator.pop(context);
-                                                    },
-                                                  );
-                                                } else {
-                                                  return createSheetButton(
-                                                      L10n.of(context).save, Icons.bookmark_border_rounded, () async {
-                                                    await model.saveTweet(
-                                                        tweet.idStr!, tweet.user?.idStr, tweet.toJson());
-                                                    Navigator.pop(context);
-                                                  });
-                                                }
-                                              }),
                                               createSheetButton(
                                                 L10n.of(context).share_tweet_content,
                                                 Icons.share,
