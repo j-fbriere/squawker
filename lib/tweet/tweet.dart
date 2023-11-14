@@ -298,6 +298,7 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
   }
 
   static const List<String> _twitterUrls = [
+    'x.com',
     'twitter.com',
     'pic.twitter.com',
     'twimg.com',
