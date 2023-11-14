@@ -524,8 +524,7 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
                       // Profile Picture
                       if (!hideAuthorInformation)
                         Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8.0, bottom: 8.0, left: 4.0, right: 4.0), // Adjust the padding as needed
+                          padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0, right: 0),
                           child: SizedBox(
                             width: 40.0,
                             height: 40.0,
@@ -553,7 +552,7 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsets.fromLTRB(15, 8, 8, 0),
+                            padding: const EdgeInsets.fromLTRB(15, 8, 8, 0),
                             child: Row(children: [
                               // Display Name
                               if (!hideAuthorInformation)
@@ -577,7 +576,9 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
                                   child: Row(
                                     children: [
                                       Flexible(
-                                        child: Text('@${tweet.user!.screenName!}', overflow: TextOverflow.ellipsis),
+                                        child: FittedBox(
+                                            child:
+                                                Text('@${tweet.user!.screenName!}', overflow: TextOverflow.ellipsis)),
                                       ),
                                       if (tweet.user!.verified ?? false) const SizedBox(width: 4),
                                       if (tweet.user!.verified ?? false)
@@ -586,10 +587,14 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
                                   ),
                                 ),
                               if (createdAt != null)
-                                DefaultTextStyle(
-                                  style: theme.textTheme.bodySmall!,
-                                  child: Timestamp(timestamp: createdAt),
-                                ),
+                                Padding(
+                                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0, right: 8.0),
+                                    child: FittedBox(
+                                      child: DefaultTextStyle(
+                                        style: theme.textTheme.bodySmall!,
+                                        child: Timestamp(timestamp: createdAt),
+                                      ),
+                                    ))
                             ]),
                           ),
                           Column(
