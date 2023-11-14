@@ -177,6 +177,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "export_tweets": MessageLookupByLibrary.simpleMessage("Export tweets?"),
         "export_your_data":
             MessageLookupByLibrary.simpleMessage("Export your data"),
+        "favorites": MessageLookupByLibrary.simpleMessage("Favorites"),
         "feed": MessageLookupByLibrary.simpleMessage("Feed"),
         "filters": MessageLookupByLibrary.simpleMessage("Filters"),
         "finish": MessageLookupByLibrary.simpleMessage("Finish"),
@@ -418,7 +419,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Unable to find the available trend locations."),
         "unable_to_find_your_saved_tweets":
             MessageLookupByLibrary.simpleMessage(
-                "Unable to find your saved tweets."),
+                "Unable to find your favorite posts."),
         "unable_to_import":
             MessageLookupByLibrary.simpleMessage("Unable to import"),
         "unable_to_load_home_pages": MessageLookupByLibrary.simpleMessage(
@@ -500,7 +501,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "yes_please": MessageLookupByLibrary.simpleMessage("Yes, please"),
         "you_have_not_saved_any_tweets_yet":
             MessageLookupByLibrary.simpleMessage(
-                "You haven\'t saved any tweets yet!"),
+                "You haven\'t favorited any posts yet!"),
         "you_must_have_at_least_2_home_screen_pages":
             MessageLookupByLibrary.simpleMessage(
                 "You must have at least 2 home screen pages"),

@@ -272,20 +272,20 @@ class L10n {
     );
   }
 
-  /// `Unable to find your saved tweets.`
+  /// `Unable to find your favorite posts.`
   String get unable_to_find_your_saved_tweets {
     return Intl.message(
-      'Unable to find your saved tweets.',
+      'Unable to find your favorite posts.',
       name: 'unable_to_find_your_saved_tweets',
       desc: '',
       args: [],
     );
   }
 
-  /// `You haven't saved any tweets yet!`
+  /// `You haven't favorited any posts yet!`
   String get you_have_not_saved_any_tweets_yet {
     return Intl.message(
-      'You haven\'t saved any tweets yet!',
+      'You haven\'t favorited any posts yet!',
       name: 'you_have_not_saved_any_tweets_yet',
       desc: '',
       args: [],
@@ -1777,6 +1777,16 @@ class L10n {
     return Intl.message(
       'Twitter/X says the page does not exist, but that may not be true',
       name: 'page_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Favorites`
+  String get favorites {
+    return Intl.message(
+      'Favorites',
+      name: 'favorites',
       desc: '',
       args: [],
     );

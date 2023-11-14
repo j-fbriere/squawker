@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:squawker/database/entities.dart';
 import 'package:squawker/generated/l10n.dart';
-import 'package:squawker/home/_saved.dart';
+import 'package:squawker/home/_favorites.dart';
 import 'package:squawker/profile/profile.dart';
 import 'package:squawker/saved/saved_tweet_model.dart';
 import 'package:squawker/ui/errors.dart';

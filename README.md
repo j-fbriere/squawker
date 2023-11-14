@@ -28,8 +28,8 @@
 * Privacy: No login, no tracking, with all data local
 * Feed: View all your subscriptions in a chronological feed
 * Subscriptions: Follow and group accounts
-* Search: Find users and tweets
-* Bookmarks: Save tweets locally and offline
+* Search: Find users and posts
+* Favorites: Favorite posts locally and offline
 * Trends: See what's trending in the world
 * Polls: View results without needing to vote
 * Light and Dark themes: Protect your eyes

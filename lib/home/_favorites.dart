@@ -15,16 +15,16 @@ import 'package:squawker/ui/errors.dart';
 import 'package:pref/pref.dart';
 import 'package:provider/provider.dart';
 
-class SavedScreen extends StatefulWidget {
+class FavoritesScreen extends StatefulWidget {
   final ScrollController scrollController;
 
-  const SavedScreen({Key? key, required this.scrollController}) : super(key: key);
+  const FavoritesScreen({Key? key, required this.scrollController}) : super(key: key);
 
   @override
-  State<SavedScreen> createState() => _SavedScreenState();
+  State<FavoritesScreen> createState() => _FavoritesScreenState();
 }
 
-class _SavedScreenState extends State<SavedScreen> with AutomaticKeepAliveClientMixin<SavedScreen> {
+class _FavoritesScreenState extends State<FavoritesScreen> with AutomaticKeepAliveClientMixin<FavoritesScreen> {
   @override
   bool get wantKeepAlive => true;
 
@@ -50,7 +50,7 @@ class _SavedScreenState extends State<SavedScreen> with AutomaticKeepAliveClient
             pinned: false,
             snap: true,
             floating: true,
-            title: Text(L10n.current.saved),
+            title: Text(L10n.of(context).favorites),
             actions: createCommonAppBarActions(context),
           )
         ];

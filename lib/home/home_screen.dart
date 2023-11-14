@@ -10,7 +10,7 @@ import 'package:squawker/generated/l10n.dart';
 import 'package:squawker/home/_feed.dart';
 import 'package:squawker/home/_groups.dart';
 import 'package:squawker/home/_missing.dart';
-import 'package:squawker/home/_saved.dart';
+import 'package:squawker/home/_favorites.dart';
 import 'package:squawker/home/home_model.dart';
 import 'package:squawker/profile/profile.dart';
 import 'package:squawker/search/search.dart';
@@ -56,7 +56,7 @@ final List<NavigationPage> defaultHomePages = [
   NavigationPage('subscriptions', (c) => L10n.of(c).subscriptions, Icons.subscriptions_rounded),
   NavigationPage('groups', (c) => L10n.of(c).groups, Icons.group_rounded),
   NavigationPage('trending', (c) => L10n.of(c).trending, Icons.trending_up_rounded),
-  NavigationPage('saved', (c) => L10n.of(c).saved, Icons.bookmark_border_rounded),
+  NavigationPage('favorites', (c) => L10n.of(c).favorites, Icons.favorite),
 ];
 
 class HomeScreen extends StatelessWidget {
@@ -130,10 +130,10 @@ class _HomeScreenState extends State<_HomeScreen> {
       var statusId = link.pathSegments[2];
 
       Navigator.pushNamed(context, routeStatus,
-        arguments: StatusScreenArguments(
-          id: statusId,
-          username: username,
-        ));
+          arguments: StatusScreenArguments(
+            id: statusId,
+            username: username,
+          ));
       return;
     }
 
@@ -216,15 +216,16 @@ class _HomeScreenState extends State<_HomeScreen> {
 
                     switch (e.id) {
                       case 'feed':
-                        return FeedScreen(key: _feedKey, scrollController: scrollController, id: '-1', name: L10n.current.feed);
+                        return FeedScreen(
+                            key: _feedKey, scrollController: scrollController, id: '-1', name: L10n.current.feed);
                       case 'subscriptions':
                         return const SubscriptionsScreen();
                       case 'groups':
                         return GroupsScreen(scrollController: scrollController);
                       case 'trending':
                         return TrendsScreen(scrollController: scrollController);
-                      case 'saved':
-                        return SavedScreen(scrollController: scrollController);
+                      case 'favorites':
+                        return FavoritesScreen(scrollController: scrollController);
                       default:
                         return const MissingScreen();
                     }
@@ -256,7 +257,8 @@ class ScaffoldWithBottomNavigation extends StatefulWidget {
   final List<Widget> Function(ScrollController scrollController) builder;
   final GlobalKey<FeedScreenState>? feedKey;
 
-  const ScaffoldWithBottomNavigation({Key? key, required this.pages, required this.initialPage, required this.builder, required this.feedKey})
+  const ScaffoldWithBottomNavigation(
+      {Key? key, required this.pages, required this.initialPage, required this.builder, required this.feedKey})
       : super(key: key);
 
   @override
