@@ -663,22 +663,22 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
                                                   child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 children: [
-                                                  createSheetButton(
-                                                    L10n.of(context).share_tweet_content,
-                                                    Icons.share,
-                                                    () async {
-                                                      Share.share(tweetText);
-                                                      Navigator.pop(context);
-                                                    },
-                                                  ),
-                                                  createSheetButton(L10n.of(context).share_tweet_link, Icons.share,
+                                                  createSheetButton(L10n.of(context).share_tweet_link, Icons.link,
                                                       () async {
                                                     Share.share(
                                                         '$shareBaseUrl/${tweet.user!.screenName}/status/${tweet.idStr}');
                                                     Navigator.pop(context);
                                                   }),
                                                   createSheetButton(
-                                                      L10n.of(context).share_tweet_content_and_link, Icons.share,
+                                                    L10n.of(context).share_tweet_content,
+                                                    Icons.content_copy,
+                                                    () async {
+                                                      Share.share(tweetText);
+                                                      Navigator.pop(context);
+                                                    },
+                                                  ),
+                                                  createSheetButton(
+                                                      L10n.of(context).share_tweet_content_and_link, Icons.add_link,
                                                       () async {
                                                     Share.share(
                                                         '$tweetText\n\n$shareBaseUrl/${tweet.user!.screenName}/status/${tweet.idStr}');
