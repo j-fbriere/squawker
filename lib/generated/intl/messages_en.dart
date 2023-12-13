@@ -304,6 +304,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "This profile may include potentially sensitive images, language, or other content. Do you still want to view it?"),
         "possibly_sensitive_tweet": MessageLookupByLibrary.simpleMessage(
             "This tweet contains potentially sensitive content. Would you like to view it?"),
+        "post_theme": MessageLookupByLibrary.simpleMessage("Post Theme"),
         "prefix": MessageLookupByLibrary.simpleMessage("prefix"),
         "private_profile":
             MessageLookupByLibrary.simpleMessage("Private profile"),
@@ -358,6 +359,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sorry_the_replied_tweet_could_not_be_found":
             MessageLookupByLibrary.simpleMessage(
                 "Sorry, the replied tweet could not be found!"),
+        "square_avatar":
+            MessageLookupByLibrary.simpleMessage("Square Avatars?"),
         "subscribe": MessageLookupByLibrary.simpleMessage("Subscribe"),
         "subscriptions": MessageLookupByLibrary.simpleMessage("Subscriptions"),
         "subtitles": MessageLookupByLibrary.simpleMessage("Subtitles"),

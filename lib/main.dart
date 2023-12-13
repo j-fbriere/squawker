@@ -66,13 +66,13 @@ Future checkForUpdates() async {
               'View version ${map["tag_name"]} on Github',
               const NotificationDetails(
                   android: AndroidNotificationDetails(
-                    'updates',
-                    'Updates',
-                    channelDescription: 'When a new app update is available show a notification',
-                    importance: Importance.max,
-                    priority: Priority.high,
-                    showWhen: false,
-                  )),
+                'updates',
+                'Updates',
+                channelDescription: 'When a new app update is available show a notification',
+                importance: Importance.max,
+                priority: Priority.high,
+                showWhen: false,
+              )),
               payload: map['html_url']);
         });
       } else if (map['html_url'].isEmpty) {
@@ -135,7 +135,6 @@ setTimeagoLocales() {
 }
 
 Future<void> main() async {
-
   Logger.root.activateLogcat();
   Logger.root.level = Level.ALL;
   Logger.root.onRecord.listen((event) async {
@@ -152,6 +151,7 @@ Future<void> main() async {
   setTimeagoLocales();
 
   final prefService = await PrefServiceShared.init(prefix: 'pref_', defaults: {
+    optionAvatarSquare: false,
     optionDisableScreenshots: false,
     optionDownloadPath: '',
     optionDownloadType: optionDownloadTypeAsk,
@@ -463,13 +463,12 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
       // ref: https://github.com/flutter/flutter/issues/130295
       theme: light.copyWith(
         checkboxTheme: light.checkboxTheme.copyWith(
-          fillColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
-            if (!states.contains(MaterialState.selected) && !states.contains(MaterialState.pressed)) {
-              return Colors.white;
-            }
-            return light.checkboxTheme.fillColor!.resolve(states) as Color;
-          })
-        ),
+            fillColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+          if (!states.contains(MaterialState.selected) && !states.contains(MaterialState.pressed)) {
+            return Colors.white;
+          }
+          return light.checkboxTheme.fillColor!.resolve(states) as Color;
+        })),
         tabBarTheme: light.tabBarTheme.copyWith(
           labelColor: Colors.white,
           unselectedLabelColor: Colors.grey.shade400.lighten(),
@@ -483,9 +482,7 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
       ),
       themeMode: themeMode,
       initialRoute: '/',
-      navigatorObservers: [
-        _routeObserver
-      ],
+      navigatorObservers: [_routeObserver],
       routes: {
         routeHome: (context) => const DefaultPage(),
         routeGroup: (context) => const GroupScreen(),
@@ -552,21 +549,21 @@ class _DefaultPageState extends State<DefaultPage> {
             return true;
           }
           var result = await showDialog<bool>(
-            context: context,
-            builder: (c) => AlertDialog(
-              title: Text(L10n.current.are_you_sure),
-              content: Text(L10n.current.confirm_close_fritter),
-              actions: [
-                TextButton(
-                  child: Text(L10n.current.no),
-                  onPressed: () => Navigator.pop(c, false),
-                ),
-                TextButton(
-                  child: Text(L10n.current.yes),
-                  onPressed: () => Navigator.pop(c, true),
-                ),
-              ],
-            ));
+              context: context,
+              builder: (c) => AlertDialog(
+                    title: Text(L10n.current.are_you_sure),
+                    content: Text(L10n.current.confirm_close_fritter),
+                    actions: [
+                      TextButton(
+                        child: Text(L10n.current.no),
+                        onPressed: () => Navigator.pop(c, false),
+                      ),
+                      TextButton(
+                        child: Text(L10n.current.yes),
+                        onPressed: () => Navigator.pop(c, true),
+                      ),
+                    ],
+                  ));
 
           return result ?? false;
         },
@@ -580,7 +577,6 @@ class _DefaultPageState extends State<DefaultPage> {
 }
 
 class _MyRouteObserver extends RouteObserver<PageRoute<dynamic>> {
-
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) async {
     super.didPop(route, previousRoute);
@@ -595,5 +591,4 @@ class _MyRouteObserver extends RouteObserver<PageRoute<dynamic>> {
       }
     }
   }
-
 }

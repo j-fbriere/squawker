@@ -8,6 +8,7 @@ import 'package:squawker/settings/_about.dart';
 import 'package:squawker/settings/_data.dart';
 import 'package:squawker/settings/_general.dart';
 import 'package:squawker/settings/_home.dart';
+import 'package:squawker/settings/_posttheme.dart';
 import 'package:squawker/settings/_theme.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -67,6 +68,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const SettingsThemeFragment()),
+            ),
+          ),
+          ListTile(
+            title: Text(L10n.of(context).post_theme),
+            leading: const Icon(Icons.tab),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SettingsPostThemeFragment()),
             ),
           ),
           ListTile(

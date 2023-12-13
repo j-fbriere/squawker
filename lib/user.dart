@@ -3,6 +3,7 @@ import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:pref/pref.dart';
 import 'package:squawker/constants.dart';
 import 'package:squawker/database/entities.dart';
 import 'package:squawker/generated/l10n.dart';
@@ -62,8 +63,12 @@ class UserAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    late double borderSize = size;
+    if (PrefService.of(context).get(optionAvatarSquare)) {
+      borderSize = 10;
+    }
     return ClipRRect(
-      borderRadius: BorderRadius.circular(size),
+      borderRadius: BorderRadius.circular(borderSize),
       child: _createUserAvatar(uri, size),
     );
   }
@@ -161,8 +166,11 @@ class FollowButton extends StatelessWidget {
         var followed = state.any((element) => element.id == user.id);
         var inFeed = followed ? state.any((element) => element.id == user.id && element.inFeed) : false;
 
-        var icon =
-            followed ? (inFeed ? Icon(Icons.person_remove_rounded, color: color) : const Icon(Icons.person_remove_rounded, color: Colors.red)) : Icon(Icons.person_add_rounded, color: color);
+        var icon = followed
+            ? (inFeed
+                ? Icon(Icons.person_remove_rounded, color: color)
+                : const Icon(Icons.person_remove_rounded, color: Colors.red))
+            : Icon(Icons.person_add_rounded, color: color);
         var textSub = followed ? L10n.of(context).unsubscribe : L10n.of(context).subscribe;
         var textFeed = followed ? (inFeed ? L10n.of(context).remove_from_feed : L10n.of(context).add_to_feed) : null;
 

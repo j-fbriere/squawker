@@ -1,5 +1,6 @@
 const optionWizardCompleted = 'option.wizard_completed';
 
+const optionAvatarSquare = 'avatar_square';
 const optionDisableScreenshots = 'disable_screenshots';
 
 const optionErrorsEnabled = 'errors._enabled';
@@ -58,4 +59,3 @@ const routeSettingsExport = '/settings/export';
 const routeSettingsHome = '/settings/home';
 const routeStatus = '/status';
 const routeSubscriptionsImport = '/subscriptions/import';
-

@@ -732,6 +732,16 @@ class L10n {
     );
   }
 
+  /// `Post Theme`
+  String get post_theme {
+    return Intl.message(
+      'Post Theme',
+      name: 'post_theme',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `System`
   String get system {
     return Intl.message(
@@ -2201,6 +2211,16 @@ class L10n {
     return Intl.message(
       'Whether to hide tweets marked as sensitive',
       name: 'whether_to_hide_tweets_marked_as_sensitive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Square Avatars?`
+  String get square_avatar {
+    return Intl.message(
+      'Square Avatars?',
+      name: 'square_avatar',
       desc: '',
       args: [],
     );
