@@ -151,6 +151,7 @@ Future<void> main() async {
   setTimeagoLocales();
 
   final prefService = await PrefServiceShared.init(prefix: 'pref_', defaults: {
+    optionProfileImage: true,
     optionAvatarSquare: false,
     optionDisableScreenshots: false,
     optionDownloadPath: '',

@@ -1,5 +1,6 @@
 const optionWizardCompleted = 'option.wizard_completed';
 
+const optionProfileImage = 'profile_image';
 const optionAvatarSquare = 'avatar_square';
 const optionDisableScreenshots = 'disable_screenshots';
 

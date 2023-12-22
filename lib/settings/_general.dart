@@ -134,35 +134,6 @@ class SettingsGeneralFragment extends StatelessWidget {
             title: Text(L10n.of(context).media),
             leading: const Icon(Icons.image),
             children: [
-              PrefDropdown(
-                  fullWidth: false,
-                  title: Text(L10n.of(context).media_size),
-                  subtitle: Text(
-                    L10n.of(context).save_bandwidth_using_smaller_images,
-                  ),
-                  pref: optionMediaSize,
-                  items: [
-                    DropdownMenuItem(
-                      value: 'disabled',
-                      child: Text(L10n.of(context).disabled),
-                    ),
-                    DropdownMenuItem(
-                      value: 'thumb',
-                      child: Text(L10n.of(context).thumbnail),
-                    ),
-                    DropdownMenuItem(
-                      value: 'small',
-                      child: Text(L10n.of(context).small),
-                    ),
-                    DropdownMenuItem(
-                      value: 'medium',
-                      child: Text(L10n.of(context).medium),
-                    ),
-                    DropdownMenuItem(
-                      value: 'large',
-                      child: Text(L10n.of(context).large),
-                    ),
-                  ]),
               PrefSwitch(
                 pref: optionMediaDefaultMute,
                 title: Text(L10n.of(context).mute_videos),

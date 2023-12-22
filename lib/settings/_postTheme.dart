@@ -29,16 +29,49 @@ class SettingsPostThemeFragment extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8),
         child: ListView(children: [
-          PrefSwitch(
-            pref: optionAvatarSquare,
-            title: Text(L10n.of(context).square_avatar),
-          ),
           PrefButton(
             title: Text(L10n.of(context).tweet_font_size_label),
             subtitle: Text(L10n.of(context).tweet_font_size_description),
             onTap: () => _createTweetFontSizeDialog(context),
             child: Text('${_getOptionTweetFontSizeValue(context)} px'),
           ),
+          PrefSwitch(
+            pref: optionProfileImage,
+            title: Text("Profile image"),
+          ),
+          PrefSwitch(
+            pref: optionAvatarSquare,
+            title: Text(L10n.of(context).square_avatar),
+          ),
+          PrefDropdown(
+              fullWidth: false,
+              title: Text(L10n.of(context).media_size),
+              subtitle: Text(
+                L10n.of(context).save_bandwidth_using_smaller_images,
+              ),
+              pref: optionMediaSize,
+              items: [
+                DropdownMenuItem(
+                  value: 'disabled',
+                  child: Text(L10n.of(context).disabled),
+                ),
+                DropdownMenuItem(
+                  value: 'thumb',
+                  child: Text(L10n.of(context).thumbnail),
+                ),
+                DropdownMenuItem(
+                  value: 'small',
+                  child: Text(L10n.of(context).small),
+                ),
+                DropdownMenuItem(
+                  value: 'medium',
+                  child: Text(L10n.of(context).medium),
+                ),
+                DropdownMenuItem(
+                  value: 'large',
+                  child: Text(L10n.of(context).large),
+                ),
+              ]),
         ]),
       ),
     );
