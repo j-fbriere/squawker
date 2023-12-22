@@ -526,7 +526,11 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
           }
         },
         child: Consumer<ImportDataModel>(
-            builder: (context, model, child) => Card(
+            builder: (context, model, child) => Padding(
+                padding: EdgeInsets.all(4),
+                child: Container(
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(15.0), color: Theme.of(context).cardColor),
                   child: Row(
                     children: [
                       retweetSidebar,
@@ -711,7 +715,7 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
                       ))
                     ],
                   ),
-                )));
+                ))));
   }
 }
 
