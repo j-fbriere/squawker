@@ -1,15 +1,16 @@
-import 'dart:ffi';
-
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter/material.dart';
 import 'package:squawker/constants.dart';
 import 'package:squawker/generated/l10n.dart';
-import 'package:squawker/utils/iterables.dart';
 import 'package:pref/pref.dart';
 
-class SettingsThemeFragment extends StatelessWidget {
-  const SettingsThemeFragment({Key? key}) : super(key: key);
+class SettingsThemeFragment extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => SettingsThemeFragmentState();
+}
 
+class SettingsThemeFragmentState extends State<SettingsThemeFragment> {
   int _getOptionTweetFontSizeValue(BuildContext context) {
     int optionTweetFontSizeValue =
         PrefService.of(context).get<int>(optionTweetFontSize) ?? DefaultTextStyle.of(context).style.fontSize!.round();
@@ -28,6 +29,11 @@ class SettingsThemeFragment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BasePrefService prefs = PrefService.of(context);
+
+    dynamic prefColor = prefs.get(optionThemeColorScheme);
+    Color color = colorFromHex(prefColor) ?? Colors.yellow;
+
     return Scaffold(
       appBar: AppBar(title: Text(L10n.current.theme)),
       body: Padding(
@@ -47,15 +53,48 @@ class SettingsThemeFragment extends StatelessWidget {
               child: Text(L10n.of(context).dark),
             ),
           ]),
-          PrefDropdown(
-              title: Text(L10n.of(context).theme),
-              fullWidth: false,
-              pref: optionThemeColorScheme,
-              items: FlexScheme.values
-                  .getRange(0, FlexScheme.values.length - 1)
-                  .sorted((a, b) => a.name.compareTo(b.name))
-                  .map((scheme) => DropdownMenuItem(value: scheme.name, child: Text(scheme.name.capitalize)))
-                  .toList()),
+          PrefButton(
+            title: Text(L10n.of(context).theme),
+            child: Icon(Icons.palette_rounded, color: color),
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    var selectedColor = color;
+
+                    return AlertDialog(
+                      title: Text(L10n.of(context).pick_a_color),
+                      content: SingleChildScrollView(
+                        child: MaterialPicker(
+                          pickerColor: color,
+                          onColorChanged: (value) => setState(() {
+                            selectedColor = value;
+                          }),
+                          enableLabel: true,
+                        ),
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          child: Text(L10n.of(context).cancel),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        TextButton(
+                          child: Text(L10n.of(context).ok),
+                          onPressed: () {
+                            setState(() {
+                              color = selectedColor;
+                              prefs.set(optionThemeColorScheme, color.hex);
+                            });
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    );
+                  });
+            },
+          ),
           PrefSwitch(
             title: Text(L10n.of(context).true_black),
             pref: optionThemeTrueBlack,

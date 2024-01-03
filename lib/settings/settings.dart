@@ -66,7 +66,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             leading: Icon(Icons.palette),
             onTap: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const SettingsThemeFragment()),
+              MaterialPageRoute(builder: (context) => SettingsThemeFragment()),
             ),
           ),
           ListTile(

@@ -7,6 +7,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
@@ -66,13 +67,13 @@ Future checkForUpdates() async {
               'View version ${map["tag_name"]} on Github',
               const NotificationDetails(
                   android: AndroidNotificationDetails(
-                    'updates',
-                    'Updates',
-                    channelDescription: 'When a new app update is available show a notification',
-                    importance: Importance.max,
-                    priority: Priority.high,
-                    showWhen: false,
-                  )),
+                'updates',
+                'Updates',
+                channelDescription: 'When a new app update is available show a notification',
+                importance: Importance.max,
+                priority: Priority.high,
+                showWhen: false,
+              )),
               payload: map['html_url']);
         });
       } else if (map['html_url'].isEmpty) {
@@ -135,7 +136,6 @@ setTimeagoLocales() {
 }
 
 Future<void> main() async {
-
   Logger.root.activateLogcat();
   Logger.root.level = Level.ALL;
   Logger.root.onRecord.listen((event) async {
@@ -171,7 +171,7 @@ Future<void> main() async {
     optionThemeMode: 'system',
     optionThemeTrueBlack: false,
     optionThemeMaterial3: false,
-    optionThemeColorScheme: 'mango',
+    optionThemeColorScheme: Colors.yellow,
     optionTweetsHideSensitive: false,
     optionKeepFeedOffset: false,
     optionLeanerFeeds: false,
@@ -264,7 +264,7 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
   String _themeMode = 'system';
   bool _trueBlack = false;
   bool _material3 = false;
-  FlexScheme _colorScheme = FlexScheme.mango;
+  Color _colorScheme = Colors.yellow;
   Locale? _locale;
   final _MyRouteObserver _routeObserver = _MyRouteObserver();
 
@@ -300,10 +300,6 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
       }
     }
 
-    void setColorScheme(String colorSchemeName) {
-      _colorScheme = FlexScheme.values.byName(colorSchemeName);
-    }
-
     // TODO: This doesn't work on iOS
     void setDisableScreenshots(final bool secureModeEnabled) async {
       if (secureModeEnabled) {
@@ -319,7 +315,7 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
       _themeMode = prefService.get(optionThemeMode);
       _trueBlack = prefService.get(optionThemeTrueBlack);
       _material3 = prefService.get(optionThemeMaterial3);
-      setColorScheme(prefService.get(optionThemeColorScheme));
+      _colorScheme = colorFromHex(prefService.get(optionThemeColorScheme)) ?? Colors.yellow;
       setDisableScreenshots(prefService.get(optionDisableScreenshots));
     });
 
@@ -354,7 +350,7 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
 
     prefService.addKeyListener(optionThemeColorScheme, () {
       setState(() {
-        setColorScheme(prefService.get(optionThemeColorScheme));
+        _colorScheme = colorFromHex(prefService.get(optionThemeColorScheme)) ?? Colors.yellow;
       });
     });
 
@@ -384,34 +380,16 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
         break;
     }
 
-    ThemeData light = FlexThemeData.light(
-      scheme: _colorScheme,
-      surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
-      blendLevel: 20,
-      appBarOpacity: 0.95,
-      tabBarStyle: FlexTabBarStyle.flutterDefault,
-      subThemesData: const FlexSubThemesData(
-        blendOnLevel: 20,
-        blendOnColors: false,
-      ),
+    ThemeData light = ThemeData(
+      colorSchemeSeed: _colorScheme,
       visualDensity: FlexColorScheme.comfortablePlatformDensity,
       useMaterial3: _material3,
-      appBarStyle: FlexAppBarStyle.primary,
     );
-    ThemeData dark = FlexThemeData.dark(
-      scheme: _colorScheme,
-      darkIsTrueBlack: _trueBlack,
-      surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
-      blendLevel: 20,
-      appBarOpacity: 0.95,
-      tabBarStyle: FlexTabBarStyle.flutterDefault,
-      subThemesData: const FlexSubThemesData(
-        blendOnLevel: 20,
-        blendOnColors: false,
-      ),
+    ThemeData dark = ThemeData(
+      brightness: Brightness.dark,
+      colorSchemeSeed: _colorScheme,
       visualDensity: FlexColorScheme.comfortablePlatformDensity,
       useMaterial3: _material3,
-      appBarStyle: _trueBlack ? FlexAppBarStyle.surface : FlexAppBarStyle.primary,
     );
     return MaterialApp(
       localeListResolutionCallback: (locales, supportedLocales) {
@@ -463,13 +441,12 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
       // ref: https://github.com/flutter/flutter/issues/130295
       theme: light.copyWith(
         checkboxTheme: light.checkboxTheme.copyWith(
-          fillColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
-            if (!states.contains(MaterialState.selected) && !states.contains(MaterialState.pressed)) {
-              return Colors.white;
-            }
-            return light.checkboxTheme.fillColor!.resolve(states) as Color;
-          })
-        ),
+            fillColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+          if (!states.contains(MaterialState.selected) && !states.contains(MaterialState.pressed)) {
+            return Colors.white;
+          }
+          return light.checkboxTheme.fillColor!.resolve(states) as Color;
+        })),
         tabBarTheme: light.tabBarTheme.copyWith(
           labelColor: Colors.white,
           unselectedLabelColor: Colors.grey.shade400.lighten(),
@@ -483,9 +460,7 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
       ),
       themeMode: themeMode,
       initialRoute: '/',
-      navigatorObservers: [
-        _routeObserver
-      ],
+      navigatorObservers: [_routeObserver],
       routes: {
         routeHome: (context) => const DefaultPage(),
         routeGroup: (context) => const GroupScreen(),
@@ -552,21 +527,21 @@ class _DefaultPageState extends State<DefaultPage> {
             return true;
           }
           var result = await showDialog<bool>(
-            context: context,
-            builder: (c) => AlertDialog(
-              title: Text(L10n.current.are_you_sure),
-              content: Text(L10n.current.confirm_close_fritter),
-              actions: [
-                TextButton(
-                  child: Text(L10n.current.no),
-                  onPressed: () => Navigator.pop(c, false),
-                ),
-                TextButton(
-                  child: Text(L10n.current.yes),
-                  onPressed: () => Navigator.pop(c, true),
-                ),
-              ],
-            ));
+              context: context,
+              builder: (c) => AlertDialog(
+                    title: Text(L10n.current.are_you_sure),
+                    content: Text(L10n.current.confirm_close_fritter),
+                    actions: [
+                      TextButton(
+                        child: Text(L10n.current.no),
+                        onPressed: () => Navigator.pop(c, false),
+                      ),
+                      TextButton(
+                        child: Text(L10n.current.yes),
+                        onPressed: () => Navigator.pop(c, true),
+                      ),
+                    ],
+                  ));
 
           return result ?? false;
         },
@@ -580,7 +555,6 @@ class _DefaultPageState extends State<DefaultPage> {
 }
 
 class _MyRouteObserver extends RouteObserver<PageRoute<dynamic>> {
-
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) async {
     super.didPop(route, previousRoute);
@@ -595,5 +569,4 @@ class _MyRouteObserver extends RouteObserver<PageRoute<dynamic>> {
       }
     }
   }
-
 }
