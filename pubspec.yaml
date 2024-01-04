@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 
-version: 3.5.4+27
+version: 3.5.5+28
 
 environment:
   sdk: ">=2.18.0 <3.0.0"
@@ -24,38 +24,36 @@ environment:
 dependency_overrides:
   win32: ^3.0.0
   intl: ^0.17.0
-  # Required until device_info_plus updates, as it transitively depends on an old version
-  file: ^6.1.4
-  http: ^1.0.0
-  sliver_tools: ^0.2.12
+  http: ^1.1.2
 
 dependencies:
   flutter:
     sdk: flutter
 
   async_button_builder: ^3.0.0+1
-  auto_direction: ^0.0.6
-  chewie: ^1.7.0
+  auto_direction: ^0.0.7
+  chewie: ^1.7.4
   crypto: ^3.0.3
   dart_twitter_api: ^0.5.8
-  device_info_plus: ^9.0.2
+  device_info_plus: ^9.1.1
   device_preview: ^1.1.0
-  dotted_border: ^2.0.0+3
-  extended_image: ^8.1.0
-  extended_nested_scroll_view: ^6.0.0
+  dotted_border: ^2.1.0
+  extended_image: ^8.2.0
+  extended_nested_scroll_view: ^6.1.0
   faker: ^2.1.0
   ffcache: ^1.1.0
+  file_picker: ^5.5.0
   flex_color_scheme: ^7.3.1
   flutter_cache: ^0.1.0
-  file_picker: ^5.3.2
   flutter_colorpicker: ^1.0.3
-  flutter_file_dialog: ^3.0.1
+  flutter_file_dialog: ^3.0.2
   flutter_iconpicker_plus: ^3.2.3
-  flutter_localized_locales: ^2.0.3
-  flutter_triple: ^2.0.1
+  flutter_local_notifications: ^14.1.4
+  flutter_localized_locales: ^2.0.5
+  flutter_triple: ^2.2.0
   flutter_windowmanager: ^0.2.0
   html_unescape: ^2.0.0
-  http: ^0.13.5
+  http: ^1.1.2
   infinite_scroll_pagination: ^3.2.0
   intl: ^0.17.0
   logging: ^1.2.0
@@ -63,44 +61,43 @@ dependencies:
   measure_size: ^4.0.0
   media_scanner: ^2.1.0
   multi_select_flutter: ^4.1.3
-  package_info_plus: ^4.0.2
+  package_info_plus: ^4.2.0
   qr_flutter: ^4.1.0
   barcode_scan2: ^4.2.4
-  path: ^1.8.2
-  path_provider: ^2.0.11
-  permission_handler: ^10.3.0
-  pref: ^2.7.0
-  provider: ^6.0.4
+  path: ^1.8.3
+  path_provider: ^2.1.1
+  permission_handler: ^10.4.5
+  pref: ^2.7.2
+  provider: ^6.1.1
   quiver: ^3.1.0
   receive_sharing_intent: ^1.4.5
   scroll_bottom_navigation_bar: ^4.0.0
   scroll_to_index: ^3.0.1
   scrollable_positioned_list: ^0.3.8
-  share_plus: ^7.0.2
-  sqflite: ^2.2.2
-  sqflite_common: ^2.4.0+2
+  share_plus: ^7.2.1
+  sqflite: ^2.3.0
+  sqflite_common: ^2.5.0+2
   sqflite_migration_plan: ^1.0.0
-  synchronized: ^3.1.0
-  timeago: ^3.3.0
-  url_launcher: ^6.1.7
+  synchronized: ^3.1.0+1
+  timeago: ^3.6.0
+  url_launcher: ^6.2.2
   uuid: ^3.0.7
-  video_player: ^2.7.0
+  video_player: ^2.8.1
   visibility_detector: ^0.3.3
   wakelock: ^0.6.2
 
   flutter_localizations:
     sdk: flutter
-  flutter_local_notifications: ^14.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_launcher_icons: ^0.13.1
-  flutter_lints:
+  flutter_lints: ^3.0.1
   flutter_oss_licenses: ^2.0.1
-  intl_utils: ^2.8.1
-  sqflite_common_ffi: ^2.2.0+1
+  intl_utils: ^2.8.6
+  sqflite_common_ffi: ^2.3.1
 
 flutter_MaterialSymbols:
   android: "launcher_icon"

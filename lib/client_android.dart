@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:crypto/crypto.dart';
 import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
 import 'package:squawker/utils/iterables.dart';
 import 'package:squawker/database/repository.dart';
 import 'package:synchronized/synchronized.dart';
@@ -9,6 +10,7 @@ import 'package:synchronized/synchronized.dart';
 typedef ApplyRates = void Function(int remaining, int reset);
 
 class TwitterAndroid {
+  static final log = Logger('TwitterAndroid');
 
   static const String _oauthConsumerKey = '3nVuSoBZnx6U4vzUxf5w';
   static const String _oauthConsumerSecret = 'Bcs59EFbbsdF6Sl9Ng71smgStWEGwXXKSjYvPVt7qys';
@@ -53,6 +55,7 @@ class TwitterAndroid {
   static Future<String> _getAccessToken() async {
     String oauthConsumerKeySecret = base64.encode(utf8.encode('$_oauthConsumerKey:$_oauthConsumerSecret'));
 
+    log.info('Posting https://api.twitter.com/oauth2/token');
     var response = await http.post(Uri.parse('https://api.twitter.com/oauth2/token'),
         headers: {
           'Authorization': 'Basic $oauthConsumerKeySecret',
@@ -74,6 +77,7 @@ class TwitterAndroid {
   }
 
   static Future<String> _getGuestToken(String accessToken) async {
+    log.info('Posting https://api.twitter.com/1.1/guest/activate.json');
     var response = await http.post(Uri.parse('https://api.twitter.com/1.1/guest/activate.json'),
         headers: {
           'Authorization': 'Bearer $accessToken'
@@ -91,84 +95,28 @@ class TwitterAndroid {
   }
 
   static Future<String> _getFlowToken(String accessToken, String guestToken) async {
-    var response = await http.post(Uri.parse('https://api.twitter.com/1.1/onboarding/task.json?flow_name=welcome&api_version=1&known_device_token=&sim_country_code=us'),
+    log.info('Posting https://api.twitter.com/1.1/onboarding/task.json?flow_name=welcome');
+    var response = await http.post(Uri.parse('https://api.twitter.com/1.1/onboarding/task.json?flow_name=welcome'),
         headers: {
           'Authorization': 'Bearer $accessToken',
           'Content-Type': 'application/json',
-          'User-Agent': 'TwitterAndroid/9.95.0-release.0 (29950000-r-0) ONEPLUS+A3010/9 (OnePlus;ONEPLUS+A3010;OnePlus;OnePlus3;0;;1;2016)',
+          'User-Agent': 'TwitterAndroid/10.10.0 (29950000-r-0) ONEPLUS+A3010/9 (OnePlus;ONEPLUS+A3010;OnePlus;OnePlus3;0;;1;2016)',
+          'X-Guest-Token': guestToken,
           'X-Twitter-API-Version': '5',
           'X-Twitter-Client': 'TwitterAndroid',
-          'X-Twitter-Client-Version': '9.95.0-release.0',
+          'X-Twitter-Client-Version': '10.10.0',
           'OS-Version': '28',
           'System-User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 9; ONEPLUS A3010 Build/PKQ1.181203.001)',
           'X-Twitter-Active-User': 'yes',
-          'X-Guest-Token': guestToken
         },
       body: json.encode({
         'flow_token': null,
         'input_flow_data': {
-          'country_code': null,
           'flow_context': {
             'start_location': {
               'location': 'splash_screen'
             }
-          },
-          'requested_variant': null,
-          'target_user_id': 0
-        },
-        'subtask_versions': {
-          'generic_urt': 3,
-          'standard': 1,
-          'open_home_timeline': 1,
-          'app_locale_update': 1,
-          'enter_date': 1,
-          'email_verification': 3,
-          'enter_password': 5,
-          'enter_text': 5,
-          'one_tap': 2,
-          'cta': 7,
-          'single_sign_on': 1,
-          'fetch_persisted_data': 1,
-          'enter_username': 3,
-          'web_modal': 2,
-          'fetch_temporary_password': 1,
-          'menu_dialog': 1,
-          'sign_up_review': 5,
-          'interest_picker': 4,
-          'user_recommendations_urt': 3,
-          'in_app_notification': 1,
-          'sign_up': 2,
-          'typeahead_search': 1,
-          'user_recommendations_list': 4,
-          'cta_inline': 1,
-          'contacts_live_sync_permission_prompt': 3,
-          'choice_selection': 5,
-          'js_instrumentation': 1,
-          'alert_dialog_suppress_client_events': 1,
-          'privacy_options': 1,
-          'topics_selector': 1,
-          'wait_spinner': 3,
-          'tweet_selection_urt': 1,
-          'end_flow': 1,
-          'settings_list': 7,
-          'open_external_link': 1,
-          'phone_verification': 5,
-          'security_key': 3,
-          'select_banner': 2,
-          'upload_media': 1,
-          'web': 2,
-          'alert_dialog': 1,
-          'open_account': 2,
-          'action_list': 2,
-          'enter_phone': 2,
-          'open_link': 1,
-          'show_code': 1,
-          'update_users': 1,
-          'check_logged_in_account': 1,
-          'enter_email': 2,
-          'select_avatar': 4,
-          'location_permission_prompt': 2,
-          'notifications_permission_prompt': 4
+          }
         }
       })
     );
@@ -184,18 +132,19 @@ class TwitterAndroid {
   }
 
   static Future<dynamic> _getGuestAccountFromTwitter(String accessToken, String guestToken, String flowToken) async {
+    log.info('Posting https://api.twitter.com/1.1/onboarding/task.json');
     var response = await http.post(Uri.parse('https://api.twitter.com/1.1/onboarding/task.json'),
         headers: {
           'Authorization': 'Bearer $accessToken',
           'Content-Type': 'application/json',
-          'User-Agent': 'TwitterAndroid/9.95.0-release.0 (29950000-r-0) ONEPLUS+A3010/9 (OnePlus;ONEPLUS+A3010;OnePlus;OnePlus3;0;;1;2016)',
+          'User-Agent': 'TwitterAndroid/10.10.0 (29950000-r-0) ONEPLUS+A3010/9 (OnePlus;ONEPLUS+A3010;OnePlus;OnePlus3;0;;1;2016)',
+          'X-Guest-Token': guestToken,
           'X-Twitter-API-Version': '5',
           'X-Twitter-Client': 'TwitterAndroid',
-          'X-Twitter-Client-Version': '9.95.0-release.0',
+          'X-Twitter-Client-Version': '10.10.0',
           'OS-Version': '28',
           'System-User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 9; ONEPLUS A3010 Build/PKQ1.181203.001)',
           'X-Twitter-Active-User': 'yes',
-          'X-Guest-Token': guestToken
         },
         body: json.encode({
           'flow_token': flowToken,
@@ -205,61 +154,7 @@ class TwitterAndroid {
             },
             'subtask_id': 'NextTaskOpenLink'
           }
-          ],
-          'subtask_versions': {
-            'generic_urt': 3,
-            'standard': 1,
-            'open_home_timeline': 1,
-            'app_locale_update': 1,
-            'enter_date': 1,
-            'email_verification': 3,
-            'enter_password': 5,
-            'enter_text': 5,
-            'one_tap': 2,
-            'cta': 7,
-            'single_sign_on': 1,
-            'fetch_persisted_data': 1,
-            'enter_username': 3,
-            'web_modal': 2,
-            'fetch_temporary_password': 1,
-            'menu_dialog': 1,
-            'sign_up_review': 5,
-            'interest_picker': 4,
-            'user_recommendations_urt': 3,
-            'in_app_notification': 1,
-            'sign_up': 2,
-            'typeahead_search': 1,
-            'user_recommendations_list': 4,
-            'cta_inline': 1,
-            'contacts_live_sync_permission_prompt': 3,
-            'choice_selection': 5,
-            'js_instrumentation': 1,
-            'alert_dialog_suppress_client_events': 1,
-            'privacy_options': 1,
-            'topics_selector': 1,
-            'wait_spinner': 3,
-            'tweet_selection_urt': 1,
-            'end_flow': 1,
-            'settings_list': 7,
-            'open_external_link': 1,
-            'phone_verification': 5,
-            'security_key': 3,
-            'select_banner': 2,
-            'upload_media': 1,
-            'web': 2,
-            'alert_dialog': 1,
-            'open_account': 2,
-            'action_list': 2,
-            'enter_phone': 2,
-            'open_link': 1,
-            'show_code': 1,
-            'update_users': 1,
-            'check_logged_in_account': 1,
-            'enter_email': 2,
-            'select_avatar': 4,
-            'location_permission_prompt': 2,
-            'notifications_permission_prompt': 4
-          }
+          ]
         })
     );
 
@@ -270,6 +165,7 @@ class TwitterAndroid {
         var accountElm = subtasks.firstWhereOrNull((task) => task['subtask_id'] == 'OpenAccount');
         if (accountElm != null) {
           var account = accountElm['open_account'];
+          log.info("Guest account created! oauth_token=${account['oauth_token']} oauth_token_secret=${account['oauth_token_secret']}");
           return {
             'id_str': account['user']?['id_str'],
             'screen_name': account['user']?['screen_name'],
@@ -381,21 +277,28 @@ class TwitterAndroid {
       String authorization = await _getSignOauth(uri, 'GET');
       var response = await http.get(uri, headers: {
         ...?headers,
+        'Connection': 'Keep-Alive',
         'Authorization': authorization,
         'Content-Type': 'application/json',
-        'User-Agent': 'TwitterAndroid/9.95.0-release.0 (29950000-r-0) ONEPLUS+A3010/9 (OnePlus;ONEPLUS+A3010;OnePlus;OnePlus3;0;;1;2016)',
+        'X-Twitter-Active-User': 'yes',
+        'Authority': 'api.twitter.com',
+        'Accept-Encoding': 'gzip',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Accept': '*/*',
+        'DNT': '1',
+        'User-Agent': 'TwitterAndroid/10.10.0 (29950000-r-0) ONEPLUS+A3010/9 (OnePlus;ONEPLUS+A3010;OnePlus;OnePlus3;0;;1;2016)',
         'X-Twitter-API-Version': '5',
         'X-Twitter-Client': 'TwitterAndroid',
-        'X-Twitter-Client-Version': '9.95.0-release.0',
+        'X-Twitter-Client-Version': '10.10.0',
         'OS-Version': '28',
         'System-User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 9; ONEPLUS A3010 Build/PKQ1.181203.001)',
-        'X-Twitter-Active-User': 'yes'
       });
 
       var headerRateLimitRemaining = response.headers['x-rate-limit-remaining'];
       var headerRateLimitReset = response.headers['x-rate-limit-reset'];
 
       if (headerRateLimitRemaining == null || headerRateLimitReset == null) {
+        log.info('The request ${uri.path} has no rate limits.');
         fetchContext.fetchNoRate();
         return response;
       }
@@ -408,6 +311,7 @@ class TwitterAndroid {
       return response;
     }
     catch (err) {
+      log.severe('The request ${uri.path} has an error: ${err.toString()}');
       fetchContext.fetchNoRate();
       rethrow;
     }
@@ -416,6 +320,7 @@ class TwitterAndroid {
   static Future<http.Response> fetch(Uri uri, {Map<String, String>? headers, RateFetchContext? fetchContext}) async {
     http.Response rsp = await _doFetch(uri, headers: headers, fetchContext: fetchContext);
     if (rsp.statusCode == 429 && rsp.body.contains('Rate limit exceeded')) {
+      log.info('The request ${uri.path} has a status 429 and exceeded its rate limit. Retrying.');
       rsp = await _doFetch(uri, headers: headers, fetchContext: fetchContext, forceNewAccount: true);
     }
     return rsp;

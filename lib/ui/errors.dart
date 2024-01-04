@@ -2,10 +2,9 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:async_button_builder/async_button_builder.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:squawker/client.dart';
 import 'package:squawker/constants.dart';
 import 'package:squawker/generated/l10n.dart';
@@ -264,6 +263,17 @@ class FullPageErrorWidget extends FritterErrorWidget {
       );
     }
 
+    String errorStr;
+    if (error is http.Response) {
+      errorStr = error.body;
+    }
+    else if (error is Exception) {
+      errorStr = error.toString();
+    }
+    else {
+      errorStr = 'Error of type ${error.runtimeType.toString()}';
+    }
+
     return Container(
       alignment: Alignment.center,
       margin: const EdgeInsets.all(16),
@@ -287,7 +297,7 @@ class FullPageErrorWidget extends FritterErrorWidget {
             Container(
               alignment: Alignment.center,
               margin: const EdgeInsets.only(top: 12),
-              child: Text('$error', textAlign: TextAlign.left, style: TextStyle(color: Theme.of(context).hintColor)),
+              child: Text(errorStr, textAlign: TextAlign.left, style: TextStyle(color: Theme.of(context).hintColor)),
             ),
             if (onRetry != null)
               Container(

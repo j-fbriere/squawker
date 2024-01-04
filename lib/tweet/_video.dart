@@ -22,11 +22,12 @@ class TweetVideoUrls {
 }
 
 class TweetVideoMetadata {
+  final int? durationMillis;
   final double aspectRatio;
   final String? imageUrl;
   final Future<TweetVideoUrls> Function() streamUrlsBuilder;
 
-  TweetVideoMetadata(this.aspectRatio, this.imageUrl, this.streamUrlsBuilder);
+  TweetVideoMetadata(this.durationMillis, this.aspectRatio, this.imageUrl, this.streamUrlsBuilder);
 
   factory TweetVideoMetadata.fromMedia(BuildContext context, Media media) {
     bool downloadBestVideoQuality = PrefService.of(context).get(optionDownloadBestVideoQuality);
@@ -34,6 +35,7 @@ class TweetVideoMetadata {
         ? 1.0
         : media.videoInfo!.aspectRatio![0] / media.videoInfo!.aspectRatio![1];
 
+    var durationMillis = media.videoInfo?.durationMillis;
     var variants = media.videoInfo?.variants ?? [];
     var streamUrl = variants[0].url!;
     var imageUrl = media.mediaUrlHttps;
@@ -48,7 +50,7 @@ class TweetVideoMetadata {
         .map((e) => e.url)
         .firstWhereOrNull((e) => e != null);
 
-    return TweetVideoMetadata(aspectRatio, imageUrl, () async => TweetVideoUrls(streamUrl, downloadUrl));
+    return TweetVideoMetadata(durationMillis, aspectRatio, imageUrl, () async => TweetVideoUrls(streamUrl, downloadUrl));
   }
 }
 
@@ -74,7 +76,10 @@ class _TweetVideoState extends State<TweetVideo> {
     var streamUrl = urls.streamUrl;
     var downloadUrl = urls.downloadUrl;
 
-    _videoController = VideoPlayerController.network(streamUrl);
+    _videoController = VideoPlayerController.networkUrl(Uri.parse(streamUrl));
+    if (widget.metadata.durationMillis != null) {
+      _videoController!.value = _videoController!.value.copyWith(duration: Duration(milliseconds: widget.metadata.durationMillis!));
+    }
 
     var model = context.read<VideoContextState>();
     var volume = model.isMuted ? 0.0 : _videoController!.value.volume;

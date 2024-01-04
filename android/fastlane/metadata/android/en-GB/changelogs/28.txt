@@ -1,0 +1,2 @@
+* Fix get activities for Android version 11+ (API version 30+)
+* Settings UI improvement (thanks to @mrhcjones)

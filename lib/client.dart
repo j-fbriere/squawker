@@ -43,14 +43,14 @@ class _SquawkerTwitterClient extends TwitterClient {
       if (response.statusCode >= 200 && response.statusCode < 300) {
         return response;
       } else {
-        log.severe('statusCode: ${response.statusCode}');
-        log.severe('${response.statusCode} - ${utf8.decode(response.bodyBytes.toList())}');
+        log.severe('The request ${uri.path} has a response in error: ${response.statusCode} - ${utf8.decode(response.bodyBytes.toList())}');
         return Future.error(response);
       }
     }
     on Exception catch (err) {
-      log.severe('error:');
-      log.severe(err.toString());
+      if (err is! GuestAccountException && err is! RateLimitException) {
+        log.severe('The request ${uri.path} has an error: ${err.toString()}');
+      }
       return Future.error(ExceptionResponse(err));
     }
   }
