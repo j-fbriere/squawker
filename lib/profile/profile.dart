@@ -265,6 +265,26 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
     var metadataTextStyle = const TextStyle(fontSize: 12.5);
     var prefs = PrefService.of(context, listen: false);
 
+    profileTweets(screenName, showReplies, onlyMedia) {
+      var filters = '';
+
+      if (showReplies == false) {
+        filters += ' exclude:replies';
+      }
+      if (onlyMedia == true) {
+        filters += ' filter:media';
+      }
+      return TweetSearchResultList<SearchTweetsModel, TweetWithCard>(
+          // no replies
+          query: "from:${screenName} $filters",
+          store: context.read<SearchTweetsModel>(),
+          searchFunction: (q) =>
+              context.read<SearchTweetsModel>().searchTweets(q, PrefService.of(context).get(optionEnhancedSearches)),
+          itemBuilder: (context, item) {
+            return TweetTile(tweet: item, clickable: true);
+          });
+    }
+
     return Scaffold(
       body: Stack(children: [
         ExtendedNestedScrollView(
@@ -288,7 +308,7 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      /*Tab(
+                      Tab(
                         child: Text(
                           defaultSubscriptionTabs[1].titleBuilder(context),
                           textAlign: TextAlign.center,
@@ -299,7 +319,7 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
                           defaultSubscriptionTabs[2].titleBuilder(context),
                           textAlign: TextAlign.center,
                         ),
-                      ),*/
+                      ),
                       Tab(
                         child: Text(
                           defaultSubscriptionTabs[3].titleBuilder(context),
@@ -531,16 +551,9 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
               controller: _tabController,
               physics: const LessSensitiveScrollPhysics(),
               children: [
-                TweetSearchResultList<SearchTweetsModel, TweetWithCard>(
-                    // no replies
-                    query: "from:${user.screenName}",
-                    store: context.read<SearchTweetsModel>(),
-                    searchFunction: (q) => context
-                        .read<SearchTweetsModel>()
-                        .searchTweets(q, PrefService.of(context).get(optionEnhancedSearches)),
-                    itemBuilder: (context, item) {
-                      return TweetTile(tweet: item, clickable: true);
-                    }),
+                profileTweets(user.screenName, false, false),
+                profileTweets(user.screenName, true, false),
+                profileTweets(user.screenName, true, true),
                 ProfileFollows(user: user, type: 'following'),
                 ProfileFollows(user: user, type: 'followers'),
                 ProfileSaved(user: user),
