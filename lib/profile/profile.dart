@@ -9,7 +9,6 @@ import 'package:squawker/database/entities.dart';
 import 'package:squawker/generated/l10n.dart';
 import 'package:squawker/profile/_follows.dart';
 import 'package:squawker/profile/_saved.dart';
-import 'package:squawker/profile/_tweets.dart';
 import 'package:squawker/profile/profile_model.dart';
 import 'package:squawker/search/search.dart';
 import 'package:squawker/search/search_model.dart';
