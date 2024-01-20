@@ -156,12 +156,16 @@ class _SearchScreenState extends State<_SearchScreen> with SingleTickerProviderS
                 TweetSearchResultList<SearchUsersModel, UserWithExtra>(
                     queryController: _queryController,
                     store: context.read<SearchUsersModel>(),
-                    searchFunction: (q) => context.read<SearchUsersModel>().searchUsers(q, PrefService.of(context).get(optionEnhancedSearches)),
+                    searchFunction: (q) => context
+                        .read<SearchUsersModel>()
+                        .searchUsers(q, PrefService.of(context).get(optionEnhancedSearches)),
                     itemBuilder: (context, user) => UserTile(user: UserSubscription.fromUser(user))),
                 TweetSearchResultList<SearchTweetsModel, TweetWithCard>(
                     queryController: _queryController,
                     store: context.read<SearchTweetsModel>(),
-                    searchFunction: (q) => context.read<SearchTweetsModel>().searchTweets(q, PrefService.of(context).get(optionEnhancedSearches)),
+                    searchFunction: (q) => context
+                        .read<SearchTweetsModel>()
+                        .searchTweets(q, PrefService.of(context).get(optionEnhancedSearches)),
                     itemBuilder: (context, item) {
                       return TweetTile(tweet: item, clickable: true);
                     })
@@ -177,14 +181,16 @@ class _SearchScreenState extends State<_SearchScreen> with SingleTickerProviderS
 typedef ItemWidgetBuilder<T> = Widget Function(BuildContext context, T item);
 
 class TweetSearchResultList<S extends Store<List<T>>, T> extends StatefulWidget {
-  final TextEditingController queryController;
+  final TextEditingController? queryController;
+  final String? query;
   final S store;
   final Future<void> Function(String query) searchFunction;
   final ItemWidgetBuilder<T> itemBuilder;
 
   const TweetSearchResultList(
       {Key? key,
-      required this.queryController,
+      this.queryController,
+      this.query,
       required this.store,
       required this.searchFunction,
       required this.itemBuilder})
@@ -202,31 +208,36 @@ class _TweetSearchResultListState<S extends Store<List<T>>, T> extends State<Twe
   void initState() {
     super.initState();
 
-    widget.queryController.addListener(() {
-      var query = widget.queryController.text;
-      if (query == _previousQuery) {
-        return;
-      }
+    if (widget.queryController != null) {
+      widget.queryController!.addListener(() {
+        var query = widget.queryController!.text;
+        if (query == _previousQuery) {
+          return;
+        }
 
-      // If the current query is different from the last render's query, search
-      if (_debounce?.isActive ?? false) {
-        _debounce?.cancel();
-      }
+        // If the current query is different from the last render's query, search
+        if (_debounce?.isActive ?? false) {
+          _debounce?.cancel();
+        }
 
-      // Debounce the search, so we don't make a request per keystroke
-      _debounce = Timer(const Duration(milliseconds: 750), () async {
-        fetchResults();
+        // Debounce the search, so we don't make a request per keystroke
+        _debounce = Timer(const Duration(milliseconds: 750), () async {
+          fetchResults();
+        });
       });
-    });
+    }
 
     fetchResults();
   }
 
   void fetchResults() {
     if (mounted) {
-      var query = widget.queryController.text;
+      var query = widget.query;
+      if (widget.queryController != null) {
+        query = widget.queryController!.text;
+      }
       _previousQuery = query;
-      widget.searchFunction(query);
+      widget.searchFunction(query!);
     }
   }
 

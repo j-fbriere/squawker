@@ -3,6 +3,7 @@ import 'package:extended_nested_scroll_view/extended_nested_scroll_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:squawker/client.dart';
 import 'package:squawker/constants.dart';
 import 'package:squawker/database/entities.dart';
 import 'package:squawker/generated/l10n.dart';
@@ -11,6 +12,8 @@ import 'package:squawker/profile/_saved.dart';
 import 'package:squawker/profile/_tweets.dart';
 import 'package:squawker/profile/profile_model.dart';
 import 'package:squawker/search/search.dart';
+import 'package:squawker/search/search_model.dart';
+import 'package:squawker/tweet/tweet.dart';
 import 'package:squawker/ui/errors.dart';
 import 'package:squawker/ui/physics.dart';
 import 'package:squawker/user.dart';
@@ -286,7 +289,7 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      Tab(
+                      /*Tab(
                         child: Text(
                           defaultSubscriptionTabs[1].titleBuilder(context),
                           textAlign: TextAlign.center,
@@ -297,7 +300,7 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
                           defaultSubscriptionTabs[2].titleBuilder(context),
                           textAlign: TextAlign.center,
                         ),
-                      ),
+                      ),*/
                       Tab(
                         child: Text(
                           defaultSubscriptionTabs[3].titleBuilder(context),
@@ -319,7 +322,7 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
                     ],
                   ),
                   flexibleSpace: FlexibleSpaceBar(
-                    background: SafeArea(
+                      background: SafeArea(
                     top: false,
                     child: DefaultTextStyle.merge(
                       style: const TextStyle(color: Colors.white),
@@ -529,11 +532,16 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
               controller: _tabController,
               physics: const LessSensitiveScrollPhysics(),
               children: [
-                ProfileTweets(
-                    user: user, type: 'profile', includeReplies: false, pinnedTweets: widget.profile.pinnedTweets),
-                ProfileTweets(
-                    user: user, type: 'profile', includeReplies: true, pinnedTweets: widget.profile.pinnedTweets),
-                ProfileTweets(user: user, type: 'media', includeReplies: false, pinnedTweets: const []),
+                TweetSearchResultList<SearchTweetsModel, TweetWithCard>(
+                    // no replies
+                    query: "from:${user.screenName}",
+                    store: context.read<SearchTweetsModel>(),
+                    searchFunction: (q) => context
+                        .read<SearchTweetsModel>()
+                        .searchTweets(q, PrefService.of(context).get(optionEnhancedSearches)),
+                    itemBuilder: (context, item) {
+                      return TweetTile(tweet: item, clickable: true);
+                    }),
                 ProfileFollows(user: user, type: 'following'),
                 ProfileFollows(user: user, type: 'followers'),
                 ProfileSaved(user: user),
