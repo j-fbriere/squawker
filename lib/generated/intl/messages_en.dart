@@ -164,9 +164,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "enable_": MessageLookupByLibrary.simpleMessage("Enable ?"),
         "ended_timeago_format_endsAt_allowFromNow_true": m3,
         "ends_timeago_format_endsAt_allowFromNow_true": m4,
+        "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(
+            "Enhanced requests for feeds (but with lower rate limits)"),
+        "enhanced_feeds_label":
+            MessageLookupByLibrary.simpleMessage("Enhanced feeds"),
+        "enhanced_profile_description": MessageLookupByLibrary.simpleMessage(
+            "Enhanced requests for profile"),
+        "enhanced_profile_label":
+            MessageLookupByLibrary.simpleMessage("Enhanced profile"),
+        "enhanced_searches_description": MessageLookupByLibrary.simpleMessage(
+            "Enhanced requests for searches (but with lower rate limits)"),
+        "enhanced_searches_label":
+            MessageLookupByLibrary.simpleMessage("Enhanced searches"),
         "enter_your_twitter_username": MessageLookupByLibrary.simpleMessage(
             "Enter your Twitter/X username"),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
+        "export_guest_accounts":
+            MessageLookupByLibrary.simpleMessage("Export guest accounts?"),
         "export_settings":
             MessageLookupByLibrary.simpleMessage("Export settings?"),
         "export_subscription_group_members":
@@ -505,6 +519,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "would_you_like_to_enable_automatic_error_reporting":
             MessageLookupByLibrary.simpleMessage(
                 "Would you like to enable automatic error reporting?"),
+        "x_api": MessageLookupByLibrary.simpleMessage("X API"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "yes_please": MessageLookupByLibrary.simpleMessage("Yes, please"),
         "you_have_not_saved_any_tweets_yet":

@@ -1,0 +1,5 @@
+* New strategy to create guest accounts: instead of being based of the date-time of last one created (24+ hours),
+  now it's based on the date-time of the last attempt to create one (24+ hours) and also the device "public" IP.
+* Fix issue #165 Profile page do not show any tweet.
+  The "old" v1.1 Twitter/X API requests do not work anymore for the profile. New types of Twitter/X API requests has been implemented,
+  which are called "enhanced" profile requests as an option in 'Settings/General/X API' subsection.

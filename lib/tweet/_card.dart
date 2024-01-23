@@ -395,7 +395,7 @@ class TweetCard extends StatelessWidget {
         var child = TweetVideo(
             username: 'username',
             loop: false,
-            metadata: TweetVideoMetadata(aspectRatio, image, () async {
+            metadata: TweetVideoMetadata(null, aspectRatio, image, () async {
               var broadcast = await Twitter.getBroadcastDetails(key);
 
               return TweetVideoUrls(broadcast['source']['noRedirectPlaybackUrl'], null);

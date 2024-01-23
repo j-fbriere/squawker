@@ -1,0 +1,4 @@
+* Fix: Get activities for Android version 11+ (API version 30+)
+* Feature: Settings UI improvement (thanks to @mrhcjones)
+* Feature: Allow enhanced Twitter/X requests for feeds as an option in 'Settings/General/X API' subsection,
+  although those requests have lower rate limits (50 per 15 min vs 190 per 15 min).

@@ -156,12 +156,12 @@ class _SearchScreenState extends State<_SearchScreen> with SingleTickerProviderS
                 TweetSearchResultList<SearchUsersModel, UserWithExtra>(
                     queryController: _queryController,
                     store: context.read<SearchUsersModel>(),
-                    searchFunction: (q) => context.read<SearchUsersModel>().searchUsers(q),
+                    searchFunction: (q) => context.read<SearchUsersModel>().searchUsers(q, PrefService.of(context).get(optionEnhancedSearches)),
                     itemBuilder: (context, user) => UserTile(user: UserSubscription.fromUser(user))),
                 TweetSearchResultList<SearchTweetsModel, TweetWithCard>(
                     queryController: _queryController,
                     store: context.read<SearchTweetsModel>(),
-                    searchFunction: (q) => context.read<SearchTweetsModel>().searchTweets(q),
+                    searchFunction: (q) => context.read<SearchTweetsModel>().searchTweets(q, PrefService.of(context).get(optionEnhancedSearches)),
                     itemBuilder: (context, item) {
                       return TweetTile(tweet: item, clickable: true);
                     })

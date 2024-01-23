@@ -33,7 +33,7 @@
   "@include_replies": {},
   "unable_to_find_your_saved_tweets": "No se pueden encontrar tus tweets guardados.",
   "@unable_to_find_your_saved_tweets": {},
-  "you_have_not_saved_any_tweets_yet": "Todavía no se has guardado ningún tuit.",
+  "you_have_not_saved_any_tweets_yet": "Todavía no se has guardado ningún tuit!",
   "@you_have_not_saved_any_tweets_yet": {},
   "no_results": "No hay resultados",
   "@no_results": {},

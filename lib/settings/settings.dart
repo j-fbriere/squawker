@@ -1,9 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:squawker/constants.dart';
 import 'package:squawker/generated/l10n.dart';
-import 'package:squawker/home/home_screen.dart';
 import 'package:squawker/settings/_about.dart';
 import 'package:squawker/settings/_data.dart';
 import 'package:squawker/settings/_general.dart';

@@ -8,6 +8,23 @@ import 'package:pref/pref.dart';
 class SettingsThemeFragment extends StatelessWidget {
   const SettingsThemeFragment({Key? key}) : super(key: key);
 
+  int _getOptionTweetFontSizeValue(BuildContext context) {
+    int optionTweetFontSizeValue =
+        PrefService.of(context).get<int>(optionTweetFontSize) ?? Theme.of(context).textTheme.bodyMedium!.fontSize!.round();
+    return optionTweetFontSizeValue;
+  }
+
+  void _createTweetFontSizeDialog(BuildContext context) async {
+    int? selectedFontSize = await showDialog<int>(
+      context: context,
+      builder: (context) => FontSizePickerDialog(initialFontSize: _getOptionTweetFontSizeValue(context)),
+    );
+    if (selectedFontSize != null) {
+      PrefService.of(context).set<int>(optionTweetFontSize, selectedFontSize);
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,7 +100,7 @@ class FontSizePickerDialogState extends State<FontSizePickerDialog> {
 
   @override
   Widget build(BuildContext context) {
-    double defaultFontSize = DefaultTextStyle.of(context).style.fontSize!;
+    double defaultFontSize = Theme.of(context).textTheme.bodyMedium!.fontSize!;
     double minFontSize = defaultFontSize - 4;
     double maxFontSize = defaultFontSize + 8;
 

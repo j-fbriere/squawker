@@ -168,6 +168,32 @@ class SettingsGeneralFragment extends StatelessWidget {
                 pref: optionLeanerFeeds,
               ),
             ],
+          ),
+          ExpansionTile(
+            title: Text(L10n.of(context).x_api),
+            leading: const Icon(Icons.api_outlined),
+            children: [
+              PrefSwitch(
+                title: Text(L10n.of(context).enhanced_feeds_label),
+                subtitle: Text(L10n.of(context).enhanced_feeds_description),
+                pref: optionEnhancedFeeds,
+                onChange: (value) async {
+                  var repository = await Repository.writable();
+                  await repository.delete(tableFeedGroupChunk);
+                  await repository.delete(tableFeedGroupPositionState);
+                },
+              ),
+              PrefSwitch(
+                title: Text(L10n.of(context).enhanced_searches_label),
+                subtitle: Text(L10n.of(context).enhanced_searches_description),
+                pref: optionEnhancedSearches,
+              ),
+              PrefSwitch(
+                title: Text(L10n.of(context).enhanced_profile_label),
+                subtitle: Text(L10n.of(context).enhanced_profile_description),
+                pref: optionEnhancedProfile,
+              ),
+            ],
           )
         ]),
       ),

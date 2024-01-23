@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:device_preview/device_preview.dart';
@@ -11,7 +10,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 
-import 'package:squawker/client_android.dart';
+import 'package:squawker/client_account.dart';
 import 'package:squawker/constants.dart';
 import 'package:squawker/database/repository.dart';
 import 'package:squawker/generated/l10n.dart';
@@ -137,9 +136,6 @@ setTimeagoLocales() {
 Future<void> main() async {
   Logger.root.activateLogcat();
   Logger.root.level = Level.ALL;
-  Logger.root.onRecord.listen((event) async {
-    log(event.message, error: event.error, stackTrace: event.stackTrace);
-  });
 
   if (Platform.isLinux) {
     sqfliteFfiInit();
@@ -177,6 +173,9 @@ Future<void> main() async {
     optionKeepFeedOffset: false,
     optionLeanerFeeds: false,
     optionConfirmClose: true,
+    optionEnhancedFeeds: true,
+    optionEnhancedSearches: true,
+    optionEnhancedProfile: true,
     optionUserTrendsLocations: jsonEncode({
       'active': {'name': 'Worldwide', 'woeid': 1},
       'locations': [
@@ -212,6 +211,9 @@ Future<void> main() async {
 
   var importDataModel = ImportDataModel();
 
+  var guestAccountsModel = GuestAccountsModel();
+  await guestAccountsModel.reloadGuestAccounts();
+
   var groupsModel = GroupsModel(prefService);
   await groupsModel.reloadGroups();
 
@@ -224,7 +226,7 @@ Future<void> main() async {
   var trendLocationModel = UserTrendLocationModel(prefService);
 
   try {
-    await TwitterAndroid.loadRateLimits();
+    await TwitterAccount.loadAllGuestAccountsAndRateLimits();
   } catch (_) {
     // Ignore
   }
@@ -236,6 +238,7 @@ Future<void> main() async {
           Provider(create: (context) => groupsModel),
           Provider(create: (context) => homeModel),
           ChangeNotifierProvider(create: (context) => importDataModel),
+          Provider(create: (context) => guestAccountsModel),
           Provider(create: (context) => subscriptionsModel),
           Provider(create: (context) => SavedTweetModel()),
           Provider(create: (context) => SearchTweetsModel()),
@@ -268,19 +271,6 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
   FlexScheme _colorScheme = FlexScheme.mango;
   Locale? _locale;
   final _MyRouteObserver _routeObserver = _MyRouteObserver();
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.paused || state == AppLifecycleState.detached) {
-      TwitterAndroid.saveRateLimits();
-    }
-  }
-
-  @override
-  void dispose() {
-    TwitterAndroid.saveRateLimits();
-    super.dispose();
-  }
 
   @override
   void didChangeDependencies() {
