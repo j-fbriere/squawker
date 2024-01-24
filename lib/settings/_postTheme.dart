@@ -35,17 +35,17 @@ class SettingsPostThemeFragment extends StatelessWidget {
             onTap: () => _createTweetFontSizeDialog(context),
             child: Text('${_getOptionTweetFontSizeValue(context)} px'),
           ),
-          const PrefSwitch(
+          PrefSwitch(
             pref: optionProfileImage,
-            title: Text("Profile image"),
+            title: Text(L10n.of(context).profile_image),
           ),
-          const PrefDropdown(
+          PrefDropdown(
             fullWidth: false,
             pref: optionAvatarStyle,
-            title: Text("Profile image style"),
+            title: Text(L10n.of(context).profile_image_style),
             items: [
-              DropdownMenuItem(value: 'round', child: Text("Round")),
-              DropdownMenuItem(value: 'square', child: Text("Square"))
+              DropdownMenuItem(value: 'round', child: Text(L10n.of(context).round)),
+              DropdownMenuItem(value: 'square', child: Text(L10n.of(context).square))
             ],
           ),
           PrefDropdown(
@@ -77,13 +77,13 @@ class SettingsPostThemeFragment extends StatelessWidget {
                   child: Text(L10n.of(context).large),
                 ),
               ]),
-          const PrefSwitch(
+          PrefSwitch(
             pref: optionActions,
-            title: Text("Hide card actions"),
+            title: Text(L10n.of(context).hide_card_actions),
           ),
-          const PrefSwitch(
+          PrefSwitch(
             pref: optionActionsCount,
-            title: Text("Hide card numbers"),
+            title: Text(L10n.of(context).hide_card_numbers),
           )
         ]),
       ),

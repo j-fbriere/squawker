@@ -155,7 +155,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "download_path": MessageLookupByLibrary.simpleMessage("Download path"),
         "download_video_best_quality_description":
             MessageLookupByLibrary.simpleMessage(
-                "Download videos with the best quality available"),
+                "Download videos in best available quality"),
         "download_video_best_quality_label":
             MessageLookupByLibrary.simpleMessage(
                 "Download videos with best quality"),
@@ -213,6 +213,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Help make Squawker even better"),
         "help_support_fritters_future": MessageLookupByLibrary.simpleMessage(
             "Help support Squawker\'s future"),
+        "hide_card_actions":
+            MessageLookupByLibrary.simpleMessage("Hide card actions"),
+        "hide_card_numbers":
+            MessageLookupByLibrary.simpleMessage("Hide card numbers"),
         "hide_sensitive_tweets":
             MessageLookupByLibrary.simpleMessage("Hide sensitive tweets"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -241,7 +245,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Requires a restart"),
         "large": MessageLookupByLibrary.simpleMessage("Large"),
         "leaner_feeds_description": MessageLookupByLibrary.simpleMessage(
-            "The tweets from feeds do not display preview links"),
+            "Preview links are not shown in tweets from feeds"),
         "leaner_feeds_label":
             MessageLookupByLibrary.simpleMessage("Leaner feeds"),
         "legacy_android_import":
@@ -322,6 +326,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "prefix": MessageLookupByLibrary.simpleMessage("prefix"),
         "private_profile":
             MessageLookupByLibrary.simpleMessage("Private profile"),
+        "profile_image": MessageLookupByLibrary.simpleMessage("Profile image"),
+        "profile_image_style":
+            MessageLookupByLibrary.simpleMessage("Profile image style"),
         "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
             "Released under the MIT License"),
         "remove_from_feed":
@@ -334,6 +341,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reset_home_pages":
             MessageLookupByLibrary.simpleMessage("Reset pages to default"),
         "retry": MessageLookupByLibrary.simpleMessage("Retry"),
+        "round": MessageLookupByLibrary.simpleMessage("Round"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "save_bandwidth_using_smaller_images":
             MessageLookupByLibrary.simpleMessage(
@@ -373,8 +381,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sorry_the_replied_tweet_could_not_be_found":
             MessageLookupByLibrary.simpleMessage(
                 "Sorry, the replied tweet could not be found!"),
-        "square_avatar":
-            MessageLookupByLibrary.simpleMessage("Square Avatars?"),
+        "square": MessageLookupByLibrary.simpleMessage("Square"),
         "subscribe": MessageLookupByLibrary.simpleMessage("Subscribe"),
         "subscriptions": MessageLookupByLibrary.simpleMessage("Subscriptions"),
         "subtitles": MessageLookupByLibrary.simpleMessage("Subtitles"),
@@ -527,7 +534,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "You haven\'t saved any tweets yet!"),
         "you_must_have_at_least_2_home_screen_pages":
             MessageLookupByLibrary.simpleMessage(
-                "You must have at least 2 home screen pages"),
+                "You must have at least two home screen pages"),
         "your_profile_must_be_public_otherwise_the_import_will_not_work":
             MessageLookupByLibrary.simpleMessage(
                 "Your profile must be public, otherwise the import will not work"),

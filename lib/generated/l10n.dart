@@ -150,6 +150,26 @@ class L10n {
     );
   }
 
+  /// `Round`
+  String get round {
+    return Intl.message(
+      'Round',
+      name: 'round',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Square`
+  String get square {
+    return Intl.message(
+      'Square',
+      name: 'square',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Something just went wrong in Squawker, and an error report has been generated. The report can be sent to the Squawker developers to help fix the problem.`
   String
       get something_just_went_wrong_in_fritter_and_an_error_report_has_been_generated {
@@ -2216,6 +2236,26 @@ class L10n {
     );
   }
 
+  /// `Hide card actions`
+  String get hide_card_actions {
+    return Intl.message(
+      'Hide card actions',
+      name: 'hide_card_actions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hide card numbers`
+  String get hide_card_numbers {
+    return Intl.message(
+      'Hide card numbers',
+      name: 'hide_card_numbers',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Whether to hide tweets marked as sensitive`
   String get whether_to_hide_tweets_marked_as_sensitive {
     return Intl.message(
@@ -2226,11 +2266,21 @@ class L10n {
     );
   }
 
-  /// `Square Avatars?`
-  String get square_avatar {
+  /// `Profile image style`
+  String get profile_image_style {
     return Intl.message(
-      'Square Avatars?',
-      name: 'square_avatar',
+      'Profile image style',
+      name: 'profile_image_style',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile image`
+  String get profile_image {
+    return Intl.message(
+      'Profile image',
+      name: 'profile_image',
       desc: '',
       args: [],
     );
@@ -2316,10 +2366,10 @@ class L10n {
     );
   }
 
-  /// `You must have at least 2 home screen pages`
+  /// `You must have at least two home screen pages`
   String get you_must_have_at_least_2_home_screen_pages {
     return Intl.message(
-      'You must have at least 2 home screen pages',
+      'You must have at least two home screen pages',
       name: 'you_must_have_at_least_2_home_screen_pages',
       desc: '',
       args: [],
@@ -2516,10 +2566,10 @@ class L10n {
     );
   }
 
-  /// `The tweets from feeds do not display preview links`
+  /// `Preview links are not shown in tweets from feeds`
   String get leaner_feeds_description {
     return Intl.message(
-      'The tweets from feeds do not display preview links',
+      'Preview links are not shown in tweets from feeds',
       name: 'leaner_feeds_description',
       desc: '',
       args: [],
@@ -2566,10 +2616,10 @@ class L10n {
     );
   }
 
-  /// `Download videos with the best quality available`
+  /// `Download videos in best available quality`
   String get download_video_best_quality_description {
     return Intl.message(
-      'Download videos with the best quality available',
+      'Download videos in best available quality',
       name: 'download_video_best_quality_description',
       desc: '',
       args: [],
@@ -2725,6 +2775,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
       Locale.fromSubtags(languageCode: 'eu'),
       Locale.fromSubtags(languageCode: 'fr'),
       Locale.fromSubtags(languageCode: 'hi'),
+      Locale.fromSubtags(languageCode: 'ia'),
       Locale.fromSubtags(languageCode: 'id'),
       Locale.fromSubtags(languageCode: 'it'),
       Locale.fromSubtags(languageCode: 'ja'),
