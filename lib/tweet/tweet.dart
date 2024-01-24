@@ -516,6 +516,18 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
       createdAt = tweet.createdAt;
     }
 
+    getProfileImage() {
+      if (hideAuthorInformation) {
+        return const Icon(Icons.account_circle_rounded, size: 48);
+      }
+      if (!hideProfileImage) {
+        return ClipRRect(
+          borderRadius: BorderRadius.circular(borderSize),
+          child: UserAvatar(uri: tweet.user!.profileImageUrlHttps),
+        );
+      }
+    }
+
     return VisibilityDetector(
         key: UniqueKey(),
         onVisibilityChanged: (visibilityInfo) {
@@ -674,12 +686,7 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
                                 ],
                               ),
                               // Profile picture
-                              leading: hideAuthorInformation || hideProfileImage
-                                  ? Icon(Icons.account_circle_rounded, size: 48)
-                                  : ClipRRect(
-                                      borderRadius: BorderRadius.circular(borderSize),
-                                      child: UserAvatar(uri: tweet.user!.profileImageUrlHttps),
-                                    )),
+                              leading: getProfileImage()),
                           content,
                           media,
                           quotedTweet,
