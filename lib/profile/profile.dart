@@ -319,7 +319,7 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
                     ],
                   ),
                   flexibleSpace: FlexibleSpaceBar(
-                    background: SafeArea(
+                      background: SafeArea(
                     top: false,
                     child: DefaultTextStyle.merge(
                       style: const TextStyle(color: Colors.white),
@@ -509,11 +509,7 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
                         Container(
                           alignment: Alignment.topLeft,
                           margin: EdgeInsets.fromLTRB(16, profileImageTop, 16, 16),
-                          child: CircleAvatar(
-                            radius: 50,
-                            backgroundColor: Colors.white,
-                            child: UserAvatar(uri: user.profileImageUrlHttps, size: 96),
-                          ),
+                          child: UserAvatar(uri: user.profileImageUrlHttps, size: 96),
                         )
                       ]),
                     ),
