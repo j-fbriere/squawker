@@ -1,4 +1,3 @@
-import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter/material.dart';
 import 'package:squawker/constants.dart';
@@ -85,7 +84,7 @@ class SettingsThemeFragmentState extends State<SettingsThemeFragment> {
                           onPressed: () {
                             setState(() {
                               color = selectedColor;
-                              prefs.set(optionThemeColorScheme, color.hex);
+                              prefs.set(optionThemeColorScheme, colorToHex(color));
                             });
                             Navigator.of(context).pop();
                           },
@@ -108,16 +107,6 @@ class SettingsThemeFragmentState extends State<SettingsThemeFragment> {
             onTap: () => _createTweetFontSizeDialog(context),
             child: Text('${_getOptionTweetFontSizeValue(context)} px'),
           ),
-          PrefSwitch(
-            pref: optionThemeMaterial3,
-            title: Row(children: [
-              Text(
-                L10n.of(context).material_3,
-              ),
-              Spacer(),
-              Chip(label: Text(L10n.of(context).beta))
-            ]),
-          )
         ]),
       ),
     );

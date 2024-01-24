@@ -4,7 +4,6 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:device_preview/device_preview.dart';
-import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -170,7 +169,6 @@ Future<void> main() async {
     optionSubscriptionOrderByField: 'name',
     optionThemeMode: 'system',
     optionThemeTrueBlack: false,
-    optionThemeMaterial3: false,
     optionThemeColorScheme: Colors.yellow,
     optionTweetsHideSensitive: false,
     optionKeepFeedOffset: false,
@@ -263,7 +261,6 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
 
   String _themeMode = 'system';
   bool _trueBlack = false;
-  bool _material3 = false;
   Color _colorScheme = Colors.yellow;
   Locale? _locale;
   final _MyRouteObserver _routeObserver = _MyRouteObserver();
@@ -314,7 +311,6 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
       setLocale(prefService.get<String>(optionLocale));
       _themeMode = prefService.get(optionThemeMode);
       _trueBlack = prefService.get(optionThemeTrueBlack);
-      _material3 = prefService.get(optionThemeMaterial3);
       _colorScheme = colorFromHex(prefService.get(optionThemeColorScheme)) ?? Colors.yellow;
       setDisableScreenshots(prefService.get(optionDisableScreenshots));
     });
@@ -333,12 +329,6 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
     prefService.addKeyListener(optionThemeTrueBlack, () {
       setState(() {
         _trueBlack = prefService.get(optionThemeTrueBlack);
-      });
-    });
-
-    prefService.addKeyListener(optionThemeMaterial3, () {
-      setState(() {
-        _material3 = prefService.get(optionThemeMaterial3);
       });
     });
 
@@ -382,15 +372,29 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
 
     ThemeData light = ThemeData(
       colorSchemeSeed: _colorScheme,
-      visualDensity: FlexColorScheme.comfortablePlatformDensity,
-      useMaterial3: _material3,
+      useMaterial3: true,
     );
+
     ThemeData dark = ThemeData(
       brightness: Brightness.dark,
       colorSchemeSeed: _colorScheme,
-      visualDensity: FlexColorScheme.comfortablePlatformDensity,
-      useMaterial3: _material3,
+      useMaterial3: true,
     );
+
+    ThemeData trueBlack = ThemeData(
+      brightness: Brightness.dark,
+      colorSchemeSeed: _colorScheme,
+      scaffoldBackgroundColor: Colors.black,
+      textTheme: TextTheme(
+        bodyText2: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      appBarTheme: AppBarTheme(
+        color: Colors.black,
+      ),
+    );
+
     return MaterialApp(
       localeListResolutionCallback: (locales, supportedLocales) {
         List supportedLocalesCountryCode = [];
@@ -440,24 +444,24 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
       // regression #130295 in flutter Document Checkbox.fillColor behavior change
       // ref: https://github.com/flutter/flutter/issues/130295
       theme: light.copyWith(
-        checkboxTheme: light.checkboxTheme.copyWith(
-            fillColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
-          if (!states.contains(MaterialState.selected) && !states.contains(MaterialState.pressed)) {
-            return Colors.white;
-          }
-          return light.checkboxTheme.fillColor!.resolve(states) as Color;
-        })),
         tabBarTheme: light.tabBarTheme.copyWith(
           labelColor: Colors.white,
-          unselectedLabelColor: Colors.grey.shade400.lighten(),
+          unselectedLabelColor: Colors.grey.shade400,
         ),
       ),
-      darkTheme: dark.copyWith(
-        tabBarTheme: dark.tabBarTheme.copyWith(
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.grey.shade400.lighten(),
-        ),
-      ),
+      darkTheme: PrefService.of(context).get(optionThemeTrueBlack)
+          ? trueBlack.copyWith(
+              tabBarTheme: dark.tabBarTheme.copyWith(
+                labelColor: Colors.white,
+                unselectedLabelColor: Colors.grey.shade400,
+              ),
+            )
+          : dark.copyWith(
+              tabBarTheme: dark.tabBarTheme.copyWith(
+                labelColor: Colors.white,
+                unselectedLabelColor: Colors.grey.shade400,
+              ),
+            ),
       themeMode: themeMode,
       initialRoute: '/',
       navigatorObservers: [_routeObserver],

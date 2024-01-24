@@ -24,7 +24,6 @@ import 'package:squawker/utils/data_service.dart';
 import 'package:squawker/utils/debounce.dart';
 import 'package:pref/pref.dart';
 import 'package:provider/provider.dart';
-import 'package:scroll_bottom_navigation_bar/scroll_bottom_navigation_bar.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 
 typedef NavigationTitleBuilder = String Function(BuildContext context);
@@ -132,10 +131,10 @@ class _HomeScreenState extends State<_HomeScreen> {
       var statusId = link.pathSegments[2];
 
       Navigator.pushNamed(context, routeStatus,
-        arguments: StatusScreenArguments(
-          id: statusId,
-          username: username,
-        ));
+          arguments: StatusScreenArguments(
+            id: statusId,
+            username: username,
+          ));
       return;
     }
 
@@ -228,7 +227,8 @@ class _HomeScreenState extends State<_HomeScreen> {
 
                     switch (e.id) {
                       case 'feed':
-                        return FeedScreen(key: _feedKey, scrollController: scrollController, id: '-1', name: L10n.current.feed);
+                        return FeedScreen(
+                            key: _feedKey, scrollController: scrollController, id: '-1', name: L10n.current.feed);
                       case 'subscriptions':
                         return const SubscriptionsScreen();
                       case 'groups':
@@ -268,7 +268,8 @@ class ScaffoldWithBottomNavigation extends StatefulWidget {
   final List<Widget> Function(ScrollController scrollController) builder;
   final GlobalKey<FeedScreenState>? feedKey;
 
-  const ScaffoldWithBottomNavigation({Key? key, required this.pages, required this.initialPage, required this.builder, required this.feedKey})
+  const ScaffoldWithBottomNavigation(
+      {Key? key, required this.pages, required this.initialPage, required this.builder, required this.feedKey})
       : super(key: key);
 
   @override
@@ -282,34 +283,6 @@ class ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigati
   late List<Widget> _children;
   late List<NavigationPage> _pages;
   bool _goToSubscriptions = false;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _pages = _padToMinimumPagesLength(widget.pages);
-
-    _pageController = PageController(initialPage: widget.initialPage);
-
-    scrollController.bottomNavigationBar.setTab(widget.initialPage);
-    scrollController.bottomNavigationBar.tabListener((index) async {
-      if (_children[index] is FeedScreen && widget.feedKey != null && widget.feedKey!.currentState != null) {
-        await widget.feedKey!.currentState!.checkUpdateFeed();
-      }
-      _pageController?.animateToPage(index, curve: Curves.easeInOut, duration: const Duration(milliseconds: 100));
-    });
-
-    _children = widget.builder(scrollController);
-  }
-
-  void fromFeedToSubscriptions() {
-    int idx = widget.pages.indexWhere((e) => e.id == 'feed');
-    if (idx == scrollController.bottomNavigationBar.tabNotifier.value) {
-      setState(() {
-        _goToSubscriptions = true;
-      });
-    }
-  }
 
   List<NavigationPage> _padToMinimumPagesLength(List<NavigationPage> pages) {
     var widgetPages = pages;
@@ -333,15 +306,6 @@ class ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigati
         _pages = newPages;
       });
     }
-
-    var page = _pageController?.page?.toInt();
-    if (page != null) {
-      // Ensure we're not trying to show a page that no longer exists (i.e. one that was selected, but now deleted)
-      var currentTab = scrollController.bottomNavigationBar.tabNotifier.value;
-      if (currentTab >= newPages.length) {
-        scrollController.bottomNavigationBar.tabNotifier.value = newPages.length - 1;
-      }
-    }
   }
 
   @override
@@ -356,28 +320,15 @@ class ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigati
       _goToSubscriptions = false;
       WidgetsBinding.instance.addPostFrameCallback((_) {
         int idx = widget.pages.indexWhere((e) => e.id == 'subscriptions');
-        scrollController.bottomNavigationBar.setTab(idx);
         _pageController?.animateToPage(idx, curve: Curves.easeInOut, duration: const Duration(milliseconds: 100));
       });
     }
-    return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        physics: const LessSensitiveScrollPhysics(),
-        onPageChanged: (page) => Debouncer.debounce('page-change', const Duration(milliseconds: 200), () {
-          // Reset the height when the page changes, otherwise the navigation bar stays hidden forever
-          scrollController.bottomNavigationBar.heightNotifier.value = 1;
-          scrollController.bottomNavigationBar.setTab(page);
-        }),
-        children: _children,
-      ),
-      bottomNavigationBar: ScrollBottomNavigationBar(
-        controller: scrollController,
-        showUnselectedLabels: true,
-        items: [
-          ..._pages.map((e) => BottomNavigationBarItem(icon: Icon(e.icon, size: 22), label: e.titleBuilder(context)))
-        ],
-      ),
+    return NavigationBar(
+      selectedIndex: 1,
+      labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+      destinations: [
+        ..._pages.map((e) => NavigationDestination(icon: Icon(e.icon, size: 22), label: e.titleBuilder(context)))
+      ],
     );
   }
 }
