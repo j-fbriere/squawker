@@ -77,6 +77,14 @@ class SettingsPostThemeFragment extends StatelessWidget {
                   child: Text(L10n.of(context).large),
                 ),
               ]),
+          const PrefSwitch(
+            pref: optionActions,
+            title: Text("Hide card actions"),
+          ),
+          const PrefSwitch(
+            pref: optionActionsCount,
+            title: Text("Hide card numbers"),
+          )
         ]),
       ),
     );

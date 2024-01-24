@@ -691,33 +691,45 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
                           media,
                           quotedTweet,
                           TweetCard(tweet: tweet, card: tweet.card),
-                          Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 8),
-                            child: Scrollbar(
-                              child: SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  children: [
-                                    _createFooterTextButton(
-                                        Icons.comment_rounded,
-                                        tweet.replyCount != null ? numberFormat.format(tweet.replyCount) : '',
-                                        null,
-                                        () => onClickOpenTweet(tweet)),
-                                    if (tweet.retweetCount != null)
+                          if (!prefs.get(optionActions))
+                            Container(
+                              margin: const EdgeInsets.symmetric(horizontal: 8),
+                              child: Scrollbar(
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: [
                                       _createFooterTextButton(
-                                          Icons.repeat_rounded, numberFormat.format(tweet.retweetCount)),
-                                    if (tweet.quoteCount != null)
-                                      _createFooterTextButton(
-                                          Icons.chat_rounded, numberFormat.format(tweet.quoteCount)),
-                                    if (tweet.favoriteCount != null)
-                                      _createFooterTextButton(
-                                          Icons.favorite_border, numberFormat.format(tweet.favoriteCount)),
-                                    translateButton,
-                                  ],
+                                          Icons.comment_rounded,
+                                          tweet.replyCount != null && !prefs.get(optionActionsCount)
+                                              ? numberFormat.format(tweet.replyCount)
+                                              : '',
+                                          null,
+                                          () => onClickOpenTweet(tweet)),
+                                      if (tweet.retweetCount != null)
+                                        _createFooterTextButton(
+                                            Icons.repeat_rounded,
+                                            !prefs.get(optionActionsCount)
+                                                ? numberFormat.format(tweet.retweetCount)
+                                                : ''),
+                                      if (tweet.quoteCount != null)
+                                        _createFooterTextButton(
+                                            Icons.chat_rounded,
+                                            !prefs.get(optionActionsCount)
+                                                ? numberFormat.format(tweet.quoteCount)
+                                                : ''),
+                                      if (tweet.favoriteCount != null)
+                                        _createFooterTextButton(
+                                            Icons.favorite_border,
+                                            !prefs.get(optionActionsCount)
+                                                ? numberFormat.format(tweet.favoriteCount)
+                                                : ''),
+                                      translateButton,
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
                         ],
                       ))
                     ],
