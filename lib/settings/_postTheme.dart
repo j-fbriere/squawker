@@ -35,13 +35,18 @@ class SettingsPostThemeFragment extends StatelessWidget {
             onTap: () => _createTweetFontSizeDialog(context),
             child: Text('${_getOptionTweetFontSizeValue(context)} px'),
           ),
-          PrefSwitch(
+          const PrefSwitch(
             pref: optionProfileImage,
             title: Text("Profile image"),
           ),
-          PrefSwitch(
-            pref: optionAvatarSquare,
-            title: Text(L10n.of(context).square_avatar),
+          const PrefDropdown(
+            fullWidth: false,
+            pref: optionAvatarStyle,
+            title: Text("Profile image style"),
+            items: [
+              DropdownMenuItem(value: 'round', child: Text("Round")),
+              DropdownMenuItem(value: 'square', child: Text("Square"))
+            ],
           ),
           PrefDropdown(
               fullWidth: false,

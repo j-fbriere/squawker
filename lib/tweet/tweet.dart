@@ -355,8 +355,8 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
     var theme = Theme.of(context);
 
     late double borderSize = 64;
-    if (PrefService.of(context).get(optionAvatarSquare)) {
-      borderSize = 10;
+    if (PrefService.of(context).get(optionAvatarStyle) == 'square') {
+      borderSize = 8;
     }
 
     if (tweet.isTombstone ?? false) {

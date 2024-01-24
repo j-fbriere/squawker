@@ -148,7 +148,7 @@ Future<void> main() async {
 
   final prefService = await PrefServiceShared.init(prefix: 'pref_', defaults: {
     optionProfileImage: true,
-    optionAvatarSquare: false,
+    optionAvatarStyle: 'round',
     optionDisableScreenshots: false,
     optionDownloadPath: '',
     optionDownloadType: optionDownloadTypeAsk,

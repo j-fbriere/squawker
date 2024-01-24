@@ -1,7 +1,7 @@
 const optionWizardCompleted = 'option.wizard_completed';
 
 const optionProfileImage = 'profile_image';
-const optionAvatarSquare = 'avatar_square';
+const optionAvatarStyle = 'avatar_style';
 const optionDisableScreenshots = 'disable_screenshots';
 
 const optionErrorsEnabled = 'errors._enabled';

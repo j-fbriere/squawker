@@ -64,8 +64,8 @@ class UserAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     late double borderSize = size;
-    if (PrefService.of(context).get(optionAvatarSquare)) {
-      borderSize = 10;
+    if (PrefService.of(context).get(optionAvatarStyle) == 'square') {
+      borderSize = 8;
     }
     return ClipRRect(
       borderRadius: BorderRadius.circular(borderSize),
