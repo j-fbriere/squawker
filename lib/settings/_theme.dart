@@ -84,7 +84,7 @@ class SettingsThemeFragmentState extends State<SettingsThemeFragment> {
                           onPressed: () {
                             setState(() {
                               color = selectedColor;
-                              prefs.set(optionThemeColorScheme, colorToHex(color));
+                              prefs.set(optionThemeColorScheme, colorToHex(color).toString());
                             });
                             Navigator.of(context).pop();
                           },

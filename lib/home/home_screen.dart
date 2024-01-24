@@ -279,10 +279,8 @@ class ScaffoldWithBottomNavigation extends StatefulWidget {
 class ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigation> {
   final ScrollController scrollController = ScrollController();
 
-  PageController? _pageController;
   late List<Widget> _children;
   late List<NavigationPage> _pages;
-  bool _goToSubscriptions = false;
 
   List<NavigationPage> _padToMinimumPagesLength(List<NavigationPage> pages) {
     var widgetPages = pages;
@@ -308,27 +306,26 @@ class ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigati
     }
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    _pageController?.dispose();
-  }
+  int pageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    if (_goToSubscriptions) {
-      _goToSubscriptions = false;
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        int idx = widget.pages.indexWhere((e) => e.id == 'subscriptions');
-        _pageController?.animateToPage(idx, curve: Curves.easeInOut, duration: const Duration(milliseconds: 100));
-      });
-    }
-    return NavigationBar(
-      selectedIndex: 1,
-      labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
-      destinations: [
-        ..._pages.map((e) => NavigationDestination(icon: Icon(e.icon, size: 22), label: e.titleBuilder(context)))
-      ],
+    _children = widget.builder(scrollController);
+
+    return Scaffold(
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: pageIndex,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+        onDestinationSelected: (int index) {
+          setState(() {
+            pageIndex = index;
+          });
+        },
+        destinations: [
+          ..._pages.map((e) => NavigationDestination(icon: Icon(e.icon, size: 22), label: e.titleBuilder(context)))
+        ],
+      ),
+      body: _children[pageIndex],
     );
   }
 }

@@ -169,7 +169,7 @@ Future<void> main() async {
     optionSubscriptionOrderByField: 'name',
     optionThemeMode: 'system',
     optionThemeTrueBlack: false,
-    optionThemeColorScheme: Colors.yellow,
+    optionThemeColorScheme: "0xFFAB40",
     optionTweetsHideSensitive: false,
     optionKeepFeedOffset: false,
     optionLeanerFeeds: false,
@@ -261,7 +261,7 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
 
   String _themeMode = 'system';
   bool _trueBlack = false;
-  Color _colorScheme = Colors.yellow;
+  Color _colorScheme = Colors.orangeAccent.shade200;
   Locale? _locale;
   final _MyRouteObserver _routeObserver = _MyRouteObserver();
 
@@ -340,7 +340,7 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
 
     prefService.addKeyListener(optionThemeColorScheme, () {
       setState(() {
-        _colorScheme = colorFromHex(prefService.get(optionThemeColorScheme)) ?? Colors.yellow;
+        _colorScheme = colorFromHex(prefService.get(optionThemeColorScheme)) ?? Colors.orangeAccent.shade200;
       });
     });
 
@@ -379,20 +379,6 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
       brightness: Brightness.dark,
       colorSchemeSeed: _colorScheme,
       useMaterial3: true,
-    );
-
-    ThemeData trueBlack = ThemeData(
-      brightness: Brightness.dark,
-      colorSchemeSeed: _colorScheme,
-      scaffoldBackgroundColor: Colors.black,
-      textTheme: TextTheme(
-        bodyText2: TextStyle(
-          color: Colors.white,
-        ),
-      ),
-      appBarTheme: AppBarTheme(
-        color: Colors.black,
-      ),
     );
 
     return MaterialApp(
@@ -449,19 +435,12 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
           unselectedLabelColor: Colors.grey.shade400,
         ),
       ),
-      darkTheme: PrefService.of(context).get(optionThemeTrueBlack)
-          ? trueBlack.copyWith(
-              tabBarTheme: dark.tabBarTheme.copyWith(
-                labelColor: Colors.white,
-                unselectedLabelColor: Colors.grey.shade400,
-              ),
-            )
-          : dark.copyWith(
-              tabBarTheme: dark.tabBarTheme.copyWith(
-                labelColor: Colors.white,
-                unselectedLabelColor: Colors.grey.shade400,
-              ),
-            ),
+      darkTheme: dark.copyWith(
+        tabBarTheme: dark.tabBarTheme.copyWith(
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.grey.shade400,
+        ),
+      ),
       themeMode: themeMode,
       initialRoute: '/',
       navigatorObservers: [_routeObserver],
