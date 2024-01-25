@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -282,17 +283,19 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
         var splitLocale = locale.split('_');
         if (splitLocale.length == 1) {
           _locale = L10n.delegate.supportedLocales.firstWhereOrNull((e) => e.languageCode == splitLocale[0]);
-        }
-        else if (splitLocale.length == 2) {
+        } else if (splitLocale.length == 2) {
           if (splitLocale[1].length == 2) {
-            _locale = L10n.delegate.supportedLocales.firstWhereOrNull((e) => e.languageCode == splitLocale[0] && e.countryCode == splitLocale[1]);
+            _locale = L10n.delegate.supportedLocales
+                .firstWhereOrNull((e) => e.languageCode == splitLocale[0] && e.countryCode == splitLocale[1]);
+          } else {
+            // splitLocale[1].length == 4
+            _locale = L10n.delegate.supportedLocales
+                .firstWhereOrNull((e) => e.languageCode == splitLocale[0] && e.scriptCode == splitLocale[1]);
           }
-          else { // splitLocale[1].length == 4
-            _locale = L10n.delegate.supportedLocales.firstWhereOrNull((e) => e.languageCode == splitLocale[0] && e.scriptCode == splitLocale[1]);
-          }
-        }
-        else { // splitLocale.length == 3
-          _locale = L10n.delegate.supportedLocales.firstWhereOrNull((e) => e.languageCode == splitLocale[0] && e.scriptCode == splitLocale[1] && e.countryCode == splitLocale[2]);
+        } else {
+          // splitLocale.length == 3
+          _locale = L10n.delegate.supportedLocales.firstWhereOrNull((e) =>
+              e.languageCode == splitLocale[0] && e.scriptCode == splitLocale[1] && e.countryCode == splitLocale[2]);
         }
       }
     }
@@ -370,116 +373,117 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
         break;
     }
 
-    ThemeData light = ThemeData(
-      colorSchemeSeed: _colorScheme,
-      useMaterial3: true,
-    );
+    return DynamicColorBuilder(builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
+      ThemeData light = ThemeData(
+        colorScheme: lightDynamic,
+        useMaterial3: true,
+      );
 
-    ThemeData dark = ThemeData(
-      brightness: Brightness.dark,
-      colorSchemeSeed: _colorScheme,
-      useMaterial3: true,
-    );
+      ThemeData dark = ThemeData(
+        colorScheme: darkDynamic,
+        useMaterial3: true,
+      );
 
-    return MaterialApp(
-      localeListResolutionCallback: (locales, supportedLocales) {
-        List supportedLocalesCountryCode = [];
-        List supportedLocalesScriptCode = [];
-        List supportedLocalesLanguageCode = [];
-        for (var item in supportedLocales) {
-          if (item.countryCode != null) {
-            supportedLocalesCountryCode.add(item.countryCode);
+      return MaterialApp(
+        localeListResolutionCallback: (locales, supportedLocales) {
+          List supportedLocalesCountryCode = [];
+          List supportedLocalesScriptCode = [];
+          List supportedLocalesLanguageCode = [];
+          for (var item in supportedLocales) {
+            if (item.countryCode != null) {
+              supportedLocalesCountryCode.add(item.countryCode);
+            }
+            if (item.scriptCode != null) {
+              supportedLocalesScriptCode.add(item.scriptCode);
+            }
+            supportedLocalesLanguageCode.add(item.languageCode);
           }
-          if (item.scriptCode != null) {
-            supportedLocalesScriptCode.add(item.scriptCode);
-          }
-          supportedLocalesLanguageCode.add(item.languageCode);
-        }
 
-        List localesCountryCode = [];
-        List localesScriptCode = [];
-        List localesLanguageCode = [];
-        for (var item in locales!) {
-          localesCountryCode.add(item.countryCode);
-          localesScriptCode.add(item.scriptCode);
-          localesLanguageCode.add(item.languageCode);
-        }
+          List localesCountryCode = [];
+          List localesScriptCode = [];
+          List localesLanguageCode = [];
+          for (var item in locales!) {
+            localesCountryCode.add(item.countryCode);
+            localesScriptCode.add(item.scriptCode);
+            localesLanguageCode.add(item.languageCode);
+          }
 
-        for (var i = 0; i < locales.length; i++) {
-          if (supportedLocalesCountryCode.contains(localesCountryCode[i]) &&
-              supportedLocalesScriptCode.contains(localesScriptCode[i]) &&
-              supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
-            log.info('*** Locale Country: ${localesCountryCode[i]}, Script: ${localesScriptCode[i]}, Language: ${localesLanguageCode[i]}');
-            return Locale.fromSubtags(countryCode: localesCountryCode[i], scriptCode: localesScriptCode[i], languageCode: localesLanguageCode[i]);
+          for (var i = 0; i < locales.length; i++) {
+            if (supportedLocalesCountryCode.contains(localesCountryCode[i]) &&
+                supportedLocalesScriptCode.contains(localesScriptCode[i]) &&
+                supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
+              log.info(
+                  '*** Locale Country: ${localesCountryCode[i]}, Script: ${localesScriptCode[i]}, Language: ${localesLanguageCode[i]}');
+              return Locale.fromSubtags(
+                  countryCode: localesCountryCode[i],
+                  scriptCode: localesScriptCode[i],
+                  languageCode: localesLanguageCode[i]);
+            } else if (supportedLocalesCountryCode.contains(localesCountryCode[i]) &&
+                supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
+              log.info('*** Locale Country: ${localesCountryCode[i]}, Language: ${localesLanguageCode[i]}');
+              return Locale.fromSubtags(countryCode: localesCountryCode[i], languageCode: localesLanguageCode[i]);
+            } else if (supportedLocalesScriptCode.contains(localesScriptCode[i]) &&
+                supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
+              log.info('*** Locale Script: ${localesScriptCode[i]}, Language: ${localesLanguageCode[i]}');
+              return Locale.fromSubtags(scriptCode: localesScriptCode[i], languageCode: localesLanguageCode[i]);
+            } else if (supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
+              log.info('*** Locale Language: ${localesLanguageCode[i]}');
+              return Locale.fromSubtags(languageCode: localesLanguageCode[i]);
+            } else {
+              log.info('*** No Locale, so Language: en');
+            }
           }
-          else if (supportedLocalesCountryCode.contains(localesCountryCode[i]) &&
-                   supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
-            log.info('*** Locale Country: ${localesCountryCode[i]}, Language: ${localesLanguageCode[i]}');
-            return Locale.fromSubtags(countryCode: localesCountryCode[i], languageCode: localesLanguageCode[i]);
-          }
-          else if (supportedLocalesScriptCode.contains(localesScriptCode[i]) &&
-                   supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
-            log.info('*** Locale Script: ${localesScriptCode[i]}, Language: ${localesLanguageCode[i]}');
-            return Locale.fromSubtags(scriptCode: localesScriptCode[i], languageCode: localesLanguageCode[i]);
-          }
-          else if (supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
-            log.info('*** Locale Language: ${localesLanguageCode[i]}');
-            return Locale.fromSubtags(languageCode: localesLanguageCode[i]);
-          }
-          else {
-            log.info('*** No Locale, so Language: en');
-          }
-        }
-        return const Locale('en');
-      },
-      localizationsDelegates: const [
-        L10n.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: L10n.delegate.supportedLocales,
-      locale: _locale ?? DevicePreview.locale(context),
-      title: 'Squawker',
-      // regression #130295 in flutter Document Checkbox.fillColor behavior change
-      // ref: https://github.com/flutter/flutter/issues/130295
-      theme: light.copyWith(
-        tabBarTheme: light.tabBarTheme.copyWith(
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.grey.shade400,
+          return const Locale('en');
+        },
+        localizationsDelegates: const [
+          L10n.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: L10n.delegate.supportedLocales,
+        locale: _locale ?? DevicePreview.locale(context),
+        title: 'Squawker',
+        // regression #130295 in flutter Document Checkbox.fillColor behavior change
+        // ref: https://github.com/flutter/flutter/issues/130295
+        theme: light.copyWith(
+          tabBarTheme: light.tabBarTheme.copyWith(
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.grey.shade400,
+          ),
         ),
-      ),
-      darkTheme: dark.copyWith(
-        tabBarTheme: dark.tabBarTheme.copyWith(
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.grey.shade400,
+        darkTheme: dark.copyWith(
+          tabBarTheme: dark.tabBarTheme.copyWith(
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.grey.shade400,
+          ),
         ),
-      ),
-      themeMode: themeMode,
-      initialRoute: '/',
-      navigatorObservers: [_routeObserver],
-      routes: {
-        routeHome: (context) => const DefaultPage(),
-        routeGroup: (context) => const GroupScreen(),
-        routeProfile: (context) => const ProfileScreen(),
-        routeSearch: (context) => const SearchScreen(),
-        routeSettings: (context) => const SettingsScreen(),
-        routeSettingsExport: (context) => const SettingsExportScreen(),
-        routeSettingsHome: (context) => const SettingsScreen(initialPage: 'home'),
-        routeStatus: (context) => const StatusScreen(),
-        routeSubscriptionsImport: (context) => const SubscriptionImportScreen()
-      },
-      builder: (context, child) {
-        // Replace the default red screen of death with a slightly friendlier one
-        ErrorWidget.builder = (FlutterErrorDetails details) => FullPageErrorWidget(
-              error: details.exception,
-              stackTrace: details.stack,
-              prefix: L10n.of(context).something_broke_in_fritter,
-            );
+        themeMode: themeMode,
+        initialRoute: '/',
+        navigatorObservers: [_routeObserver],
+        routes: {
+          routeHome: (context) => const DefaultPage(),
+          routeGroup: (context) => const GroupScreen(),
+          routeProfile: (context) => const ProfileScreen(),
+          routeSearch: (context) => const SearchScreen(),
+          routeSettings: (context) => const SettingsScreen(),
+          routeSettingsExport: (context) => const SettingsExportScreen(),
+          routeSettingsHome: (context) => const SettingsScreen(initialPage: 'home'),
+          routeStatus: (context) => const StatusScreen(),
+          routeSubscriptionsImport: (context) => const SubscriptionImportScreen()
+        },
+        builder: (context, child) {
+          // Replace the default red screen of death with a slightly friendlier one
+          ErrorWidget.builder = (FlutterErrorDetails details) => FullPageErrorWidget(
+                error: details.exception,
+                stackTrace: details.stack,
+                prefix: L10n.of(context).something_broke_in_fritter,
+              );
 
-        return DevicePreview.appBuilder(context, child ?? Container());
-      },
-    );
+          return DevicePreview.appBuilder(context, child ?? Container());
+        },
+      );
+    });
   }
 }
 

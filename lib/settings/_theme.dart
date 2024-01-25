@@ -11,8 +11,8 @@ class SettingsThemeFragment extends StatefulWidget {
 
 class SettingsThemeFragmentState extends State<SettingsThemeFragment> {
   int _getOptionTweetFontSizeValue(BuildContext context) {
-    int optionTweetFontSizeValue =
-        PrefService.of(context).get<int>(optionTweetFontSize) ?? Theme.of(context).textTheme.bodyMedium!.fontSize!.round();
+    int optionTweetFontSizeValue = PrefService.of(context).get<int>(optionTweetFontSize) ??
+        Theme.of(context).textTheme.bodyMedium!.fontSize!.round();
     return optionTweetFontSizeValue;
   }
 
@@ -52,55 +52,6 @@ class SettingsThemeFragmentState extends State<SettingsThemeFragment> {
               child: Text(L10n.of(context).dark),
             ),
           ]),
-          PrefButton(
-            title: Text(L10n.of(context).theme),
-            child: Icon(Icons.palette_rounded, color: color),
-            onTap: () {
-              showDialog(
-                  context: context,
-                  builder: (context) {
-                    var selectedColor = color;
-
-                    return AlertDialog(
-                      title: Text(L10n.of(context).pick_a_color),
-                      content: SingleChildScrollView(
-                        child: MaterialPicker(
-                          pickerColor: color,
-                          onColorChanged: (value) => setState(() {
-                            selectedColor = value;
-                          }),
-                          enableLabel: true,
-                        ),
-                      ),
-                      actions: <Widget>[
-                        TextButton(
-                          child: Text(L10n.of(context).cancel),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                        TextButton(
-                          child: Text(L10n.of(context).ok),
-                          onPressed: () {
-                            setState(() {
-                              color = selectedColor;
-                              prefs.set(optionThemeColorScheme, colorToHex(color).toString());
-                            });
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      ],
-                    );
-                  });
-            },
-          ),
-          PrefSwitch(
-            title: Text(L10n.of(context).true_black),
-            pref: optionThemeTrueBlack,
-            subtitle: Text(
-              L10n.of(context).use_true_black_for_the_dark_mode_theme,
-            ),
-          ),
           PrefButton(
             title: Text(L10n.of(context).tweet_font_size_label),
             subtitle: Text(L10n.of(context).tweet_font_size_description),
