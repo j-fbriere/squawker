@@ -90,6 +90,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "an_update_for_fritter_is_available":
             MessageLookupByLibrary.simpleMessage(
                 "Squawker için bir güncelleme mevcut! 🚀"),
+        "app_info": MessageLookupByLibrary.simpleMessage("Uygulama Bilgisi"),
         "are_you_sure": MessageLookupByLibrary.simpleMessage("Emin misiniz?"),
         "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group":
             m0,
@@ -160,6 +161,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_your_twitter_username": MessageLookupByLibrary.simpleMessage(
             "Twitter/X kullanıcı adınızı girin"),
         "export": MessageLookupByLibrary.simpleMessage("Dışa aktar"),
+        "export_guest_accounts": MessageLookupByLibrary.simpleMessage(
+            "Konuk hesapları dışa aktarılsın mı?"),
         "export_settings":
             MessageLookupByLibrary.simpleMessage("Ayarlar aktarılsın mı?"),
         "export_subscription_group_members":
@@ -224,6 +227,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "light": MessageLookupByLibrary.simpleMessage("Açık"),
         "live": MessageLookupByLibrary.simpleMessage("CANLI"),
         "logging": MessageLookupByLibrary.simpleMessage("Günlük tutma"),
+        "material_3": MessageLookupByLibrary.simpleMessage("Material 3?"),
         "media": MessageLookupByLibrary.simpleMessage("Medya"),
         "media_size": MessageLookupByLibrary.simpleMessage("Medya boyutu"),
         "medium": MessageLookupByLibrary.simpleMessage("Orta"),
@@ -309,6 +313,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "İçe aktarılacak bireysel hesapların seçilmesi ve grupların atanması şimdiden gelecek için planlanmıştır!"),
         "send": MessageLookupByLibrary.simpleMessage("Gönder"),
+        "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
         "share_base_url":
             MessageLookupByLibrary.simpleMessage("Özel paylaşım URL\'si"),
         "share_base_url_description": MessageLookupByLibrary.simpleMessage(

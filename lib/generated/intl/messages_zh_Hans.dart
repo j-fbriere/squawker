@@ -203,7 +203,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "language_subtitle": MessageLookupByLibrary.simpleMessage("需要重启应用"),
         "large": MessageLookupByLibrary.simpleMessage("大"),
         "leaner_feeds_description":
-            MessageLookupByLibrary.simpleMessage("时间轴的推文不展示链接预览"),
+            MessageLookupByLibrary.simpleMessage("预览链接不显示在来自源的推文中"),
         "legacy_android_import":
             MessageLookupByLibrary.simpleMessage("从旧的 Android 设备导入"),
         "let_the_developers_know_if_something_is_broken":
@@ -414,7 +414,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "when_a_new_app_update_is_available":
             MessageLookupByLibrary.simpleMessage("当有更新可用时"),
         "whether_errors_should_be_reported_to_":
-            MessageLookupByLibrary.simpleMessage("是否向  发送错误？👀"),
+            MessageLookupByLibrary.simpleMessage("是否应将错误报告给 "),
         "whether_to_hide_tweets_marked_as_sensitive":
             MessageLookupByLibrary.simpleMessage("是否隐藏被标记为敏感的推文"),
         "which_tab_is_shown_when_the_app_opens":

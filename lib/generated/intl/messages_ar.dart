@@ -155,7 +155,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "download_path": MessageLookupByLibrary.simpleMessage("مسار التنزيل"),
         "download_video_best_quality_description":
             MessageLookupByLibrary.simpleMessage(
-                "قم بتنزيل مقاطع الفيديو بأفضل جودة متاحة"),
+                "تنزيل مقاطع الفيديو بأفضل جودة متاحة"),
         "download_video_best_quality_label":
             MessageLookupByLibrary.simpleMessage(
                 "قم بتنزيل مقاطع الفيديو بأفضل جودة"),
@@ -241,7 +241,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("يتطلب إعادة تشغيل"),
         "large": MessageLookupByLibrary.simpleMessage("كبير"),
         "leaner_feeds_description": MessageLookupByLibrary.simpleMessage(
-            "لا تعرض التغريدات من الخلاصات روابط المعاينة"),
+            "لا تظهر روابط المعاينة في التغريدات من الخلاصات"),
         "leaner_feeds_label": MessageLookupByLibrary.simpleMessage("موجز خفيف"),
         "legacy_android_import": MessageLookupByLibrary.simpleMessage(
             "استيردات البيانات للأندرويد القديم"),
@@ -522,7 +522,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لم تحفظ أي تغريدة حتى الآن!"),
         "you_must_have_at_least_2_home_screen_pages":
             MessageLookupByLibrary.simpleMessage(
-                "يجب أن يكون لديك على الأقل 2 صفحات الشاشة الرئيسية"),
+                "يجب أن يكون لديك على الأقل صفحتان للشاشة الرئيسية"),
         "your_profile_must_be_public_otherwise_the_import_will_not_work":
             MessageLookupByLibrary.simpleMessage(
                 "يجب أن يكون ملف التعريف الخاص بك عاما، وإلا لن يعمل الاستيراد"),

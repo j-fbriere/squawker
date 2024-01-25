@@ -490,5 +490,13 @@
   "functionality_unsupported": "Bu işlev artık Twitter/X tarafından desteklenmiyor!",
   "@functionality_unsupported": {},
   "add_subscriptions": "Abonelik ekle",
-  "@add_subscriptions": {}
+  "@add_subscriptions": {},
+  "settings": "Ayarlar",
+  "@settings": {},
+  "export_guest_accounts": "Konuk hesapları dışa aktarılsın mı?",
+  "@export_guest_accounts": {},
+  "app_info": "Uygulama Bilgisi",
+  "@app_info": {},
+  "material_3": "Material 3?",
+  "@material_3": {}
 }

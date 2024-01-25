@@ -569,10 +569,10 @@ packages:
     dependency: "direct dev"
     description:
       name: intl_utils
-      sha256: "1d6d98ce452c586d099a57751d127c0c22727e6f34f5be1f5e7f2bcc69e5062a"
+      sha256: c2b1f5c72c25512cbeef5ab015c008fc50fe7e04813ba5541c25272300484bf4
       url: "https://pub.dev"
     source: hosted
-    version: "2.8.6"
+    version: "2.8.7"
   js:
     dependency: transitive
     description:

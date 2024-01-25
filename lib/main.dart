@@ -32,6 +32,7 @@ import 'package:squawker/trends/trends_model.dart';
 import 'package:squawker/tweet/_video.dart';
 import 'package:squawker/ui/errors.dart';
 import 'package:squawker/utils/data_service.dart';
+import 'package:squawker/utils/iterables.dart';
 import 'package:squawker/utils/misc.dart';
 import 'package:squawker/utils/urls.dart';
 import 'package:faker/faker.dart';
@@ -282,11 +283,20 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
       if (locale == null || locale == optionLocaleDefault) {
         _locale = null;
       } else {
-        var splitLocale = locale.split('-');
+        var splitLocale = locale.split('_');
         if (splitLocale.length == 1) {
-          _locale = Locale(splitLocale[0]);
-        } else {
-          _locale = Locale(splitLocale[0], splitLocale[1]);
+          _locale = L10n.delegate.supportedLocales.firstWhereOrNull((e) => e.languageCode == splitLocale[0]);
+        }
+        else if (splitLocale.length == 2) {
+          if (splitLocale[1].length == 2) {
+            _locale = L10n.delegate.supportedLocales.firstWhereOrNull((e) => e.languageCode == splitLocale[0] && e.countryCode == splitLocale[1]);
+          }
+          else { // splitLocale[1].length == 4
+            _locale = L10n.delegate.supportedLocales.firstWhereOrNull((e) => e.languageCode == splitLocale[0] && e.scriptCode == splitLocale[1]);
+          }
+        }
+        else { // splitLocale.length == 3
+          _locale = L10n.delegate.supportedLocales.firstWhereOrNull((e) => e.languageCode == splitLocale[0] && e.scriptCode == splitLocale[1] && e.countryCode == splitLocale[2]);
         }
       }
     }
@@ -407,36 +417,50 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
     return MaterialApp(
       localeListResolutionCallback: (locales, supportedLocales) {
         List supportedLocalesCountryCode = [];
-        for (var item in supportedLocales) {
-          supportedLocalesCountryCode.add(item.countryCode);
-        }
-
+        List supportedLocalesScriptCode = [];
         List supportedLocalesLanguageCode = [];
         for (var item in supportedLocales) {
+          if (item.countryCode != null) {
+            supportedLocalesCountryCode.add(item.countryCode);
+          }
+          if (item.scriptCode != null) {
+            supportedLocalesScriptCode.add(item.scriptCode);
+          }
           supportedLocalesLanguageCode.add(item.languageCode);
         }
 
-        locales!;
         List localesCountryCode = [];
-        for (var item in locales) {
-          localesCountryCode.add(item.countryCode);
-        }
-
+        List localesScriptCode = [];
         List localesLanguageCode = [];
-        for (var item in locales) {
+        for (var item in locales!) {
+          localesCountryCode.add(item.countryCode);
+          localesScriptCode.add(item.scriptCode);
           localesLanguageCode.add(item.languageCode);
         }
 
         for (var i = 0; i < locales.length; i++) {
           if (supportedLocalesCountryCode.contains(localesCountryCode[i]) &&
+              supportedLocalesScriptCode.contains(localesScriptCode[i]) &&
               supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
-            log.info('Yes country: ${localesCountryCode[i]}, ${localesLanguageCode[i]}');
-            return Locale(localesLanguageCode[i], localesCountryCode[i]);
-          } else if (supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
-            log.info('Yes language: ${localesLanguageCode[i]}');
-            return Locale(localesLanguageCode[i]);
-          } else {
-            log.info('Nothing');
+            log.info('*** Locale Country: ${localesCountryCode[i]}, Script: ${localesScriptCode[i]}, Language: ${localesLanguageCode[i]}');
+            return Locale.fromSubtags(countryCode: localesCountryCode[i], scriptCode: localesScriptCode[i], languageCode: localesLanguageCode[i]);
+          }
+          else if (supportedLocalesCountryCode.contains(localesCountryCode[i]) &&
+                   supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
+            log.info('*** Locale Country: ${localesCountryCode[i]}, Language: ${localesLanguageCode[i]}');
+            return Locale.fromSubtags(countryCode: localesCountryCode[i], languageCode: localesLanguageCode[i]);
+          }
+          else if (supportedLocalesScriptCode.contains(localesScriptCode[i]) &&
+                   supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
+            log.info('*** Locale Script: ${localesScriptCode[i]}, Language: ${localesLanguageCode[i]}');
+            return Locale.fromSubtags(scriptCode: localesScriptCode[i], languageCode: localesLanguageCode[i]);
+          }
+          else if (supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
+            log.info('*** Locale Language: ${localesLanguageCode[i]}');
+            return Locale.fromSubtags(languageCode: localesLanguageCode[i]);
+          }
+          else {
+            log.info('*** No Locale, so Language: en');
           }
         }
         return const Locale('en');

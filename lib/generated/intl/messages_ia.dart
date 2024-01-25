@@ -21,5 +21,53 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ia';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "add_to_group": MessageLookupByLibrary.simpleMessage("Adder al gruppo"),
+        "could_not_find_any_tweets_by_this_user":
+            MessageLookupByLibrary.simpleMessage(
+                "Non poteva trovar necun tweet de iste usator!"),
+        "could_not_find_any_tweets_from_the_last_7_days":
+            MessageLookupByLibrary.simpleMessage(
+                "Non poteva trovar tweets ab le ultime 7 dies!"),
+        "feed": MessageLookupByLibrary.simpleMessage("Fluxos"),
+        "filters": MessageLookupByLibrary.simpleMessage("Filtros"),
+        "no_results": MessageLookupByLibrary.simpleMessage("Nulle resultatos"),
+        "reporting_an_error":
+            MessageLookupByLibrary.simpleMessage("Signalar un error"),
+        "saved": MessageLookupByLibrary.simpleMessage("Salvate"),
+        "select": MessageLookupByLibrary.simpleMessage("Seliger"),
+        "subscribe": MessageLookupByLibrary.simpleMessage("Subscriber se"),
+        "subscriptions": MessageLookupByLibrary.simpleMessage("Subscriptiones"),
+        "this_group_contains_no_subscriptions":
+            MessageLookupByLibrary.simpleMessage(
+                "Iste gruppo non ha subscriptiones!"),
+        "trending": MessageLookupByLibrary.simpleMessage("Tendentias"),
+        "unable_to_find_your_saved_tweets":
+            MessageLookupByLibrary.simpleMessage(
+                "Non poteva trovar tu tweets salvate."),
+        "unable_to_load_subscription_groups":
+            MessageLookupByLibrary.simpleMessage(
+                "Non poteva cargar le gruppos de subscription"),
+        "unable_to_load_the_group":
+            MessageLookupByLibrary.simpleMessage("Non poteva cargar le gruppo"),
+        "unable_to_load_the_group_settings":
+            MessageLookupByLibrary.simpleMessage(
+                "Non poteva cargar le configurationes de gruppo"),
+        "unable_to_load_the_next_page_of_replies":
+            MessageLookupByLibrary.simpleMessage(
+                "Non poteva cargar le sequente pagina de responsas"),
+        "unable_to_load_the_next_page_of_tweets":
+            MessageLookupByLibrary.simpleMessage(
+                "Non poteva cargar le sequente pagina de tweets"),
+        "unable_to_load_the_search_results":
+            MessageLookupByLibrary.simpleMessage(
+                "Non poteva cargar le resultatos de recerca."),
+        "unable_to_load_the_tweet":
+            MessageLookupByLibrary.simpleMessage("Non poteva cargar le tweet"),
+        "unable_to_load_the_tweets_for_the_feed":
+            MessageLookupByLibrary.simpleMessage(
+                "Non poteva cargar le tweets pro le fluxo"),
+        "unsubscribe":
+            MessageLookupByLibrary.simpleMessage("Cancellar le subscription")
+      };
 }
