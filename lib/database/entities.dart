@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:squawker/group/group_model.dart';
 import 'package:squawker/user.dart';
+import 'package:squawker/utils/misc.dart';
 import 'package:intl/intl.dart';
 
 final DateFormat sqliteDateFormat = DateFormat('yyyy-MM-dd hh:mm:ss');
@@ -216,4 +217,37 @@ class SubscriptionGroupMember with ToMappable {
   Map<String, dynamic> toMap() {
     return {'group_id': group, 'profile_id': profile};
   }
+}
+
+class GuestAccount with ToMappable {
+
+  final String idStr;
+  final String screenName;
+  final String oauthToken;
+  final String oauthTokenSecret;
+  final DateTime createdAt;
+
+  GuestAccount({required this.idStr, required this.screenName, required this.oauthToken, required this.oauthTokenSecret, required this.createdAt});
+
+  factory GuestAccount.fromMap(Map<String, Object?> json) {
+    return GuestAccount(
+        idStr: json['id_str'] == null ? getRandomString(19) : json['id_str'] as String,
+        screenName: json['screen_name'] == null ? getRandomString(15) : json['screen_name'] as String,
+        oauthToken: json['oauth_token'] == null ? '' : json['oauth_token'] as String,
+        oauthTokenSecret: json['oauth_token_secret'] == null ? '' : json['oauth_token_secret'] as String,
+        createdAt: json['created_at'] == null ? DateTime.now() : DateTime.parse(json['created_at'] as String)
+    );
+  }
+
+  @override
+  Map<String, dynamic> toMap() {
+    return {
+      'id_str': idStr,
+      'screen_name': screenName,
+      'oauth_token': oauthToken,
+      'oauth_token_secret': oauthTokenSecret,
+      'created_at': createdAt.toIso8601String()
+    };
+  }
+
 }

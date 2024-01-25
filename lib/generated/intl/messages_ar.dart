@@ -79,20 +79,24 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تفعيل نمط التحيز غير المؤكد"),
         "add_subscriptions":
             MessageLookupByLibrary.simpleMessage("إضافة اشتراكات"),
+        "add_to_feed": MessageLookupByLibrary.simpleMessage("إضافة إلى الموجز"),
         "add_to_group":
             MessageLookupByLibrary.simpleMessage("أضف إلى المجموعة"),
         "all": MessageLookupByLibrary.simpleMessage("الكل"),
         "all_the_great_software_used_by_fritter":
             MessageLookupByLibrary.simpleMessage(
-                "كل البرمجيات الرائعة التي يستخدمها فريتر"),
+                "كافة البرمجيات الرائعة التي يستخدمها Squawker"),
         "an_update_for_fritter_is_available":
-            MessageLookupByLibrary.simpleMessage("هناك تحديث متاح لفريتر! 🚀"),
+            MessageLookupByLibrary.simpleMessage(
+                "هناك تحديث متوفر لـ Squawker! 🚀"),
+        "app_info": MessageLookupByLibrary.simpleMessage("معلومات عن التطبيق"),
         "are_you_sure": MessageLookupByLibrary.simpleMessage("هل أنت متأكد؟"),
         "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group":
             m0,
         "back": MessageLookupByLibrary.simpleMessage("رجوع"),
         "bad_guest_token": MessageLookupByLibrary.simpleMessage(
             "لقد ألغى Twitter/X رمز الوصول الخاص بنا. من فضلك حاول إعادة فتح Squawker!"),
+        "beta": MessageLookupByLibrary.simpleMessage("تجريبي"),
         "blue_theme_based_on_the_twitter_color_scheme":
             MessageLookupByLibrary.simpleMessage(
                 "السمة الزرقاء بنائاً على سمة تويتر"),
@@ -127,8 +131,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "date_created": MessageLookupByLibrary.simpleMessage("تاريخ الإنشاء"),
         "date_subscribed":
             MessageLookupByLibrary.simpleMessage("تاريخ الاشتراك"),
-        "default_tab":
-            MessageLookupByLibrary.simpleMessage("التبويب الافتراضي"),
+        "default_subscription_tab": MessageLookupByLibrary.simpleMessage(
+            "علامة تبويب الاشتراك الافتراضية"),
+        "default_tab": MessageLookupByLibrary.simpleMessage("اللسان الافتراضي"),
         "delete": MessageLookupByLibrary.simpleMessage("حذف"),
         "disable_screenshots":
             MessageLookupByLibrary.simpleMessage("تعطيل لقطات الشاشة"),
@@ -146,21 +151,41 @@ class MessageLookup extends MessageLookupByLibrary {
         "download_handling_type_directory":
             MessageLookupByLibrary.simpleMessage("حفظ في المسار"),
         "download_media_no_url": MessageLookupByLibrary.simpleMessage(
-            "غير قادر على تحميل . هذا المحتوى قد يكون متاحا فقط على شكل بث ، فريتر لا يمكنه تحميله ."),
+            "تعذّر التنزيل. قد تكون هذه الوسائط متاحة فقط على شكل بث، لا يمكن لـ Squawker تنزيلها."),
         "download_path": MessageLookupByLibrary.simpleMessage("مسار التنزيل"),
+        "download_video_best_quality_description":
+            MessageLookupByLibrary.simpleMessage(
+                "تنزيل مقاطع الفيديو بأفضل جودة متاحة"),
+        "download_video_best_quality_label":
+            MessageLookupByLibrary.simpleMessage(
+                "قم بتنزيل مقاطع الفيديو بأفضل جودة"),
         "downloading_media":
             MessageLookupByLibrary.simpleMessage("تحميل الوسائط..."),
         "enable_": MessageLookupByLibrary.simpleMessage("تفعيل الحارس؟"),
         "ended_timeago_format_endsAt_allowFromNow_true": m3,
         "ends_timeago_format_endsAt_allowFromNow_true": m4,
+        "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(
+            "الطلبات المحسنة للخلاصات (ولكن مع حدود معدل أقل)"),
+        "enhanced_feeds_label":
+            MessageLookupByLibrary.simpleMessage("خلاصات محسنة"),
+        "enhanced_profile_description":
+            MessageLookupByLibrary.simpleMessage("طلبات محسنة للملف الشخصي"),
+        "enhanced_profile_label":
+            MessageLookupByLibrary.simpleMessage("ملف تعريف مُحسّن"),
+        "enhanced_searches_description": MessageLookupByLibrary.simpleMessage(
+            "طلبات محسنة لعمليات البحث (ولكن مع حدود معدل أقل)"),
+        "enhanced_searches_label":
+            MessageLookupByLibrary.simpleMessage("عمليات البحث المحسنة"),
         "enter_your_twitter_username":
             MessageLookupByLibrary.simpleMessage("ادخل اسم مستخدم للتويتر"),
         "export": MessageLookupByLibrary.simpleMessage("تصدير"),
+        "export_guest_accounts":
+            MessageLookupByLibrary.simpleMessage("تصدير حسابات الضيوف؟"),
         "export_settings":
             MessageLookupByLibrary.simpleMessage("تصدير الإعدادات؟"),
         "export_subscription_group_members":
             MessageLookupByLibrary.simpleMessage(
-                "تصدير أفراد مجموعات الاشتراكات؟"),
+                "تصدير أعضاء مجموعات الاشتراكات؟"),
         "export_subscription_groups":
             MessageLookupByLibrary.simpleMessage("تصدير مجموعات الاشتراكات؟"),
         "export_subscriptions":
@@ -169,7 +194,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تصدير التغريدات؟"),
         "export_your_data":
             MessageLookupByLibrary.simpleMessage("تصدير بياناتك"),
-        "feed": MessageLookupByLibrary.simpleMessage("التلقيم"),
+        "feed": MessageLookupByLibrary.simpleMessage("الموجز"),
         "filters": MessageLookupByLibrary.simpleMessage("المرشحات"),
         "finish": MessageLookupByLibrary.simpleMessage("انهاء"),
         "finished_with_snapshotData_users": m5,
@@ -177,17 +202,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "following": MessageLookupByLibrary.simpleMessage("المتابَعون"),
         "forbidden": MessageLookupByLibrary.simpleMessage(
             "تويتر يقول إن الوصول إلى هذا ممنوع"),
-        "fritter": MessageLookupByLibrary.simpleMessage("فريتر"),
-        "fritter_blue": MessageLookupByLibrary.simpleMessage("فريتر أزرق"),
+        "fritter": MessageLookupByLibrary.simpleMessage("Squawker"),
+        "fritter_blue": MessageLookupByLibrary.simpleMessage("سكاوكر أزرق"),
         "functionality_unsupported": MessageLookupByLibrary.simpleMessage(
             "لم يعد تويتر يدعم هذه الميزة!"),
         "general": MessageLookupByLibrary.simpleMessage("العامة"),
+        "generic_username": MessageLookupByLibrary.simpleMessage("مستخدِم"),
         "group_name": m6,
         "groups": MessageLookupByLibrary.simpleMessage("المجموعات"),
-        "help_make_fritter_even_better":
-            MessageLookupByLibrary.simpleMessage("المساعدة في جعل فريتر أفضل"),
-        "help_support_fritters_future":
-            MessageLookupByLibrary.simpleMessage("ساعد على دعم مستقبل فريتر"),
+        "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
+            "المساعدة في جعل Squawker أفضل"),
+        "help_support_fritters_future": MessageLookupByLibrary.simpleMessage(
+            "المساعدة على دعم تطوير Squawker"),
         "hide_sensitive_tweets":
             MessageLookupByLibrary.simpleMessage("إخفاء التغريدات الحساسة"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
@@ -203,13 +229,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("استيراد الاشتراكات"),
         "imported_snapshot_data_users_so_far": m7,
         "include_replies": MessageLookupByLibrary.simpleMessage("تضمين الردود"),
-        "include_retweets":
-            MessageLookupByLibrary.simpleMessage("تضمين إعادات التغاريد"),
+        "include_retweets": MessageLookupByLibrary.simpleMessage(
+            "تضمين التغريدات المعاد نشرها"),
         "joined": m8,
+        "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
+            "يتم الاحتفاظ بإزاحة المخطط الزمني للخلاصات عند إعادة تشغيل التطبيق"),
+        "keep_feed_offset_label":
+            MessageLookupByLibrary.simpleMessage("حافظ على موازنة الخلاصات"),
         "language": MessageLookupByLibrary.simpleMessage("اللغات"),
         "language_subtitle":
             MessageLookupByLibrary.simpleMessage("يتطلب إعادة تشغيل"),
         "large": MessageLookupByLibrary.simpleMessage("كبير"),
+        "leaner_feeds_description": MessageLookupByLibrary.simpleMessage(
+            "لا تظهر روابط المعاينة في التغريدات من الخلاصات"),
+        "leaner_feeds_label": MessageLookupByLibrary.simpleMessage("موجز خفيف"),
         "legacy_android_import": MessageLookupByLibrary.simpleMessage(
             "استيردات البيانات للأندرويد القديم"),
         "let_the_developers_know_if_something_is_broken":
@@ -219,6 +252,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "light": MessageLookupByLibrary.simpleMessage("فاتح"),
         "live": MessageLookupByLibrary.simpleMessage("مباشر"),
         "logging": MessageLookupByLibrary.simpleMessage("تسجيل البيانات"),
+        "material_3": MessageLookupByLibrary.simpleMessage("Material 3؟"),
         "media": MessageLookupByLibrary.simpleMessage("الوسائط"),
         "media_size": MessageLookupByLibrary.simpleMessage("حجم الوسائط"),
         "medium": MessageLookupByLibrary.simpleMessage("متوسط"),
@@ -253,14 +287,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("أوبسي! حدث خطأ ما 🥲"),
         "open_app_settings":
             MessageLookupByLibrary.simpleMessage("افتح إعدادات التطبيق"),
+        "open_in_browser":
+            MessageLookupByLibrary.simpleMessage("فتح في المتصفّح"),
+        "option_confirm_close_description":
+            MessageLookupByLibrary.simpleMessage(
+                "قم بالتأكيد عند إغلاق التطبيق"),
+        "option_confirm_close_label":
+            MessageLookupByLibrary.simpleMessage("تأكيد الإغلاق"),
         "page_not_found": MessageLookupByLibrary.simpleMessage(
             "تويتر يقول إن الصفحة غير موجودة، ولكن هذا قد لا يكون صحيحا"),
         "permission_not_granted": MessageLookupByLibrary.simpleMessage(
             "الإذن غير ممنوح. يرجى المحاولة مرة أخرى بعد منحه!"),
         "pick_a_color": MessageLookupByLibrary.simpleMessage("اختر لون!"),
         "pick_an_icon": MessageLookupByLibrary.simpleMessage("اختر أيقونة!"),
-        "pinned_tweet":
-            MessageLookupByLibrary.simpleMessage("التغريدة المثبتة"),
+        "pinned_tweet": MessageLookupByLibrary.simpleMessage("تغريدة مثبتة"),
         "playback_speed": MessageLookupByLibrary.simpleMessage("سرعة التشغيل"),
         "please_check_your_internet_connection_error_message": m10,
         "please_enter_a_name":
@@ -281,6 +321,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "private_profile": MessageLookupByLibrary.simpleMessage("ملف شخصي خاص"),
         "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
             "منشور تحت رخصة الإم أي تي (MIT License)"),
+        "remove_from_feed":
+            MessageLookupByLibrary.simpleMessage("تنحية من الموجز"),
         "replying_to": MessageLookupByLibrary.simpleMessage("يرد على"),
         "report": MessageLookupByLibrary.simpleMessage("إبلاغ"),
         "report_a_bug": MessageLookupByLibrary.simpleMessage("الإبلاغ عن خطأ"),
@@ -288,12 +330,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الإبلاغ غن خطأ"),
         "reset_home_pages": MessageLookupByLibrary.simpleMessage(
             "إعادة تعيين الصفحة إلى القيمة الافتراضية"),
-        "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاوة"),
+        "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
         "save": MessageLookupByLibrary.simpleMessage("حفظ"),
         "save_bandwidth_using_smaller_images":
             MessageLookupByLibrary.simpleMessage(
                 "حفظ النطاق الترددي مع صور أصغر"),
-        "saved": MessageLookupByLibrary.simpleMessage("المحفوظ"),
+        "saved": MessageLookupByLibrary.simpleMessage("تم حفظه"),
         "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(
             "تعذر عرض هذه التغريدة المحفوظة لأنها كبيرة جدًا بحيث لا يمكن تحميلها. الرجاء الإبلاغ عن ذلك للمطورين."),
         "search": MessageLookupByLibrary.simpleMessage("البحث"),
@@ -303,6 +345,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "تحديد حسابات مفردة، وتعيين مجموعات هما ميزات قد خُطط لها بالفعل للمستقبل!"),
         "send": MessageLookupByLibrary.simpleMessage("إرسال"),
+        "settings": MessageLookupByLibrary.simpleMessage("اﻹعدادات"),
         "share_base_url":
             MessageLookupByLibrary.simpleMessage("عنوان URL المخصص للمشاركة"),
         "share_base_url_description": MessageLookupByLibrary.simpleMessage(
@@ -320,14 +363,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("التحقق من وجود تحديثات"),
         "small": MessageLookupByLibrary.simpleMessage("صغير"),
         "something_broke_in_fritter":
-            MessageLookupByLibrary.simpleMessage("حدث خطأ ما في فريتر."),
+            MessageLookupByLibrary.simpleMessage("حدث خطأ ما في Squawker."),
         "something_just_went_wrong_in_fritter_and_an_error_report_has_been_generated":
             MessageLookupByLibrary.simpleMessage(
-                "حدث خطأ ما في فريتر، تم إنشاء تقرير لهذا الخطأ، تستطيع أن تبعث التقرير إلى مطورين فريتر لمساعدتهم على إصلاح المشكلة."),
+                "حدث خطأ ما في Squawker، وتم توليد تقرير لهذا الخطأ، يمكن ارسال التقرير إلى مطوري Squawker لمساعدتهم على إصلاح المشكلة."),
         "sorry_the_replied_tweet_could_not_be_found":
             MessageLookupByLibrary.simpleMessage(
                 "عذرا ، لم يتم العثور على التغريدة التي تم الرد عليها!"),
-        "subscribe": MessageLookupByLibrary.simpleMessage("الاشتراك"),
+        "subscribe": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "subscriptions": MessageLookupByLibrary.simpleMessage("الإشتراكات"),
         "subtitles": MessageLookupByLibrary.simpleMessage("السطرجة"),
         "successfully_saved_the_media":
@@ -336,7 +379,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "tap_to_download_release_version": m11,
         "tap_to_show_getMediaType_item_type": m12,
         "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
-            "شكراً على مساعدتك لفريتر! 💖"),
+            "شكراً على مساعدتك لـ Squawker! 💖"),
         "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m13,
         "the_github_issue":
             MessageLookupByLibrary.simpleMessage("مشكلة جيثب (# 143)"),
@@ -350,7 +393,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "لم يتم إرجاع أي ترند. هذا غير متوقع! رجائاً أبلغ عن خطأ، إذا كان ممكناً."),
         "this_group_contains_no_subscriptions":
             MessageLookupByLibrary.simpleMessage(
-                "هذه المجموعة لا تحتوي على أي مجموعات!"),
+                "هذه المجموعة لا تحتوي على اشتراكات!"),
         "this_took_too_long_to_load_please_check_your_network_connection":
             MessageLookupByLibrary.simpleMessage(
                 "استغرق هذا وقتا طويلا للتحميل. رجائاً تأكد من اتصال الشبكة لديك!"),
@@ -362,17 +405,23 @@ class MessageLookup extends MessageLookupByLibrary {
                 "هذا المستخدم لا يتابِع أحداً!"),
         "this_user_does_not_have_anyone_following_them":
             MessageLookupByLibrary.simpleMessage(
-                "هذا المستخدم ليس لديه أي اشخاص يتابعهم!"),
+                "ليس لهذا المستخدم أي شخص يتابعه!"),
         "thread": MessageLookupByLibrary.simpleMessage("سلسلة"),
         "thumbnail": MessageLookupByLibrary.simpleMessage("الصورة المصغرة"),
+        "thumbnail_not_available":
+            MessageLookupByLibrary.simpleMessage("المعاينة غير متوفرة"),
         "timed_out": MessageLookupByLibrary.simpleMessage("انتهت المهلة"),
         "to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below":
             MessageLookupByLibrary.simpleMessage(
                 "لاستيراد الاشتراكات من حساب تويتر موجود، أدخل اسم المستخدم أدناه."),
         "toggle_all": MessageLookupByLibrary.simpleMessage("تبديل الكل"),
-        "trending": MessageLookupByLibrary.simpleMessage("الشائع"),
+        "trending": MessageLookupByLibrary.simpleMessage("المتداولة"),
         "trends": MessageLookupByLibrary.simpleMessage("الترندات"),
         "true_black": MessageLookupByLibrary.simpleMessage("أسود حقيقي؟"),
+        "tweet_font_size_description":
+            MessageLookupByLibrary.simpleMessage("حجم خط التغريدات"),
+        "tweet_font_size_label":
+            MessageLookupByLibrary.simpleMessage("حجم الخط"),
         "tweets": MessageLookupByLibrary.simpleMessage("التغريدات"),
         "tweets_and_replies":
             MessageLookupByLibrary.simpleMessage("التغريدات والردود"),
@@ -391,9 +440,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "تعذر تحميل الصفحات الرئيسية الخاصة بك"),
         "unable_to_load_subscription_groups":
             MessageLookupByLibrary.simpleMessage(
-                "غير قادر على تحميل مجموعات الاشتراك"),
+                "تعذّر تحميل مجموعات الاشتراك"),
         "unable_to_load_the_group":
-            MessageLookupByLibrary.simpleMessage("غير قادر على تحميل المجموعة"),
+            MessageLookupByLibrary.simpleMessage("تعذّر تحميل المجموعة"),
         "unable_to_load_the_group_settings":
             MessageLookupByLibrary.simpleMessage(
                 "غير قادر على تحميل إعدادات المجموعة"),
@@ -409,19 +458,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "unable_to_load_the_next_page_of_tweets":
             MessageLookupByLibrary.simpleMessage(
                 "غير قادر على تحميل الصفحة التالية من التغريدات"),
-        "unable_to_load_the_profile": MessageLookupByLibrary.simpleMessage(
-            "غير قادر على تحميل الملف الشخصي"),
+        "unable_to_load_the_profile":
+            MessageLookupByLibrary.simpleMessage("تعذّر تحميل الملف الشخصي"),
         "unable_to_load_the_search_results":
             MessageLookupByLibrary.simpleMessage(
                 "غير قادر على تحميل نتائج البحث."),
         "unable_to_load_the_trends_for_widget_place_name": m16,
-        "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
-            "غير قادر على تحميل التغريدات"),
-        "unable_to_load_the_tweets": MessageLookupByLibrary.simpleMessage(
-            "غير قادر على تحميل التغريدات"),
+        "unable_to_load_the_tweet":
+            MessageLookupByLibrary.simpleMessage("تعذّر تحميل التغريدات"),
+        "unable_to_load_the_tweets":
+            MessageLookupByLibrary.simpleMessage("تعذّر تحميل التغريدات"),
         "unable_to_load_the_tweets_for_the_feed":
             MessageLookupByLibrary.simpleMessage(
-                "غير قادر على تحميل التغريدات للمُلقّم"),
+                "غير قادر على تحميل التغريدات للمُوجز"),
         "unable_to_refresh_the_subscriptions":
             MessageLookupByLibrary.simpleMessage(
                 "غير قادر على تحديث الاشتراكات"),
@@ -452,28 +501,33 @@ class MessageLookup extends MessageLookupByLibrary {
                 "عندما يكون هناك تحديث جديد للتطبيق"),
         "whether_errors_should_be_reported_to_":
             MessageLookupByLibrary.simpleMessage(
-                "ما إذا يجب على الأخطاء البرمجية أن يُبلّغ عنها إلى الحارس"),
+                "ما إذا يجب على الأخطاء البرمجية أن يُبلّغ عنها إلى "),
         "whether_to_hide_tweets_marked_as_sensitive":
             MessageLookupByLibrary.simpleMessage(
                 "ما إذا كنت تريد إخفاء التغريدات التي تم وضع علامة عليها على أنها حساسة"),
         "which_tab_is_shown_when_the_app_opens":
             MessageLookupByLibrary.simpleMessage(
-                "أي تبويب يظهر عندما يفتح التطبيق"),
+                "أي لسان سيظهر عندما يفتح التطبيق"),
+        "which_tab_is_shown_when_the_subscription_opens":
+            MessageLookupByLibrary.simpleMessage(
+                "علامة التبويب التي تظهر عند فتح الاشتراك"),
         "would_you_like_to_enable_automatic_error_reporting":
             MessageLookupByLibrary.simpleMessage(
                 "هل تُحب أن تفعل مُبَلغ الأخطاء الآلي؟"),
+        "x_api":
+            MessageLookupByLibrary.simpleMessage("واجهة برمجة التطبيقات لـ X"),
         "yes": MessageLookupByLibrary.simpleMessage("نعم"),
         "yes_please": MessageLookupByLibrary.simpleMessage("نعم، من فضلك"),
         "you_have_not_saved_any_tweets_yet":
             MessageLookupByLibrary.simpleMessage("لم تحفظ أي تغريدة حتى الآن!"),
         "you_must_have_at_least_2_home_screen_pages":
             MessageLookupByLibrary.simpleMessage(
-                "يجب أن يكون لديك على الأقل 2 صفحات الشاشة الرئيسية"),
+                "يجب أن يكون لديك على الأقل صفحتان للشاشة الرئيسية"),
         "your_profile_must_be_public_otherwise_the_import_will_not_work":
             MessageLookupByLibrary.simpleMessage(
                 "يجب أن يكون ملف التعريف الخاص بك عاما، وإلا لن يعمل الاستيراد"),
         "your_report_will_be_sent_to_fritter__project":
             MessageLookupByLibrary.simpleMessage(
-                "تقريرك سيُبعث إلى مشروع حراسة فريتر، ويمكن العثور على تفاصيل الخصوصية في:")
+                "تقريرك سيُبعث إلى مشروع Squawker، ويمكن العثور على تفاصيل الخصوصية في:")
       };
 }

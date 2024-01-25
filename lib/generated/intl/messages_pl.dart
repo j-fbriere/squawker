@@ -89,12 +89,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "an_update_for_fritter_is_available":
             MessageLookupByLibrary.simpleMessage(
                 "Dostępna jest aktualizacja Squawkera! 🚀"),
+        "app_info":
+            MessageLookupByLibrary.simpleMessage("Informacje o aplikacji"),
         "are_you_sure": MessageLookupByLibrary.simpleMessage("Czy na pewno?"),
         "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group":
             m0,
         "back": MessageLookupByLibrary.simpleMessage("Wstecz"),
         "bad_guest_token": MessageLookupByLibrary.simpleMessage(
             "Twitter/X unieważnił nasz token dostępu. Spróbuj ponownie otworzyć Squawkera!"),
+        "beta": MessageLookupByLibrary.simpleMessage("BETA"),
         "blue_theme_based_on_the_twitter_color_scheme":
             MessageLookupByLibrary.simpleMessage(
                 "Niebieski motyw oparty na kolorystyce Twitter/Xa"),
@@ -158,6 +161,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_your_twitter_username": MessageLookupByLibrary.simpleMessage(
             "Wprowadź swoją nazwę użytkownika Twitter/Xa"),
         "export": MessageLookupByLibrary.simpleMessage("Eksportuj"),
+        "export_guest_accounts":
+            MessageLookupByLibrary.simpleMessage("Wyeksportować konta gościa?"),
         "export_settings":
             MessageLookupByLibrary.simpleMessage("Wyeksportować ustawienia?"),
         "export_subscription_group_members":
@@ -184,6 +189,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "functionality_unsupported": MessageLookupByLibrary.simpleMessage(
             "Ta funkcja nie jest już obsługiwana przez Twitter/Xa!"),
         "general": MessageLookupByLibrary.simpleMessage("Ogólne"),
+        "generic_username": MessageLookupByLibrary.simpleMessage("Użytkownik"),
         "group_name": m6,
         "groups": MessageLookupByLibrary.simpleMessage("Grupy"),
         "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
@@ -222,6 +228,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "light": MessageLookupByLibrary.simpleMessage("Jasny"),
         "live": MessageLookupByLibrary.simpleMessage("NA ŻYWO"),
         "logging": MessageLookupByLibrary.simpleMessage("Zbieranie danych"),
+        "material_3": MessageLookupByLibrary.simpleMessage("Material 3?"),
         "media": MessageLookupByLibrary.simpleMessage("Multimedia"),
         "media_size":
             MessageLookupByLibrary.simpleMessage("Rozmiar multimediów"),
@@ -256,6 +263,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ups! Coś poszło nie tak 🥲"),
         "open_app_settings":
             MessageLookupByLibrary.simpleMessage("Otwórz ustawienia aplikacji"),
+        "open_in_browser":
+            MessageLookupByLibrary.simpleMessage("Otwórz w przeglądarce"),
         "page_not_found": MessageLookupByLibrary.simpleMessage(
             "Twitter/X twierdzi, że strona nie istnieje, ale to może nie być prawda"),
         "permission_not_granted": MessageLookupByLibrary.simpleMessage(
@@ -308,6 +317,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Wybieranie poszczególnych kont do zaimportowania i przypisywanie grup są już zaplanowane na przyszłość!"),
         "send": MessageLookupByLibrary.simpleMessage("Wyślij"),
+        "settings": MessageLookupByLibrary.simpleMessage("Ustawienia"),
         "share_base_url": MessageLookupByLibrary.simpleMessage(
             "Niestandardowy URL udostępniania"),
         "share_base_url_description": MessageLookupByLibrary.simpleMessage(
@@ -474,7 +484,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Nie zapisałeś(-aś) jeszcze żadnych tweetów!"),
         "you_must_have_at_least_2_home_screen_pages":
             MessageLookupByLibrary.simpleMessage(
-                "Musisz mieć co najmniej 2 karty"),
+                "Musisz mieć co najmniej dwie karty"),
         "your_profile_must_be_public_otherwise_the_import_will_not_work":
             MessageLookupByLibrary.simpleMessage(
                 "Profil musi być publiczny, inaczej import nie zadziała"),

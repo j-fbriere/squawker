@@ -1,0 +1,2 @@
+* Feature: Allow enhanced Twitter/X requests for searches as an option in 'Settings/General/X API' subsection,
+  although those requests have lower rate limits (50 per 15 min vs 190 per 15 min).

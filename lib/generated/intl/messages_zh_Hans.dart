@@ -71,18 +71,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "activate_non_confirmation_bias_mode_label":
             MessageLookupByLibrary.simpleMessage("激活非确认偏向模式"),
         "add_subscriptions": MessageLookupByLibrary.simpleMessage("添加订阅"),
+        "add_to_feed": MessageLookupByLibrary.simpleMessage("加入时间轴"),
         "add_to_group": MessageLookupByLibrary.simpleMessage("添加到订阅组"),
         "all": MessageLookupByLibrary.simpleMessage("全部"),
         "all_the_great_software_used_by_fritter":
             MessageLookupByLibrary.simpleMessage("Squawker 所使用的伟大项目😇"),
         "an_update_for_fritter_is_available":
             MessageLookupByLibrary.simpleMessage("Squawker 有新版本 🚀"),
+        "app_info": MessageLookupByLibrary.simpleMessage("应用程序信息"),
         "are_you_sure": MessageLookupByLibrary.simpleMessage("你确定吗？"),
         "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group":
             m0,
         "back": MessageLookupByLibrary.simpleMessage("返回"),
         "bad_guest_token": MessageLookupByLibrary.simpleMessage(
             "Twitter/X 使我们的访问令牌无效。请尝试重新打开 Squawker！"),
+        "beta": MessageLookupByLibrary.simpleMessage("测试版"),
         "blue_theme_based_on_the_twitter_color_scheme":
             MessageLookupByLibrary.simpleMessage("基于 Twitter/X 配色方案的蓝色主题"),
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
@@ -130,13 +133,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "download_media_no_url": MessageLookupByLibrary.simpleMessage(
             "无法下载。 此媒体可能仅作为在线流提供，Squawker 尚无法下载。"),
         "download_path": MessageLookupByLibrary.simpleMessage("下载路径"),
+        "download_video_best_quality_description":
+            MessageLookupByLibrary.simpleMessage("以可用的最高质量下载视频"),
+        "download_video_best_quality_label":
+            MessageLookupByLibrary.simpleMessage("以最高质量下载视频"),
         "downloading_media": MessageLookupByLibrary.simpleMessage("正在下载媒体..."),
         "enable_": MessageLookupByLibrary.simpleMessage("启用 ？"),
         "ended_timeago_format_endsAt_allowFromNow_true": m3,
         "ends_timeago_format_endsAt_allowFromNow_true": m4,
+        "enhanced_feeds_description":
+            MessageLookupByLibrary.simpleMessage("获取时间轴时使用增强版接口（但有更严格的请求速率限制）"),
+        "enhanced_feeds_label": MessageLookupByLibrary.simpleMessage("增强版时间轴"),
+        "enhanced_profile_description":
+            MessageLookupByLibrary.simpleMessage("获取用户页时使用增强版接口"),
+        "enhanced_profile_label":
+            MessageLookupByLibrary.simpleMessage("增强版用户页"),
+        "enhanced_searches_description":
+            MessageLookupByLibrary.simpleMessage("搜索时使用增强版接口（但有更严格的请求速率限制）"),
+        "enhanced_searches_label":
+            MessageLookupByLibrary.simpleMessage("增强版搜索"),
         "enter_your_twitter_username":
             MessageLookupByLibrary.simpleMessage("输入您的 Twitter/X 用户名"),
         "export": MessageLookupByLibrary.simpleMessage("导出"),
+        "export_guest_accounts":
+            MessageLookupByLibrary.simpleMessage("导出游客账户？"),
         "export_settings": MessageLookupByLibrary.simpleMessage("导出设置？"),
         "export_subscription_group_members":
             MessageLookupByLibrary.simpleMessage("导出订阅组成员？"),
@@ -158,6 +178,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "functionality_unsupported":
             MessageLookupByLibrary.simpleMessage("Twitter/X 不再支持此功能！"),
         "general": MessageLookupByLibrary.simpleMessage("通用"),
+        "generic_username": MessageLookupByLibrary.simpleMessage("用户"),
         "group_name": m6,
         "groups": MessageLookupByLibrary.simpleMessage("订阅组"),
         "help_make_fritter_even_better":
@@ -181,6 +202,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "language": MessageLookupByLibrary.simpleMessage("语言"),
         "language_subtitle": MessageLookupByLibrary.simpleMessage("需要重启应用"),
         "large": MessageLookupByLibrary.simpleMessage("大"),
+        "leaner_feeds_description":
+            MessageLookupByLibrary.simpleMessage("预览链接不显示在来自源的推文中"),
         "legacy_android_import":
             MessageLookupByLibrary.simpleMessage("从旧的 Android 设备导入"),
         "let_the_developers_know_if_something_is_broken":
@@ -189,6 +212,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "light": MessageLookupByLibrary.simpleMessage("亮色主题"),
         "live": MessageLookupByLibrary.simpleMessage("LIVE"),
         "logging": MessageLookupByLibrary.simpleMessage("日志"),
+        "material_3":
+            MessageLookupByLibrary.simpleMessage("使用第3版Material Design界面？"),
         "media": MessageLookupByLibrary.simpleMessage("媒体"),
         "media_size": MessageLookupByLibrary.simpleMessage("媒体尺寸"),
         "medium": MessageLookupByLibrary.simpleMessage("中"),
@@ -217,6 +242,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "oops_something_went_wrong":
             MessageLookupByLibrary.simpleMessage("哎呀！出了点问题 🥲"),
         "open_app_settings": MessageLookupByLibrary.simpleMessage("打开应用设置"),
+        "open_in_browser": MessageLookupByLibrary.simpleMessage("在浏览器中打开"),
+        "option_confirm_close_description":
+            MessageLookupByLibrary.simpleMessage("当关闭应用时进行确认"),
+        "option_confirm_close_label":
+            MessageLookupByLibrary.simpleMessage("关闭时确认"),
         "page_not_found":
             MessageLookupByLibrary.simpleMessage("Twitter/X 说该页面不存在，但这可能不是真的"),
         "permission_not_granted":
@@ -241,6 +271,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "private_profile": MessageLookupByLibrary.simpleMessage("个人简介"),
         "released_under_the_mit_license":
             MessageLookupByLibrary.simpleMessage("以 MIT 许可证发布"),
+        "remove_from_feed": MessageLookupByLibrary.simpleMessage("从时间轴中移除"),
         "replying_to": MessageLookupByLibrary.simpleMessage("回复"),
         "report": MessageLookupByLibrary.simpleMessage("报告"),
         "report_a_bug": MessageLookupByLibrary.simpleMessage("报告 Bug 🐞"),
@@ -259,6 +290,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
             MessageLookupByLibrary.simpleMessage("未来我们会支持导入单个账号到指定组！"),
         "send": MessageLookupByLibrary.simpleMessage("发送"),
+        "settings": MessageLookupByLibrary.simpleMessage("设置"),
         "share_base_url": MessageLookupByLibrary.simpleMessage("自定义分享 URL"),
         "share_base_url_description":
             MessageLookupByLibrary.simpleMessage("分享时使用自定义的基 URL"),
@@ -310,6 +342,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("该用户无人关注！"),
         "thread": MessageLookupByLibrary.simpleMessage("时间线"),
         "thumbnail": MessageLookupByLibrary.simpleMessage("缩略图"),
+        "thumbnail_not_available":
+            MessageLookupByLibrary.simpleMessage("缩略图不可用"),
         "timed_out": MessageLookupByLibrary.simpleMessage("超时"),
         "to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below":
             MessageLookupByLibrary.simpleMessage(
@@ -318,6 +352,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "trending": MessageLookupByLibrary.simpleMessage("趋势"),
         "trends": MessageLookupByLibrary.simpleMessage("趋势"),
         "true_black": MessageLookupByLibrary.simpleMessage("纯黑模式？"),
+        "tweet_font_size_description":
+            MessageLookupByLibrary.simpleMessage("推文的字体大小"),
+        "tweet_font_size_label": MessageLookupByLibrary.simpleMessage("字体大小"),
         "tweets": MessageLookupByLibrary.simpleMessage("推文"),
         "tweets_and_replies": MessageLookupByLibrary.simpleMessage("推文和回复"),
         "tweets_number": m15,
@@ -377,7 +414,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "when_a_new_app_update_is_available":
             MessageLookupByLibrary.simpleMessage("当有更新可用时"),
         "whether_errors_should_be_reported_to_":
-            MessageLookupByLibrary.simpleMessage("是否向  发送错误？👀"),
+            MessageLookupByLibrary.simpleMessage("是否应将错误报告给 "),
         "whether_to_hide_tweets_marked_as_sensitive":
             MessageLookupByLibrary.simpleMessage("是否隐藏被标记为敏感的推文"),
         "which_tab_is_shown_when_the_app_opens":

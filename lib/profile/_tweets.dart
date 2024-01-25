@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pref/pref.dart';
 
 import 'package:squawker/client.dart';
+import 'package:squawker/constants.dart';
 import 'package:squawker/profile/profile.dart';
 import 'package:squawker/tweet/conversation.dart';
 import 'package:squawker/ui/errors.dart';
@@ -49,8 +51,15 @@ class _ProfileTweetsState extends State<ProfileTweets> with AutomaticKeepAliveCl
 
   Future _loadTweets(String? cursor) async {
     try {
-      var result = await Twitter.getTweets(widget.user.idStr!, widget.type, widget.pinnedTweets,
-          cursor: cursor, count: pageSize, includeReplies: widget.includeReplies);
+      TweetStatus result;
+      if (PrefService.of(context).get(optionEnhancedProfile)) {
+        result = await Twitter.getUserWithProfileGraphql(widget.user.idStr!, widget.type, widget.pinnedTweets,
+            cursor: cursor, count: pageSize, includeReplies: widget.includeReplies);
+      }
+      else {
+        result = await Twitter.getTweets(widget.user.idStr!, widget.type, widget.pinnedTweets,
+            cursor: cursor, count: pageSize, includeReplies: widget.includeReplies);
+      }
 
       if (!mounted) {
         return;

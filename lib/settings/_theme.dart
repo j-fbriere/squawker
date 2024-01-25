@@ -12,7 +12,7 @@ class SettingsThemeFragment extends StatefulWidget {
 class SettingsThemeFragmentState extends State<SettingsThemeFragment> {
   int _getOptionTweetFontSizeValue(BuildContext context) {
     int optionTweetFontSizeValue =
-        PrefService.of(context).get<int>(optionTweetFontSize) ?? DefaultTextStyle.of(context).style.fontSize!.round();
+        PrefService.of(context).get<int>(optionTweetFontSize) ?? Theme.of(context).textTheme.bodyMedium!.fontSize!.round();
     return optionTweetFontSizeValue;
   }
 
@@ -135,7 +135,7 @@ class FontSizePickerDialogState extends State<FontSizePickerDialog> {
 
   @override
   Widget build(BuildContext context) {
-    double defaultFontSize = DefaultTextStyle.of(context).style.fontSize!;
+    double defaultFontSize = Theme.of(context).textTheme.bodyMedium!.fontSize!;
     double minFontSize = defaultFontSize - 4;
     double maxFontSize = defaultFontSize + 8;
 

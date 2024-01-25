@@ -1,0 +1,3 @@
+* Fix issue #158 Bug with the dialog to modify the tweets font size.
+* Fix issue #159 The error message is not shown for feed or correct for searches/trend.
+* Feature that adds the Twitter/X guest accounts list to import/export from settings / data.

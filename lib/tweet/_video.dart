@@ -181,7 +181,7 @@ class _TweetVideoState extends State<TweetVideo> {
                   onTap: onTapPlay,
                   child: Stack(alignment: Alignment.center, children: [
                     widget.metadata.imageUrl != null
-                      ? ExtendedImage.network(widget.metadata.imageUrl!, width: double.infinity, fit: BoxFit.fitWidth)
+                      ? ExtendedImage.network(widget.metadata.imageUrl!, width: double.infinity, fit: BoxFit.fitWidth, cache: true)
                       : FittedBox(
                           fit: BoxFit.fitWidth,
                           child: Text(L10n.of(context).thumbnail_not_available),

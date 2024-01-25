@@ -1,0 +1,3 @@
+* Fix issue #171 Cannot open embedded tweet or retweet.
+* Feature #167 Squawker now have its own weblate project (https://hosted.weblate.org/engage/squawker/).
+  Everyone that want to help translate Squawker is welcome :-)

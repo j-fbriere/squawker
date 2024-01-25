@@ -4,12 +4,12 @@ import 'package:flutter_triple/flutter_triple.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:squawker/database/entities.dart';
-import 'package:squawker/database/repository.dart';
 import 'package:squawker/generated/l10n.dart';
 import 'package:squawker/group/group_model.dart';
 import 'package:squawker/group/_feed.dart';
 import 'package:squawker/group/_settings.dart';
 import 'package:squawker/ui/errors.dart';
+import 'package:squawker/utils/data_service.dart';
 import 'package:squawker/utils/iterables.dart';
 import 'package:quiver/iterables.dart';
 
@@ -64,7 +64,14 @@ class SubscriptionGroupScreenContent extends StatelessWidget {
             .map((e) => SubscriptionGroupFeedChunk(e, group.includeReplies, group.includeRetweets))
             .toList();
 
+        GlobalKey<SubscriptionGroupFeedState>? sgfKey = DataService().map['feed_key_${group.id.replaceAll('-', '_')}'];
+        if (sgfKey == null) {
+          sgfKey = GlobalKey<SubscriptionGroupFeedState>();
+          DataService().map['feed_key_${group.id.replaceAll('-', '_')}'] = sgfKey;
+        }
+
         return SubscriptionGroupFeed(
+          key: sgfKey,
           group: group,
           chunks: chunks,
           includeReplies: group.includeReplies,
@@ -133,10 +140,10 @@ class SubscriptionGroupScreen extends StatelessWidget {
                   IconButton(
                       icon: const Icon(Icons.refresh_rounded),
                       onPressed: () async {
-                        // flush the feed cache before the refresh
-                        var repository = await Repository.writable();
-                        await repository.delete(tableFeedGroupChunk, where: 'group_id = ?', whereArgs: [id]);
-                        await model.loadGroup();
+                        GlobalKey<SubscriptionGroupFeedState>? sgfKey = DataService().map['feed_key_${id.replaceAll('-', '_')}'];
+                        if (sgfKey != null) {
+                          await sgfKey.currentState!.reloadData();
+                        }
                       }),
                   ...actions
                 ],

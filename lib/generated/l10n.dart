@@ -552,6 +552,16 @@ class L10n {
     );
   }
 
+  /// `Export guest accounts?`
+  String get export_guest_accounts {
+    return Intl.message(
+      'Export guest accounts?',
+      name: 'export_guest_accounts',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Export tweets?`
   String get export_tweets {
     return Intl.message(
@@ -2286,10 +2296,10 @@ class L10n {
     );
   }
 
-  /// `You must have at least 2 home screen pages`
+  /// `You must have at least two home screen pages`
   String get you_must_have_at_least_2_home_screen_pages {
     return Intl.message(
-      'You must have at least 2 home screen pages',
+      'You must have at least two home screen pages',
       name: 'you_must_have_at_least_2_home_screen_pages',
       desc: '',
       args: [],
@@ -2486,10 +2496,10 @@ class L10n {
     );
   }
 
-  /// `The tweets from feeds do not display preview links`
+  /// `Preview links are not shown in tweets from feeds`
   String get leaner_feeds_description {
     return Intl.message(
-      'The tweets from feeds do not display preview links',
+      'Preview links are not shown in tweets from feeds',
       name: 'leaner_feeds_description',
       desc: '',
       args: [],
@@ -2536,10 +2546,10 @@ class L10n {
     );
   }
 
-  /// `Download videos with the best quality available`
+  /// `Download videos in best available quality`
   String get download_video_best_quality_description {
     return Intl.message(
-      'Download videos with the best quality available',
+      'Download videos in best available quality',
       name: 'download_video_best_quality_description',
       desc: '',
       args: [],
@@ -2605,6 +2615,76 @@ class L10n {
       args: [],
     );
   }
+
+  /// `X API`
+  String get x_api {
+    return Intl.message(
+      'X API',
+      name: 'x_api',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enhanced feeds`
+  String get enhanced_feeds_label {
+    return Intl.message(
+      'Enhanced feeds',
+      name: 'enhanced_feeds_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enhanced requests for feeds (but with lower rate limits)`
+  String get enhanced_feeds_description {
+    return Intl.message(
+      'Enhanced requests for feeds (but with lower rate limits)',
+      name: 'enhanced_feeds_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enhanced searches`
+  String get enhanced_searches_label {
+    return Intl.message(
+      'Enhanced searches',
+      name: 'enhanced_searches_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enhanced requests for searches (but with lower rate limits)`
+  String get enhanced_searches_description {
+    return Intl.message(
+      'Enhanced requests for searches (but with lower rate limits)',
+      name: 'enhanced_searches_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enhanced profile`
+  String get enhanced_profile_label {
+    return Intl.message(
+      'Enhanced profile',
+      name: 'enhanced_profile_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enhanced requests for profile`
+  String get enhanced_profile_description {
+    return Intl.message(
+      'Enhanced requests for profile',
+      name: 'enhanced_profile_description',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
@@ -2625,6 +2705,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
       Locale.fromSubtags(languageCode: 'eu'),
       Locale.fromSubtags(languageCode: 'fr'),
       Locale.fromSubtags(languageCode: 'hi'),
+      Locale.fromSubtags(languageCode: 'ia'),
       Locale.fromSubtags(languageCode: 'id'),
       Locale.fromSubtags(languageCode: 'it'),
       Locale.fromSubtags(languageCode: 'ja'),

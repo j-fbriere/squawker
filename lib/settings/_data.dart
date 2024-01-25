@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
+import 'package:squawker/client_account.dart';
 import 'package:squawker/constants.dart';
 import 'package:squawker/database/entities.dart';
 import 'package:squawker/database/repository.dart';
@@ -21,6 +22,7 @@ class SettingsData {
   final List<UserSubscription>? userSubscriptions;
   final List<SubscriptionGroup>? subscriptionGroups;
   final List<SubscriptionGroupMember>? subscriptionGroupMembers;
+  final List<GuestAccount>? guestAccounts;
   final List<SavedTweet>? tweets;
 
   SettingsData(
@@ -29,24 +31,31 @@ class SettingsData {
       required this.userSubscriptions,
       required this.subscriptionGroups,
       required this.subscriptionGroupMembers,
+      required this.guestAccounts,
       required this.tweets});
 
   factory SettingsData.fromJson(Map<String, dynamic> json) {
     return SettingsData(
-        settings: json['settings'],
-        searchSubscriptions: json['searchSubscriptions'] != null
-            ? List.from(json['searchSubscriptions']).map((e) => SearchSubscription.fromMap(e)).toList()
-            : null,
-        userSubscriptions: json['subscriptions'] != null
-            ? List.from(json['subscriptions']).map((e) => UserSubscription.fromMap(e)).toList()
-            : null,
-        subscriptionGroups: json['subscriptionGroups'] != null
-            ? List.from(json['subscriptionGroups']).map((e) => SubscriptionGroup.fromMap(e)).toList()
-            : null,
-        subscriptionGroupMembers: json['subscriptionGroupMembers'] != null
-            ? List.from(json['subscriptionGroupMembers']).map((e) => SubscriptionGroupMember.fromMap(e)).toList()
-            : null,
-        tweets: json['tweets'] != null ? List.from(json['tweets']).map((e) => SavedTweet.fromMap(e)).toList() : null);
+      settings: json['settings'],
+      searchSubscriptions: json['searchSubscriptions'] != null
+        ? List.from(json['searchSubscriptions']).map((e) => SearchSubscription.fromMap(e)).toList()
+        : null,
+      userSubscriptions: json['subscriptions'] != null
+        ? List.from(json['subscriptions']).map((e) => UserSubscription.fromMap(e)).toList()
+        : null,
+      subscriptionGroups: json['subscriptionGroups'] != null
+        ? List.from(json['subscriptionGroups']).map((e) => SubscriptionGroup.fromMap(e)).toList()
+        : null,
+      subscriptionGroupMembers: json['subscriptionGroupMembers'] != null
+        ? List.from(json['subscriptionGroupMembers']).map((e) => SubscriptionGroupMember.fromMap(e)).toList()
+        : null,
+      guestAccounts: json['guestAccounts'] != null
+        ? List.from(json['guestAccounts']).map((e) => GuestAccount.fromMap(e)).where((e) => e.oauthToken != '' && e.oauthTokenSecret != '').toList()
+        : null,
+      tweets: json['tweets'] != null
+        ? List.from(json['tweets']).map((e) => SavedTweet.fromMap(e)).toList()
+        : null
+    );
   }
 
   Map<String, dynamic> toJson() {
@@ -56,6 +65,7 @@ class SettingsData {
       'subscriptions': userSubscriptions?.map((e) => e.toMap()).toList(),
       'subscriptionGroups': subscriptionGroups?.map((e) => e.toMap()).toList(),
       'subscriptionGroupMembers': subscriptionGroupMembers?.map((e) => e.toMap()).toList(),
+      'guestAccounts': guestAccounts?.map((e) => e.toMap()).toList(),
       'tweets': tweets?.map((e) => e.toMap()).toList()
     };
   }
@@ -104,12 +114,21 @@ class SettingsDataFragment extends StatelessWidget {
       dataToImport[tableSubscriptionGroupMember] = subscriptionGroupMembers;
     }
 
+    var guestAccounts = data.guestAccounts;
+    if (guestAccounts != null) {
+      dataToImport[tableGuestAccount] = guestAccounts;
+    }
+
     var tweets = data.tweets;
     if (tweets != null) {
       dataToImport[tableSavedTweet] = tweets;
     }
 
     await importModel.importData(dataToImport);
+    if (guestAccounts != null) {
+      await context.read<GuestAccountsModel>().deleteOldAccounts();
+      await TwitterAccount.loadAllGuestAccountsAndRateLimits();
+    }
     await groupModel.reloadGroups();
     await context.read<SubscriptionsModel>().reloadSubscriptions();
     await context.read<SubscriptionsModel>().refreshSubscriptionData();

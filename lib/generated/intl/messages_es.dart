@@ -88,7 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "¿Desea activar la notificación automática de errores?"),
         "you_have_not_saved_any_tweets_yet":
             MessageLookupByLibrary.simpleMessage(
-                "Todavía no se has guardado ningún tuit."),
+                "Todavía no se has guardado ningún tuit!"),
         "your_report_will_be_sent_to_fritter__project":
             MessageLookupByLibrary.simpleMessage(
                 "Su informe se enviará al proyecto Squawker\'s , y los detalles de privacidad se pueden encontrar en:")
