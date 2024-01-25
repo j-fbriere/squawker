@@ -19,9 +19,7 @@ import 'package:squawker/status.dart';
 import 'package:squawker/subscriptions/subscriptions.dart';
 import 'package:squawker/trends/trends.dart';
 import 'package:squawker/ui/errors.dart';
-import 'package:squawker/ui/physics.dart';
 import 'package:squawker/utils/data_service.dart';
-import 'package:squawker/utils/debounce.dart';
 import 'package:pref/pref.dart';
 import 'package:provider/provider.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
@@ -157,6 +155,7 @@ class _HomeScreenState extends State<_HomeScreen> {
 
     DataService().map['navigationKey'] = _navigationKey;
 
+    widget.model.loadPages();
     _buildPages(widget.model.state);
     widget.model.observer(onState: _buildPages);
   }
