@@ -53,6 +53,12 @@ class SettingsHomeFragment extends StatelessWidget {
                       return;
                     }
 
+                    if (selected == true && data.where((e) => e.selected).length == 5) {
+                      showSnackBar(context,
+                          icon: '🙊', message: "You cannot add any more pages to the navigation"); //TODO: Use l10n
+                      return;
+                    }
+
                     await model.selectPage(page.id, value ?? false);
                     await model.save();
                   },
