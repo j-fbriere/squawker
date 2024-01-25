@@ -16,10 +16,6 @@ class SubscriptionsScreen extends StatelessWidget {
         title: Text(L10n.current.subscriptions),
         actions: [
           IconButton(
-            icon: const Icon(Icons.cloud_download_rounded),
-            onPressed: () => Navigator.pushNamed(context, routeSubscriptionsImport),
-          ),
-          IconButton(
             icon: const Icon(Icons.refresh_rounded),
             onPressed: () => context.read<SubscriptionsModel>().refreshSubscriptionData(),
           ),
@@ -49,6 +45,10 @@ class SubscriptionsScreen extends StatelessWidget {
         ],
       ),
       body: const SubscriptionUsers(),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.cloud_download),
+        onPressed: () => Navigator.pushNamed(context, routeSubscriptionsImport),
+      ),
     );
   }
 }
