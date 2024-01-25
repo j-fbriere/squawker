@@ -280,7 +280,10 @@ class ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigati
   final ScrollController scrollController = ScrollController();
 
   late List<Widget> _children;
-  late List<NavigationPage> _pages;
+  List<NavigationPage> _pages = [
+    NavigationPage('none', (context) => L10n.current.missing_page, Icons.disabled_by_default_rounded),
+    NavigationPage('none', (context) => L10n.current.missing_page, Icons.disabled_by_default_rounded),
+  ];
 
   List<NavigationPage> _padToMinimumPagesLength(List<NavigationPage> pages) {
     var widgetPages = pages;
