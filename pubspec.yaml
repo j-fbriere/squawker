@@ -16,13 +16,13 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 
-version: 3.8.4+47
+version: 3.8.3+46
 
 environment:
   sdk: ">=2.18.0 <3.0.0"
 
 dependency_overrides:
-  win32: ^5.4.0
+  win32: ^3.0.0
   intl: ^0.17.0
   http: ^1.1.2
 
