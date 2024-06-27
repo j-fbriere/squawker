@@ -326,15 +326,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.1.0"
-  flutter_colorpicker:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "6689dc52d5a915f9f223f2553c8f8b88f66b2820"
-      url: "https://github.com/mchome/flutter_colorpicker"
-    source: git
-    version: "1.1.0"
   flutter_file_dialog:
     dependency: "direct main"
     description:
