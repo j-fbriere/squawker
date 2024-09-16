@@ -44,12 +44,8 @@ dependencies:
   ffcache: ^1.1.0
   file_picker: ^5.5.0
   flex_color_scheme: ^7.3.1
+  flex_color_picker: ^3.4.1
   flutter_cache: ^0.1.0
-  # flutter_colorpicker: ^1.0.3
-  flutter_colorpicker:
-    git:
-      url: https://github.com/mchome/flutter_colorpicker
-      ref: master # or 786d04363f587b818ce585d25b9c2bb62de95aba
   flutter_file_dialog: ^3.0.2
   flutter_iconpicker_plus: ^3.2.3
   flutter_local_notifications: ^14.1.4
