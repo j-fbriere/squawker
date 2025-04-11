@@ -336,5 +336,7 @@
   "report": "Ziņot",
   "@report": {},
   "please_check_your_internet_connection_error_message": "Lūdzu, pārbaudiet savu interneta savienojumu.\n\n{errorMessage}",
-  "@please_check_your_internet_connection_error_message": {}
+  "@please_check_your_internet_connection_error_message": {},
+  "to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below": "Lai importētu abonementus no esoša Twitter/X konta, ievadiet zemāk savu lietotājvārdu.",
+  "@to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below": {}
 }
