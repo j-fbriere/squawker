@@ -1180,7 +1180,7 @@ class TweetWithCard extends Tweet {
     return tweetWithCard;
   }
 
-  factory TweetWithCard.fromGraphqlJson(Map<String, dynamic> result, {bool leanerFeeds: false}) {
+  factory TweetWithCard.fromGraphqlJson(Map<String, dynamic> result, {bool leanerFeeds = false}) {
     var resultRetweetedStatusResult = result['retweeted_status_result']?.isEmpty ?? true ? result['legacy']['retweeted_status_result'] : result['retweeted_status_result'];
     var retweetedStatus = resultRetweetedStatusResult?.isEmpty ?? true
         ? null

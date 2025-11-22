@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_windowmanager/flutter_windowmanager.dart';
+import 'package:flutter_windowmanager_plus/flutter_windowmanager_plus.dart';
 import 'package:logging_to_logcat/logging_to_logcat.dart';
 import 'package:logging/logging.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -58,8 +58,9 @@ Future checkForUpdates() async {
   if (response.statusCode == 200) {
     final contentAsString = await utf8.decodeStream(response);
     final Map<dynamic, dynamic> map = json.decode(contentAsString);
+    //print('*** map["tag_name"]=${map["tag_name"]}, packageInfo.version=${packageInfo.version}');
     if (map["tag_name"] != null) {
-      if (map["tag_name"] != 'v${packageInfo.version}') {
+      if (map["tag_name"].compareTo('v${packageInfo.version}') > 0) {
         await requestPostNotificationsPermissions(() async {
           await FlutterLocalNotificationsPlugin().show(
               0,
@@ -320,9 +321,9 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
     // TODO: This doesn't work on iOS
     void setDisableScreenshots(final bool secureModeEnabled) async {
       if (secureModeEnabled) {
-        await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+        await FlutterWindowManagerPlus.addFlags(FlutterWindowManagerPlus.FLAG_SECURE);
       } else {
-        await FlutterWindowManager.clearFlags(FlutterWindowManager.FLAG_SECURE);
+        await FlutterWindowManagerPlus.clearFlags(FlutterWindowManagerPlus.FLAG_SECURE);
       }
     }
 

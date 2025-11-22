@@ -96,8 +96,8 @@ class _SubscriptionImportScreenState extends State<SubscriptionImportScreen> {
           for (String screenName in _specificScreenNames!.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty)) {
             try {
               users.add((await Twitter.getProfileByScreenName(screenName)).user);
-            } catch (err, _) {
-              _streamController?.addError(err, _);
+            } catch (err, stk) {
+              _streamController?.addError(err, stk);
             }
           }
         }

@@ -19,30 +19,47 @@ class ProfileSaved extends StatefulWidget {
 }
 
 class _ProfileSavedState extends State<ProfileSaved> {
-  late final PagingController<int?, SavedTweet> _pagingController;
+  PagingState<int?, SavedTweet> _pagingState = PagingState();
 
-  @override
-  void initState() {
-    super.initState();
+  Future<void> _fetchNextPage() async {
+    if (_pagingState.isLoading) return;
 
-    _pagingController = PagingController(firstPageKey: null);
-    _pagingController.addPageRequestListener((cursor) {
-      _loadTweets();
+    setState(() {
+      _pagingState = _pagingState.copyWith(isLoading: true, error: null);
     });
-  }
 
-  @override
-  void dispose() {
-    _pagingController.dispose();
-    super.dispose();
-  }
+    try {
+      var model = context.read<SavedTweetModel>();
+      await model.listSavedTweets();
 
-  Future<void> _loadTweets() async {
-    var model = context.read<SavedTweetModel>();
-    await model.listSavedTweets();
+      if (!mounted) {
+        return;
+      }
 
-    var savedTweets = model.state.where((tweet) => tweet.user == widget.user.idStr).toList();
-    _pagingController.appendLastPage(savedTweets);
+      var savedTweets = model.state.where((tweet) => tweet.user == widget.user.idStr).toList();
+      var newKey = (_pagingState.keys?.last ?? 0) + 1;
+      var isLastPage = savedTweets.isEmpty;
+
+      setState(() {
+        _pagingState = _pagingState.copyWith(
+          pages: [...?_pagingState.pages, savedTweets],
+          keys: [...?_pagingState.keys, newKey],
+          hasNextPage: !isLastPage,
+          isLoading: false,
+        );
+      });
+    }
+    catch (err, stk) {
+      if (mounted) {
+        setState(() {
+          _pagingState = _pagingState.copyWith(
+            error: [err, stk],
+            isLoading: false,
+          );
+        });
+      }
+    }
+
   }
 
   @override
@@ -60,21 +77,22 @@ class _ProfileSavedState extends State<ProfileSaved> {
 
       return PagedListView<int?, SavedTweet>(
         padding: EdgeInsets.zero,
-        pagingController: _pagingController,
         addAutomaticKeepAlives: false,
+        state: _pagingState,
+        fetchNextPage: _fetchNextPage,
         builderDelegate: PagedChildBuilderDelegate(
           itemBuilder: (context, savedTweet, index) => SavedTweetTile(id: savedTweet.id, content: savedTweet.content),
           firstPageErrorIndicatorBuilder: (context) => FullPageErrorWidget(
-            error: _pagingController.error[0],
-            stackTrace: _pagingController.error[1],
+            error: (_pagingState.error as List)[0],
+            stackTrace: (_pagingState.error as List)[1],
             prefix: L10n.of(context).unable_to_load_the_tweets,
-            onRetry: () => _loadTweets(),
+            onRetry: () => _fetchNextPage,
           ),
           newPageErrorIndicatorBuilder: (context) => FullPageErrorWidget(
-            error: _pagingController.error[0],
-            stackTrace: _pagingController.error[1],
+            error: (_pagingState.error as List)[0],
+            stackTrace: (_pagingState.error as List)[1],
             prefix: L10n.of(context).unable_to_load_the_next_page_of_tweets,
-            onRetry: () => _loadTweets(),
+            onRetry: () => _fetchNextPage,
           ),
           noItemsFoundIndicatorBuilder: (context) {
             return Center(

@@ -6,6 +6,7 @@ import 'package:squawker/generated/l10n.dart';
 import 'package:squawker/profile/profile.dart';
 import 'package:squawker/tweet/conversation.dart';
 import 'package:squawker/ui/errors.dart';
+import 'package:squawker/ui/cursor_paging.dart';
 import 'package:squawker/utils/route_util.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:pref/pref.dart';
@@ -46,58 +47,60 @@ class _StatusScreen extends StatefulWidget {
 }
 
 class _StatusScreenState extends State<_StatusScreen> {
-  final _pagingController = PagingController<String?, TweetChain>(firstPageKey: null);
+  CursorPagingState<String?, TweetChain, String> _pagingState = CursorPagingState();
   final _scrollController = AutoScrollController();
 
   final _seenAlready = <String>{};
 
-  @override
-  void initState() {
-    super.initState();
+  Future<void> _fetchNextPage() async {
+    if (_pagingState.isLoading) return;
 
-    _pagingController.addPageRequestListener((cursor) {
-      _loadTweet(cursor);
+    setState(() {
+      _pagingState = _pagingState.copyWithEx(isLoading: true, error: null);
     });
-  }
 
-  @override
-  void dispose() {
-    _pagingController.dispose();
-    super.dispose();
-  }
-
-  Future _loadTweet(String? cursor) async {
     try {
-      var isFirstPage = _pagingController.nextPageKey == null;
+      var isFirstPage = _pagingState.cursor == null;
 
-      var result = await Twitter.getTweet(widget.id, cursor: cursor);
+      var result = await Twitter.getTweet(widget.id, cursor: _pagingState.cursor);
+
       if (!mounted) {
         return;
       }
 
-      if (result.cursorBottom != null && result.cursorBottom == _pagingController.nextPageKey) {
-        _pagingController.appendLastPage([]);
-      } else {
-        // Twitter sometimes sends the original replies with all pages, so we need to manually exclude ones that we've already seen
-        var chains = result.chains.skipWhile((element) => _seenAlready.contains(element.id)).toList();
+      // Twitter sometimes sends the original replies with all pages, so we need to manually exclude ones that we've already seen
+      var chains = result.chains.skipWhile((element) => _seenAlready.contains(element.id)).toList();
 
-        for (var chain in chains) {
-          _seenAlready.add(chain.id);
-        }
-
-        _pagingController.appendPage(chains, result.cursorBottom);
-
-        // If we're on the first page, we want to scroll to the selected status
-        if (isFirstPage) {
-          var statusIndex = chains.indexWhere((e) => e.id == widget.id);
-
-          await _scrollController.scrollToIndex(statusIndex, preferPosition: AutoScrollPosition.begin);
-          await _scrollController.highlight(statusIndex);
-        }
+      for (var chain in chains) {
+        _seenAlready.add(chain.id);
       }
-    } catch (e, stackTrace) {
+
+      bool hasNextPage = result.chains.isNotEmpty;
+      setState(() {
+        _pagingState = _pagingState.copyWithEx(
+          pages: [...?_pagingState.pages, chains],
+          keys: [...?_pagingState.keys, result.cursorBottom],
+          hasNextPage: hasNextPage,
+          isLoading: false,
+        );
+      });
+
+      // If we're on the first page, we want to scroll to the selected status
+      if (isFirstPage) {
+        var statusIndex = chains.indexWhere((e) => e.id == widget.id);
+
+        await _scrollController.scrollToIndex(statusIndex, preferPosition: AutoScrollPosition.begin);
+        await _scrollController.highlight(statusIndex);
+      }
+    }
+    catch (err, stk) {
       if (mounted) {
-        _pagingController.error = [e, stackTrace];
+        setState(() {
+          _pagingState = _pagingState.copyWithEx(
+            error: [err, stk],
+            isLoading: false,
+          );
+        });
       }
     }
   }
@@ -111,10 +114,11 @@ class _StatusScreenState extends State<_StatusScreen> {
         create: (context) => TweetContextState(PrefService.of(context, listen: false).get(optionTweetsHideSensitive)),
         child: PagedListView<String?, TweetChain>(
           padding: EdgeInsets.zero,
-          pagingController: _pagingController,
           scrollController: _scrollController,
           addAutomaticKeepAlives: false,
           shrinkWrap: true,
+          state: _pagingState,
+          fetchNextPage: _fetchNextPage,
           builderDelegate: PagedChildBuilderDelegate(
             itemBuilder: (context, chain, index) {
               return AutoScrollTag(
@@ -126,16 +130,16 @@ class _StatusScreenState extends State<_StatusScreen> {
               );
             },
             firstPageErrorIndicatorBuilder: (context) => FullPageErrorWidget(
-              error: _pagingController.error[0],
-              stackTrace: _pagingController.error[1],
+              error: (_pagingState.error as List)[0],
+              stackTrace: (_pagingState.error as List)[1],
               prefix: L10n.of(context).unable_to_load_the_tweet,
-              onRetry: () => _loadTweet(_pagingController.firstPageKey),
+              onRetry: () => _fetchNextPage,
             ),
             newPageErrorIndicatorBuilder: (context) => FullPageErrorWidget(
-              error: _pagingController.error[0],
-              stackTrace: _pagingController.error[1],
+              error: (_pagingState.error as List)[0],
+              stackTrace: (_pagingState.error as List)[1],
               prefix: L10n.of(context).unable_to_load_the_next_page_of_replies,
-              onRetry: () => _loadTweet(_pagingController.nextPageKey),
+              onRetry: () => _fetchNextPage,
             ),
             noItemsFoundIndicatorBuilder: (context) {
               return Center(

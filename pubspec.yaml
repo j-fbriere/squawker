@@ -19,12 +19,11 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 3.8.4+47
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: ^3.8.1
 
 dependency_overrides:
-  win32: ^5.4.0
-  intl: ^0.17.0
-  http: ^1.1.2
+  win32: ^5.5.0
+  intl: ^0.18.1
 
 dependencies:
   flutter:
@@ -32,36 +31,44 @@ dependencies:
 
   async_button_builder: ^3.0.0+1
   auto_direction: ^0.0.7
-  chewie: ^1.7.5
+  chewie: ^1.13.0
   cryptography: ^2.7.0
-  dart_twitter_api: ^0.5.8
-  device_info_plus: ^9.1.1
+  dart_twitter_api: ^0.6.0
+  device_info_plus: ^12.2.0
   # device_preview: ^1.1.0 # incompatible with Flutter 3.22.x+
-  dotted_border: ^2.1.0
-  extended_image: ^8.2.0
+  dotted_border: ^3.1.0
+  extended_image: ^10.0.1
   extended_nested_scroll_view: ^6.2.1
   faker: ^2.1.0
   ffcache: ^1.1.0
-  file_picker: ^5.5.0
-  flex_color_scheme: ^7.3.1
+  file_picker: ^10.3.3
+  flex_color_scheme: ^8.3.1
   flutter_cache: ^0.1.0
   # flutter_colorpicker: ^1.0.3
   flutter_colorpicker:
     git:
       url: https://github.com/mchome/flutter_colorpicker
       ref: master # or 786d04363f587b818ce585d25b9c2bb62de95aba
-  flutter_file_dialog: ^3.0.2
-  flutter_iconpicker_plus: ^3.2.3
-  flutter_local_notifications: ^14.1.4
+  #flutter_file_dialog: ^3.0.2
+  flutter_file_dialog:
+    git:
+      url: https://github.com/kineapps/flutter_file_dialog
+      ref: master
+  flutter_iconpicker: ^4.0.3
+  flutter_local_notifications: ^19.5.0
   flutter_localized_locales: ^2.0.5
   flutter_swipe_action_cell: ^3.1.3
-  flutter_triple: ^2.2.0
-  flutter_windowmanager: ^0.2.0
+  flutter_triple: ^3.0.0
+  #flutter_windowmanager_plus: ^1.0.1
+  flutter_windowmanager_plus:
+    git:
+      url: https://github.com/j-fbriere/flutter_windowmanager_plus
+      ref: main
   hex: ^0.2.0
   html_unescape: ^2.0.0
-  http: ^1.1.2
-  infinite_scroll_pagination: ^4.0.0
-  intl: ^0.17.0
+  http: ^1.5.0
+  infinite_scroll_pagination: ^5.1.1
+  intl: ^0.18.1
   logging: ^1.2.0
   # logging_to_logcat: ^1.0.0 # waiting for the 1.0.3 version...
   logging_to_logcat:
@@ -70,32 +77,49 @@ dependencies:
       ref: main # or d919298fa9ca4f6d3d1f2c94547f2c42fb5ba826
   material_symbols_icons: ^4.2719.3
   measure_size: ^4.0.0
-  media_scanner: ^2.1.0
+  #media_scanner: ^2.2.0
+  media_scanner:
+    git:
+      url: https://github.com/j-fbriere/media_scanner
+      ref: master
   multi_select_flutter: ^4.1.3
-  package_info_plus: ^4.2.0
+  package_info_plus: ^9.0.0
   path: ^1.8.3
   path_provider: ^2.1.1
-  permission_handler: ^10.4.5
+  permission_handler: ^12.0.1
   pref: ^2.7.2
   provider: ^6.1.1
   quiver: ^3.1.0
-  receive_sharing_intent: ^1.6.8
+  #receive_sharing_intent: ^1.8.1
+  receive_sharing_intent:
+    git:
+      url: https://github.com/KasemJaffer/receive_sharing_intent
+      ref: master
+  #receive_sharing_intent:
+  #  git:
+  #    url: https://github.com/KasemJaffer/receive_sharing_intent
+  #    ref: 2cea396843cd3ab1b5ec4334be4233864637874e
   scroll_to_index: ^3.0.1
   scrollable_positioned_list: ^0.3.8
-  share_plus: ^7.2.2
+  share_plus: ^12.0.1
   shared_preferences: ^2.2.2
-  socks5_proxy: ^1.0.4
+  socks5_proxy: ^2.1.1
   sqflite: ^2.3.2
   sqflite_common: ^2.5.3
   sqflite_migration_plan: ^1.0.0
   synchronized: ^3.1.0+1
-  system_theme: ^2.3.1
+  #system_theme: ^3.1.2
+  system_theme:
+    git:
+      url: https://github.com/j-fbriere/system_theme
+      path: system_theme
+      ref: master
   timeago: ^3.6.0
   url_launcher: ^6.2.2
-  uuid: ^3.0.7
+  uuid: ^4.5.1
   video_player: ^2.8.3
   visibility_detector: ^0.4.0+2
-  wakelock: ^0.6.2
+  wakelock_plus: ^1.4.0
 
   flutter_localizations:
     sdk: flutter

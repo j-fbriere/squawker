@@ -13,7 +13,7 @@ import 'package:path/path.dart' as path;
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-import 'package:wakelock/wakelock.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 class TweetVideoUrls {
   final String streamUrl;
@@ -106,7 +106,7 @@ class _TweetVideoState extends State<TweetVideo> {
       customControls: const FritterMaterialControls(),
       additionalOptions: (context) => [
         OptionItem(
-          onTap: () async {
+          onTap: (context) async {
             var video = downloadUrl;
             if (video == null) {
               ScaffoldMessenger.of(context).clearSnackBars();
@@ -165,9 +165,9 @@ class _TweetVideoState extends State<TweetVideo> {
     _videoController!.addListener(() {
       // Change wake lock screen
       if (_chewieController!.isPlaying) {
-        Wakelock.enable();
+        WakelockPlus.enable();
       } else {
-        Wakelock.disable();
+        WakelockPlus.disable();
       }
     });
   }
@@ -221,7 +221,7 @@ class _TweetVideoState extends State<TweetVideo> {
       _videoController?.dispose();
       _chewieController?.dispose();
 
-      Wakelock.disable();
+      WakelockPlus.disable();
     }
 
     super.dispose();
