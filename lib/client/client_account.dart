@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:http/http.dart' as http;
@@ -6,10 +7,13 @@ import 'package:intl/intl.dart';
 import 'package:logging/logging.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:squawker/client/accounts.dart';
 import 'package:squawker/client/app_http_client.dart';
 import 'package:squawker/client/client_guest_account.dart';
 import 'package:squawker/client/client_regular_account.dart';
+import 'package:squawker/client/client_x_regular_account.dart';
 import 'package:squawker/client/client_unauthenticated.dart';
+import 'package:squawker/client/headers.dart';
 import 'package:squawker/constants.dart';
 import 'package:squawker/database/entities.dart';
 import 'package:squawker/database/repository.dart';
@@ -36,6 +40,8 @@ class TwitterAccount {
   static String? _currentLanguageCode;
   static String currentAccountTypes = twitterAccountTypesPriorityToRegular;
 
+  static List<Account>? xAccountLst;
+
   static void setCurrentContext(BuildContext currentContext) {
     _currentContext = currentContext;
     _currentLanguageCode = Localizations.localeOf(currentContext).languageCode;
@@ -50,7 +56,16 @@ class TwitterAccount {
   }
 
   static bool hasAccountAvailable() {
-    return nbrGuestAccounts() > 0 || getRegularAccountsTokens().isNotEmpty;
+    //return nbrGuestAccounts() > 0 || getRegularAccountsTokens().isNotEmpty;
+    return nbrGuestAccounts() > 0 || (xAccountLst?.isNotEmpty ?? false);
+  }
+
+  static Future<List<Account>> initCheckXAccounts({bool forceInit = false}) async {
+    if (xAccountLst != null && !forceInit) {
+      return xAccountLst!;
+    }
+    xAccountLst = await getAccounts();
+    return xAccountLst!;
   }
 
   // this must be executed only once at the start of the application
@@ -187,9 +202,9 @@ class TwitterAccount {
           await _setLastGuestTwitterTokenCreationAttempted();
           await TwitterGuestAccount.createGuestTwitterToken();
         }
-        on TwitterAccountException catch (_, ex) {
-          log.warning('*** Try to create a guest Twitter/X token after 24 hours with error: ${_.toString()}');
-          lastGuestAccountExc = _;
+        on TwitterAccountException catch (ex) {
+          log.warning('*** Try to create a guest Twitter/X token after 24 hours with error: ${ex.toString()}');
+          lastGuestAccountExc = ex;
         }
       }
     }
@@ -638,16 +653,50 @@ class TwitterAccount {
     }
   }
 
+  static Future<http.Response> _doFetchX(Uri uri, RateFetchContext fetchContext, {Map<String, String>? headers}) async {
+
+    try {
+      final authHeader = await TwitterHeaders.getAuthHeader();
+      //print('*** _doFetchX authHeader:');
+      //print(jsonEncode(authHeader));
+
+      if (authHeader != null) {
+        var response = await XRegularAccount.fetch(uri, headers: headers, log: log, authHeader: authHeader);
+
+        //print('*** _doFetchX response:');
+        //print(response.body);
+
+        //await fetchContext.fetchWithResponse(response);
+
+        return response;
+      }
+      else {
+        return TwitterUnauthenticated.fetch(uri, headers: headers);
+      }
+    }
+    catch (err) {
+      log.severe('_doFetchX - The request ${uri.path} has an error: ${err.toString()}');
+      await fetchContext.fetchNoResponse();
+      rethrow;
+    }
+
+  }
+
   static Future<http.Response> fetch(Uri uri, {Map<String, String>? headers, RateFetchContext? fetchContext, bool allowUnauthenticated = false}) async {
+
+    await initCheckXAccounts();
+
     if (allowUnauthenticated && !hasAccountAvailable()) {
       return TwitterUnauthenticated.fetch(uri, headers: headers);
     }
+
+
     if (fetchContext == null) {
       fetchContext = RateFetchContext(uri.path, 1);
-      await fetchContext.init();
+      //await fetchContext.init();
     }
 
-    http.Response rsp = await _doFetch(uri, fetchContext, headers: headers);
+    http.Response rsp = await _doFetchX(uri, fetchContext, headers: headers);
 
     return rsp;
   }

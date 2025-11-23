@@ -10,6 +10,7 @@ import 'package:squawker/user.dart';
 import 'package:squawker/utils/cache.dart';
 import 'package:squawker/utils/iterables.dart';
 import 'package:squawker/client/client_account.dart';
+import 'package:squawker/client/client_x_regular_account.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:quiver/iterables.dart';
@@ -1180,7 +1181,7 @@ class TweetWithCard extends Tweet {
     return tweetWithCard;
   }
 
-  factory TweetWithCard.fromGraphqlJson(Map<String, dynamic> result, {bool leanerFeeds: false}) {
+  factory TweetWithCard.fromGraphqlJson(Map<String, dynamic> result, {bool leanerFeeds = false}) {
     var resultRetweetedStatusResult = result['retweeted_status_result']?.isEmpty ?? true ? result['legacy']['retweeted_status_result'] : result['retweeted_status_result'];
     var retweetedStatus = resultRetweetedStatusResult?.isEmpty ?? true
         ? null

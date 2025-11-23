@@ -14,6 +14,7 @@ import 'package:squawker/search/search_model.dart';
 import 'package:squawker/subscriptions/users_model.dart';
 import 'package:squawker/tweet/_video.dart';
 import 'package:squawker/tweet/tweet.dart';
+import 'package:squawker/ui/cursor_paging.dart';
 import 'package:squawker/ui/errors.dart';
 import 'package:squawker/user.dart';
 import 'package:squawker/utils/notifiers.dart';
@@ -238,10 +239,10 @@ class TweetSearchResultListState<S extends Store<SearchStatus<T>>, T> extends St
   String _previousQuery = '';
   String? _previousCursor;
   late PagingController<String?, T> _pagingController;
+  CursorPagingState<String?, T, String> _pagingState = CursorPagingState();
   late ScrollController _scrollController;
   double _lastOffset = 0;
   bool _inAppend = false;
-  bool _doingRefresh = false;
 
   @override
   void initState() {
@@ -262,50 +263,62 @@ class TweetSearchResultListState<S extends Store<SearchStatus<T>>, T> extends St
 
       // Debounce the search, so we don't make a request per keystroke
       _debounce = Timer(const Duration(milliseconds: 750), () async {
-        fetchResults(null);
+        setState(() {
+          _pagingState = _pagingState.resetEx();
+        });
+        _fetchNextPage();
       });
     });
 
     _scrollController = ScrollController();
-    _pagingController = PagingController(firstPageKey: null);
-    _pagingController.addPageRequestListener((String? cursor) {
-      if (!_doingRefresh) {
-        fetchResults(cursor);
-      }
-      _doingRefresh = false;
-    });
   }
 
   @override
   void dispose() {
     super.dispose();
     _scrollController.dispose();
-    _pagingController.dispose();
   }
 
   void resetQuery() {
     _scrollController.dispose();
     _scrollController = ScrollController();
-    _doingRefresh = true;
-    _pagingController.refresh();
+    _pagingState.resetEx();
     _previousQuery = '';
     _previousCursor = null;
     _lastOffset = 0;
   }
 
-  void fetchResults(String? cursor) {
-    if (mounted) {
+  Future<void> _fetchNextPage() async {
+    if (_pagingState.isLoading) return;
+
+    setState(() {
+      _pagingState = _pagingState.copyWithEx(isLoading: true, error: null);
+    });
+
+    try {
       String query = widget.queryController.text;
       if (query != _previousQuery) {
-        cursor = null;
+        setState(() {
+          _pagingState = _pagingState.copyWithEx(cursor: null);
+        });
       }
-      if (query == _previousQuery && cursor == _previousCursor) {
+      if (query == _previousQuery && _pagingState.cursor == _previousCursor) {
         widget.searchFunction('', null);
         return;
       }
       _previousQuery = query;
-      _previousCursor = cursor;
-      widget.searchFunction(query, cursor);
+      _previousCursor = _pagingState.cursor;
+      widget.searchFunction(query, _pagingState.cursor);
+    }
+    catch (err, stk) {
+      if (mounted) {
+        setState(() {
+          _pagingState = _pagingState.copyWithEx(
+            error: [err, stk],
+            isLoading: false,
+          );
+        });
+      }
     }
   }
 
@@ -318,7 +331,7 @@ class TweetSearchResultListState<S extends Store<SearchStatus<T>>, T> extends St
         error: error,
         stackTrace: null,
         prefix: L10n.of(context).unable_to_load_the_search_results,
-        onRetry: () => fetchResults(_previousCursor),
+        onRetry: () => _fetchNextPage,
       ),
       onState: (_, state) {
         if (state.items.isEmpty) {
@@ -327,7 +340,13 @@ class TweetSearchResultListState<S extends Store<SearchStatus<T>>, T> extends St
 
         if (_previousQuery.isNotEmpty) {
           _inAppend = true;
-          _pagingController.appendPage(state.items, state.cursorBottom);
+          //setState(() {
+            _pagingState = _pagingState.copyWithEx(
+              pages: [...?_pagingState.pages, state.items],
+              keys: [...?_pagingState.keys, state.cursorBottom],
+              cursor: state.cursorBottom
+            );
+          //});
           WidgetsBinding.instance.addPostFrameCallback((_) {
             _scrollController.jumpTo(_lastOffset);
             _inAppend = false;
@@ -336,8 +355,9 @@ class TweetSearchResultListState<S extends Store<SearchStatus<T>>, T> extends St
 
         return PagedListView<String?, T>(
           scrollController: _scrollController,
-          pagingController: _pagingController,
           addAutomaticKeepAlives: false,
+          state: _pagingState,
+          fetchNextPage: _fetchNextPage,
           builderDelegate: PagedChildBuilderDelegate(
             newPageProgressIndicatorBuilder: (context) {
               return Container();

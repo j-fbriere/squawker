@@ -164,7 +164,7 @@ class _MaterialControlsState extends State<FritterMaterialControls> with SingleT
   Widget _buildOptionsButton() {
     final options = <OptionItem>[
       OptionItem(
-        onTap: () async {
+        onTap: (context) {
           Navigator.pop(context);
           _onSpeedButtonTap();
         },

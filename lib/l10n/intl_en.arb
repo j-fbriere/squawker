@@ -610,5 +610,15 @@
   "option_navigation_animations_label": "Navigation animations",
   "@option_navigation_animations_label": {},
   "option_navigation_animations_description": "Enable navigation animations",
-  "@option_navigation_animations_description": {}
+  "@option_navigation_animations_description": {},
+  "not_logged_in": "Not logged in",
+  "@not_logged_in": {},
+  "doesnt_work_without_account": "Squawker doesn't work without an account",
+  "@doesnt_work_without_account": {},
+  "login": "Login",
+  "@login": {},
+  "x_client_transaction_id_provider": "x-client-transaction-id provider",
+  "@x_client_transaction_id_provider": {},
+  "x_client_transaction_id_provider_description": "Set the x-client-transaction-id provider. It must be a domain name, without https. Reference: https://github.com/Teskann/x-client-transaction-id-generator",
+  "@x_client_transaction_id_provider_description": {}
 }

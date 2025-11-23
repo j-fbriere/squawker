@@ -283,7 +283,7 @@ class SubscriptionGroupFeedState extends State<SubscriptionGroupFeed> with Widge
     List<Response> errorResponseLst = [];
 
     RateFetchContext fetchContext = RateFetchContext(prefs.get(optionEnhancedFeeds) ? Twitter.graphqlSearchTimelineUriPath : Twitter.searchTweetsUriPath, searchQueries.length);
-    await fetchContext.init();
+    //await fetchContext.init();
 
     for (String searchQuery in searchQueries) {
       futures.add(_listSearchQueryTweets(fetchContext, searchQuery, errorResponseLst));

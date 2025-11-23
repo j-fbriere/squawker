@@ -4,7 +4,8 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import 'package:flutter_iconpicker_plus/flutter_iconpicker.dart';
+import 'package:flutter_iconpicker/flutter_iconpicker.dart';
+import 'package:flutter_iconpicker/Models/configuration.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:squawker/constants.dart';
@@ -104,9 +105,10 @@ class _SubscriptionGroupsState extends State<SubscriptionGroups> {
                   openSubscriptionGroupDialog(context, null, '', defaultGroupIcon);
                 },
                 child: DottedBorder(
-                  color: Theme.of(context).textTheme.bodySmall!.color!,
-                  borderType: BorderType.RRect,
-                  radius: const Radius.circular(12),
+                  options: RoundedRectDottedBorderOptions(
+                    color: Theme.of(context).textTheme.bodySmall!.color!,
+                    radius: const Radius.circular(12),
+                  ),
                   child: SizedBox(
                     width: double.infinity,
                     child: Column(
@@ -367,14 +369,16 @@ class _SubscriptionGroupEditDialogState extends State<SubscriptionGroupEditDialo
                   IconButton(
                     icon: Icon(deserializeIconData(icon)),
                     onPressed: () async {
-                      var selectedIcon = await FlutterIconPicker.showIconPicker(context,
+                      var selectedIcon = await showIconPicker(context,
+                        configuration: SinglePickerConfiguration(
                           iconPackModes: [IconPack.lineAwesomeIcons],
                           title: Text(L10n.of(context).pick_an_icon),
                           closeChild: Text(L10n.of(context).close),
                           searchClearIcon: Icon(Symbols.close),
                           searchIcon: Icon(Symbols.search),
                           searchHintText: L10n.of(context).search,
-                          noResultsText: L10n.of(context).no_results_for);
+                          noResultsText: L10n.of(context).no_results_for,
+                        ));
                       if (selectedIcon != null) {
                         setState(() {
                           icon = jsonEncode(serializeIcon(selectedIcon));
