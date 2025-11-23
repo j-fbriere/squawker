@@ -19,7 +19,10 @@ class TwitterLoginWebview extends StatefulWidget {
 
 class _TwitterLoginWebviewState extends State<TwitterLoginWebview> {
 
-  bool _databaseSet = false;
+  bool _csrfTokenFound = false;
+  String? _csrfToken;
+  Map<String, String>? _authHeader;
+  bool _userFound = false;
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +60,38 @@ class _TwitterLoginWebviewState extends State<TwitterLoginWebview> {
         }
       },
       */
+      onPageFinished: (String url) async {
+        if (url == "https://x.com/home") {
+          if (!_csrfTokenFound || _userFound) {
+            return;
+          }
+          String screen_name = (await webviewController.runJavaScriptReturningResult("document.documentElement.outerHTML.match(/\"screen_name\":\"([^\"]+)\"/)?.[1] ?? '';")).toString();
+          if (screen_name == '') {
+            Navigator.pop(context);
+            return;
+          }
+          screen_name = screen_name.replaceAll('"', '');
+          //print('*** login onPageFinished:');
+          //print(url);
+          //print(screen_name);
+
+          _userFound = true;
+
+          final database = await Repository.writable();
+          await database.insert(tableAccounts, Account(id: _csrfToken!, screenName: screen_name, authHeader: json.encode(_authHeader!)).toMap());
+          await database.close();
+
+          print('X user $screen_name added in database.');
+
+          await TwitterAccount.initCheckXAccounts(forceInit: true);
+          Provider.of<AccountAddedNotifier>(context, listen: false).publish();
+
+          Navigator.pop(context);
+        }
+      },
       onUrlChange: (change) async {
         if (change.url == "https://x.com/home") {
-          if (_databaseSet) {
+          if (_csrfTokenFound) {
             return;
           }
           final cookies = await webviewCookieManager.getCookies("https://x.com/i/flow/login");
@@ -77,39 +109,29 @@ class _TwitterLoginWebviewState extends State<TwitterLoginWebview> {
           }
           */
 
-          try {
-            final expCt0 = RegExp(r'(ct0=(.+?));');
-            final RegExpMatch? matchCt0 = expCt0.firstMatch(cookies.toString());
-            final csrfToken = matchCt0?.group(2);
-            if (csrfToken != null) {
-              final Map<String, String> authHeader = {
-                "Cookie": cookies
-                  .where((cookie) =>
-                    cookie.name == "guest_id" ||
-                    cookie.name == "gt" ||
-                    cookie.name == "att" ||
-                    cookie.name == "auth_token" ||
-                    cookie.name == "ct0")
-                  .map((cookie) => '${cookie.name}=${cookie.value}')
-                  .join(";"),
-                "authorization": bearerToken,
-                "x-csrf-token": csrfToken,
-              };
+          final expCt0 = RegExp(r'(ct0=(.+?));');
+          final RegExpMatch? matchCt0 = expCt0.firstMatch(cookies.toString());
+          _csrfToken = matchCt0?.group(2);
+          if (_csrfToken != null) {
+            _authHeader = {
+              "Cookie": cookies
+                .where((cookie) =>
+                  cookie.name == "guest_id" ||
+                  cookie.name == "gt" ||
+                  cookie.name == "att" ||
+                  cookie.name == "auth_token" ||
+                  cookie.name == "ct0")
+                .map((cookie) => '${cookie.name}=${cookie.value}')
+                .join(";"),
+              "authorization": bearerToken,
+              "x-csrf-token": _csrfToken!,
+            };
 
-              print(authHeader);
+            print(_authHeader!);
 
-              final database = await Repository.writable();
-              await database.insert(tableAccounts, Account(id: csrfToken, authHeader: json.encode(authHeader)).toMap());
-              await database.close();
-
-              _databaseSet = true;
-              await TwitterAccount.initCheckXAccounts(forceInit: true);
-              Provider.of<AccountAddedNotifier>(context, listen: false).publish();
-            }
-            Navigator.pop(context);
-          } catch (e) {
-            throw Exception(e);
+            _csrfTokenFound = true;
           }
+          //Navigator.pop(context);
         }
       },
     ));

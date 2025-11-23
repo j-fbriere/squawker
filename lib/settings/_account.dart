@@ -34,7 +34,7 @@ class _SettingsAccountFragmentState extends State<SettingsAccountFragment> {
     super.initState();
     //_regularAccountsTokens = TwitterAccount.getRegularAccountsTokens();
     _xAccountLst = TwitterAccount.xAccountLst ?? [];
-    print('*** SettingsAccountFragment.initState _xAccountLst.length=${_xAccountLst.length}');
+    //print('*** SettingsAccountFragment.initState _xAccountLst.length=${_xAccountLst.length}');
   }
 
   @override
@@ -117,8 +117,6 @@ class _SettingsAccountFragmentState extends State<SettingsAccountFragment> {
                   infoLst.add(_regularAccountsTokens[index].profile!.phone!);
                 }
                 */
-                RegExpMatch? matchId = _expId.firstMatch(_xAccountLst[index].authHeader);
-                String? guestId = matchId?.group(1);
                 return SwipeActionCell(
                   //key: Key(_regularAccountsTokens[index].oauthToken),
                   key: Key(_xAccountLst[index].id),
@@ -139,7 +137,7 @@ class _SettingsAccountFragmentState extends State<SettingsAccountFragment> {
                   child: Card(
                     child: ListTile(
                       leading: const Icon(Symbols.person),
-                      title: Text(guestId ?? '???'),
+                      title: Text(_xAccountLst[index].screenName),
                       //subtitle: infoLst.isEmpty ? null : Text(infoLst.join(', ')),
                       /*
                       trailing: IconButton(
