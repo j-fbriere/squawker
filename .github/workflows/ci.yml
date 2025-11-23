@@ -44,25 +44,29 @@ jobs:
 
       - name: Build APKs
         run: |
-          flutter clean
+          # Create a directory for our release APKs
+          mkdir -pv build_app/outputs/release
+
           flutter config --no-analytics
           flutter pub get
           flutter pub run flutter_oss_licenses:generate.dart
           flutter pub run intl_utils:generate
 
-          # Create a directory for our release APKs
-          mkdir -pv build/app/outputs/release
-
           # Build our big boy APK, and move it into the release APKs folder
           flutter build apk --dart-define=app.flavor=github --release --no-tree-shake-icons
-          mv build/app/outputs/flutter-apk/*-release.apk build/app/outputs/release
+          mv build/app/outputs/flutter-apk/*-release.apk build_app/outputs/release
 
           # Build our ABI-specific APKs and move them into the release APKs folder
+          flutter clean
           cd android
           ./gradlew clean
           cd ..
+          flutter config --no-analytics
+          flutter pub get
+          flutter pub run flutter_oss_licenses:generate.dart
+          flutter pub run intl_utils:generate
           flutter build apk --dart-define=app.flavor=github --release --no-tree-shake-icons --split-per-abi --target-platform=android-x64,android-arm,android-arm64
-          mv build/app/outputs/flutter-apk/*-release.apk build/app/outputs/release
+          mv build/app/outputs/flutter-apk/*-release.apk build_app/outputs/release
         env:
           KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
@@ -73,25 +77,25 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: apk
-          path: build/app/outputs/release/app-release.apk
+          path: build_app/outputs/release/app-release.apk
 
       - name: Archive arm APK
         uses: actions/upload-artifact@v4
         with:
           name: apk-arm
-          path: build/app/outputs/release/app-armeabi-v7a-release.apk
+          path: build_app/outputs/release/app-armeabi-v7a-release.apk
 
       - name: Archive arm64 APK
         uses: actions/upload-artifact@v4
         with:
           name: apk-arm64
-          path: build/app/outputs/release/app-arm64-v8a-release.apk
+          path: build_app/outputs/release/app-arm64-v8a-release.apk
 
       - name: Archive x86_64 APK
         uses: actions/upload-artifact@v4
         with:
           name: apk-x86_64
-          path: build/app/outputs/release/app-x86_64-release.apk
+          path: build_app/outputs/release/app-x86_64-release.apk
 
 #  ios:
 #    runs-on: macos-latest
