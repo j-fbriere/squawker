@@ -18,8 +18,10 @@ class L10n {
   static L10n? _current;
 
   static L10n get current {
-    assert(_current != null,
-        'No instance of L10n was loaded. Try to initialize the L10n delegate before accessing L10n.current.');
+    assert(
+      _current != null,
+      'No instance of L10n was loaded. Try to initialize the L10n delegate before accessing L10n.current.',
+    );
     return _current!;
   }
 
@@ -41,8 +43,10 @@ class L10n {
 
   static L10n of(BuildContext context) {
     final instance = L10n.maybeOf(context);
-    assert(instance != null,
-        'No instance of L10n present in the widget tree. Did you add L10n.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of L10n present in the widget tree. Did you add L10n.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -112,32 +116,17 @@ class L10n {
 
   /// `Select`
   String get select {
-    return Intl.message(
-      'Select',
-      name: 'select',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Select', name: 'select', desc: '', args: []);
   }
 
   /// `Unsubscribe`
   String get unsubscribe {
-    return Intl.message(
-      'Unsubscribe',
-      name: 'unsubscribe',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Unsubscribe', name: 'unsubscribe', desc: '', args: []);
   }
 
   /// `Subscribe`
   String get subscribe {
-    return Intl.message(
-      'Subscribe',
-      name: 'subscribe',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Subscribe', name: 'subscribe', desc: '', args: []);
   }
 
   /// `Reporting an error`
@@ -152,7 +141,7 @@ class L10n {
 
   /// `Something just went wrong in Squawker, and an error report has been generated. The report can be sent to the Squawker developers to help fix the problem.`
   String
-      get something_just_went_wrong_in_fritter_and_an_error_report_has_been_generated {
+  get something_just_went_wrong_in_fritter_and_an_error_report_has_been_generated {
     return Intl.message(
       'Something just went wrong in Squawker, and an error report has been generated. The report can be sent to the Squawker developers to help fix the problem.',
       name:
@@ -234,12 +223,7 @@ class L10n {
 
   /// `Filters`
   String get filters {
-    return Intl.message(
-      'Filters',
-      name: 'filters',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Filters', name: 'filters', desc: '', args: []);
   }
 
   /// `Note: Due to a Twitter/X limitation, not all tweets may be included`
@@ -304,22 +288,12 @@ class L10n {
 
   /// `No results`
   String get no_results {
-    return Intl.message(
-      'No results',
-      name: 'no_results',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('No results', name: 'no_results', desc: '', args: []);
   }
 
   /// `Feed`
   String get feed {
-    return Intl.message(
-      'Feed',
-      name: 'feed',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Feed', name: 'feed', desc: '', args: []);
   }
 
   /// `Subscriptions`
@@ -334,22 +308,12 @@ class L10n {
 
   /// `Trending`
   String get trending {
-    return Intl.message(
-      'Trending',
-      name: 'trending',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Trending', name: 'trending', desc: '', args: []);
   }
 
   /// `Saved`
   String get saved {
-    return Intl.message(
-      'Saved',
-      name: 'saved',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Saved', name: 'saved', desc: '', args: []);
   }
 
   /// `Unable to load the list of follows`
@@ -414,12 +378,7 @@ class L10n {
 
   /// `Tweets`
   String get tweets {
-    return Intl.message(
-      'Tweets',
-      name: 'tweets',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Tweets', name: 'tweets', desc: '', args: []);
   }
 
   /// `Tweets & Replies`
@@ -434,62 +393,32 @@ class L10n {
 
   /// `Media`
   String get media {
-    return Intl.message(
-      'Media',
-      name: 'media',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Media', name: 'media', desc: '', args: []);
   }
 
   /// `Following`
   String get following {
-    return Intl.message(
-      'Following',
-      name: 'following',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Following', name: 'following', desc: '', args: []);
   }
 
   /// `Followers`
   String get followers {
-    return Intl.message(
-      'Followers',
-      name: 'followers',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Followers', name: 'followers', desc: '', args: []);
   }
 
   /// `Joined {date}`
   String joined(Object date) {
-    return Intl.message(
-      'Joined $date',
-      name: 'joined',
-      desc: '',
-      args: [date],
-    );
+    return Intl.message('Joined $date', name: 'joined', desc: '', args: [date]);
   }
 
   /// `Export`
   String get export {
-    return Intl.message(
-      'Export',
-      name: 'export',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Export', name: 'export', desc: '', args: []);
   }
 
   /// `Settings`
   String get settings {
-    return Intl.message(
-      'Settings',
-      name: 'settings',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Settings', name: 'settings', desc: '', args: []);
   }
 
   /// `Data exported to {fullPath}`
@@ -584,12 +513,7 @@ class L10n {
 
   /// `Cancel`
   String get cancel {
-    return Intl.message(
-      'Cancel',
-      name: 'cancel',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
   }
 
   /// `Thanks for helping Squawker! 💖`
@@ -604,42 +528,22 @@ class L10n {
 
   /// `Send`
   String get send {
-    return Intl.message(
-      'Send',
-      name: 'send',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Send', name: 'send', desc: '', args: []);
   }
 
   /// `General`
   String get general {
-    return Intl.message(
-      'General',
-      name: 'general',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('General', name: 'general', desc: '', args: []);
   }
 
   /// `Default tab`
   String get default_tab {
-    return Intl.message(
-      'Default tab',
-      name: 'default_tab',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Default tab', name: 'default_tab', desc: '', args: []);
   }
 
   /// `App Info`
   String get app_info {
-    return Intl.message(
-      'App Info',
-      name: 'app_info',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('App Info', name: 'app_info', desc: '', args: []);
   }
 
   /// `Which tab is shown when the app opens`
@@ -654,12 +558,7 @@ class L10n {
 
   /// `Media size`
   String get media_size {
-    return Intl.message(
-      'Media size',
-      name: 'media_size',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Media size', name: 'media_size', desc: '', args: []);
   }
 
   /// `Save bandwidth with smaller images`
@@ -674,112 +573,57 @@ class L10n {
 
   /// `Disabled`
   String get disabled {
-    return Intl.message(
-      'Disabled',
-      name: 'disabled',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Disabled', name: 'disabled', desc: '', args: []);
   }
 
   /// `Thumbnail`
   String get thumbnail {
-    return Intl.message(
-      'Thumbnail',
-      name: 'thumbnail',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Thumbnail', name: 'thumbnail', desc: '', args: []);
   }
 
   /// `Small`
   String get small {
-    return Intl.message(
-      'Small',
-      name: 'small',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Small', name: 'small', desc: '', args: []);
   }
 
   /// `Medium`
   String get medium {
-    return Intl.message(
-      'Medium',
-      name: 'medium',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Medium', name: 'medium', desc: '', args: []);
   }
 
   /// `Large`
   String get large {
-    return Intl.message(
-      'Large',
-      name: 'large',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Large', name: 'large', desc: '', args: []);
   }
 
   /// `Theme`
   String get theme {
-    return Intl.message(
-      'Theme',
-      name: 'theme',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Theme', name: 'theme', desc: '', args: []);
   }
 
   /// `Theme Mode`
   String get theme_mode {
-    return Intl.message(
-      'Theme Mode',
-      name: 'theme_mode',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Theme Mode', name: 'theme_mode', desc: '', args: []);
   }
 
   /// `System`
   String get system {
-    return Intl.message(
-      'System',
-      name: 'system',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('System', name: 'system', desc: '', args: []);
   }
 
   /// `Light`
   String get light {
-    return Intl.message(
-      'Light',
-      name: 'light',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Light', name: 'light', desc: '', args: []);
   }
 
   /// `Dark`
   String get dark {
-    return Intl.message(
-      'Dark',
-      name: 'dark',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Dark', name: 'dark', desc: '', args: []);
   }
 
   /// `True Black?`
   String get true_black {
-    return Intl.message(
-      'True Black?',
-      name: 'true_black',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('True Black?', name: 'true_black', desc: '', args: []);
   }
 
   /// `Use true black for the dark mode theme`
@@ -794,42 +638,22 @@ class L10n {
 
   /// `Material 3?`
   String get material_3 {
-    return Intl.message(
-      'Material 3?',
-      name: 'material_3',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Material 3?', name: 'material_3', desc: '', args: []);
   }
 
   /// `BETA`
   String get beta {
-    return Intl.message(
-      'BETA',
-      name: 'beta',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('BETA', name: 'beta', desc: '', args: []);
   }
 
   /// `Data`
   String get data {
-    return Intl.message(
-      'Data',
-      name: 'data',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Data', name: 'data', desc: '', args: []);
   }
 
   /// `Import`
   String get import {
-    return Intl.message(
-      'Import',
-      name: 'import',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Import', name: 'import', desc: '', args: []);
   }
 
   /// `Import data from another device`
@@ -854,7 +678,8 @@ class L10n {
 
   /// `The file does not exist. Please ensure it is located at {filePath}`
   String the_file_does_not_exist_please_ensure_it_is_located_at_file_path(
-      Object filePath) {
+    Object filePath,
+  ) {
     return Intl.message(
       'The file does not exist. Please ensure it is located at $filePath',
       name: 'the_file_does_not_exist_please_ensure_it_is_located_at_file_path',
@@ -865,17 +690,12 @@ class L10n {
 
   /// `prefix`
   String get prefix {
-    return Intl.message(
-      'prefix',
-      name: 'prefix',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('prefix', name: 'prefix', desc: '', args: []);
   }
 
   /// `Please make sure the data you wish to import is located there, then press the import button below.`
   String
-      get please_make_sure_the_data_you_wish_to_import_is_located_there_then_press_the_import_button_below {
+  get please_make_sure_the_data_you_wish_to_import_is_located_there_then_press_the_import_button_below {
     return Intl.message(
       'Please make sure the data you wish to import is located there, then press the import button below.',
       name:
@@ -897,22 +717,12 @@ class L10n {
 
   /// `Logging`
   String get logging {
-    return Intl.message(
-      'Logging',
-      name: 'logging',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Logging', name: 'logging', desc: '', args: []);
   }
 
   /// `Enable ?`
   String get enable_ {
-    return Intl.message(
-      'Enable ?',
-      name: 'enable_',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Enable ?', name: 'enable_', desc: '', args: []);
   }
 
   /// `Activate non-confirmation bias mode`
@@ -947,22 +757,12 @@ class L10n {
 
   /// `About`
   String get about {
-    return Intl.message(
-      'About',
-      name: 'about',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('About', name: 'about', desc: '', args: []);
   }
 
   /// `Version`
   String get version {
-    return Intl.message(
-      'Version',
-      name: 'version',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Version', name: 'version', desc: '', args: []);
   }
 
   /// `Copied version to clipboard`
@@ -977,12 +777,7 @@ class L10n {
 
   /// `Contribute`
   String get contribute {
-    return Intl.message(
-      'Contribute',
-      name: 'contribute',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Contribute', name: 'contribute', desc: '', args: []);
   }
 
   /// `Help make Squawker even better`
@@ -1017,12 +812,7 @@ class L10n {
 
   /// `Donate`
   String get donate {
-    return Intl.message(
-      'Donate',
-      name: 'donate',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Donate', name: 'donate', desc: '', args: []);
   }
 
   /// `Help support Squawker's future`
@@ -1047,12 +837,7 @@ class L10n {
 
   /// `Licenses`
   String get licenses {
-    return Intl.message(
-      'Licenses',
-      name: 'licenses',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Licenses', name: 'licenses', desc: '', args: []);
   }
 
   /// `All the great software used by Squawker`
@@ -1067,12 +852,7 @@ class L10n {
 
   /// `Squawker`
   String get fritter {
-    return Intl.message(
-      'Squawker',
-      name: 'fritter',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Squawker', name: 'fritter', desc: '', args: []);
   }
 
   /// `Released under the MIT License`
@@ -1087,52 +867,27 @@ class L10n {
 
   /// `All`
   String get all {
-    return Intl.message(
-      'All',
-      name: 'all',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('All', name: 'all', desc: '', args: []);
   }
 
   /// `New`
   String get newTrans {
-    return Intl.message(
-      'New',
-      name: 'newTrans',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('New', name: 'newTrans', desc: '', args: []);
   }
 
   /// `No`
   String get no {
-    return Intl.message(
-      'No',
-      name: 'no',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('No', name: 'no', desc: '', args: []);
   }
 
   /// `Yes`
   String get yes {
-    return Intl.message(
-      'Yes',
-      name: 'yes',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Yes', name: 'yes', desc: '', args: []);
   }
 
   /// `Yes, please`
   String get yes_please {
-    return Intl.message(
-      'Yes, please',
-      name: 'yes_please',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Yes, please', name: 'yes_please', desc: '', args: []);
   }
 
   /// `Are you sure?`
@@ -1147,7 +902,8 @@ class L10n {
 
   /// `Are you sure you want to delete the subscription group {name}?`
   String are_you_sure_you_want_to_delete_the_subscription_group_name_of_group(
-      Object name) {
+    Object name,
+  ) {
     return Intl.message(
       'Are you sure you want to delete the subscription group $name?',
       name:
@@ -1159,42 +915,22 @@ class L10n {
 
   /// `Toggle All`
   String get toggle_all {
-    return Intl.message(
-      'Toggle All',
-      name: 'toggle_all',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Toggle All', name: 'toggle_all', desc: '', args: []);
   }
 
   /// `Delete`
   String get delete {
-    return Intl.message(
-      'Delete',
-      name: 'delete',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Delete', name: 'delete', desc: '', args: []);
   }
 
   /// `OK`
   String get ok {
-    return Intl.message(
-      'OK',
-      name: 'ok',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('OK', name: 'ok', desc: '', args: []);
   }
 
   /// `Name`
   String get name {
-    return Intl.message(
-      'Name',
-      name: 'name',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Name', name: 'name', desc: '', args: []);
   }
 
   /// `Please enter a name`
@@ -1229,12 +965,7 @@ class L10n {
 
   /// `Search`
   String get search {
-    return Intl.message(
-      'Search',
-      name: 'search',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Search', name: 'search', desc: '', args: []);
   }
 
   /// `No results for:`
@@ -1249,12 +980,7 @@ class L10n {
 
   /// `Close`
   String get close {
-    return Intl.message(
-      'Close',
-      name: 'close',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Close', name: 'close', desc: '', args: []);
   }
 
   /// `Import subscriptions`
@@ -1269,7 +995,7 @@ class L10n {
 
   /// `To import subscriptions from an existing Twitter/X account, enter your username below.`
   String
-      get to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below {
+  get to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below {
     return Intl.message(
       'To import subscriptions from an existing Twitter/X account, enter your username below.',
       name:
@@ -1281,7 +1007,7 @@ class L10n {
 
   /// `Please note that the method Squawker uses to import subscriptions is heavily rate-limited by Twitter/X, so this may fail if you have a lot of followed accounts.`
   String
-      get please_note_that_the_method_fritter_uses_to_import_subscriptions_is_heavily_rate_limited_by_twitter_so_this_may_fail_if_you_have_a_lot_of_followed_accounts {
+  get please_note_that_the_method_fritter_uses_to_import_subscriptions_is_heavily_rate_limited_by_twitter_so_this_may_fail_if_you_have_a_lot_of_followed_accounts {
     return Intl.message(
       'Please note that the method Squawker uses to import subscriptions is heavily rate-limited by Twitter/X, so this may fail if you have a lot of followed accounts.',
       name:
@@ -1313,7 +1039,7 @@ class L10n {
 
   /// `Selecting individual accounts to import, and assigning groups are both planned for the future already!`
   String
-      get selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already {
+  get selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already {
     return Intl.message(
       'Selecting individual accounts to import, and assigning groups are both planned for the future already!',
       name:
@@ -1345,12 +1071,7 @@ class L10n {
 
   /// `Username`
   String get username {
-    return Intl.message(
-      'Username',
-      name: 'username',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Username', name: 'username', desc: '', args: []);
   }
 
   /// `Unable to import`
@@ -1415,12 +1136,7 @@ class L10n {
 
   /// `Groups`
   String get groups {
-    return Intl.message(
-      'Groups',
-      name: 'groups',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Groups', name: 'groups', desc: '', args: []);
   }
 
   /// `Date Created`
@@ -1445,7 +1161,8 @@ class L10n {
 
   /// `Unable to load the trends for {widgetPlaceName}`
   String unable_to_load_the_trends_for_widget_place_name(
-      Object widgetPlaceName) {
+    Object widgetPlaceName,
+  ) {
     return Intl.message(
       'Unable to load the trends for $widgetPlaceName',
       name: 'unable_to_load_the_trends_for_widget_place_name',
@@ -1456,7 +1173,7 @@ class L10n {
 
   /// `There were no trends returned. This is unexpected! Please report as a bug, if possible.`
   String
-      get there_were_no_trends_returned_this_is_unexpected_please_report_as_a_bug_if_possible {
+  get there_were_no_trends_returned_this_is_unexpected_please_report_as_a_bug_if_possible {
     return Intl.message(
       'There were no trends returned. This is unexpected! Please report as a bug, if possible.',
       name:
@@ -1478,12 +1195,7 @@ class L10n {
 
   /// `Country`
   String get country {
-    return Intl.message(
-      'Country',
-      name: 'country',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Country', name: 'country', desc: '', args: []);
   }
 
   /// `Unable to stream the trend location preference`
@@ -1498,12 +1210,7 @@ class L10n {
 
   /// `Trends`
   String get trends {
-    return Intl.message(
-      'Trends',
-      name: 'trends',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Trends', name: 'trends', desc: '', args: []);
   }
 
   /// `{num, plural, zero{no tweets} one{one tweet} two{two tweets} few{{numFormatted} tweets} many{{numFormatted} tweet} other{{numFormatted} tweets}}`
@@ -1570,8 +1277,9 @@ class L10n {
 
   /// `Unable to save the media. Twitter/X returned a status of {responseStatusCode}`
   String
-      unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode(
-          Object responseStatusCode) {
+  unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode(
+    Object responseStatusCode,
+  ) {
     return Intl.message(
       'Unable to save the media. Twitter/X returned a status of $responseStatusCode',
       name:
@@ -1613,12 +1321,7 @@ class L10n {
 
   /// `Unknown`
   String get unknown {
-    return Intl.message(
-      'Unknown',
-      name: 'unknown',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Unknown', name: 'unknown', desc: '', args: []);
   }
 
   /// `Playback speed`
@@ -1633,37 +1336,24 @@ class L10n {
 
   /// `Subtitles`
   String get subtitles {
-    return Intl.message(
-      'Subtitles',
-      name: 'subtitles',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Subtitles', name: 'subtitles', desc: '', args: []);
   }
 
   /// `LIVE`
   String get live {
-    return Intl.message(
-      'LIVE',
-      name: 'live',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('LIVE', name: 'live', desc: '', args: []);
   }
 
   /// `Download`
   String get download {
-    return Intl.message(
-      'Download',
-      name: 'download',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Download', name: 'download', desc: '', args: []);
   }
 
   /// `{thisTweetUserName} retweeted {timeAgo}`
   String this_tweet_user_name_retweeted(
-      Object thisTweetUserName, Object timeAgo) {
+    Object thisTweetUserName,
+    Object timeAgo,
+  ) {
     return Intl.message(
       '$thisTweetUserName retweeted $timeAgo',
       name: 'this_tweet_user_name_retweeted',
@@ -1684,12 +1374,7 @@ class L10n {
 
   /// `Replying to`
   String get replying_to {
-    return Intl.message(
-      'Replying to',
-      name: 'replying_to',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Replying to', name: 'replying_to', desc: '', args: []);
   }
 
   /// `The tweet did not contain any text. This is unexpected`
@@ -1724,32 +1409,17 @@ class L10n {
 
   /// `Thread`
   String get thread {
-    return Intl.message(
-      'Thread',
-      name: 'thread',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Thread', name: 'thread', desc: '', args: []);
   }
 
   /// `Unsave`
   String get unsave {
-    return Intl.message(
-      'Unsave',
-      name: 'unsave',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Unsave', name: 'unsave', desc: '', args: []);
   }
 
   /// `Save`
   String get save {
-    return Intl.message(
-      'Save',
-      name: 'save',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Save', name: 'save', desc: '', args: []);
   }
 
   /// `Share tweet content`
@@ -1854,42 +1524,22 @@ class L10n {
 
   /// `Back`
   String get back {
-    return Intl.message(
-      'Back',
-      name: 'back',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Back', name: 'back', desc: '', args: []);
   }
 
   /// `Next`
   String get next {
-    return Intl.message(
-      'Next',
-      name: 'next',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Next', name: 'next', desc: '', args: []);
   }
 
   /// `Finish`
   String get finish {
-    return Intl.message(
-      'Finish',
-      name: 'finish',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Finish', name: 'finish', desc: '', args: []);
   }
 
   /// `Retry`
   String get retry {
-    return Intl.message(
-      'Retry',
-      name: 'retry',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Retry', name: 'retry', desc: '', args: []);
   }
 
   /// `Could not contact Twitter/X`
@@ -1904,7 +1554,8 @@ class L10n {
 
   /// `Please check your Internet connection.\n\n{errorMessage}`
   String please_check_your_internet_connection_error_message(
-      Object errorMessage) {
+    Object errorMessage,
+  ) {
     return Intl.message(
       'Please check your Internet connection.\n\n$errorMessage',
       name: 'please_check_your_internet_connection_error_message',
@@ -1915,12 +1566,7 @@ class L10n {
 
   /// `Timed out`
   String get timed_out {
-    return Intl.message(
-      'Timed out',
-      name: 'timed_out',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Timed out', name: 'timed_out', desc: '', args: []);
   }
 
   /// `This took too long to load. Please check your network connection!`
@@ -1945,17 +1591,12 @@ class L10n {
 
   /// `Report`
   String get report {
-    return Intl.message(
-      'Report',
-      name: 'report',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Report', name: 'report', desc: '', args: []);
   }
 
   /// `No data was returned, which should never happen. Please report a bug, if possible!`
   String
-      get no_data_was_returned_which_should_never_happen_please_report_a_bug_if_possible {
+  get no_data_was_returned_which_should_never_happen_please_report_a_bug_if_possible {
     return Intl.message(
       'No data was returned, which should never happen. Please report a bug, if possible!',
       name:
@@ -1967,12 +1608,7 @@ class L10n {
 
   /// `Updates`
   String get updates {
-    return Intl.message(
-      'Updates',
-      name: 'updates',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Updates', name: 'updates', desc: '', args: []);
   }
 
   /// `When a new app update is available`
@@ -2007,7 +1643,8 @@ class L10n {
 
   /// `Update to {releaseVersion} through your F-Droid client`
   String update_to_release_version_through_your_fdroid_client(
-      Object releaseVersion) {
+    Object releaseVersion,
+  ) {
     return Intl.message(
       'Update to $releaseVersion through your F-Droid client',
       name: 'update_to_release_version_through_your_fdroid_client',
@@ -2158,32 +1795,17 @@ class L10n {
 
   /// `Choose`
   String get choose {
-    return Intl.message(
-      'Choose',
-      name: 'choose',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Choose', name: 'choose', desc: '', args: []);
   }
 
   /// `Not set`
   String get not_set {
-    return Intl.message(
-      'Not set',
-      name: 'not_set',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Not set', name: 'not_set', desc: '', args: []);
   }
 
   /// `Language`
   String get language {
-    return Intl.message(
-      'Language',
-      name: 'language',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Language', name: 'language', desc: '', args: []);
   }
 
   /// `Requires a restart`
@@ -2268,12 +1890,7 @@ class L10n {
 
   /// `Home`
   String get home {
-    return Intl.message(
-      'Home',
-      name: 'home',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Home', name: 'home', desc: '', args: []);
   }
 
   /// `Unable to load your home pages`
@@ -2308,12 +1925,7 @@ class L10n {
 
   /// `{name}`
   String group_name(Object name) {
-    return Intl.message(
-      '$name',
-      name: 'group_name',
-      desc: '',
-      args: [name],
-    );
+    return Intl.message('$name', name: 'group_name', desc: '', args: [name]);
   }
 
   /// `Are you sure you want to close Squawker?`
@@ -2328,12 +1940,7 @@ class L10n {
 
   /// `Search term`
   String get search_term {
-    return Intl.message(
-      'Search term',
-      name: 'search_term',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Search term', name: 'search_term', desc: '', args: []);
   }
 
   /// `Subscriptions can only be imported from public profiles`
@@ -2368,12 +1975,7 @@ class L10n {
 
   /// `User`
   String get generic_username {
-    return Intl.message(
-      'User',
-      name: 'generic_username',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('User', name: 'generic_username', desc: '', args: []);
   }
 
   /// `Missing page`
@@ -2408,12 +2010,7 @@ class L10n {
 
   /// `Mute videos`
   String get mute_videos {
-    return Intl.message(
-      'Mute videos',
-      name: 'mute_videos',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Mute videos', name: 'mute_videos', desc: '', args: []);
   }
 
   /// `Whether videos should be muted by default`
@@ -2588,12 +2185,7 @@ class L10n {
 
   /// `Add to feed`
   String get add_to_feed {
-    return Intl.message(
-      'Add to feed',
-      name: 'add_to_feed',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Add to feed', name: 'add_to_feed', desc: '', args: []);
   }
 
   /// `Default subscription tab`
@@ -2618,12 +2210,7 @@ class L10n {
 
   /// `X API`
   String get x_api {
-    return Intl.message(
-      'X API',
-      name: 'x_api',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('X API', name: 'x_api', desc: '', args: []);
   }
 
   /// `Enhanced feeds`
@@ -2688,12 +2275,7 @@ class L10n {
 
   /// `Account`
   String get account {
-    return Intl.message(
-      'Account',
-      name: 'account',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Account', name: 'account', desc: '', args: []);
   }
 
   /// `Add an account`
@@ -2788,32 +2370,17 @@ class L10n {
 
   /// `Name:`
   String get name_label {
-    return Intl.message(
-      'Name:',
-      name: 'name_label',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Name:', name: 'name_label', desc: '', args: []);
   }
 
   /// `Email:`
   String get email_label {
-    return Intl.message(
-      'Email:',
-      name: 'email_label',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Email:', name: 'email_label', desc: '', args: []);
   }
 
   /// `Phone:`
   String get phone_label {
-    return Intl.message(
-      'Phone:',
-      name: 'phone_label',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Phone:', name: 'phone_label', desc: '', args: []);
   }
 
   /// `Error From Twitter/X`
@@ -2988,22 +2555,12 @@ class L10n {
 
   /// `API key`
   String get api_key {
-    return Intl.message(
-      'API key',
-      name: 'api_key',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('API key', name: 'api_key', desc: '', args: []);
   }
 
   /// `Proxy`
   String get proxy_label {
-    return Intl.message(
-      'Proxy',
-      name: 'proxy_label',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Proxy', name: 'proxy_label', desc: '', args: []);
   }
 
   /// `Proxy for all requests`
@@ -3018,12 +2575,7 @@ class L10n {
 
   /// `Proxy Error`
   String get proxy_error {
-    return Intl.message(
-      'Proxy Error',
-      name: 'proxy_error',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Proxy Error', name: 'proxy_error', desc: '', args: []);
   }
 
   /// `Share tweet as image`
@@ -3038,7 +2590,7 @@ class L10n {
 
   /// `To import specific subscriptions, enter your comma separated usernames below.`
   String
-      get to_import_specific_subscriptions_enter_your_comma_separated_usernames_below {
+  get to_import_specific_subscriptions_enter_your_comma_separated_usernames_below {
     return Intl.message(
       'To import specific subscriptions, enter your comma separated usernames below.',
       name:
@@ -3060,12 +2612,7 @@ class L10n {
 
   /// `Usernames`
   String get usernames {
-    return Intl.message(
-      'Usernames',
-      name: 'usernames',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Usernames', name: 'usernames', desc: '', args: []);
   }
 
   /// `Exclusions in feed`
@@ -3143,6 +2690,51 @@ class L10n {
     return Intl.message(
       'Enable navigation animations',
       name: 'option_navigation_animations_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Not logged in`
+  String get not_logged_in {
+    return Intl.message(
+      'Not logged in',
+      name: 'not_logged_in',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Squawker doesn't work without an account`
+  String get doesnt_work_without_account {
+    return Intl.message(
+      'Squawker doesn\'t work without an account',
+      name: 'doesnt_work_without_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message('Login', name: 'login', desc: '', args: []);
+  }
+
+  /// `x-client-transaction-id provider`
+  String get x_client_transaction_id_provider {
+    return Intl.message(
+      'x-client-transaction-id provider',
+      name: 'x_client_transaction_id_provider',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set the x-client-transaction-id provider. It must be a domain name, without https. Reference: https://github.com/Teskann/x-client-transaction-id-generator`
+  String get x_client_transaction_id_provider_description {
+    return Intl.message(
+      'Set the x-client-transaction-id provider. It must be a domain name, without https. Reference: https://github.com/Teskann/x-client-transaction-id-generator',
+      name: 'x_client_transaction_id_provider_description',
       desc: '',
       args: [],
     );

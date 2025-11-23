@@ -640,5 +640,15 @@
   "option_navigation_animations_label": "Animations de navigation",
   "@option_navigation_animations_label": {},
   "option_navigation_animations_description": "Activate les animations de navigation",
-  "@option_navigation_animations_description": {}
+  "@option_navigation_animations_description": {},
+  "not_logged_in": "Non connecté",
+  "@not_logged_in": {},
+  "doesnt_work_without_account": "Squawker ne fonctionne pas sans compte.",
+  "@doesnt_work_without_account": {},
+  "login": "Connexion",
+  "@login": {},
+  "x_client_transaction_id_provider": "Fournisseur x-client-transaction-id",
+  "@x_client_transaction_id_provider": {},
+  "x_client_transaction_id_provider_description": "Définissez le fournisseur x-client-transaction-id. Il doit s'agir d'un nom de domaine, sans https. Référence: https://github.com/Teskann/x-client-transaction-id-generator",
+  "@x_client_transaction_id_provider_description": {}
 }

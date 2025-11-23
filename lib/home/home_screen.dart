@@ -178,7 +178,7 @@ class _HomeScreenState extends State<_HomeScreen> {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         // Announcement of the ability to use regular accounts and also have restricted unauthenticated access.
         // The dialog of information is displayed once.
-        await TwitterAccount.announcementRegularAccountAndUnauthenticatedAccess(context);
+        //await TwitterAccount.announcementRegularAccountAndUnauthenticatedAccess(context);
 
         ReceiveSharingIntent.instance.getInitialMedia().then((List<SharedMediaFile> value) async {
           if (value.isNotEmpty) {

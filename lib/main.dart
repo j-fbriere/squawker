@@ -15,8 +15,10 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:pref/pref.dart';
 import 'package:provider/provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:squawker/client/accounts.dart';
 import 'package:squawker/client/app_http_client.dart';
 import 'package:squawker/client/client_account.dart';
+import 'package:squawker/client/login_webview.dart';
 import 'package:squawker/constants.dart';
 import 'package:squawker/database/repository.dart';
 import 'package:squawker/generated/l10n.dart';
@@ -41,6 +43,7 @@ import 'package:squawker/utils/accent_util.dart';
 import 'package:squawker/utils/data_service.dart';
 import 'package:squawker/utils/iterables.dart';
 import 'package:squawker/utils/misc.dart';
+import 'package:squawker/utils/notifiers.dart';
 import 'package:squawker/utils/translation.dart';
 import 'package:squawker/utils/urls.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -83,6 +86,39 @@ Future checkForUpdates() async {
     }
   }
 }
+
+Future<void> checkForAccounts(context) async {
+  Logger.root.info('Checking for accounts');
+
+  final accounts = await TwitterAccount.initCheckXAccounts(forceInit: true);
+  if (accounts.isEmpty) {
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("⚠️ ${L10n.of(context).not_logged_in}"),
+          content: Text(L10n.of(context).doesnt_work_without_account),
+          actions: [
+            TextButton(
+              child: Text(L10n.of(context).close),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text(L10n.of(context).login),
+              onPressed: () {
+                Navigator.of(context).pop();
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const TwitterLoginWebview()));
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
 
 class UnableToCheckForUpdatesException {
   final String body;
@@ -259,6 +295,7 @@ Future<void> main() async {
         Provider(create: (context) => TrendLocationsModel()),
         Provider(create: (context) => TrendsModel(trendLocationModel)),
         ChangeNotifierProvider(create: (_) => VideoContextState(prefService.get(optionMediaDefaultMute))),
+        ChangeNotifierProvider(create: (_) => AccountAddedNotifier()),
       ],
       child: /*DevicePreview(
         enabled: !kReleaseMode,
@@ -278,12 +315,15 @@ class SquawkerApp extends StatefulWidget {
 class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
   static final log = Logger('_SquawkerAppState');
 
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
+
   String _themeMode = 'system';
   bool _trueBlack = false;
   FlexScheme _colorScheme = FlexScheme.mango;
   bool _accentColor = false;
   Locale? _locale;
   final _MyRouteObserver _routeObserver = _MyRouteObserver();
+  bool _accountDialogShown = false;
 
   @override
   void didChangeDependencies() {
@@ -426,6 +466,7 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
       appBarStyle: _trueBlack ? FlexAppBarStyle.surface : FlexAppBarStyle.primary,
     );
     return MaterialApp(
+      navigatorKey: _navigatorKey,
       localeListResolutionCallback: (locales, supportedLocales) {
         List supportedLocalesCountryCode = [];
         List supportedLocalesScriptCode = [];
@@ -552,6 +593,14 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
         return null;
       },
       builder: (context, child) {
+
+        if (!_accountDialogShown) {
+          WidgetsBinding.instance.addPostFrameCallback((_) async {
+            _accountDialogShown = true;
+            await checkForAccounts(_navigatorKey.currentContext!);
+          });
+        }
+
         // Replace the default red screen of death with a slightly friendlier one
         ErrorWidget.builder = (FlutterErrorDetails details) => FullPageErrorWidget(
               error: details.exception,

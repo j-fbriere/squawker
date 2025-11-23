@@ -340,13 +340,13 @@ class TweetSearchResultListState<S extends Store<SearchStatus<T>>, T> extends St
 
         if (_previousQuery.isNotEmpty) {
           _inAppend = true;
-          setState(() {
+          //setState(() {
             _pagingState = _pagingState.copyWithEx(
               pages: [...?_pagingState.pages, state.items],
               keys: [...?_pagingState.keys, state.cursorBottom],
               cursor: state.cursorBottom
             );
-          });
+          //});
           WidgetsBinding.instance.addPostFrameCallback((_) {
             _scrollController.jumpTo(_lastOffset);
             _inAppend = false;

@@ -9,3 +9,11 @@ class CombinedChangeNotifier extends ChangeNotifier {
     two.addListener(() => notifyListeners());
   }
 }
+
+
+class AccountAddedNotifier extends ChangeNotifier {
+
+  void publish() {
+    notifyListeners();
+  }
+}

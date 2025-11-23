@@ -23,6 +23,8 @@ const String tableRateLimits = 'rate_limits';
 const String tableTwitterToken = 'twitter_token';
 const String tableTwitterProfile = 'twitter_profile';
 
+const String tableAccounts = 'accounts';
+
 class Repository {
   static final log = Logger('Repository');
 
@@ -319,11 +321,16 @@ class Repository {
             await db.delete(tableTwitterProfile, where: 'username IN (${List.filled(usernameLst.length, '?').join(',')})', whereArgs: usernameLst);
           }
         }))
-      ]
+      ],
+      31: [
+        // create table for storing twitter accounts
+        SqlMigration(
+            'CREATE TABLE IF NOT EXISTS $tableAccounts (id TEXT PRIMARY KEY, password TEXT, email TEXT, auth_header VARCHAR)'),
+      ],
     });
     await openDatabase(
       databaseName,
-      version: 30,
+      version: 31,
       onUpgrade: myMigrationPlan,
       onCreate: myMigrationPlan,
       onDowngrade: myMigrationPlan,

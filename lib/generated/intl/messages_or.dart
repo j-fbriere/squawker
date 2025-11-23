@@ -22,20 +22,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "about": MessageLookupByLibrary.simpleMessage("ଵିଷୟରେ"),
-        "country": MessageLookupByLibrary.simpleMessage("ଦେଶ"),
-        "dark": MessageLookupByLibrary.simpleMessage("ଗାଢ଼"),
-        "general": MessageLookupByLibrary.simpleMessage("ସାଧାରଣ"),
-        "light": MessageLookupByLibrary.simpleMessage("ହାଲୁକା"),
-        "media": MessageLookupByLibrary.simpleMessage("ମିଡ଼ିଆ"),
-        "name": MessageLookupByLibrary.simpleMessage("ନାମ"),
-        "newTrans": MessageLookupByLibrary.simpleMessage("ନୂଆ"),
-        "no": MessageLookupByLibrary.simpleMessage("ନାହିଁ"),
-        "ok": MessageLookupByLibrary.simpleMessage("ଠିକ୍ ଅଛି"),
-        "search": MessageLookupByLibrary.simpleMessage("ସନ୍ଧାନ"),
-        "system": MessageLookupByLibrary.simpleMessage("ସିଷ୍ଟମ୍"),
-        "theme": MessageLookupByLibrary.simpleMessage("ଥିମ୍"),
-        "version": MessageLookupByLibrary.simpleMessage("ସଂସ୍କରଣ"),
-        "yes": MessageLookupByLibrary.simpleMessage("ହଁ")
-      };
+    "about": MessageLookupByLibrary.simpleMessage("ଵିଷୟରେ"),
+    "country": MessageLookupByLibrary.simpleMessage("ଦେଶ"),
+    "dark": MessageLookupByLibrary.simpleMessage("ଗାଢ଼"),
+    "general": MessageLookupByLibrary.simpleMessage("ସାଧାରଣ"),
+    "light": MessageLookupByLibrary.simpleMessage("ହାଲୁକା"),
+    "media": MessageLookupByLibrary.simpleMessage("ମିଡ଼ିଆ"),
+    "name": MessageLookupByLibrary.simpleMessage("ନାମ"),
+    "newTrans": MessageLookupByLibrary.simpleMessage("ନୂଆ"),
+    "no": MessageLookupByLibrary.simpleMessage("ନାହିଁ"),
+    "ok": MessageLookupByLibrary.simpleMessage("ଠିକ୍ ଅଛି"),
+    "search": MessageLookupByLibrary.simpleMessage("ସନ୍ଧାନ"),
+    "system": MessageLookupByLibrary.simpleMessage("ସିଷ୍ଟମ୍"),
+    "theme": MessageLookupByLibrary.simpleMessage("ଥିମ୍"),
+    "version": MessageLookupByLibrary.simpleMessage("ସଂସ୍କରଣ"),
+    "yes": MessageLookupByLibrary.simpleMessage("ହଁ"),
+  };
 }

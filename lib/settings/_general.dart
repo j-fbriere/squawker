@@ -130,6 +130,37 @@ class SettingsGeneralFragment extends StatelessWidget {
     );
   }
 
+  PrefDialog _createXClientTransactionIdDialog(BuildContext context) {
+    BasePrefService prefs = PrefService.of(context);
+    var mediaQuery = MediaQuery.of(context);
+    final controller = TextEditingController(
+      text: prefs.get(optionXClientTransactionIdProvider) ?? optionXClientTransactionIdProviderDefaultDomain);
+
+    return PrefDialog(
+      actions: [
+        TextButton(onPressed: () => Navigator.pop(context), child: Text(L10n.of(context).cancel)),
+        TextButton(
+          onPressed: () async {
+            await prefs.set(optionXClientTransactionIdProvider,
+              controller.text.isEmpty ? optionXClientTransactionIdProviderDefaultDomain : controller.text);
+            if (context.mounted) {
+              Navigator.pop(context);
+            }
+          },
+          child: Text(L10n.of(context).save))
+      ],
+      title: Text(L10n.of(context).x_client_transaction_id_provider),
+      children: [
+        SizedBox(
+          width: mediaQuery.size.width,
+          child: TextFormField(
+            controller: controller,
+            decoration: InputDecoration(hintText: optionXClientTransactionIdProviderDefaultDomain),
+          ),
+        )
+      ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -235,6 +266,11 @@ class SettingsGeneralFragment extends StatelessWidget {
             title: Text(L10n.of(context).activate_non_confirmation_bias_mode_label),
             pref: optionNonConfirmationBiasMode,
             subtitle: Text(L10n.of(context).activate_non_confirmation_bias_mode_description),
+          ),
+          PrefDialogButton(
+            title: Text(L10n.of(context).x_client_transaction_id_provider),
+            subtitle: Text(L10n.of(context).x_client_transaction_id_provider_description),
+            dialog: _createXClientTransactionIdDialog(context),
           ),
           ExpansionTile(
             title: Text(L10n.of(context).media),

@@ -338,3 +338,28 @@ class TwitterProfileEntity with ToMappable {
     };
   }
 }
+
+class Account {
+  final String id;
+  final String authHeader;
+
+  Account({required this.id, required this.authHeader});
+
+  factory Account.fromMap(Map<String, Object?> map) {
+    return Account(
+      id: map['id'] as String,
+      authHeader: map['auth_header'] as String,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) || other is Account && runtimeType == other.runtimeType && id == other.id;
+
+  @override
+  int get hashCode => id.hashCode;
+
+  Map<String, dynamic> toMap() {
+    return {'id': id, 'auth_header': authHeader};
+  }
+}

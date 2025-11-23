@@ -75,3 +75,19 @@ const routeSubscriptionsImport = '/subscriptions/import';
 const twitterAccountTypesPriorityToRegular = 'twitter_account_types_priority_to_regular';
 const twitterAccountTypesBoth = 'twitter_account_types_both';
 const twitterAccountTypesOnlyRegular = 'twitter_account_types_only_regular';
+
+// Default instance of https://github.com/Teskann/x-client-transaction-id-generator
+const String optionXClientTransactionIdProviderDefaultDomain = 'x-client-transaction-id-generator.xyz';
+
+const String optionXClientTransactionIdProvider = 'x_client_transaction_id_provider';
+
+const String bearerToken =
+    "Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA";
+
+final Map<String, String> userAgentHeader = {
+  'user-agent':
+  "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Mobile Safari/537.3",
+  "Pragma": "no-cache",
+  "Cache-Control": "no-cache"
+  // "If-Modified-Since": "Sat, 1 Jan 2000 00:00:00 GMT",
+};
