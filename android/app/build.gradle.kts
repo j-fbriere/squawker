@@ -74,20 +74,13 @@ android {
     }
     
     signingConfigs {
-        create("release") {
+        create("release")
+
+        getByName("release") {
             keyAlias = keystoreProperties["keyAlias"] as String
             keyPassword = keystoreProperties["keyPassword"] as String
             storeFile = keystoreProperties["storeFile"]?.let { file(it as String) }
             storePassword = keystoreProperties["storePassword"] as String
-        }
-    }
-
-    splits {
-        abi {
-            isEnable = false
-            reset()
-            include("x86_64", "armeabi-v7a", "arm64-v8a")
-            isUniversalApk = false
         }
     }
 
@@ -107,6 +100,23 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             isDebuggable = false
+
+            applicationVariants.all {
+                outputs.configureEach {
+                    val abiVersionCodes = mapOf(
+                        "x86_64" to 1,
+                        "armeabi-v7a" to 2,
+                        "arm64-v8a" to 3
+                    )
+
+                    val abi = filters.find { it.filterType == com.android.build.OutputFile.ABI }?.identifier
+
+                    if (abi != null && abiVersionCodes.containsKey(abi)) {
+                        (this as com.android.build.gradle.internal.api.ApkVariantOutputImpl).versionCodeOverride =
+                            this.versionCode + abiVersionCodes[abi]!!
+                    }
+                }
+            }
         }
     }
 }

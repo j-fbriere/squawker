@@ -57,14 +57,6 @@ jobs:
           mv build/app/outputs/apk/release/*.apk build_app/outputs/release
 
           # Build our ABI-specific APKs and move them into the release APKs folder
-          flutter clean
-          cd android
-          ./gradlew clean
-          cd ..
-          flutter config --no-analytics
-          flutter pub get
-          flutter pub run flutter_oss_licenses:generate.dart
-          flutter pub run intl_utils:generate
           flutter build apk --dart-define=app.flavor=github --release --no-tree-shake-icons --split-per-abi --target-platform=android-x64,android-arm,android-arm64 --build-name=${{env.APPLICATION_VERSION}} --build-number=${{env.APPLICATION_BUILD_NUMBER}}
           mv build/app/outputs/apk/release/*.apk build_app/outputs/release
           echo "build-name=${{env.APPLICATION_VERSION}}" > build_app/outputs/release/version.txt
@@ -73,14 +65,6 @@ jobs:
           # *** Optional when an alternate F-Droid repository is also used ***
           # Build our ABI-specific APKs to copy them remotely to the alternate F-Droid repository.
           if [[ -n "$ALT_FDROID_REPO_USER" && -n "$ALT_FDROID_REPO_HOST" && -n "$ALT_FDROID_REPO_FOLDER" ]]; then
-            flutter clean
-            cd android
-            ./gradlew clean
-            cd ..
-            flutter config --no-analytics
-            flutter pub get
-            flutter pub run flutter_oss_licenses:generate.dart
-            flutter pub run intl_utils:generate
             flutter build apk --dart-define=app.flavor=fdroid --release --no-tree-shake-icons --split-per-abi --target-platform=android-x64,android-arm,android-arm64 --build-name=${{env.APPLICATION_VERSION}} --build-number=${{env.APPLICATION_BUILD_NUMBER}}
             sshpass -e scp build/app/outputs/apk/release/*.apk $ALT_FDROID_REPO_USER@$ALT_FDROID_REPO_HOST:$ALT_FDROID_REPO_FOLDER
             rm build/app/outputs/apk/release/*.apk
