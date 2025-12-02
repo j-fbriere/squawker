@@ -81,6 +81,7 @@ class _StatusScreenState extends State<_StatusScreen> {
           pages: [...?_pagingState.pages, chains],
           keys: [...?_pagingState.keys, result.cursorBottom],
           hasNextPage: hasNextPage,
+          cursor: result.cursorBottom,
           isLoading: false,
         );
       });

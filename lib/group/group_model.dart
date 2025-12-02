@@ -21,7 +21,7 @@ IconData deserializeIconData(String iconData) {
       return icon.data;
     }
   } catch (e, stackTrace) {
-    log('Unable to deserialize icon', error: e, stackTrace: stackTrace);
+    log('Unable to deserialize icon', error: e);
   }
 
   // Use this as a default;

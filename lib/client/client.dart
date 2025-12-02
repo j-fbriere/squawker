@@ -167,7 +167,9 @@ class Twitter {
     'unified_cards_ad_metadata_container_dynamic_card_content_query_enabled': 'false',
     'verified_phone_label_enabled': 'false',
     'vibe_api_enabled': 'false',
-    'view_counts_everywhere_api_enabled': 'false'
+    'view_counts_everywhere_api_enabled': 'false',
+    'immersive_video_status_linkable_timestamps': 'false',
+    'articles_api_enabled': 'false'
   };
 
   static Map<String, String> defaultFeaturesUnauthenticated = {
@@ -193,8 +195,32 @@ class Twitter {
     'responsive_web_enhance_cards_enabled': 'false'
   };
 
+  static Map<String, String> gqlFeatures = {
+    'android_graphql_skip_api_media_color_palette': 'false',
+    'unified_cards_ad_metadata_container_dynamic_card_content_query_enabled': 'false',
+    'verified_phone_label_enabled': 'false',
+    'vibe_api_enabled': 'false',
+    'view_counts_everywhere_api_enabled': 'false',
+    'premium_content_api_read_enabled': 'false',
+    'communities_web_enable_tweet_community_results_fetch': 'false',
+    'responsive_web_jetfuel_frame': 'false',
+    'responsive_web_grok_analyze_button_fetch_trends_enabled': 'false',
+    'responsive_web_grok_image_annotation_enabled': 'false',
+    'rweb_tipjar_consumption_enabled': 'false',
+    'profile_label_improvements_pcf_label_in_post_enabled': 'false',
+    'creator_subscriptions_quote_tweet_preview_enabled': 'false',
+    'c9s_tweet_anatomy_moderator_badge_enabled': 'false',
+    'responsive_web_grok_analyze_post_followups_enabled': 'false',
+    'rweb_video_timestamps_enabled': 'false',
+    'responsive_web_grok_share_attachment_enabled': 'false',
+    'articles_preview_enabled': 'false',
+    'immersive_video_status_linkable_timestamps': 'false',
+    'articles_api_enabled': 'false',
+    'responsive_web_grok_analysis_button_from_backend': 'false'
+  };
+
   static Future<Profile> getProfileById(String id) async {
-    var uri = Uri.https('api.twitter.com', '/graphql/Lxg1V9AiIzzXEiP2c8dRnw/UserByRestId', {
+    var uri = Uri.https('api.x.com', '/graphql/Lxg1V9AiIzzXEiP2c8dRnw/UserByRestId', {
       'variables': jsonEncode({
         'userId': id,
         'withHighlightedLabel': true,
@@ -208,7 +234,7 @@ class Twitter {
   }
 
   static Future<Profile> getProfileByScreenName(String screenName) async {
-    var uri = Uri.https('api.twitter.com', '/graphql/oUZZZ8Oddwxs8Cd3iW3UEA/UserByScreenName', {
+    var uri = Uri.https('api.x.com', '/graphql/oUZZZ8Oddwxs8Cd3iW3UEA/UserByScreenName', {
       'variables': jsonEncode({
         'screen_name': screenName,
         'withHighlightedLabel': true,
@@ -346,7 +372,7 @@ class Twitter {
       'includePromotedContent': false,
       'withVoice': false
     };
-    var response = await _twitterApiAllowUnauthenticated.client.get(Uri.https('api.twitter.com', '/graphql/pq4JqttrkAz73WE6s2yUqg/TweetResultByRestId', {
+    var response = await _twitterApiAllowUnauthenticated.client.get(Uri.https('api.x.com', '/graphql/pq4JqttrkAz73WE6s2yUqg/TweetResultByRestId', {
       'variables': jsonEncode(variables),
       'features': jsonEncode(defaultFeaturesUnauthenticated),
     }));
@@ -385,7 +411,7 @@ class Twitter {
       variables['cursor'] = cursor;
     }
 
-    var response = await _twitterApi.client.get(Uri.https('api.twitter.com', '/graphql/3XDB26fBve-MmjHaWTUZxA/TweetDetail', {
+    var response = await _twitterApi.client.get(Uri.https('api.x.com', '/graphql/3XDB26fBve-MmjHaWTUZxA/TweetDetail', {
       'variables': jsonEncode(variables),
       'features': jsonEncode(defaultFeatures),
     }));
@@ -430,7 +456,7 @@ class Twitter {
       variables['cursor'] = cursor;
     }
 
-    var uri = Uri.https('api.twitter.com', graphqlSearchTimelineUriPath, {
+    var uri = Uri.https('api.x.com', graphqlSearchTimelineUriPath, {
       'variables': jsonEncode(variables),
       'features': jsonEncode(defaultFeatures)
     });
@@ -481,7 +507,7 @@ class Twitter {
       }
     }
 
-    var response = await (_twitterApi.client as _SquawkerTwitterClient).getWithRateFetchCtx(Uri.https('api.twitter.com', searchTweetsUriPath, queryParameters), fetchContext: fetchContext);
+    var response = await (_twitterApi.client as _SquawkerTwitterClient).getWithRateFetchCtx(Uri.https('api.x.com', searchTweetsUriPath, queryParameters), fetchContext: fetchContext);
     if (response.body.isEmpty) {
       return TweetStatus(chains: [], cursorBottom: null, cursorTop: null);
     }
@@ -570,7 +596,7 @@ class Twitter {
       queryParameters['page'] = page.toString();
     }
 
-    var response = await _twitterApi.client.get(Uri.https('api.twitter.com', '/1.1/users/search.json', queryParameters));
+    var response = await _twitterApi.client.get(Uri.https('api.x.com', '/1.1/users/search.json', queryParameters));
     if (response.body.isEmpty) {
       return SearchStatus(items: []);
     }
@@ -599,7 +625,7 @@ class Twitter {
       variables['cursor'] = cursor;
     }
 
-    var uri = Uri.https('api.twitter.com', graphqlSearchTimelineUriPath, {
+    var uri = Uri.https('api.x.com', graphqlSearchTimelineUriPath, {
       'variables': jsonEncode(variables),
       'features': jsonEncode(defaultFeatures)
     });
@@ -664,7 +690,7 @@ class Twitter {
       'withVoice': true,
       'withV2Timeline': true
     };
-    var response = await _twitterApiAllowUnauthenticated.client.get(Uri.https('api.twitter.com', '/graphql/WmvfySbQ0FeY1zk4HU_5ow/UserTweets', {
+    var response = await _twitterApiAllowUnauthenticated.client.get(Uri.https('api.x.com', '/graphql/WmvfySbQ0FeY1zk4HU_5ow/UserTweets', {
       'variables': jsonEncode(variables),
       'features': jsonEncode(defaultFeaturesUnauthenticated)
     }));
@@ -690,7 +716,7 @@ class Twitter {
       query['cursor'] = cursor;
     }
 
-    var response = await _twitterApi.client.get(Uri.https('api.twitter.com', '/2/timeline/$type/$id.json', query));
+    var response = await _twitterApi.client.get(Uri.https('api.x.com', '/2/timeline/$type/$id.json', query));
     if (response.body.isEmpty) {
       return TweetStatus(chains: [], cursorBottom: null, cursorTop: null);
     }
@@ -717,20 +743,20 @@ class Twitter {
 
     if (type == 'profile') {
       if (includeReplies) {
-        uri = Uri.https('api.twitter.com', 'graphql/8IS8MaO-2EN6GZZZb8jF0g/UserWithProfileTweetsAndRepliesQueryV2', {
+        uri = Uri.https('api.x.com', 'graphql/Y86LQY7KMvxn5tu3hFTyPg/UserWithProfileTweetsAndRepliesQueryV2', {
           'variables': jsonEncode(variables),
           'features': jsonEncode(defaultFeatures)
         });
       }
       else {
-        uri = Uri.https('api.twitter.com', 'graphql/3JNH4e9dq1BifLxAa3UMWg/UserWithProfileTweetsQueryV2', {
+        uri = Uri.https('api.x.com', 'graphql/JLApJKFY0MxGTzCoK6ps8Q/UserWithProfileTweetsQueryV2', {
           'variables': jsonEncode(variables),
           'features': jsonEncode(defaultFeatures)
         });
       }
     }
     else { // type = 'media'
-      uri = Uri.https('api.twitter.com', 'graphql/PDfFf8hGeJvUCiTyWtw4wQ/MediaTimelineV2', {
+      uri = Uri.https('api.x.com', 'graphql/PDfFf8hGeJvUCiTyWtw4wQ/MediaTimelineV2', {
         'variables': jsonEncode(variables),
         'features': jsonEncode(defaultFeatures)
       });
@@ -1011,7 +1037,7 @@ class Twitter {
   }
 
   static Future<List<UserWithExtra>> _getUsersPage(Iterable<String> ids) async {
-    var response = await _twitterApiAllowUnauthenticated.client.get(Uri.https('api.twitter.com', '/1.1/users/lookup.json', {
+    var response = await _twitterApiAllowUnauthenticated.client.get(Uri.https('api.x.com', '/1.1/users/lookup.json', {
       ...defaultParams,
       'user_id': ids.join(','),
     }));
@@ -1026,7 +1052,7 @@ class Twitter {
   }
 
   static Future<List<UserWithExtra>> _getUsersPageByScreenName(Iterable<String> screenNames) async {
-    var response = await _twitterApiAllowUnauthenticated.client.get(Uri.https('api.twitter.com', '/1.1/users/lookup.json', {
+    var response = await _twitterApiAllowUnauthenticated.client.get(Uri.https('api.x.com', '/1.1/users/lookup.json', {
       ...defaultParams,
       'screen_name': screenNames.join(','),
     }));
@@ -1099,7 +1125,7 @@ class Twitter {
   }
 
   static Future<Map<String, dynamic>> getBroadcastDetails(String key) async {
-    var response = await _twitterApi.client.get(Uri.https('api.twitter.com', '/1.1/live_video_stream/status/$key'));
+    var response = await _twitterApi.client.get(Uri.https('api.x.com', '/1.1/live_video_stream/status/$key'));
 
     return json.decode(response.body);
   }

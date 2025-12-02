@@ -1,4 +1,5 @@
 import 'package:chewie/chewie.dart';
+import 'package:chewie/src/center_play_button.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
@@ -67,13 +68,31 @@ class TweetVideo extends StatefulWidget {
   State<StatefulWidget> createState() => _TweetVideoState();
 }
 
-class _TweetVideoState extends State<TweetVideo> {
+class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMixin<TweetVideo> {
   bool _showVideo = false;
 
   VideoPlayerController? _videoController;
   ChewieController? _chewieController;
 
+  @override
+  bool get wantKeepAlive => true;
+
   Future<void> _loadVideo() async {
+    // TODO remove
+    //print('*** TweetVideo._loadVideo');
+
+    if (_chewieController != null) {
+      WakelockPlus.disable();
+      _chewieController!.pause();
+      _chewieController!.dispose();
+      _chewieController = null;
+    }
+    if (_videoController != null) {
+      _videoController!.pause();
+      _videoController!.dispose();
+      _videoController = null;
+    }
+
     var urls = await widget.metadata.streamUrlsBuilder();
     var streamUrl = urls.streamUrl;
     var downloadUrl = urls.downloadUrl;
@@ -84,6 +103,7 @@ class _TweetVideoState extends State<TweetVideo> {
           allowBackgroundPlayback: prefs.get(optionMediaAllowBackgroundPlay),
           mixWithOthers: prefs.get(optionMediaAllowBackgroundPlayOtherApps),
         ));
+    await _videoController!.initialize();
     if (widget.metadata.durationMillis != null) {
       _videoController!.value =
           _videoController!.value.copyWith(duration: Duration(milliseconds: widget.metadata.durationMillis!));
@@ -95,15 +115,29 @@ class _TweetVideoState extends State<TweetVideo> {
 
     _videoController!.addListener(() {
       model.setIsMuted(_videoController!.value.volume);
+
+      // Change wake lock screen
+      if (_chewieController!.isPlaying) {
+        WakelockPlus.enable();
+      } else {
+        WakelockPlus.disable();
+      }
     });
 
     _chewieController = ChewieController(
+      // TODO disable full screen temporarily because of bug
+      allowFullScreen: false,
       aspectRatio: widget.metadata.aspectRatio,
       autoInitialize: true,
       autoPlay: true,
       allowMuting: true,
       allowedScreenSleep: false,
-      customControls: const FritterMaterialControls(),
+      customControls: const SquawkerMaterialControls(),
+      optionsTranslation: OptionsTranslation(
+        playbackSpeedButtonText: L10n.of(context).playback_speed,
+        subtitlesButtonText: L10n.of(context).subtitles,
+        cancelButtonText: L10n.of(context).cancel,
+      ),
       additionalOptions: (context) => [
         OptionItem(
           onTap: (context) async {
@@ -162,6 +196,7 @@ class _TweetVideoState extends State<TweetVideo> {
       },
     );
 
+    /*
     _videoController!.addListener(() {
       // Change wake lock screen
       if (_chewieController!.isPlaying) {
@@ -170,6 +205,7 @@ class _TweetVideoState extends State<TweetVideo> {
         WakelockPlus.disable();
       }
     });
+    */
   }
 
   Future<void> onTapPlay() async {
@@ -182,40 +218,54 @@ class _TweetVideoState extends State<TweetVideo> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     // TODO: This is a bit flickery, but will do for now
     return AspectRatio(
       aspectRatio: widget.metadata.aspectRatio,
       child: AnimatedSwitcher(
-          duration: const Duration(milliseconds: 150),
-          child: _showVideo
-              ? _Video(controller: _chewieController!)
-              : GestureDetector(
-                  onTap: onTapPlay,
-                  child: Stack(alignment: Alignment.center, children: [
-                    widget.metadata.imageUrl != null
-                        ? ExtendedImage.network(widget.metadata.imageUrl!,
-                            width: double.infinity, fit: BoxFit.fitWidth, cache: true)
-                        : FittedBox(
-                            fit: BoxFit.fitWidth,
-                            child: Text(L10n.of(context).thumbnail_not_available),
-                          ),
-                    Center(
-                      child: FritterCenterPlayButton(
-                        backgroundColor: Colors.black54,
-                        iconColor: Colors.white,
-                        isFinished: false,
-                        isPlaying: false,
-                        show: true,
-                        onPressed: onTapPlay,
-                      ),
-                    )
-                  ]),
-                )),
+        duration: const Duration(milliseconds: 150),
+        child: _showVideo
+          ? _Video(controller: _chewieController!)
+          : GestureDetector(
+              onTap: onTapPlay,
+              child: Stack(alignment: Alignment.center, children: [
+                widget.metadata.imageUrl != null
+                  ? ExtendedImage.network(widget.metadata.imageUrl!,
+                      width: double.infinity, fit: BoxFit.fitWidth, cache: true)
+                  : FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(L10n.of(context).thumbnail_not_available),
+                    ),
+                Center(
+                  child: CenterPlayButton(
+                    backgroundColor: Colors.black54,
+                    iconColor: Colors.white,
+                    isFinished: false,
+                    isPlaying: false,
+                    show: true,
+                    onPressed: onTapPlay,
+                  ),
+                )
+              ]),
+            )),
     );
   }
 
+  /*
+  @override
+  void didUpdateWidget(covariant TweetVideo oldWidget) {
+    // TODO remove
+    print('*** TweetVideo.didUpdateWidget');
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+  }
+  */
+
   @override
   void dispose() {
+    // TODO remove
+    //print('*** TweetVideo.dispose');
+    /*
     if (_chewieController == null || !_chewieController!.isFullScreen) {
       // TODO: These now seem to get called when the video player goes fullscreen. They shouldn't though
       _videoController?.dispose();
@@ -223,7 +273,20 @@ class _TweetVideoState extends State<TweetVideo> {
 
       WakelockPlus.disable();
     }
-
+    */
+    // TODO remove
+    //print('*** TweetVideo.dispose _countLoaded==0');
+    if (_chewieController != null) {
+      WakelockPlus.disable();
+      _chewieController!.pause();
+      _chewieController!.dispose();
+      _chewieController = null;
+    }
+    if (_videoController != null) {
+      _videoController!.pause();
+      _videoController!.dispose();
+      _videoController = null;
+    }
     super.dispose();
   }
 }
