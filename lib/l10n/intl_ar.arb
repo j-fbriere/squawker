@@ -17,7 +17,7 @@
   "@subscribe": {},
   "reporting_an_error": "الإبلاغ غن خطأ",
   "@reporting_an_error": {},
-  "something_just_went_wrong_in_fritter_and_an_error_report_has_been_generated": "حدث خطأ ما في Squawker، وتم توليد تقرير لهذا الخطأ، يمكن ارسال التقرير إلى مطوري Squawker لمساعدتهم على إصلاح المشكلة.",
+  "something_just_went_wrong_in_fritter_and_an_error_report_has_been_generated": "حدث خطأ ما في Squawker، وتم إنشاء تقرير لهذا الخطأ، يمكن ارسال التقرير إلى مطوري Squawker لمساعدتهم على إصلاح المشكلة.",
   "@something_just_went_wrong_in_fritter_and_an_error_report_has_been_generated": {},
   "would_you_like_to_enable_automatic_error_reporting": "هل تُحب أن تفعل مُبَلغ الأخطاء الآلي؟",
   "@would_you_like_to_enable_automatic_error_reporting": {},
