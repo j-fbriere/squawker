@@ -261,7 +261,7 @@
     "@ends_timeago_format_endsAt_allowFromNow_true": {},
     "tap_to_show_getMediaType_item_type": "Toque para mostrar {getMediaType}",
     "@tap_to_show_getMediaType_item_type": {},
-    "downloading_media": "Baixando mídia...",
+    "downloading_media": "Baixando mídia…",
     "@downloading_media": {},
     "successfully_saved_the_media": "Salvou a mídia!",
     "@successfully_saved_the_media": {},
