@@ -145,7 +145,7 @@
     "@numberFormat_format_total_votes": {},
     "tap_to_show_getMediaType_item_type": "Tocca per mostrare {getMediaType}",
     "@tap_to_show_getMediaType_item_type": {},
-    "downloading_media": "Download del contenuto in corso...",
+    "downloading_media": "Download del contenuto in corso…",
     "@downloading_media": {},
     "successfully_saved_the_media": "Contenuto salvato!",
     "@successfully_saved_the_media": {},
