@@ -640,5 +640,15 @@
     "translators_description": "استخدم مثيلات LibreTranslate المخصصة",
     "@translators_description": {},
     "libre_translate_host": "مضيف LibreTranslate",
-    "@libre_translate_host": {}
+    "@libre_translate_host": {},
+    "not_logged_in": "لم يتم تسجيل الدخول",
+    "@not_logged_in": {},
+    "doesnt_work_without_account": "Squawker لا يعمل بدون حساب",
+    "@doesnt_work_without_account": {},
+    "login": "تسجيل الدخول",
+    "@login": {},
+    "x_client_transaction_id_provider_description": "اختر وضع مقدِّم خدمات المعاملات عبر العميل. لا بدّ أنّه اسم محلي، بدون أحرف. المرجع: https://github.com/Teskann/x-client-transaction-id-generator",
+    "@x_client_transaction_id_provider_description": {},
+    "x_client_transaction_id_provider": "x-client-transaction-id provider",
+    "@x_client_transaction_id_provider": {}
 }
