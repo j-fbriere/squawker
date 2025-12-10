@@ -309,7 +309,7 @@
     "@download": {},
     "this_tweet_user_name_retweeted": "{thisTweetUserName} kirjutas {timeAgo} eest kordussäutsu",
     "@this_tweet_user_name_retweeted": {},
-    "downloading_media": "Laadin alla meediat...",
+    "downloading_media": "Laadin alla meediat…",
     "@downloading_media": {},
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode": "Meedia salvestamine ei õnnestu. Twitter/X'i vastus päringule: {responseStatusCode}",
     "@unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode": {},

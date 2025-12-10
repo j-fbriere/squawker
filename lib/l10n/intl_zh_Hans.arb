@@ -279,7 +279,7 @@
     "@tap_to_show_getMediaType_item_type": {},
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode": "无法保存媒体。Twitter/X 返回的状态是 {responseStatusCode}",
     "@unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode": {},
-    "downloading_media": "正在下载媒体...",
+    "downloading_media": "正在下载媒体…",
     "@downloading_media": {},
     "unknown": "未知",
     "@unknown": {},
