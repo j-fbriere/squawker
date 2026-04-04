@@ -11,7 +11,7 @@ class XRegularAccount {
       {Map<String, String>? headers,
       required Logger log,
       required Map<dynamic, dynamic> authHeader}) async {
-    log.info('Fetching $uri');
+    //log.info('Fetching $uri');
 
     final baseHeaders = await TwitterHeaders.getHeaders(uri);
 

@@ -52,6 +52,8 @@ class _StatusScreenState extends State<_StatusScreen> {
 
   final _seenAlready = <String>{};
 
+  bool _isFirstPage = true;
+
   Future<void> _fetchNextPage() async {
     if (_pagingState.isLoading) return;
 
@@ -60,8 +62,6 @@ class _StatusScreenState extends State<_StatusScreen> {
     });
 
     try {
-      var isFirstPage = _pagingState.cursor == null;
-
       var result = await Twitter.getTweet(widget.id, cursor: _pagingState.cursor);
 
       if (!mounted) {
@@ -75,7 +75,7 @@ class _StatusScreenState extends State<_StatusScreen> {
         _seenAlready.add(chain.id);
       }
 
-      bool hasNextPage = result.chains.isNotEmpty;
+      bool hasNextPage = chains.isNotEmpty;
       setState(() {
         _pagingState = _pagingState.copyWithEx(
           pages: [...?_pagingState.pages, chains],
@@ -87,7 +87,9 @@ class _StatusScreenState extends State<_StatusScreen> {
       });
 
       // If we're on the first page, we want to scroll to the selected status
-      if (isFirstPage) {
+      if (_isFirstPage) {
+        _isFirstPage = false;
+        //print('*** StatusScreen _fetchNextPage isFirstPage'); // TODO remove
         var statusIndex = chains.indexWhere((e) => e.id == widget.id);
 
         await _scrollController.scrollToIndex(statusIndex, preferPosition: AutoScrollPosition.begin);

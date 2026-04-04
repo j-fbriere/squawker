@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 
-version: 3.8.5+48
+version: 3.8.6+50
 
 environment:
   sdk: ^3.8.1
@@ -76,7 +76,7 @@ dependencies:
       url: https://github.com/ChristianKleineidam/logging_to_logcat
       ref: main # or d919298fa9ca4f6d3d1f2c94547f2c42fb5ba826
   material_symbols_icons: ^4.2719.3
-  measure_size: ^4.0.0
+  measure_size: ^5.0.2
   #media_scanner: ^2.2.0
   media_scanner:
     git:
@@ -132,7 +132,7 @@ dev_dependencies:
 
   flutter_launcher_icons: ^0.13.1
   flutter_lints: ^3.0.1
-  flutter_oss_licenses: ^2.0.1
+  flutter_oss_licenses: ^3.2.0
   intl_utils: ^2.8.7
   sqflite_common_ffi: ^2.3.2+1
 

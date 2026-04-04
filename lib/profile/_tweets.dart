@@ -12,6 +12,7 @@ import 'package:squawker/user.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:squawker/generated/l10n.dart';
 import 'package:provider/provider.dart';
+import 'package:squawker/utils/iterables.dart';
 
 class ProfileTweets extends StatefulWidget {
   final UserWithExtra user;
@@ -36,7 +37,10 @@ class _ProfileTweetsState extends State<ProfileTweets> with AutomaticKeepAliveCl
   bool get wantKeepAlive => true;
 
   Future<void> _fetchNextPage() async {
-    if (_pagingState.isLoading) return;
+    if (_pagingState.isLoading) {
+      //print('*** _fetchNextPage _pagingState.isLoading'); // TODO remove
+      return;
+    }
 
     setState(() {
       _pagingState = _pagingState.copyWithEx(isLoading: true, error: null);
@@ -58,17 +62,23 @@ class _ProfileTweetsState extends State<ProfileTweets> with AutomaticKeepAliveCl
         result = await Twitter.getUserTweets(widget.user.idStr!, widget.type, widget.pinnedTweets,
           count: pageSize, includeReplies: widget.includeReplies);
       }
+      print('*** _fetchNextPage with cursor=${_pagingState.cursor}, result.chains.length=${result.chains.length}, result.cursorBottom="${result.cursorBottom}", result.cursorTop="${result.cursorTop}"');
 
       if (!mounted) {
+        print('*** _fetchNextPage !mounted');
         return;
       }
 
-      bool hasNextPage = result.chains.isNotEmpty;
+      List<TweetChain>? totLst = _pagingState.pages?.expand((elm) => elm).toList();
+      List<TweetChain> resLst = result.chains.where((tc) => (totLst ?? []).firstWhereOrNull((tc2) => tc2.id == tc.id) == null).toList();
+      //print('*** totLst.length=${totLst?.length ?? 0}, resLst.length=${resLst.length}'); // TODO remove
+      bool hasNextPage = resLst.isNotEmpty;
       setState(() {
         _pagingState = _pagingState.copyWithEx(
-          pages: [...?_pagingState.pages, result.chains],
+          pages: [...?_pagingState.pages, resLst],
           keys: [...?_pagingState.keys, result.cursorBottom],
           hasNextPage: hasNextPage,
+          cursor: result.cursorBottom,
           isLoading: false,
         );
       });
