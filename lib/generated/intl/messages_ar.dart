@@ -172,6 +172,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "منع التقاط لقطات الشاشة. قد لا يعمل هذا على جميع الأجهزة.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("معطل"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(
+      "Squawker لا يعمل بدون حساب",
+    ),
     "donate": MessageLookupByLibrary.simpleMessage("التبرع"),
     "download": MessageLookupByLibrary.simpleMessage("تحميل"),
     "download_handling": MessageLookupByLibrary.simpleMessage(
@@ -197,9 +200,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_video_best_quality_label": MessageLookupByLibrary.simpleMessage(
       "قم بتنزيل مقاطع الفيديو بأفضل جودة",
     ),
-    "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "تحميل الوسائط...",
-    ),
+    "downloading_media": MessageLookupByLibrary.simpleMessage("تحميل الوسائط…"),
     "edit_account_title": MessageLookupByLibrary.simpleMessage("تعديل الحساب"),
     "email_label": MessageLookupByLibrary.simpleMessage("البريد الالكتروني:"),
     "enable_": MessageLookupByLibrary.simpleMessage("تفعيل الحارس؟"),
@@ -335,6 +336,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "light": MessageLookupByLibrary.simpleMessage("فاتح"),
     "live": MessageLookupByLibrary.simpleMessage("مباشر"),
     "logging": MessageLookupByLibrary.simpleMessage("تسجيل البيانات"),
+    "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "mandatory_label": MessageLookupByLibrary.simpleMessage(
       "الميادين الإلزامية:",
     ),
@@ -365,6 +367,9 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "لا اشتراكات. حاول أن تبحث أو أن تستورد البعض!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage(
+      "لم يتم تسجيل الدخول",
+    ),
     "not_set": MessageLookupByLibrary.simpleMessage("لم يتم تعيينه"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
@@ -507,7 +512,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "something_just_went_wrong_in_fritter_and_an_error_report_has_been_generated":
         MessageLookupByLibrary.simpleMessage(
-          "حدث خطأ ما في Squawker، وتم توليد تقرير لهذا الخطأ، يمكن ارسال التقرير إلى مطوري Squawker لمساعدتهم على إصلاح المشكلة.",
+          "حدث خطأ ما في Squawker، وتم إنشاء تقرير لهذا الخطأ، يمكن ارسال التقرير إلى مطوري Squawker لمساعدتهم على إصلاح المشكلة.",
         ),
     "sorry_the_replied_tweet_could_not_be_found":
         MessageLookupByLibrary.simpleMessage(
@@ -728,6 +733,13 @@ class MessageLookup extends MessageLookupByLibrary {
           "هل تُحب أن تفعل مُبَلغ الأخطاء الآلي؟",
         ),
     "x_api": MessageLookupByLibrary.simpleMessage("واجهة برمجة التطبيقات لـ X"),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "x-client-transaction-id provider",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(
+          "اختر وضع مقدِّم خدمات المعاملات عبر العميل. لا بدّ أنّه اسم محلي، بدون أحرف. المرجع: https://github.com/Teskann/x-client-transaction-id-generator",
+        ),
     "yes": MessageLookupByLibrary.simpleMessage("نعم"),
     "yes_please": MessageLookupByLibrary.simpleMessage("نعم، من فضلك"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(

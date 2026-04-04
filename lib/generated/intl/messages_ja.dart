@@ -79,9 +79,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "an_update_for_fritter_is_available": MessageLookupByLibrary.simpleMessage(
       "Squawkerの更新が利用可能です！🚀",
     ),
-    "are_you_sure": MessageLookupByLibrary.simpleMessage("確認"),
+    "app_info": MessageLookupByLibrary.simpleMessage("アプリ情報"),
+    "are_you_sure": MessageLookupByLibrary.simpleMessage("よろしいですか？"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
     "back": MessageLookupByLibrary.simpleMessage("戻る"),
+    "bad_guest_token": MessageLookupByLibrary.simpleMessage(
+      "Twitter/X はアクセストークンを無効化しました。 Squawkerを再オープンしてください!",
+    ),
+    "beta": MessageLookupByLibrary.simpleMessage("ベータ"),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage("Twitter/Xの配色に基づいたブルーのテーマ"),
     "cancel": MessageLookupByLibrary.simpleMessage("キャンセル"),
@@ -140,9 +145,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "ダウンロードできません。このメディアはストリーム限定の可能性があり、今のSquawkerではダウンロードできません。",
     ),
     "download_path": MessageLookupByLibrary.simpleMessage("ダウンロード先"),
-    "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "メディアをダウンロード中...",
-    ),
+    "downloading_media": MessageLookupByLibrary.simpleMessage("メディアをダウンロード中…"),
     "enable_": MessageLookupByLibrary.simpleMessage("を有効化？"),
     "ended_timeago_format_endsAt_allowFromNow_true": m3,
     "ends_timeago_format_endsAt_allowFromNow_true": m4,
@@ -150,6 +153,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Twitter/Xユーザ名を入力",
     ),
     "export": MessageLookupByLibrary.simpleMessage("エクスポート"),
+    "export_guest_accounts": MessageLookupByLibrary.simpleMessage(
+      "ゲストアカウントをエクスポートしますか?",
+    ),
     "export_settings": MessageLookupByLibrary.simpleMessage("設定をエクスポート？"),
     "export_subscription_group_members": MessageLookupByLibrary.simpleMessage(
       "登録グループのアカウントをエクスポート？",
@@ -164,6 +170,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_your_data": MessageLookupByLibrary.simpleMessage("データのエクスポート"),
     "feed": MessageLookupByLibrary.simpleMessage("フィード"),
     "filters": MessageLookupByLibrary.simpleMessage("フィルタ"),
+    "finish": MessageLookupByLibrary.simpleMessage("完了"),
     "finished_with_snapshotData_users": m5,
     "followers": MessageLookupByLibrary.simpleMessage("フォロワー"),
     "following": MessageLookupByLibrary.simpleMessage("フォロー"),
@@ -211,6 +218,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "light": MessageLookupByLibrary.simpleMessage("ライト"),
     "live": MessageLookupByLibrary.simpleMessage("ライブ"),
     "logging": MessageLookupByLibrary.simpleMessage("ログ"),
+    "material_3": MessageLookupByLibrary.simpleMessage("マテリアル3?"),
     "media": MessageLookupByLibrary.simpleMessage("メディア"),
     "media_size": MessageLookupByLibrary.simpleMessage("メディアの大きさ"),
     "medium": MessageLookupByLibrary.simpleMessage("中"),
@@ -239,6 +247,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "問題が発生しました🥲",
     ),
     "open_app_settings": MessageLookupByLibrary.simpleMessage("アプリで開く設定"),
+    "open_in_browser": MessageLookupByLibrary.simpleMessage("ブラウザを開く"),
     "page_not_found": MessageLookupByLibrary.simpleMessage(
       "Twitter/Xはページがないと表示しているが、本当ではないかもしれない",
     ),
@@ -289,6 +298,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "インポートするアカウントの選択やグループへの割り当ては今後対応予定です！",
         ),
     "send": MessageLookupByLibrary.simpleMessage("送信"),
+    "settings": MessageLookupByLibrary.simpleMessage("設定"),
     "share_tweet_content": MessageLookupByLibrary.simpleMessage("ツイート内容を共有"),
     "share_tweet_content_and_link": MessageLookupByLibrary.simpleMessage(
       "ツイート内容とリンクを共有",
@@ -404,6 +414,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "unable_to_load_the_tweets_for_the_feed":
         MessageLookupByLibrary.simpleMessage("フィードにツイートを読み込めませんでした"),
+    "unable_to_refresh_the_subscriptions": MessageLookupByLibrary.simpleMessage(
+      "サブスクリプションを更新できません",
+    ),
     "unable_to_run_the_database_migrations":
         MessageLookupByLibrary.simpleMessage("データベース移行ができませんでした"),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":

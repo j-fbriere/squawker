@@ -20,15 +20,25 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'zh_Hant';
 
+  static String m1(fileName) => "資料成功匯出至 ${fileName}";
+
+  static String m2(fullPath) => "資料成功匯出至 ${fullPath}";
+
   static String m3(timeagoFormat) => "已結束 ${timeagoFormat}";
 
   static String m4(timeagoFormat) => "結束 ${timeagoFormat}";
 
+  static String m5(snapshotData) => "成功匯入 ${snapshotData} 名用户";
+
   static String m6(name) => "${name}";
+
+  static String m7(snapshotData) => "已匯入 ${snapshotData} 名用户";
 
   static String m8(date) => "加入於 ${date}";
 
   static String m12(nbrRegularAccounts) => "常規帳戶（${nbrRegularAccounts}）：";
+
+  static String m15(filePath) => "文件不存在。請確保文件位於 ${filePath}";
 
   static String m16(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} 於 ${timeAgo} 前轉推了";
@@ -43,7 +53,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_subscriptions": MessageLookupByLibrary.simpleMessage("新增訂閱"),
     "add_to_group": MessageLookupByLibrary.simpleMessage("新增至群組"),
     "all": MessageLookupByLibrary.simpleMessage("全部"),
+    "allow_background_play_description": MessageLookupByLibrary.simpleMessage(
+      "允許在背景中播放",
+    ),
     "allow_background_play_label": MessageLookupByLibrary.simpleMessage("背景播放"),
+    "allow_background_play_other_apps_description":
+        MessageLookupByLibrary.simpleMessage("允許其他應用程式在背景播放"),
+    "allow_background_play_other_apps_label":
+        MessageLookupByLibrary.simpleMessage("其他背景應用"),
+    "api_key": MessageLookupByLibrary.simpleMessage("API 金鑰"),
     "app_info": MessageLookupByLibrary.simpleMessage("應用程式資訊"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("你確定嗎？"),
     "back": MessageLookupByLibrary.simpleMessage("返回"),
@@ -53,7 +71,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "choose": MessageLookupByLibrary.simpleMessage("選擇"),
     "choose_pages": MessageLookupByLibrary.simpleMessage("選擇頁面"),
     "close": MessageLookupByLibrary.simpleMessage("關閉"),
+    "community_notes_title": MessageLookupByLibrary.simpleMessage("讀者添加了上下文"),
     "contribute": MessageLookupByLibrary.simpleMessage("貢獻"),
+    "copied_address_to_clipboard": MessageLookupByLibrary.simpleMessage(
+      "已將地址複製至剪貼簿",
+    ),
+    "copied_version_to_clipboard": MessageLookupByLibrary.simpleMessage(
+      "已複製版本號",
+    ),
     "could_not_find_any_tweets_by_this_user":
         MessageLookupByLibrary.simpleMessage("找不到這個使用者的任何推文！"),
     "could_not_find_any_tweets_from_the_last_7_days":
@@ -61,6 +86,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("國家"),
     "dark": MessageLookupByLibrary.simpleMessage("深色"),
     "data": MessageLookupByLibrary.simpleMessage("資料"),
+    "data_exported_to_fileName": m1,
+    "data_exported_to_fullPath": m2,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "資料匯入成功",
     ),
@@ -90,12 +117,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "ends_timeago_format_endsAt_allowFromNow_true": m4,
     "enhanced_profile_label": MessageLookupByLibrary.simpleMessage("增強個人檔案"),
     "enhanced_searches_label": MessageLookupByLibrary.simpleMessage("增強搜尋"),
+    "enter_comma_separated_twitter_usernames":
+        MessageLookupByLibrary.simpleMessage("請輸入以英文逗號分隔的 Twitter／X 用戶名"),
+    "enter_your_twitter_username": MessageLookupByLibrary.simpleMessage(
+      "輸入您的 Twitter／X 用戶名",
+    ),
     "error_from_twitter": MessageLookupByLibrary.simpleMessage(
       "來自 Twitter／X 的錯誤",
     ),
     "export": MessageLookupByLibrary.simpleMessage("匯出"),
     "export_guest_accounts": MessageLookupByLibrary.simpleMessage("匯出訪客帳戶？"),
     "export_settings": MessageLookupByLibrary.simpleMessage("匯出設定？"),
+    "export_subscription_group_members": MessageLookupByLibrary.simpleMessage(
+      "將訂閲組成員匯出？",
+    ),
     "export_subscription_groups": MessageLookupByLibrary.simpleMessage(
       "匯出訂閱群組？",
     ),
@@ -107,6 +142,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_your_data": MessageLookupByLibrary.simpleMessage("匯出你的資料"),
     "filters": MessageLookupByLibrary.simpleMessage("過濾器"),
     "finish": MessageLookupByLibrary.simpleMessage("結束"),
+    "finished_with_snapshotData_users": m5,
     "followers": MessageLookupByLibrary.simpleMessage("關注者"),
     "following": MessageLookupByLibrary.simpleMessage("正在關注"),
     "fritter": MessageLookupByLibrary.simpleMessage("Squawker"),
@@ -115,13 +151,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "generic_username": MessageLookupByLibrary.simpleMessage("使用者"),
     "group_name": m6,
     "groups": MessageLookupByLibrary.simpleMessage("群組"),
+    "help_support_fritters_future": MessageLookupByLibrary.simpleMessage(
+      "幫助支持 Squawker 的未來",
+    ),
     "hide_sensitive_tweets": MessageLookupByLibrary.simpleMessage("隱藏敏感推文"),
     "home": MessageLookupByLibrary.simpleMessage("主頁"),
+    "if_you_have_any_feedback_on_this_feature_please_leave_it_on":
+        MessageLookupByLibrary.simpleMessage("若您對此功能有任何反饋，請留言於"),
     "import": MessageLookupByLibrary.simpleMessage("匯入"),
+    "import_data_from_another_device": MessageLookupByLibrary.simpleMessage(
+      "從其他裝置匯入資料",
+    ),
     "import_from_twitter": MessageLookupByLibrary.simpleMessage(
       "從 Twitter／X 匯入",
     ),
     "import_subscriptions": MessageLookupByLibrary.simpleMessage("匯入訂閱"),
+    "imported_snapshot_data_users_so_far": m7,
     "include_replies": MessageLookupByLibrary.simpleMessage("包括回覆"),
     "include_retweets": MessageLookupByLibrary.simpleMessage("包括轉推"),
     "joined": m8,
@@ -130,6 +175,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "large": MessageLookupByLibrary.simpleMessage("大"),
     "legacy_android_import": MessageLookupByLibrary.simpleMessage(
       "舊版 Android 匯入",
+    ),
+    "let_the_developers_know_if_something_is_broken":
+        MessageLookupByLibrary.simpleMessage("若有問題，請通知開發者"),
+    "libre_translate_host": MessageLookupByLibrary.simpleMessage(
+      "LibreTranslate 主機",
     ),
     "licenses": MessageLookupByLibrary.simpleMessage("許可證"),
     "light": MessageLookupByLibrary.simpleMessage("淺色"),
@@ -151,6 +201,8 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage("未返回任何資料，這不應該發生。若有可能，請回報此錯誤！"),
     "no_results": MessageLookupByLibrary.simpleMessage("沒有結果"),
     "no_results_for": MessageLookupByLibrary.simpleMessage("沒有結果："),
+    "no_subscriptions_try_searching_or_importing_some":
+        MessageLookupByLibrary.simpleMessage("沒有訂閱。嘗試搜尋或匯入一些吧！"),
     "not_set": MessageLookupByLibrary.simpleMessage("沒有設定"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage("注意：由於 Twitter／X 的限制，並非所有推文都包含在內"),
@@ -158,8 +210,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "open_app_settings": MessageLookupByLibrary.simpleMessage("開啟應用程式設定"),
     "open_in_browser": MessageLookupByLibrary.simpleMessage("在瀏覽器中開啟"),
     "option_confirm_close_label": MessageLookupByLibrary.simpleMessage("確認關閉"),
+    "option_navigation_animations_description":
+        MessageLookupByLibrary.simpleMessage("啟用導航動畫"),
     "option_navigation_animations_label": MessageLookupByLibrary.simpleMessage(
       "導航動畫",
+    ),
+    "option_show_navigation_labels_description":
+        MessageLookupByLibrary.simpleMessage("顯示導航欄圖示的標籤"),
+    "option_show_navigation_labels_label": MessageLookupByLibrary.simpleMessage(
+      "導航欄標籤",
     ),
     "optional_label": MessageLookupByLibrary.simpleMessage("選擇性欄位："),
     "password_label": MessageLookupByLibrary.simpleMessage("密碼："),
@@ -168,6 +227,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "pick_an_icon": MessageLookupByLibrary.simpleMessage("選擇一個圖示！"),
     "pinned_tweet": MessageLookupByLibrary.simpleMessage("已釘選的推文"),
     "playback_speed": MessageLookupByLibrary.simpleMessage("播放速度"),
+    "please_enter_a_name": MessageLookupByLibrary.simpleMessage("請輸入訂閲組名稱"),
+    "please_make_sure_the_data_you_wish_to_import_is_located_there_then_press_the_import_button_below":
+        MessageLookupByLibrary.simpleMessage("請確保所匯入的資料位於此處，再點擊下方匯入按鈕。"),
     "please_note_that_the_method_fritter_uses_to_import_subscriptions_is_heavily_rate_limited_by_twitter_so_this_may_fail_if_you_have_a_lot_of_followed_accounts":
         MessageLookupByLibrary.simpleMessage(
           "請注意，Squawker 使用的訂閱匯入方法受限於 Twitter/X 的速率限制，因此如果您關注了大量帳戶，這可能會失敗。",
@@ -178,6 +240,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "prefix": MessageLookupByLibrary.simpleMessage("前綴"),
     "private_profile": MessageLookupByLibrary.simpleMessage("私人個人檔案"),
+    "proxy_description": MessageLookupByLibrary.simpleMessage("所有請求的代理"),
     "proxy_error": MessageLookupByLibrary.simpleMessage("代理錯誤"),
     "proxy_label": MessageLookupByLibrary.simpleMessage("代理"),
     "regular_accounts": m12,
@@ -199,6 +262,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "send": MessageLookupByLibrary.simpleMessage("傳送"),
     "settings": MessageLookupByLibrary.simpleMessage("設定"),
     "share_base_url": MessageLookupByLibrary.simpleMessage("自訂分享網址"),
+    "share_tweet_as_image": MessageLookupByLibrary.simpleMessage("以圖片形式分享推文"),
     "share_tweet_content": MessageLookupByLibrary.simpleMessage("分享推文內容"),
     "share_tweet_link": MessageLookupByLibrary.simpleMessage("分享推文連結"),
     "should_check_for_updates_label": MessageLookupByLibrary.simpleMessage(
@@ -216,6 +280,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "已儲存媒體！",
     ),
     "system": MessageLookupByLibrary.simpleMessage("系統"),
+    "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
+      "感謝您幫助 Squawker！💖",
+    ),
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
     "theme": MessageLookupByLibrary.simpleMessage("主題"),
     "theme_mode": MessageLookupByLibrary.simpleMessage("主題模式"),
     "this_group_contains_no_subscriptions":
@@ -231,7 +299,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "timed_out": MessageLookupByLibrary.simpleMessage("逾時"),
     "to_import_specific_subscriptions_enter_your_comma_separated_usernames_below":
         MessageLookupByLibrary.simpleMessage("若要匯入特定的訂閱，請在下方輸入以逗號分隔的使用者名稱。"),
+    "to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below":
+        MessageLookupByLibrary.simpleMessage(
+          "要從現有的 Twitter／X 帳戶匯入訂閱，請在下方輸入您的用戶名。",
+        ),
     "toggle_all": MessageLookupByLibrary.simpleMessage("切換全部"),
+    "translator_label": MessageLookupByLibrary.simpleMessage("翻譯器"),
+    "translators_description": MessageLookupByLibrary.simpleMessage(
+      "使用自訂的 LibreTranslate 實例",
+    ),
+    "translators_label": MessageLookupByLibrary.simpleMessage("翻譯器"),
     "trending": MessageLookupByLibrary.simpleMessage("流行趨勢"),
     "trends": MessageLookupByLibrary.simpleMessage("趨勢"),
     "true_black": MessageLookupByLibrary.simpleMessage("純黑？"),
@@ -240,6 +317,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage("推文和回覆"),
     "twitter_account_types_both": MessageLookupByLibrary.simpleMessage("訪客和常規"),
     "twitter_account_types_label": MessageLookupByLibrary.simpleMessage("帳戶類型"),
+    "twitter_account_types_only_regular": MessageLookupByLibrary.simpleMessage(
+      "僅限一般帳戶",
+    ),
     "unable_to_find_your_saved_tweets": MessageLookupByLibrary.simpleMessage(
       "無法找到你已儲存的推文。",
     ),
@@ -264,6 +344,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "無法載入搜尋結果。",
     ),
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage("無法載入推文"),
+    "unable_to_load_the_tweets": MessageLookupByLibrary.simpleMessage("無法載入推文"),
+    "unable_to_refresh_the_subscriptions": MessageLookupByLibrary.simpleMessage(
+      "無法更新訂閲",
+    ),
     "unknown": MessageLookupByLibrary.simpleMessage("未知"),
     "unsave": MessageLookupByLibrary.simpleMessage("取消儲存"),
     "unsubscribe": MessageLookupByLibrary.simpleMessage("取消訂閱"),
@@ -279,6 +363,8 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Twitter/X 已停用建立訪客帳戶的功能。您現在應該在「設定 / 帳戶」中設置一般帳戶。如果沒有帳戶，將只能部分存取推文和設定檔。您可以按照此處的說明輕鬆創建匿名的一般帳戶：",
         ),
+    "warning_regular_account_unauthenticated_access_title":
+        MessageLookupByLibrary.simpleMessage("一般帳戶和未經身份驗證的訪問"),
     "would_you_like_to_enable_automatic_error_reporting":
         MessageLookupByLibrary.simpleMessage("你想啟用自動錯誤回報嗎？"),
     "x_api": MessageLookupByLibrary.simpleMessage("X API"),
@@ -287,6 +373,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(
       "你還沒有儲存任何推文！",
     ),
+    "your_profile_must_be_public_otherwise_the_import_will_not_work":
+        MessageLookupByLibrary.simpleMessage("您的個人資料必須設為公開，否則匯入將無法運作"),
     "your_report_will_be_sent_to_fritter__project":
         MessageLookupByLibrary.simpleMessage(
           "你的報告將傳送至 Squawker 的專案，隱私詳細資訊可以在以下位置找到：",

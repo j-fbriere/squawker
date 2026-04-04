@@ -116,7 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "allow_background_play_other_apps_label":
         MessageLookupByLibrary.simpleMessage("Muud rakendused taustal"),
     "an_update_for_fritter_is_available": MessageLookupByLibrary.simpleMessage(
-      "Squawker\'i tarkvarauuendus on saadaval! 🚀",
+      "Squawkeri tarkvarauuendus on saadaval! 🚀",
     ),
     "api_key": MessageLookupByLibrary.simpleMessage("API võti"),
     "app_info": MessageLookupByLibrary.simpleMessage(
@@ -126,7 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
     "back": MessageLookupByLibrary.simpleMessage("Tagasi"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
-      "Twitter/X on meie juurdepääsutunnuse kehtetuks tunnistanud. Palun proovi uuesti avada Squawker!",
+      "Twitter/X on meie juurdepääsutunnuse kehtetuks tunnistanud. Palun proovi Squawker uuesti avada!",
     ),
     "beta": MessageLookupByLibrary.simpleMessage("BEETA"),
     "blue_theme_based_on_the_twitter_color_scheme":
@@ -144,7 +144,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Järgneva sisu on lisanud lugejad",
     ),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
-      "Kas sa oled kindel, et soovid panna Squawker\'i kinni?",
+      "Kas sa oled kindel, et soovid Squawkeri kinni panna?",
     ),
     "contribute": MessageLookupByLibrary.simpleMessage("Osale arenduses"),
     "copied_address_to_clipboard": MessageLookupByLibrary.simpleMessage(
@@ -188,6 +188,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Ära luba teha ekraanitõmmiseid. See ei pruugi kõikides seadmetes toimida.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("Pole kasutusel"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(
+      "Squawker ei toimi ilma kasutajakontota",
+    ),
     "donate": MessageLookupByLibrary.simpleMessage("Toeta rahaliselt"),
     "download": MessageLookupByLibrary.simpleMessage("Laadi alla"),
     "download_handling": MessageLookupByLibrary.simpleMessage(
@@ -216,7 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Allalaaditavate videote kvaliteet",
     ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "Laadin alla meediat...",
+      "Laadin alla meediat…",
     ),
     "edit_account_title": MessageLookupByLibrary.simpleMessage(
       "Muuda kasutajakontot",
@@ -294,7 +297,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Twitter/X ütleb, et juurdepääs sellele sisule on keelatud",
     ),
     "fritter": MessageLookupByLibrary.simpleMessage("Squawker"),
-    "fritter_blue": MessageLookupByLibrary.simpleMessage("Squawker\'i sinine"),
+    "fritter_blue": MessageLookupByLibrary.simpleMessage("Squawkeri sinine"),
     "functionality_unsupported": MessageLookupByLibrary.simpleMessage(
       "Twitter/X enam ei võimalda sellise funktsionaalsuse kasutamist!",
     ),
@@ -303,10 +306,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "group_name": m6,
     "groups": MessageLookupByLibrary.simpleMessage("Grupid"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
-      "Aita muuta Squawker\'it veelgi paremaks",
+      "Aita muuta Squawkerit veelgi paremaks",
     ),
     "help_support_fritters_future": MessageLookupByLibrary.simpleMessage(
-      "Toeta Squawker\'i arendust rahaliselt",
+      "Toeta Squawkeri arendust rahaliselt",
     ),
     "hide_sensitive_tweets": MessageLookupByLibrary.simpleMessage(
       "Peida võimalikud ebasobiliku sisuga säutsud",
@@ -365,6 +368,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "light": MessageLookupByLibrary.simpleMessage("Hele teema"),
     "live": MessageLookupByLibrary.simpleMessage("Otsesaade"),
     "logging": MessageLookupByLibrary.simpleMessage("Logimine"),
+    "login": MessageLookupByLibrary.simpleMessage("Sisselogimine"),
     "mandatory_label": MessageLookupByLibrary.simpleMessage(
       "Kohustuslikud väljad:",
     ),
@@ -397,6 +401,9 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Tellimusi ei leidu. Kas lisa mõni otsingust või impordi!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage(
+      "Sa pole loginud sise",
+    ),
     "not_set": MessageLookupByLibrary.simpleMessage("Seadistamata"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
@@ -538,14 +545,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "should_check_for_updates_description":
         MessageLookupByLibrary.simpleMessage(
-          "Squawker\'i käivitumisel kontrolli uuenduste olemasolu",
+          "Squawkeri käivitumisel kontrolli uuenduste olemasolu",
         ),
     "should_check_for_updates_label": MessageLookupByLibrary.simpleMessage(
       "Kontrolli uuendusi",
     ),
     "small": MessageLookupByLibrary.simpleMessage("Väikesed pildid"),
     "something_broke_in_fritter": MessageLookupByLibrary.simpleMessage(
-      "Midagi läks nüüd Squawker\'is katki.",
+      "Midagi läks nüüd Squawkeris katki.",
     ),
     "something_just_went_wrong_in_fritter_and_an_error_report_has_been_generated":
         MessageLookupByLibrary.simpleMessage(
@@ -565,7 +572,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tap_to_download_release_version": m13,
     "tap_to_show_getMediaType_item_type": m14,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
-      "Täname, et aitad Squawker\'it! 💖",
+      "Täname, et aitad Squawkerit! 💖",
     ),
     "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
@@ -770,6 +777,13 @@ class MessageLookup extends MessageLookupByLibrary {
           "Kas sa luba vigadest automaatselt teatada?",
         ),
     "x_api": MessageLookupByLibrary.simpleMessage("X API"),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "x-client-transaction-id päisekirje",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(
+          "Sisesta x-client-transaction-id provider. See peab olema domeeni nimi ilma https-ita. Vaata ka: https://github.com/Teskann/x-client-transaction-id-generator",
+        ),
     "yes": MessageLookupByLibrary.simpleMessage("Jah"),
     "yes_please": MessageLookupByLibrary.simpleMessage("Jah, palun"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(
@@ -785,7 +799,7 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "your_report_will_be_sent_to_fritter__project":
         MessageLookupByLibrary.simpleMessage(
-          "Veakirjeldus saadetakse Squawker\'i kontole  veahaldusrakenduses.  privaatusteabe leiad siit:",
+          "Veakirjeldus saadetakse Squawkeri kontole  veahaldusrakenduses. Privaatusteabe leiad siit:",
         ),
   };
 }

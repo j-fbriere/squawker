@@ -213,7 +213,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Videók letöltése a legjobb minőségben",
     ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "Média letöltése...",
+      "Média letöltése…",
     ),
     "edit_account_title": MessageLookupByLibrary.simpleMessage(
       "Fiók módosítása",

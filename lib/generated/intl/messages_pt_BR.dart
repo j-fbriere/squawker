@@ -188,6 +188,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Previne que sejam feitas capturas de tela. Isso pode não funcionar em todos os dispositivos.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("Desativado"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(
+      "O Squawker não funciona sem uma conta",
+    ),
     "donate": MessageLookupByLibrary.simpleMessage("Doar"),
     "download": MessageLookupByLibrary.simpleMessage("Download"),
     "download_handling": MessageLookupByLibrary.simpleMessage(
@@ -216,7 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Baixar videos com melhor qualidade",
     ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "Baixando mídia...",
+      "Baixando mídia…",
     ),
     "edit_account_title": MessageLookupByLibrary.simpleMessage(
       "Modificar uma conta",
@@ -363,6 +366,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "light": MessageLookupByLibrary.simpleMessage("Claro"),
     "live": MessageLookupByLibrary.simpleMessage("LIVE"),
     "logging": MessageLookupByLibrary.simpleMessage("Criando Log"),
+    "login": MessageLookupByLibrary.simpleMessage("Login"),
     "mandatory_label": MessageLookupByLibrary.simpleMessage(
       "Campos obrigatórios:",
     ),
@@ -393,6 +397,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Nenhuma inscrição. Tente pesquisar ou importar alguns!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage("Não está logado"),
     "not_set": MessageLookupByLibrary.simpleMessage("Não configurado"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
@@ -762,6 +767,13 @@ class MessageLookup extends MessageLookupByLibrary {
           "Deseja ativar o relatório automático de erros?",
         ),
     "x_api": MessageLookupByLibrary.simpleMessage("API do X"),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "Provedor do x-client-transaction-id",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(
+          "Configure o provedor do x-client-transaction-id. Ele tem que ser um domínio, sem https. Referencia: https://github.com/Teskann/x-client-transaction-id-generator",
+        ),
     "yes": MessageLookupByLibrary.simpleMessage("Sim"),
     "yes_please": MessageLookupByLibrary.simpleMessage("Sim, por favor"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(

@@ -168,7 +168,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "download_path": MessageLookupByLibrary.simpleMessage("Шлях для спампоўкі"),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "Загрузка медыя...",
+      "Загрузка медыя…",
     ),
     "enable_": MessageLookupByLibrary.simpleMessage("Актываваць ?"),
     "ended_timeago_format_endsAt_allowFromNow_true": m3,

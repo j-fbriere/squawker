@@ -28,7 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m2(fullPath) => "Datos exportados a ${fullPath}";
 
   static String m5(snapshotData) =>
-      "Terminado con los usuarios  ${snapshotData}";
+      "Terminado con los usuarios ${snapshotData}";
 
   static String m8(date) => "Se unió ${date}";
 

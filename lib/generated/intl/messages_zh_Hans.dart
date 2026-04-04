@@ -146,6 +146,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "防止截屏。可能不适用于所有设备。",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("不显示"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(
+      "没有账户 Squawker 不工作",
+    ),
     "donate": MessageLookupByLibrary.simpleMessage("捐赠"),
     "download": MessageLookupByLibrary.simpleMessage("下载"),
     "download_handling": MessageLookupByLibrary.simpleMessage("下载处理"),
@@ -165,7 +168,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_video_best_quality_label": MessageLookupByLibrary.simpleMessage(
       "以最高质量下载视频",
     ),
-    "downloading_media": MessageLookupByLibrary.simpleMessage("正在下载媒体..."),
+    "downloading_media": MessageLookupByLibrary.simpleMessage("正在下载媒体…"),
     "edit_account_title": MessageLookupByLibrary.simpleMessage("修改账户"),
     "email_label": MessageLookupByLibrary.simpleMessage("电子邮箱："),
     "enable_": MessageLookupByLibrary.simpleMessage("启用 ？"),
@@ -273,6 +276,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "light": MessageLookupByLibrary.simpleMessage("亮色主题"),
     "live": MessageLookupByLibrary.simpleMessage("LIVE"),
     "logging": MessageLookupByLibrary.simpleMessage("日志"),
+    "login": MessageLookupByLibrary.simpleMessage("登录"),
     "mandatory_label": MessageLookupByLibrary.simpleMessage("强制字段："),
     "material_3": MessageLookupByLibrary.simpleMessage(
       "使用第3版Material Design界面？",
@@ -297,6 +301,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_results_for": MessageLookupByLibrary.simpleMessage("搜索词无结果："),
     "no_subscriptions_try_searching_or_importing_some":
         MessageLookupByLibrary.simpleMessage("没有订阅。尝试搜索或导入一些！"),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage("未登录"),
     "not_set": MessageLookupByLibrary.simpleMessage("未设置"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage("注：由于 Twitter/X 的限制，可能不会包含所有推文"),
@@ -562,6 +567,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "would_you_like_to_enable_automatic_error_reporting":
         MessageLookupByLibrary.simpleMessage("您希望自动发送错误报告吗？"),
     "x_api": MessageLookupByLibrary.simpleMessage("X API"),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "x-client-transaction-id 提供者",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(
+          "设置 x-client-transaction-id 提供者。 它必须是域名，不带 https。参考：https://github.com/Teskann/x-client-transaction-id-generator",
+        ),
     "yes": MessageLookupByLibrary.simpleMessage("好"),
     "yes_please": MessageLookupByLibrary.simpleMessage("是，请让我看"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(

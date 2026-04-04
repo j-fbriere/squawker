@@ -181,6 +181,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Ekran görüntülerinin alınmasını engelleyin. Bu, tüm aygıtlarda çalışmayabilir.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("Devre dışı"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(
+      "Squawker, hesap olmadan çalışmaz",
+    ),
     "donate": MessageLookupByLibrary.simpleMessage("Bağış yapın"),
     "download": MessageLookupByLibrary.simpleMessage("İndir"),
     "download_handling": MessageLookupByLibrary.simpleMessage(
@@ -207,7 +210,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Videoları en iyi kalitede indir",
     ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "Medya indiriliyor...",
+      "Medya indiriliyor…",
     ),
     "edit_account_title": MessageLookupByLibrary.simpleMessage(
       "Hesap değiştir",
@@ -356,6 +359,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "light": MessageLookupByLibrary.simpleMessage("Açık"),
     "live": MessageLookupByLibrary.simpleMessage("CANLI"),
     "logging": MessageLookupByLibrary.simpleMessage("Günlük tutma"),
+    "login": MessageLookupByLibrary.simpleMessage("Oturum aç"),
     "mandatory_label": MessageLookupByLibrary.simpleMessage("Zorunlu alanlar:"),
     "material_3": MessageLookupByLibrary.simpleMessage("Material 3?"),
     "media": MessageLookupByLibrary.simpleMessage("Medya"),
@@ -384,6 +388,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Abonelik yok. Bazılarını aramayı veya içe aktarmayı deneyin!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage("Oturum açılmadı"),
     "not_set": MessageLookupByLibrary.simpleMessage("Ayarlanmadı"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
@@ -753,6 +758,13 @@ class MessageLookup extends MessageLookupByLibrary {
           "Otomatik hata bildirimini etkinleştirmek ister misiniz?",
         ),
     "x_api": MessageLookupByLibrary.simpleMessage("X API"),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "x-client-transaction-id sağlayıcı",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(
+          "x-client-transaction-id sağlayıcısını ayarlayın. https olmadan bir alan adı olmalıdır. Bakınız: https://github.com/Teskann/x-client-transaction-id-generator",
+        ),
     "yes": MessageLookupByLibrary.simpleMessage("Evet"),
     "yes_please": MessageLookupByLibrary.simpleMessage("Evet, lütfen"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(

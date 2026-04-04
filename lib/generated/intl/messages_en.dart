@@ -210,7 +210,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Download videos with best quality",
     ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "Downloading media...",
+      "Downloading media…",
     ),
     "edit_account_title": MessageLookupByLibrary.simpleMessage(
       "Modify an account",

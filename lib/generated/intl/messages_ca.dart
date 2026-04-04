@@ -166,7 +166,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "download_path": MessageLookupByLibrary.simpleMessage("Ruta de descàrrega"),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "Descarregant suports...",
+      "Descarregant suports…",
     ),
     "enable_": MessageLookupByLibrary.simpleMessage("Habilitar ?"),
     "ended_timeago_format_endsAt_allowFromNow_true": m3,

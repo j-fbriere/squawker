@@ -169,7 +169,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Deskargatzeko bidea",
     ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "Multimedia deskargatzen...",
+      "Multimedia deskargatzen…",
     ),
     "enable_": MessageLookupByLibrary.simpleMessage(" gaitu?"),
     "ended_timeago_format_endsAt_allowFromNow_true": m3,

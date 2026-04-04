@@ -122,7 +122,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "an_update_for_fritter_is_available": MessageLookupByLibrary.simpleMessage(
       "Ein Update für Squawker ist verfügbar! 🚀",
     ),
-    "app_info": MessageLookupByLibrary.simpleMessage("App Info"),
+    "api_key": MessageLookupByLibrary.simpleMessage("API-Schlüssel"),
+    "app_info": MessageLookupByLibrary.simpleMessage("App-Informationen"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Bist du dir sicher?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
     "back": MessageLookupByLibrary.simpleMessage("Zurück"),
@@ -141,6 +142,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "choose": MessageLookupByLibrary.simpleMessage("Wählen"),
     "choose_pages": MessageLookupByLibrary.simpleMessage("Wähle Seiten"),
     "close": MessageLookupByLibrary.simpleMessage("Schließen"),
+    "community_notes_title": MessageLookupByLibrary.simpleMessage(
+      "Leser fügten Kontext hinzu",
+    ),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Willst du Squawker wirklich schließen?",
     ),
@@ -184,6 +188,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Versucht zu verhindern, dass Screenshots von Squawker gemacht werden können. Dies ist keine Garantie und funktioniert möglicherweise nicht auf allen Geräten.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("Deaktiviert"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(
+      "Squawker funktioniert nicht ohne ein Konto.",
+    ),
     "donate": MessageLookupByLibrary.simpleMessage("Spenden"),
     "download": MessageLookupByLibrary.simpleMessage("Herunterladen"),
     "download_handling": MessageLookupByLibrary.simpleMessage(
@@ -210,7 +217,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Videos in der besten Qualität herunterladen",
     ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "Medien werden heruntergeladen...",
+      "Medien werden heruntergeladen…",
     ),
     "edit_account_title": MessageLookupByLibrary.simpleMessage(
       "Konto bearbeiten",
@@ -246,6 +253,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "error_from_twitter": MessageLookupByLibrary.simpleMessage(
       "Fehler von Twitter/X",
+    ),
+    "exclusions_feed_description": MessageLookupByLibrary.simpleMessage(
+      "Liste der Benutzernamen, die vom Feed ausgeschlossen werden sollen",
+    ),
+    "exclusions_feed_label": MessageLookupByLibrary.simpleMessage(
+      "Ausschlüsse im Feed",
     ),
     "export": MessageLookupByLibrary.simpleMessage("Exportieren"),
     "export_guest_accounts": MessageLookupByLibrary.simpleMessage(
@@ -346,10 +359,14 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Teile den Entwicklern mit, falls etwas nicht funktioniert",
         ),
+    "libre_translate_host": MessageLookupByLibrary.simpleMessage(
+      "LibreTranslate-Host",
+    ),
     "licenses": MessageLookupByLibrary.simpleMessage("Lizenzen"),
     "light": MessageLookupByLibrary.simpleMessage("Hell"),
     "live": MessageLookupByLibrary.simpleMessage("LIVE"),
     "logging": MessageLookupByLibrary.simpleMessage("Protokollierung"),
+    "login": MessageLookupByLibrary.simpleMessage("Login"),
     "mandatory_label": MessageLookupByLibrary.simpleMessage("Pflichtfelder:"),
     "material_3": MessageLookupByLibrary.simpleMessage("Material 3?"),
     "media": MessageLookupByLibrary.simpleMessage("Medien"),
@@ -380,6 +397,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Keine Abonnements. Suche oder importiere welche!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage("Nicht angemeldet"),
     "not_set": MessageLookupByLibrary.simpleMessage("Nicht festgelegt"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
@@ -405,6 +423,20 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "option_confirm_close_label": MessageLookupByLibrary.simpleMessage(
       "Beenden bestätigen",
+    ),
+    "option_navigation_animations_description":
+        MessageLookupByLibrary.simpleMessage(
+          "Navigationsanimationen aktivieren",
+        ),
+    "option_navigation_animations_label": MessageLookupByLibrary.simpleMessage(
+      "Navigationsanimationen",
+    ),
+    "option_show_navigation_labels_description":
+        MessageLookupByLibrary.simpleMessage(
+          "Zeigen Sie die Beschriftungen der Navigationsleistensymbole an.",
+        ),
+    "option_show_navigation_labels_label": MessageLookupByLibrary.simpleMessage(
+      "Navigationsleistenbeschriftungen",
     ),
     "optional_label": MessageLookupByLibrary.simpleMessage(
       "Freiwillige Felder:",
@@ -578,8 +610,13 @@ class MessageLookup extends MessageLookupByLibrary {
           "Gebe unten deinen Nutzernamen an, um Abonnements von einem bestehenden Twitter/X-Konto zu importieren.",
         ),
     "toggle_all": MessageLookupByLibrary.simpleMessage("Alle auswählen"),
+    "translator_label": MessageLookupByLibrary.simpleMessage("Übersetzer"),
+    "translators_description": MessageLookupByLibrary.simpleMessage(
+      "Benutzerdefinierte LibreTranslate-Instanzen verwenden",
+    ),
+    "translators_label": MessageLookupByLibrary.simpleMessage("Übersetzer"),
     "trending": MessageLookupByLibrary.simpleMessage("Trends"),
-    "trends": MessageLookupByLibrary.simpleMessage("Trends"),
+    "trends": MessageLookupByLibrary.simpleMessage("Aktuell beliebt"),
     "true_black": MessageLookupByLibrary.simpleMessage("Reines Schwarz?"),
     "tweet_font_size_description": MessageLookupByLibrary.simpleMessage(
       "Schriftgröße der Tweets",
@@ -683,7 +720,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Nicht unterstützte URL",
     ),
     "update_to_release_version_through_your_fdroid_client": m20,
-    "updates": MessageLookupByLibrary.simpleMessage("Updates"),
+    "updates": MessageLookupByLibrary.simpleMessage("Aktualisierungen"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage(
           "Reines Schwarz für dunkles Design verwenden",
@@ -692,6 +729,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Nutzer wurde nicht gefunden",
     ),
     "username": MessageLookupByLibrary.simpleMessage("@Nutzername"),
+    "username_exclude": MessageLookupByLibrary.simpleMessage(
+      "Benutzername zum Ausschließen",
+    ),
     "username_label": MessageLookupByLibrary.simpleMessage("Nutzername:"),
     "usernames": MessageLookupByLibrary.simpleMessage("Nutzernamen"),
     "version": MessageLookupByLibrary.simpleMessage("Version"),
@@ -708,7 +748,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "whether_errors_should_be_reported_to_":
         MessageLookupByLibrary.simpleMessage(
-          "Ob Fehlermeldungen an  gesendet werden sollen",
+          "Ob Fehlermeldungen an gesendet werden sollen ",
         ),
     "whether_to_hide_tweets_marked_as_sensitive":
         MessageLookupByLibrary.simpleMessage(
@@ -727,6 +767,13 @@ class MessageLookup extends MessageLookupByLibrary {
           "Möchtest du die automatische Fehlermeldungen aktivieren?",
         ),
     "x_api": MessageLookupByLibrary.simpleMessage("X API"),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "x-client-transaction-id-Anbieter",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(
+          "Legen Sie den Anbieter für die x-Client-Transaktions-ID fest. Es muss sich um einen Domänennamen ohne https handeln. Referenz: https://github.com/Teskann/x-client-transaction-id-generator",
+        ),
     "yes": MessageLookupByLibrary.simpleMessage("Ja"),
     "yes_please": MessageLookupByLibrary.simpleMessage("Ja bitte"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(

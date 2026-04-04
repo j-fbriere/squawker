@@ -91,6 +91,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "an_update_for_fritter_is_available": MessageLookupByLibrary.simpleMessage(
       "È disponibile un aggiornamento di Squawker! 🚀",
     ),
+    "app_info": MessageLookupByLibrary.simpleMessage(
+      "Informazioni sull\'applicazione",
+    ),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Sei sicuro?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
     "back": MessageLookupByLibrary.simpleMessage("Indietro"),
@@ -170,8 +173,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_path": MessageLookupByLibrary.simpleMessage(
       "Percorso di download",
     ),
+    "download_video_best_quality_description":
+        MessageLookupByLibrary.simpleMessage(
+          "Scarica video nella migliore qualità possibile",
+        ),
+    "download_video_best_quality_label": MessageLookupByLibrary.simpleMessage(
+      "Scarica video nella migliore qualità",
+    ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "Download del contenuto in corso...",
+      "Download del contenuto in corso…",
     ),
     "enable_": MessageLookupByLibrary.simpleMessage("Abilitare ?"),
     "ended_timeago_format_endsAt_allowFromNow_true": m3,
@@ -180,6 +190,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Inserisci il tuo nome utente di Twitter/X",
     ),
     "export": MessageLookupByLibrary.simpleMessage("Esporta"),
+    "export_guest_accounts": MessageLookupByLibrary.simpleMessage(
+      "Esportare gli account ospite?",
+    ),
     "export_settings": MessageLookupByLibrary.simpleMessage(
       "Esportare le impostazioni?",
     ),
@@ -211,6 +224,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Questa funzionalità non è più supportata da Twitter/X!",
     ),
     "general": MessageLookupByLibrary.simpleMessage("Generale"),
+    "generic_username": MessageLookupByLibrary.simpleMessage("Utente"),
     "group_name": m6,
     "groups": MessageLookupByLibrary.simpleMessage("Gruppi"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
@@ -300,6 +314,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "open_app_settings": MessageLookupByLibrary.simpleMessage(
       "Apri le impostazioni dell\'app",
     ),
+    "open_in_browser": MessageLookupByLibrary.simpleMessage("Apri nel browser"),
     "page_not_found": MessageLookupByLibrary.simpleMessage(
       "Twitter/X dice che la pagina non esiste, ma potrebbe non essere vero",
     ),
@@ -364,6 +379,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "La selezione dei singoli account da importare e l\'assegnazione dei gruppi sono entrambe già pianificate per il futuro!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("Invia"),
+    "settings": MessageLookupByLibrary.simpleMessage("Impostazioni"),
     "share_base_url": MessageLookupByLibrary.simpleMessage(
       "URL di condivisione personalizzato",
     ),
@@ -445,6 +461,9 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "thread": MessageLookupByLibrary.simpleMessage("Discussione"),
     "thumbnail": MessageLookupByLibrary.simpleMessage("Miniatura"),
+    "thumbnail_not_available": MessageLookupByLibrary.simpleMessage(
+      "Miniatura non disponibile",
+    ),
     "timed_out": MessageLookupByLibrary.simpleMessage("Tempo scaduto"),
     "to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below":
         MessageLookupByLibrary.simpleMessage(
@@ -454,6 +473,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "trending": MessageLookupByLibrary.simpleMessage("Tendenze"),
     "trends": MessageLookupByLibrary.simpleMessage("Tendenze"),
     "true_black": MessageLookupByLibrary.simpleMessage("Nero assoluto?"),
+    "tweet_font_size_description": MessageLookupByLibrary.simpleMessage(
+      "Dimensioni del font dei tweet",
+    ),
+    "tweet_font_size_label": MessageLookupByLibrary.simpleMessage(
+      "Dimensioni del font",
+    ),
     "tweets": MessageLookupByLibrary.simpleMessage("Tweet"),
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Tweet e risposte",

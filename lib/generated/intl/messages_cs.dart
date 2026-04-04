@@ -167,7 +167,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "download_path": MessageLookupByLibrary.simpleMessage("Cesta pro stažené"),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "Stahování médií...",
+      "Stahování médií…",
     ),
     "enable_": MessageLookupByLibrary.simpleMessage("Povolit ?"),
     "ended_timeago_format_endsAt_allowFromNow_true": m3,

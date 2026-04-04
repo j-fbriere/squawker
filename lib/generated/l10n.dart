@@ -1289,10 +1289,10 @@ class L10n {
     );
   }
 
-  /// `Downloading media...`
+  /// `Downloading media…`
   String get downloading_media {
     return Intl.message(
-      'Downloading media...',
+      'Downloading media…',
       name: 'downloading_media',
       desc: '',
       args: [],
@@ -2758,6 +2758,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
       Locale.fromSubtags(languageCode: 'et'),
       Locale.fromSubtags(languageCode: 'eu'),
       Locale.fromSubtags(languageCode: 'fr'),
+      Locale.fromSubtags(languageCode: 'he'),
       Locale.fromSubtags(languageCode: 'hi'),
       Locale.fromSubtags(languageCode: 'hu'),
       Locale.fromSubtags(languageCode: 'ia'),
@@ -2765,6 +2766,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
       Locale.fromSubtags(languageCode: 'it'),
       Locale.fromSubtags(languageCode: 'ja'),
       Locale.fromSubtags(languageCode: 'ko'),
+      Locale.fromSubtags(languageCode: 'lv'),
       Locale.fromSubtags(languageCode: 'ml'),
       Locale.fromSubtags(languageCode: 'nb', countryCode: 'NO'),
       Locale.fromSubtags(languageCode: 'nl'),
@@ -2774,6 +2776,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
       Locale.fromSubtags(languageCode: 'pt', countryCode: 'BR'),
       Locale.fromSubtags(languageCode: 'ro'),
       Locale.fromSubtags(languageCode: 'ru'),
+      Locale.fromSubtags(languageCode: 'ta'),
       Locale.fromSubtags(languageCode: 'tr'),
       Locale.fromSubtags(languageCode: 'uk'),
       Locale.fromSubtags(languageCode: 'vi'),

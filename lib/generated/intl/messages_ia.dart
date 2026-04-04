@@ -75,6 +75,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "followers": MessageLookupByLibrary.simpleMessage("Sequitores"),
     "fritter": MessageLookupByLibrary.simpleMessage("Squawker"),
     "general": MessageLookupByLibrary.simpleMessage("General"),
+    "help_support_fritters_future": MessageLookupByLibrary.simpleMessage(
+      "Adjuta a supportar le futuro de Squawker",
+    ),
     "import": MessageLookupByLibrary.simpleMessage("Importar"),
     "import_data_from_another_device": MessageLookupByLibrary.simpleMessage(
       "Importar datos ab altere apparato",
@@ -113,7 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "Sparniar largor de banda con imagines plus parve",
     ),
-    "saved": MessageLookupByLibrary.simpleMessage("Salvate"),
+    "saved": MessageLookupByLibrary.simpleMessage("Salveguardate"),
     "select": MessageLookupByLibrary.simpleMessage("Seliger"),
     "send": MessageLookupByLibrary.simpleMessage("Inviar"),
     "settings": MessageLookupByLibrary.simpleMessage("Parametros"),
@@ -138,7 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Tweets e responsas",
     ),
     "unable_to_find_your_saved_tweets": MessageLookupByLibrary.simpleMessage(
-      "Non poteva trovar tu tweets salvate.",
+      "Non poteva trovar tu tweets salveguardate.",
     ),
     "unable_to_load_subscription_groups": MessageLookupByLibrary.simpleMessage(
       "Non poteva cargar le gruppos de subscription",
@@ -148,6 +151,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "unable_to_load_the_group_settings": MessageLookupByLibrary.simpleMessage(
       "Non poteva cargar le configurationes de gruppo",
+    ),
+    "unable_to_load_the_list_of_follows": MessageLookupByLibrary.simpleMessage(
+      "Non poteva cargar le lista de sequites",
     ),
     "unable_to_load_the_next_page_of_replies":
         MessageLookupByLibrary.simpleMessage(

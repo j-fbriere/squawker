@@ -54,7 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Filen finnes ikke. Sørg for at den er å finne i ${filePath}";
 
   static String m16(thisTweetUserName, timeAgo) =>
-      "${thisTweetUserName} re-tvitret";
+      "${thisTweetUserName} re-tvitret ${timeAgo}";
 
   static String m17(num, numFormatted) =>
       "${Intl.plural(num, zero: 'ingen tvitringer', one: 'én tvitring', two: 'to tvitringer', few: '${numFormatted} tvitringer', many: '${numFormatted} tvitringer', other: '${numFormatted} tvitringer')}";
@@ -100,7 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
     "back": MessageLookupByLibrary.simpleMessage("Tilbake"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
-      "X har ugyldiggjort vårt tilgangssymbol. Åpne Squawker på ny.",
+      "X har ugyldiggjort vårt tilgangssymbol. Åpne Squawker på ny!",
     ),
     "beta": MessageLookupByLibrary.simpleMessage("Beta"),
     "blue_theme_based_on_the_twitter_color_scheme":
@@ -183,7 +183,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Last ned videoer i beste kvalitet",
     ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "Laster ned media …",
+      "Laster ned media…",
     ),
     "enable_": MessageLookupByLibrary.simpleMessage("Vil du aktivere ?"),
     "ended_timeago_format_endsAt_allowFromNow_true": m3,
@@ -238,12 +238,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "followers": MessageLookupByLibrary.simpleMessage("Følgere"),
     "following": MessageLookupByLibrary.simpleMessage("Følger"),
     "forbidden": MessageLookupByLibrary.simpleMessage(
-      "X sier at tilgang til dette er forbudt.",
+      "X sier at tilgang til dette er forbudt",
     ),
     "fritter": MessageLookupByLibrary.simpleMessage("Squawker"),
     "fritter_blue": MessageLookupByLibrary.simpleMessage("Squawker-blå"),
     "functionality_unsupported": MessageLookupByLibrary.simpleMessage(
-      "Denne funksjonaliteten støttes ikke av X lenger.",
+      "Denne funksjonaliteten støttes ikke av X lenger!",
     ),
     "general": MessageLookupByLibrary.simpleMessage("Generelt"),
     "generic_username": MessageLookupByLibrary.simpleMessage("Bruker"),
@@ -355,13 +355,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Bekreft lukking",
     ),
     "page_not_found": MessageLookupByLibrary.simpleMessage(
-      "X sier at siden ikke finnes, men det trenger ikke å stemme.",
+      "X sier at siden ikke finnes, men det trenger ikke å stemme",
     ),
     "permission_not_granted": MessageLookupByLibrary.simpleMessage(
-      "Tilgang ikke innvilget. Prøv igjen etter innvilgelse.",
+      "Tilgang ikke innvilget. Prøv igjen etter innvilgelse!",
     ),
     "pick_a_color": MessageLookupByLibrary.simpleMessage("Velg en farge!"),
-    "pick_an_icon": MessageLookupByLibrary.simpleMessage("Velg et ikon"),
+    "pick_an_icon": MessageLookupByLibrary.simpleMessage("Velg et ikon!"),
     "pinned_tweet": MessageLookupByLibrary.simpleMessage("Festet tvitring"),
     "playback_speed": MessageLookupByLibrary.simpleMessage(
       "Avspillingshastighet",
@@ -418,7 +418,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "select": MessageLookupByLibrary.simpleMessage("Velg"),
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
-          "Valg av individuelle kontoer og importere, samt tildeling av grupper er allerede planlagt.",
+          "Valg av individuelle kontoer og importere, samt tildeling av grupper er allerede planlagt!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "settings": MessageLookupByLibrary.simpleMessage("Innstillinger"),
@@ -451,12 +451,12 @@ class MessageLookup extends MessageLookupByLibrary {
           "Noe gikk galt i Squawker, og en feilrapport har blitt generert. Rapporten kan sendes til Squawker-utviklerne for å hjelpe med å fikse problemet.",
         ),
     "sorry_the_replied_tweet_could_not_be_found":
-        MessageLookupByLibrary.simpleMessage("Fant ikke svar-tvitringen."),
+        MessageLookupByLibrary.simpleMessage("Fant ikke svar-tvitringen!"),
     "subscribe": MessageLookupByLibrary.simpleMessage("Abonnere"),
     "subscriptions": MessageLookupByLibrary.simpleMessage("Abonnementer"),
     "subtitles": MessageLookupByLibrary.simpleMessage("Undertitler"),
     "successfully_saved_the_media": MessageLookupByLibrary.simpleMessage(
-      "Media lagret.",
+      "Media lagret!",
     ),
     "system": MessageLookupByLibrary.simpleMessage("System"),
     "tap_to_download_release_version": m13,
@@ -487,7 +487,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "Dette tok for lang tid å laste. Vennligst sjekk nettverkstilkoblingen din!",
         ),
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
-      "Denne tweeten er utilgjengelig",
+      "Denne tweeten er utilgjengelig. Det ble sannsynligvis slettet.",
     ),
     "this_tweet_user_name_retweeted": m16,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(

@@ -167,7 +167,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Dosiervojo de elŝutado",
     ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
-      "Elŝutas plurmedion...",
+      "Elŝutas plurmedion…",
     ),
     "enable_": MessageLookupByLibrary.simpleMessage("Ĉu ŝalti -on?"),
     "ended_timeago_format_endsAt_allowFromNow_true": m3,
