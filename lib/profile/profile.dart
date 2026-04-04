@@ -15,7 +15,6 @@ import 'package:squawker/profile/profile_model.dart';
 import 'package:squawker/search/search.dart';
 import 'package:squawker/tweet/_media.dart';
 import 'package:squawker/ui/errors.dart';
-import 'package:squawker/ui/physics.dart';
 import 'package:squawker/user.dart';
 import 'package:squawker/utils/urls.dart';
 import 'package:squawker/utils/route_util.dart';
@@ -560,7 +559,6 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
             ],
             child: TabBarView(
               controller: _tabController,
-              physics: const LessSensitiveScrollPhysics(),
               children: [
                 ProfileTweets(
                     user: user, type: 'profile', includeReplies: false, pinnedTweets: widget.profile.pinnedTweets),

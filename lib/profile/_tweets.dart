@@ -62,10 +62,10 @@ class _ProfileTweetsState extends State<ProfileTweets> with AutomaticKeepAliveCl
         result = await Twitter.getUserTweets(widget.user.idStr!, widget.type, widget.pinnedTweets,
           count: pageSize, includeReplies: widget.includeReplies);
       }
-      print('*** _fetchNextPage with cursor=${_pagingState.cursor}, result.chains.length=${result.chains.length}, result.cursorBottom="${result.cursorBottom}", result.cursorTop="${result.cursorTop}"');
+      //print('*** _fetchNextPage with cursor=${_pagingState.cursor}, result.chains.length=${result.chains.length}, result.cursorBottom="${result.cursorBottom}", result.cursorTop="${result.cursorTop}"'); // TODO remove
 
       if (!mounted) {
-        print('*** _fetchNextPage !mounted');
+        print('*** ProfileTweets._fetchNextPage !mounted');
         return;
       }
 

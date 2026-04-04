@@ -6,7 +6,6 @@ import 'package:squawker/generated/l10n.dart';
 import 'package:squawker/search/search.dart';
 import 'package:squawker/trends/trends_model.dart';
 import 'package:squawker/ui/errors.dart';
-import 'package:squawker/ui/physics.dart';
 import 'package:squawker/utils/route_util.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -60,7 +59,6 @@ class _TrendsListState extends State<TrendsList> {
         return ListView.builder(
           controller: scrollController,
           shrinkWrap: true,
-          physics: const LessSensitiveScrollPhysics(),
           itemCount: trends.length,
           itemBuilder: (context, index) {
             var trend = trends[index];
