@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math' as m;
 
 import 'package:dart_twitter_api/src/utils/date_utils.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
@@ -127,49 +128,73 @@ class Twitter {
     'ext': 'mediaStats,highlightedLabel,hasNftAvatar,voiceInfo,enrichments,superFollowMetadata,unmentionInfo,editControl,collab_control,vibe,'
   };
 
-  static Map<String, String> defaultFeatures = {
-    'android_graphql_skip_api_media_color_palette': 'false',
-    'blue_business_profile_image_shape_enabled': 'false',
-    'creator_subscriptions_subscription_count_enabled': 'false',
-    'creator_subscriptions_tweet_preview_api_enabled': 'true',
-    'freedom_of_speech_not_reach_fetch_enabled': 'false',
-    'graphql_is_translatable_rweb_tweet_is_translatable_enabled': 'false',
-    'hidden_profile_likes_enabled': 'false',
-    'highlights_tweets_tab_ui_enabled': 'false',
-    'interactive_text_enabled': 'false',
-    'longform_notetweets_consumption_enabled': 'true',
-    'longform_notetweets_inline_media_enabled': 'false',
-    'longform_notetweets_richtext_consumption_enabled': 'true',
-    'longform_notetweets_rich_text_read_enabled': 'false',
-    'responsive_web_edit_tweet_api_enabled': 'false',
-    'responsive_web_enhance_cards_enabled': 'false',
-    'responsive_web_graphql_exclude_directive_enabled': 'true',
-    'responsive_web_graphql_skip_user_profile_image_extensions_enabled': 'false',
-    'responsive_web_graphql_timeline_navigation_enabled': 'false',
-    'responsive_web_media_download_video_enabled': 'false',
-    'responsive_web_text_conversations_enabled': 'false',
-    'responsive_web_twitter_article_tweet_consumption_enabled': 'false',
-    'responsive_web_twitter_blue_verified_badge_is_enabled': 'true',
-    'rweb_lists_timeline_redesign_enabled': 'true',
-    'spaces_2022_h2_clipping': 'true',
-    'spaces_2022_h2_spaces_communities': 'true',
-    'standardized_nudges_misinfo': 'false',
-    'subscriptions_verification_info_enabled': 'true',
-    'subscriptions_verification_info_reason_enabled': 'true',
-    'subscriptions_verification_info_verified_since_enabled': 'true',
-    'super_follow_badge_privacy_enabled': 'false',
-    'super_follow_exclusive_tweet_notifications_enabled': 'false',
-    'super_follow_tweet_api_enabled': 'false',
-    'super_follow_user_api_enabled': 'false',
-    'tweet_awards_web_tipping_enabled': 'false',
-    'tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled': 'false',
-    'tweetypie_unmention_optimization_enabled': 'false',
-    'unified_cards_ad_metadata_container_dynamic_card_content_query_enabled': 'false',
-    'verified_phone_label_enabled': 'false',
-    'vibe_api_enabled': 'false',
-    'view_counts_everywhere_api_enabled': 'false',
-    'immersive_video_status_linkable_timestamps': 'false',
-    'articles_api_enabled': 'false'
+  static Map<String, dynamic> defaultFeatures = {
+    'rweb_lists_timeline_redesign_enabled': true,
+    'responsive_web_graphql_exclude_directive_enabled': true,
+    'verified_phone_label_enabled': false,
+    'creator_subscriptions_tweet_preview_api_enabled': true,
+    'responsive_web_graphql_timeline_navigation_enabled': true,
+    'responsive_web_graphql_skip_user_profile_image_extensions_enabled': false,
+    'tweetypie_unmention_optimization_enabled': true,
+    'responsive_web_edit_tweet_api_enabled': true,
+    'graphql_is_translatable_rweb_tweet_is_translatable_enabled': true,
+    'view_counts_everywhere_api_enabled': true,
+    'longform_notetweets_consumption_enabled': true,
+    'responsive_web_twitter_article_tweet_consumption_enabled': false,
+    'tweet_awards_web_tipping_enabled': false,
+    'freedom_of_speech_not_reach_fetch_enabled': true,
+    'standardized_nudges_misinfo': true,
+    'tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled': true,
+    'longform_notetweets_rich_text_read_enabled': true,
+    'longform_notetweets_inline_media_enabled': true,
+    'responsive_web_media_download_video_enabled': false,
+    'responsive_web_enhance_cards_enabled': false
+  };
+
+  static Map<String, dynamic> defaultFeaturesIncludes = {
+    'rweb_lists_timeline_redesign_enabled': true,
+    'responsive_web_graphql_exclude_directive_enabled': true,
+    'verified_phone_label_enabled': false,
+    'creator_subscriptions_tweet_preview_api_enabled': true,
+    'responsive_web_graphql_timeline_navigation_enabled': true,
+    'responsive_web_graphql_skip_user_profile_image_extensions_enabled': false,
+    'tweetypie_unmention_optimization_enabled': true,
+    'responsive_web_edit_tweet_api_enabled': true,
+    'graphql_is_translatable_rweb_tweet_is_translatable_enabled': true,
+    'view_counts_everywhere_api_enabled': true,
+    'longform_notetweets_consumption_enabled': true,
+    'responsive_web_twitter_article_tweet_consumption_enabled': false,
+    'tweet_awards_web_tipping_enabled': false,
+    'freedom_of_speech_not_reach_fetch_enabled': true,
+    'standardized_nudges_misinfo': true,
+    'tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled': true,
+    'longform_notetweets_rich_text_read_enabled': true,
+    'longform_notetweets_inline_media_enabled': true,
+    'responsive_web_media_download_video_enabled': false,
+    'responsive_web_enhance_cards_enabled': false
+  };
+
+  static Map<String, dynamic> defaultFeaturesMedia = {
+    'rweb_lists_timeline_redesign_enabled': true,
+    'responsive_web_graphql_exclude_directive_enabled': true,
+    'verified_phone_label_enabled': false,
+    'creator_subscriptions_tweet_preview_api_enabled': true,
+    'responsive_web_graphql_timeline_navigation_enabled': true,
+    'responsive_web_graphql_skip_user_profile_image_extensions_enabled': false,
+    'tweetypie_unmention_optimization_enabled': true,
+    'responsive_web_edit_tweet_api_enabled': true,
+    'graphql_is_translatable_rweb_tweet_is_translatable_enabled': true,
+    'view_counts_everywhere_api_enabled': true,
+    'longform_notetweets_consumption_enabled': true,
+    'responsive_web_twitter_article_tweet_consumption_enabled': false,
+    'tweet_awards_web_tipping_enabled': false,
+    'freedom_of_speech_not_reach_fetch_enabled': true,
+    'standardized_nudges_misinfo': true,
+    'tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled': true,
+    'longform_notetweets_rich_text_read_enabled': true,
+    'longform_notetweets_inline_media_enabled': true,
+    'responsive_web_media_download_video_enabled': false,
+    'responsive_web_enhance_cards_enabled': false
   };
 
   static Map<String, String> defaultFeaturesUnauthenticated = {
@@ -298,9 +323,9 @@ class Twitter {
   static Future<Follows> getProfileFollows(String screenName, String type, {int? cursor, int? count = 200}) async {
     var response = type == 'following'
         ? await _twitterApiAllowUnauthenticated.userService
-            .friendsList(screenName: screenName, cursor: cursor, count: count, skipStatus: true)
+        .friendsList(screenName: screenName, cursor: cursor, count: count, skipStatus: true)
         : await _twitterApiAllowUnauthenticated.userService
-            .followersList(screenName: screenName, cursor: cursor, count: count, skipStatus: true);
+        .followersList(screenName: screenName, cursor: cursor, count: count, skipStatus: true);
 
     return Follows(
         cursorBottom: int.parse(response.nextCursorStr ?? '-1'),
@@ -728,12 +753,40 @@ class Twitter {
     return createUnconversationedChains(result, 'tweet', 'homeConversation', pinnedTweets, includeReplies);
   }
 
+  static void _printAll(String data) {
+    int cnt = 0;
+    int totLen = 0;
+    while (cnt < data.length) {
+      int len = data.length - cnt;
+      if (len < 0) len = 0;
+      len = m.min(len, 1024);
+      if (len > 0) print(data.substring(cnt, cnt + len));
+      totLen += len;
+      cnt += 1024;
+    }
+    if (totLen < data.length) {
+      print(data.substring(totLen));
+    }
+  }
+
   static Future<TweetStatus> getUserWithProfileGraphql(String id, String type, List<String> pinnedTweets,
       {int count = 10, String? cursor, bool includeReplies = true}) async {
     var variables = {
-      "rest_id": id,
-      "count": count.toString()
+      "userId": id,
+      "count": count.toString(),
+      "includePromotedContent": false,
+      'withV2Timeline': true,
+      "withVoice": true
     };
+
+    if (type == 'profile') {
+      variables["withQuickPromoteEligibilityTweetFields"] = true;
+      variables["withCommunity"] = true;
+    }
+    else { // type = 'media'
+      variables["withClientEventToken"] = false;
+      variables["withBirdwatchNotes"] = false;
+    }
 
     if (cursor != null) {
       variables['cursor'] = cursor;
@@ -743,22 +796,26 @@ class Twitter {
 
     if (type == 'profile') {
       if (includeReplies) {
-        uri = Uri.https('api.x.com', 'graphql/Y86LQY7KMvxn5tu3hFTyPg/UserWithProfileTweetsAndRepliesQueryV2', {
+        uri = Uri.https('x.com', 'i/api/graphql/U21eghOo40F4jvBsSyMrsQ/UserTweetsAndReplies', {
           'variables': jsonEncode(variables),
-          'features': jsonEncode(defaultFeatures)
+          'features': jsonEncode(defaultFeaturesIncludes),
+          "fieldToggles": jsonEncode({"withArticlePlainText": false})
         });
       }
       else {
-        uri = Uri.https('api.x.com', 'graphql/JLApJKFY0MxGTzCoK6ps8Q/UserWithProfileTweetsQueryV2', {
+        uri = Uri.https('x.com', 'i/api/graphql/rIIwMe1ObkGh_ByBtTCtRQ/UserTweets', {
           'variables': jsonEncode(variables),
-          'features': jsonEncode(defaultFeatures)
+          'features': jsonEncode(defaultFeatures),
+          "fieldToggles": jsonEncode({"withArticlePlainText": false})
         });
       }
     }
     else { // type = 'media'
-      uri = Uri.https('api.x.com', 'graphql/PDfFf8hGeJvUCiTyWtw4wQ/MediaTimelineV2', {
+      uri = Uri.https('x.com', 'i/api/graphql/fswZGPS7zuksnISWCMvz3Q/UserMedia', {
         'variables': jsonEncode(variables),
-        'features': jsonEncode(defaultFeatures)
+        'features': jsonEncode(defaultFeaturesMedia),
+        "fieldToggles": jsonEncode({"withAuxiliaryUserLabels": false,
+          "withArticleRichContentState": false,})
       });
     }
 
@@ -772,6 +829,9 @@ class Twitter {
       return TweetStatus(chains: [], cursorBottom: null, cursorTop: null);
     }
 
+    //if (type == 'profile' && includeReplies) _printAll(response.body); // TODO remove
+    //if (type == 'profile' && !includeReplies) _printAll(response.body); // TODO remove
+    //if (type != 'profile') _printAll(response.body); // TODO remove
     return createProfileUnconversationedChainsGraphql(result, pinnedTweets, includeReplies);
   }
 
@@ -801,10 +861,10 @@ class Twitter {
     } else {
       // Look for a "replaceEntry" with the cursor
       var cursorReplaceEntry = repEntries.firstWhere(
-          (e) => e.containsKey('replaceEntry')
-              ? e['replaceEntry']['entryIdToReplace'].contains(type)
-              : e['entry']['content']['cursorType'].contains(type),
-          orElse: () => null);
+        (e) => e.containsKey('replaceEntry')
+          ? e['replaceEntry']['entryIdToReplace'].contains(type)
+          : e['entry']['content']['cursorType'].contains(type),
+        orElse: () => null);
 
       if (cursorReplaceEntry != null) {
         cursor = cursorReplaceEntry.containsKey('replaceEntry')
@@ -827,6 +887,7 @@ class Twitter {
 
     List pinEntries = List.from(instructions.where((e) => e['__typename'] == 'TimelinePinEntry' || e['type'] == 'TimelinePinEntry'));
     List addEntries = List.from(instructions.firstWhere((e) => e['__typename'] == 'TimelineAddEntries' || e['type'] == 'TimelineAddEntries')['entries']);
+    //print('*** pinEntries.length=${pinEntries.length}, addEntries.length=${addEntries.length}'); // TODO remove
 
     List<TweetChain> chains = [];
 
@@ -846,6 +907,7 @@ class Twitter {
     String? cursorBottom;
     for (Map<String, dynamic> addEntry in addEntries) {
       String entryId = addEntry['entryId'] ?? '';
+      //print('*** entryId=$entryId'); // TODO remove
       if (entryId.startsWith('tweet-')) {
         Map<String, dynamic>? result = addEntry["content"]?["content"]?["tweetResult"]?["result"];
         result ??= addEntry["content"]?["itemContent"]?["tweet_results"]?["result"];
@@ -909,7 +971,7 @@ class Twitter {
         .toList();
 
     Map<String, List<TweetWithCard>> conversations =
-        tweets.values.where((e) => tweetEntries.contains(e.idStr)).groupBy((e) {
+      tweets.values.where((e) => tweetEntries.contains(e.idStr)).groupBy((e) {
       if (e.conversationIdStr != null) {
         // Then group the tweets-to-display by their conversation ID
         return e.conversationIdStr;
@@ -980,7 +1042,7 @@ class Twitter {
       .toList();
 
     Map<String, List<TweetWithCard>> conversations =
-        tweets.values.where((e) => tweetEntries.contains(e.idStr)).groupBy((e) {
+      tweets.values.where((e) => tweetEntries.contains(e.idStr)).groupBy((e) {
       // TODO: I don't think a flag is the right way to handle this
       if (e.conversationIdStr != null) {
         // Then group the tweets-to-display by their conversation ID
@@ -1188,13 +1250,13 @@ class TweetWithCard extends Tweet {
     tweetWithCard.quotedStatusIdStr = tweet.quotedStatusIdStr;
     tweetWithCard.quotedStatusPermalink = tweet.quotedStatusPermalink;
     tweetWithCard.quotedStatusWithCard =
-        e['quotedStatusWithCard'] == null ? null : TweetWithCard.fromJson(e['quotedStatusWithCard']);
+      e['quotedStatusWithCard'] == null ? null : TweetWithCard.fromJson(e['quotedStatusWithCard']);
     tweetWithCard.replyCount = tweet.replyCount;
     tweetWithCard.retweetCount = tweet.retweetCount;
     tweetWithCard.retweeted = tweet.retweeted;
     tweetWithCard.retweetedStatus = tweet.retweetedStatus;
     tweetWithCard.retweetedStatusWithCard =
-        e['retweetedStatusWithCard'] == null ? null : TweetWithCard.fromJson(e['retweetedStatusWithCard']);
+      e['retweetedStatusWithCard'] == null ? null : TweetWithCard.fromJson(e['retweetedStatusWithCard']);
     tweetWithCard.source = tweet.source;
     tweetWithCard.text = tweet.text;
     tweetWithCard.user = tweet.user;
@@ -1218,9 +1280,9 @@ class TweetWithCard extends Tweet {
     var resCore = result['core']?['user_results']?['result'];
     resCore ??= result['core']?['user_result']?['result'];
     var user = resCore?['legacy'] == null
-        ? null
-        : UserWithExtra.fromJson(
-            {...resCore['legacy'], 'id_str': resCore['rest_id'], 'ext_is_blue_verified': resCore['is_blue_verified']});
+      ? null
+      : UserWithExtra.fromJson(
+        {...resCore['legacy'], 'id_str': resCore['rest_id'], 'ext_is_blue_verified': resCore['is_blue_verified']});
 
     String? noteText;
     Entities? noteEntities;
@@ -1308,7 +1370,7 @@ class TweetWithCard extends Tweet {
     tweet.quoteCount = e['quote_count'] as int?;
     tweet.quotedStatusIdStr = e['quoted_status_id_str'] as String?;
     tweet.quotedStatusPermalink =
-        e['quoted_status_permalink'] == null ? null : QuotedStatusPermalink.fromJson(e['quoted_status_permalink']);
+      e['quoted_status_permalink'] == null ? null : QuotedStatusPermalink.fromJson(e['quoted_status_permalink']);
     tweet.replyCount = e['reply_count'] as int?;
     tweet.retweetCount = e['retweet_count'] as int?;
     tweet.retweeted = e['retweeted'] as bool?;
@@ -1332,12 +1394,12 @@ class TweetWithCard extends Tweet {
     tweet.truncated = null;
     tweet.place = null;
     tweet.possiblySensitiveAppealable = null;
-    
+
     tweet.noteText = noteText;
     if (noteEntities != null) {
       tweet.entities = tweet.entities == null ? noteEntities : copyEntities(noteEntities, tweet.entities!);
       tweet.extendedEntities =
-          tweet.extendedEntities == null ? noteEntities : copyEntities(noteEntities, tweet.extendedEntities!);
+        tweet.extendedEntities == null ? noteEntities : copyEntities(noteEntities, tweet.extendedEntities!);
     }
 
     return tweet;
