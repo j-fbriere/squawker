@@ -1,2 +1,3 @@
 * Fix the empty user profile tweets and replies tab.
+* Fix the swiping through menus.
 * Remove the full file access permission request to download media.
