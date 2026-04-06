@@ -21,9 +21,11 @@ Future<void> downloadUriToPickedFile(BuildContext context, Uri uri, String fileN
     onStart();
     Future<Uint8List?> responseTask = downloadFile(context, uri);
 
+    /*
     DeviceInfoPlugin plugin = DeviceInfoPlugin();
     AndroidDeviceInfo android = await plugin.androidInfo;
     var storagePermission = android.version.sdkInt < 30 ? await Permission.storage.request() : await Permission.manageExternalStorage.request();
+    */
 
     var response = await responseTask;
     if (response == null) {
@@ -46,6 +48,7 @@ Future<void> downloadUriToPickedFile(BuildContext context, Uri uri, String fileN
     }
 
     // Otherwise, check we have the storage permission
+    /*
     if (!storagePermission.isGranted) {
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
@@ -61,6 +64,7 @@ Future<void> downloadUriToPickedFile(BuildContext context, Uri uri, String fileN
       await openAppSettings();
       return;
     }
+    */
 
     // Finally, save to the user-defined directory
     var savedFile = p.join(downloadPath, sanitizedFilename);
