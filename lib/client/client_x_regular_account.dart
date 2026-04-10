@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:squawker/client/headers.dart';
@@ -15,11 +17,28 @@ class XRegularAccount {
 
     final baseHeaders = await TwitterHeaders.getHeaders(uri);
 
-    var response = await http.get(uri, headers: {
+    Map<String, String> h = {
       ...?headers,
       ...baseHeaders
-    });
-
+    };
+    /*
+    print('*** request headers:');
+    for (String k in h.keys) {
+      print('$k=${h[k]}');
+    }
+    print('************');
+    */
+    var response = await http.get(uri, headers: h);
+    /*
+    print('*** response headers:');
+    for (String k in response.headers.keys) {
+      print('$k=${response.headers[k]}');
+    }
+    print('************');
+    print('*** response body:');
+    debugPrint(response.body, wrapWidth: 4096);
+    print('************');
+    */
     return response;
   }
 

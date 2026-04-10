@@ -130,3 +130,9 @@ Future requestPostNotificationsPermissions(AsyncCallback callback) async {
   await androidChannel.invokeMethod('requestPostNotificationsPermissions');
 }
 
+DateTime? convertTwitterDateTimeFromMs(int? twitterDateTimeMs) {
+  if (twitterDateTimeMs == null) {
+    return null;
+  }
+  return DateTime.fromMillisecondsSinceEpoch(twitterDateTimeMs, isUtc: true);
+}

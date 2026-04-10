@@ -1,6 +1,9 @@
+import 'dart:convert';
 import 'package:dart_twitter_api/src/utils/date_utils.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:extended_image/extended_image.dart';
+import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:material_symbols_icons/symbols.dart';
@@ -14,6 +17,7 @@ import 'package:squawker/subscriptions/users_model.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:squawker/utils/data_service.dart';
+import 'package:squawker/utils/misc.dart';
 import 'package:squawker/utils/route_util.dart';
 
 import 'group/_feed.dart';
@@ -248,6 +252,7 @@ class UserWithExtra extends User {
   }
 
   factory UserWithExtra.fromJson(Map<String, dynamic> json) {
+    //print('*** UserWithExtra.fromJson json.keys=[${json.keys.join(',')}]'); // TODO remove
     var userWithExtra = UserWithExtra()
       ..idStr = json['id_str'] as String?
       ..name = json['name'] as String?
@@ -267,9 +272,9 @@ class UserWithExtra extends User {
       ..listedCount = json['listed_count'] as int?
       ..favoritesCount = json['favorites_count'] as int?
       ..statusesCount = json['statuses_count'] as int?
-      ..createdAt = convertTwitterDateTime(json['created_at'] as String?)
+      ..createdAt = json['created_at'] != null ? convertTwitterDateTime(json['created_at'] as String?) : (json['created_at_ms'] != null ? convertTwitterDateTimeFromMs(json['created_at_ms'] as int?) : null)
       ..profileBannerUrl = json['profile_banner_url'] as String?
-      ..profileImageUrlHttps = json['profile_image_url_https'] as String?
+      ..profileImageUrlHttps = (json['profile_image_url_https'] ?? json['avatar_image_url']) as String?
       ..defaultProfile = json['default_profile'] as bool?
       ..defaultProfileImage = json['default_profile_image'] as bool?
       ..withheldInCountries = (json['withheld_in_countries'] as List<dynamic>?)?.map((e) => e as String).toList()

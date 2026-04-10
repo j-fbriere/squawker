@@ -16,10 +16,13 @@ class TwitterHeaders {
     'content-type': 'application/json',
     'pragma': 'no-cache',
     'priority': 'u=1, i',
-    'referer': 'https://x.com/',
+    'referer': 'https://x.com',
+    'origin': 'https://x.com',
     'user-agent': userAgentHeader['user-agent']!,
+    'sec-ch-ua': '"Google Chrome";v="142", "Chromium";v="142", "Not A(Brand";v="24"',
     'x-twitter-active-user': 'yes',
     'x-twitter-client-language': 'en',
+    'x-twitter-auth-type': 'OAuth2Session',
   };
 
   static Future<Map<String, String>?> getXClientTransactionIdHeader(Uri? uri) async {
