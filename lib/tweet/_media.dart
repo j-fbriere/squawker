@@ -231,6 +231,8 @@ class _TweetMediaViewState extends State<TweetMediaView> {
                 context,
                 uri,
                 fileName,
+                PrefService.of(context).get(optionDownloadType) as String,
+                PrefService.of(context).get(optionDownloadPath) as String,
                 onStart: () {
                   ScaffoldMessenger.of(context).clearSnackBars();
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -349,6 +351,8 @@ class _TweetPhotoViewState extends State<TweetPhotoView> {
                 context,
                 uri,
                 fileName,
+                PrefService.of(context).get(optionDownloadType) as String,
+                PrefService.of(context).get(optionDownloadPath) as String,
                 onStart: () {
                   ScaffoldMessenger.of(context).clearSnackBars();
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(

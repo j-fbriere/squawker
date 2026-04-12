@@ -13,7 +13,7 @@ import 'package:path/path.dart' as p;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:pref/pref.dart';
 
-Future<void> downloadUriToPickedFile(BuildContext context, Uri uri, String fileName,
+Future<void> downloadUriToPickedFile(BuildContext context, Uri uri, String fileName, String downloadType, String downloadPath,
     {required Function() onStart, required Function() onSuccess}) async {
   var sanitizedFilename = fileName.split("?")[0];
 
@@ -31,9 +31,6 @@ Future<void> downloadUriToPickedFile(BuildContext context, Uri uri, String fileN
     if (response == null) {
       return;
     }
-
-    final downloadType = PrefService.of(context).get(optionDownloadType);
-    final downloadPath = PrefService.of(context).get(optionDownloadPath);
 
     // If the user wants to pick a file every time a download happens
     if (downloadType == optionDownloadTypeAsk || downloadPath == '') {
@@ -74,6 +71,8 @@ Future<void> downloadUriToPickedFile(BuildContext context, Uri uri, String fileN
     }
     onSuccess();
   } catch (e) {
+    print('*** ERROR downloadUriToPickedFile');
+    print(e);
     showSnackBar(context, icon: '🙊', message: e.toString());
   }
 }

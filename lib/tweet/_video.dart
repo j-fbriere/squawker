@@ -78,8 +78,7 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
   bool get wantKeepAlive => true;
 
   Future<void> _loadVideo() async {
-    // TODO remove
-    //print('*** TweetVideo._loadVideo');
+    //print('*** TweetVideo._loadVideo'); // TODO remove
 
     if (_chewieController != null) {
       WakelockPlus.disable();
@@ -159,6 +158,8 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
               context,
               videoUri,
               fileName,
+              PrefService.of(context).get(optionDownloadType) as String,
+              PrefService.of(context).get(optionDownloadPath) as String,
               onStart: () {
                 ScaffoldMessenger.of(context).clearSnackBars();
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(

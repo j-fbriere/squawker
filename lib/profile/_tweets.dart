@@ -38,9 +38,10 @@ class _ProfileTweetsState extends State<ProfileTweets> with AutomaticKeepAliveCl
 
   Future<void> _fetchNextPage() async {
     if (_pagingState.isLoading) {
-      //print('*** _fetchNextPage _pagingState.isLoading'); // TODO remove
+      //print('*** _fetchNextPage _pagingState.isLoading = true'); // TODO remove
       return;
     }
+    //print('*** _fetchNextPage _pagingState.isLoading = false'); // TODO remove
 
     setState(() {
       _pagingState = _pagingState.copyWithEx(isLoading: true, error: null);
@@ -65,7 +66,7 @@ class _ProfileTweetsState extends State<ProfileTweets> with AutomaticKeepAliveCl
       //print('*** _fetchNextPage with cursor=${_pagingState.cursor}, result.chains.length=${result.chains.length}, result.cursorBottom="${result.cursorBottom}", result.cursorTop="${result.cursorTop}"'); // TODO remove
 
       if (!mounted) {
-        print('*** ProfileTweets._fetchNextPage !mounted');
+        print('*** ProfileTweets._fetchNextPage mounted=false');
         return;
       }
 
@@ -85,6 +86,9 @@ class _ProfileTweetsState extends State<ProfileTweets> with AutomaticKeepAliveCl
 
     }
     catch (err, stk) {
+      print('*** ProfileTweets._fetchNextPage ERROR (mounted=$mounted)');
+      print(err);
+      print(stk);
       if (mounted) {
         setState(() {
           _pagingState = _pagingState.copyWithEx(

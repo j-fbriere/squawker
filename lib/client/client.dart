@@ -814,18 +814,24 @@ class Twitter {
         uri = Uri.https('x.com', 'i/api/graphql/kkaJ0Mf34PZVarrxzLihjg/UserTweetsAndReplies', {
           'variables': jsonEncode(variables),
           'features': jsonEncode(defaultFeatures),
-          "fieldToggles": jsonEncode({"withArticlePlainText": false})
+          'fieldToggles': jsonEncode({'withArticlePlainText': false})
         });
       }
       else {
-        variables['rest_id'] = id;
-        // variables['withV2Timeline'] = true;
-        // variables["withQuickPromoteEligibilityTweetFields"] = true;
+        // Note: UserTweets works better than UserWithProfileTweetsQueryV2 (used in Nitter) for parsing the result
+        // TODO more analyse needed for the parsing problem
+        // variables['rest_id'] = id;
+        variables['userId'] = id;
+        variables['includePromotedContent'] = false;
+        variables['withV2Timeline'] = true;
+        variables['withVoice'] = true;
+        variables["withQuickPromoteEligibilityTweetFields"] = true;
         // i/api/graphql/rIIwMe1ObkGh_ByBtTCtRQ/UserTweets
-        uri = Uri.https('x.com', 'i/api/graphql/6QdSuZ5feXxOadEdXa4XZg/UserWithProfileTweetsQueryV2', {
+        // i/api/graphql/6QdSuZ5feXxOadEdXa4XZg/UserWithProfileTweetsQueryV2
+        uri = Uri.https('x.com', 'i/api/graphql/rIIwMe1ObkGh_ByBtTCtRQ/UserTweets', {
           'variables': jsonEncode(variables),
           'features': jsonEncode(defaultFeatures),
-          //"fieldToggles": jsonEncode({"withArticlePlainText": false})
+          'fieldToggles': jsonEncode({'withArticlePlainText': false})
         });
       }
     }
@@ -856,7 +862,7 @@ class Twitter {
       return TweetStatus(chains: [], cursorBottom: null, cursorTop: null);
     }
 
-    // _printAll2(response.body); // TODO remove
+    //if (type == 'media') _printAll2(response.body); // TODO remove
     return createProfileUnconversationedChainsGraphql(result, pinnedTweets, includeReplies);
   }
 
@@ -981,12 +987,9 @@ class Twitter {
             result = result['rest_id'] != null ? result : result['tweet'];
             if (result != null) {
               TweetWithCard tc = TweetWithCard.fromGraphqlJson(result);
-              tweets.add(tc);
+              chains.add(TweetChain(id: result['rest_id'], tweets: [tc], isPinned: false));
             }
           }
-        }
-        if (tweets.isNotEmpty) {
-          chains.add(TweetChain(id: tweets[0].conversationIdStr!, tweets: tweets, isPinned: false));
         }
       }
       else if (entryId.startsWith('cursor-top-')) {
@@ -1302,14 +1305,12 @@ class TweetWithCard extends Tweet {
     tweetWithCard.quoteCount = tweet.quoteCount;
     tweetWithCard.quotedStatusIdStr = tweet.quotedStatusIdStr;
     tweetWithCard.quotedStatusPermalink = tweet.quotedStatusPermalink;
-    tweetWithCard.quotedStatusWithCard =
-      e['quotedStatusWithCard'] == null ? null : TweetWithCard.fromJson(e['quotedStatusWithCard']);
+    tweetWithCard.quotedStatusWithCard = e['quotedStatusWithCard'] == null ? null : TweetWithCard.fromJson(e['quotedStatusWithCard']);
     tweetWithCard.replyCount = tweet.replyCount;
     tweetWithCard.retweetCount = tweet.retweetCount;
     tweetWithCard.retweeted = tweet.retweeted;
     tweetWithCard.retweetedStatus = tweet.retweetedStatus;
-    tweetWithCard.retweetedStatusWithCard =
-      e['retweetedStatusWithCard'] == null ? null : TweetWithCard.fromJson(e['retweetedStatusWithCard']);
+    tweetWithCard.retweetedStatusWithCard = e['retweetedStatusWithCard'] == null ? null : TweetWithCard.fromJson(e['retweetedStatusWithCard']);
     tweetWithCard.source = tweet.source;
     tweetWithCard.text = tweet.text;
     tweetWithCard.user = tweet.user;
@@ -1324,15 +1325,16 @@ class TweetWithCard extends Tweet {
 
   factory TweetWithCard.fromGraphqlJson(Map<String, dynamic> result, {bool leanerFeeds = false}) {
     //print('*** TweetWithCard.fromGraphqlJson result.keys=[${result.keys.join(',')}]'); // TODO remove
-    //if (result['legacy']?['repostedStatusResults']?['result']?['legacy'] != null) print('*** TweetWithCard.fromGraphqlJson result[legacy][repostedStatusResults][result][legacy].keys=[${result['legacy']['repostedStatusResults']['result']['legacy'].keys.join(',')}]'); // TODO remove
-    //if (result['legacy']?['repostedStatusResults']?['result']?['legacy']?['created_at_ms'] != null) print('*** TweetWithCard.fromGraphqlJson result[legacy][repostedStatusResults][result][legacy][created_at_ms]=${result['legacy']['repostedStatusResults']['result']['legacy']['created_at_ms']}'); // TODO remove
+    //if (result['legacy'] != null) print('*** TweetWithCard.fromGraphqlJson result[legacy].keys=[${result['legacy'].keys.join(',')}]'); // TODO remove
     var resultRetweetedStatusResult = result['retweeted_status_result'] ?? (result['legacy']?['retweeted_status_result'] ?? result['legacy']?['repostedStatusResults']);
     var retweetedStatus = resultRetweetedStatusResult?.isEmpty ?? true
         ? null
         : TweetWithCard.fromGraphqlJson(resultRetweetedStatusResult['result']['rest_id'] == null ? resultRetweetedStatusResult['result']['tweet'] : resultRetweetedStatusResult['result']);
-    var quotedStatus = (result['quoted_status_result']?.isEmpty ?? true) || result['quoted_status_result']['result']['tombstone'] != null
+    var resultQuotedStatusResult = result['quoted_status_result'] ?? (result['quoted_status_result']?['result']?['tombstone'] ?? result['quotedPostResults']);
+    //if (resultQuotedStatusResult?['result'] != null) print('*** TweetWithCard.fromGraphqlJson resultQuotedStatusResult[result].keys=[${resultQuotedStatusResult['result'].keys.join(',')}]'); // TODO remove
+    var quotedStatus = resultQuotedStatusResult?.isEmpty ?? true
         ? null
-        : TweetWithCard.fromGraphqlJson(result['quoted_status_result']['result']['rest_id'] == null ? result['quoted_status_result']['result']['tweet'] : result['quoted_status_result']['result']);
+        : TweetWithCard.fromGraphqlJson(resultQuotedStatusResult['result']['rest_id'] == null ? resultQuotedStatusResult['result']['tweet'] : resultQuotedStatusResult['result']);
     var resCore = result['core']?['user_results']?['result'];
     resCore ??= result['core']?['user_result']?['result'];
     //if (resCore != null) print('*** TweetWithCard.fromGraphqlJson resCore.keys=[${resCore.keys.join(',')}]'); // TODO remove
@@ -1415,7 +1417,7 @@ class TweetWithCard extends Tweet {
     tweet.card = e['card'];
     tweet.conversationIdStr = e['conversation_id_str'];
     tweet.createdAt = e['created_at'] != null ? convertTwitterDateTime(e['created_at'] as String?) : (e['created_at_ms'] != null ? convertTwitterDateTimeFromMs(e['created_at_ms'] as int?) : null);
-    tweet.entities = e['entities'] == null ? null : Entities.fromJson(e['entities']);
+    tweet.entities = e['entities'] != null ? Entities.fromJson(e['entities']) : null;
     tweet.extendedEntities = e['extended_entities'] == null ? null : Entities.fromJson(e['extended_entities']);
     tweet.favorited = e['favorited'] as bool?;
     tweet.favoriteCount = e['favorite_count'] as int?;
