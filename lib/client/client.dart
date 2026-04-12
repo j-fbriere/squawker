@@ -977,15 +977,14 @@ class Twitter {
         }
       }
       else if (entryId.startsWith('profile-grid-')) {
-        List<TweetWithCard> tweets = [];
         for (Map<String, dynamic> item in List.from(addEntry['content']?['items'] ?? [])) {
           Map<String, dynamic>? result = item['item']?['content']?['tweetResult']?['result'];
           result ??= item['item']?['itemContent']?['tweet_results']?['result'];
           result ??= item["item"]?["content"]?["tweet_results"]?["result"];
           if (result != null) {
-            //print('*** profile-grid- result.keys=[${result.keys.join(',')}]'); // TODO remove
             result = result['rest_id'] != null ? result : result['tweet'];
             if (result != null) {
+              //print('*** profile-grid- result.keys=[${result.keys.join(',')}]'); // TODO remove
               TweetWithCard tc = TweetWithCard.fromGraphqlJson(result);
               chains.add(TweetChain(id: result['rest_id'], tweets: [tc], isPinned: false));
             }
