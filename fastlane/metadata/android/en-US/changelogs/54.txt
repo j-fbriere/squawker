@@ -1,1 +1,2 @@
 * Fix (again) the profile media that has limited number of tweets.
+* Fix the import of subscriptions.

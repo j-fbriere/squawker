@@ -122,7 +122,8 @@ class _SubscriptionImportScreenState extends State<SubscriptionImportScreen> {
 
       await groupModel.reloadGroups();
       await context.read<SubscriptionsModel>().reloadSubscriptions();
-      await context.read<SubscriptionsModel>().refreshSubscriptionData();
+      // uses api 1.1 which is not working anymore
+      //await context.read<SubscriptionsModel>().refreshSubscriptionData();
       _streamController?.close();
 
       DataService().map['toggleKeepFeed'] = true;
@@ -168,6 +169,8 @@ class _SubscriptionImportScreenState extends State<SubscriptionImportScreen> {
                   },
                 ),
               ),
+              // seeting this property uses, in importSubscriptions, api 1.1 which is not working anymore
+              /*
               Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: Text(
@@ -192,6 +195,7 @@ class _SubscriptionImportScreenState extends State<SubscriptionImportScreen> {
                   },
                 ),
               ),
+              */
               Center(
                 child: StreamBuilder(
                   stream: _streamController?.stream,

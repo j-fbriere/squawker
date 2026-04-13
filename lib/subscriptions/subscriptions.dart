@@ -21,12 +21,15 @@ class SubscriptionsScreen extends StatelessWidget {
             onPressed: () =>
                 showModalBottomSheet(context: context, builder: (BuildContext c) => const SubscriptionImportScreen()),
           ),
+          // uses api 1.1 which is not working anymore
+          /*
           IconButton(
             icon: const Icon(Symbols.refresh_rounded),
             onPressed: () async {
               await context.read<SubscriptionsModel>().refreshSubscriptionData();
             },
           ),
+          */
           PopupMenuButton<String>(
             icon: const Icon(Symbols.sort_rounded),
             itemBuilder: (context) => [
