@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:math' as m;
 
 import 'package:dart_twitter_api/src/utils/date_utils.dart';
@@ -861,7 +862,8 @@ class Twitter {
   */
 
   static void _printAll2(String data) {
-    debugPrint(data, wrapWidth: 4096);
+    //debugPrint(data, wrapWidth: 4096);
+    log(data);
   }
 
   static Future<TweetStatus> getUserWithProfileGraphql(String id, String type, List<String> pinnedTweets,
@@ -989,12 +991,13 @@ class Twitter {
     if (instructions.isEmpty) {
       instructions = List.from(parentResult['data']?['user']?['result']?['timeline']?['timeline']?['instructions'] ?? []);
     }
-    if (instructions.isEmpty || !instructions.any((e) => e['__typename'] == 'TimelineAddEntries' || e['type'] == 'TimelineAddEntries')) {
+    if (instructions.isEmpty || !instructions.any((e) => e['__typename'] == 'TimelineAddEntries' || e['type'] == 'TimelineAddEntries' || e['__typename'] == 'TimelineAddToModule' || e['type'] == 'TimelineAddToModule')) {
       return TweetStatus(chains: [], cursorBottom: null, cursorTop: null);
     }
 
     List pinEntries = List.from(instructions.where((e) => e['__typename'] == 'TimelinePinEntry' || e['type'] == 'TimelinePinEntry'));
-    List addEntries = List.from(instructions.firstWhere((e) => e['__typename'] == 'TimelineAddEntries' || e['type'] == 'TimelineAddEntries')['entries']);
+    List addEntries = List.from(instructions.firstWhere((e) => e['__typename'] == 'TimelineAddEntries' || e['type'] == 'TimelineAddEntries', orElse: () => {})['entries'] ?? []);
+    List addModEntries = List.from(instructions.firstWhere((e) => e['__typename'] == 'TimelineAddToModule' || e['type'] == 'TimelineAddToModule', orElse: () => {})['moduleItems'] ?? []);
     //print('*** pinEntries.length=${pinEntries.length}, addEntries.length=${addEntries.length}'); // TODO remove
 
     List<TweetChain> chains = [];
@@ -1038,9 +1041,9 @@ class Twitter {
           result ??= item['item']?['itemContent']?['tweet_results']?['result'];
           result ??= item["item"]?["content"]?["tweet_results"]?["result"];
           if (result != null) {
-            //print('*** -conversation- result.keys=[${result.keys.join(',')}]'); // TODO remove
             result = result['rest_id'] != null ? result : result['tweet'];
             if (result != null) {
+              //print('*** -conversation- result.keys=[${result.keys.join(',')}]'); // TODO remove
               TweetWithCard tc = TweetWithCard.fromGraphqlJson(result);
               tweets.add(tc);
             }
@@ -1070,6 +1073,23 @@ class Twitter {
       }
       else if (entryId.startsWith('cursor-bottom-')) {
         cursorBottom = addEntry['content']?['value'];
+      }
+    }
+
+    for (Map<String, dynamic> addModEntry in addModEntries) {
+      String entryId = addModEntry['entryId'] ?? (addModEntry['entry_id'] ?? '');
+      if (entryId.startsWith('profile-grid-')) {
+        Map<String, dynamic>? result = addModEntry['item']?['content']?['tweetResult']?['result'];
+        result ??= addModEntry['item']?['itemContent']?['tweet_results']?['result'];
+        result ??= addModEntry["item"]?["content"]?["tweet_results"]?["result"];
+        if (result != null) {
+          result = result['rest_id'] != null ? result : result['tweet'];
+          if (result != null) {
+            //print('*** profile-grid- result.keys=[${result.keys.join(',')}]'); // TODO remove
+            TweetWithCard tc = TweetWithCard.fromGraphqlJson(result);
+            chains.add(TweetChain(id: result['rest_id'], tweets: [tc], isPinned: false));
+          }
+        }
       }
     }
 
