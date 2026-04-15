@@ -18,6 +18,7 @@ import 'package:squawker/ui/errors.dart';
 import 'package:squawker/user.dart';
 import 'package:squawker/utils/urls.dart';
 import 'package:squawker/utils/route_util.dart';
+import 'package:squawker/utils/text_util.dart';
 import 'package:intl/intl.dart';
 import 'package:measure_size/measure_size.dart';
 import 'package:pref/pref.dart';
@@ -226,7 +227,9 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
 
       return type;
     }, onNonMatch: (text) {
-      contentWidgets.add(TextSpan(text: text));
+
+      List<InlineSpan> txtLst = TextUtil.textWithLinks(text, linkStyle: TextStyle(color: Theme.of(context).colorScheme.secondary));
+      contentWidgets.addAll(txtLst);
 
       return text;
     });
@@ -363,12 +366,15 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
                                           });
                                         },
                                         child: Container(
-                                            margin: const EdgeInsets.only(bottom: 8),
-                                            child: RichText(
-                                                maxLines: 3,
-                                                text: TextSpan(
-                                                    style: const TextStyle(height: 1.4),
-                                                    children: _addLinksToText(context, user.description!)))),
+                                          margin: const EdgeInsets.only(bottom: 8),
+                                          child: SelectableText.rich(
+                                            TextSpan(
+                                              style: const TextStyle(height: 1.4),
+                                              children: _addLinksToText(context, user.description!),
+                                            ),
+                                            maxLines: 3,
+                                          )
+                                        ),
                                       ),
                                     MeasureSize(
                                       onChange: (size) {
