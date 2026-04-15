@@ -1,4 +1,7 @@
+import 'package:pref/pref.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_triple/flutter_triple.dart';
+import 'package:squawker/client/client_account.dart';
 import 'package:squawker/database/entities.dart';
 import 'package:squawker/generated/l10n.dart';
 import 'package:squawker/home/_saved.dart';
@@ -18,91 +21,50 @@ class ProfileSaved extends StatefulWidget {
   State<ProfileSaved> createState() => _ProfileSavedState();
 }
 
-class _ProfileSavedState extends State<ProfileSaved> {
-  PagingState<int?, SavedTweet> _pagingState = PagingState();
+class _ProfileSavedState extends State<ProfileSaved> with AutomaticKeepAliveClientMixin<ProfileSaved> {
 
-  Future<void> _fetchNextPage() async {
-    if (_pagingState.isLoading) return;
+  final ScrollController scrollController = ScrollController();
 
-    setState(() {
-      _pagingState = _pagingState.copyWith(isLoading: true, error: null);
-    });
+  @override
+  bool get wantKeepAlive => true;
 
-    try {
-      var model = context.read<SavedTweetModel>();
-      await model.listSavedTweets();
+  @override
+  void initState() {
+    super.initState();
 
-      if (!mounted) {
-        return;
-      }
-
-      var savedTweets = model.state.where((tweet) => tweet.user == widget.user.idStr).toList();
-      var newKey = (_pagingState.keys?.last ?? 0) + 1;
-      var isLastPage = savedTweets.isEmpty;
-
-      setState(() {
-        _pagingState = _pagingState.copyWith(
-          pages: [...?_pagingState.pages, savedTweets],
-          keys: [...?_pagingState.keys, newKey],
-          hasNextPage: !isLastPage,
-          isLoading: false,
-        );
-      });
-    }
-    catch (err, stk) {
-      if (mounted) {
-        setState(() {
-          _pagingState = _pagingState.copyWith(
-            error: [err, stk],
-            isLoading: false,
-          );
-        });
-      }
-    }
-
+    context.read<SavedTweetModel>().listSavedTweets();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<TweetContextState>(builder: (context, model, child) {
-      if (model.hideSensitive && (widget.user.possiblySensitive ?? false)) {
-        return EmojiErrorWidget(
-          emoji: '🍆🙈🍆',
-          message: L10n.current.possibly_sensitive,
-          errorMessage: L10n.current.possibly_sensitive_profile,
-          onRetry: () async => model.setHideSensitive(false),
-          retryText: L10n.current.yes_please,
-        );
-      }
+    super.build(context);
+    TwitterAccount.setCurrentContext(context);
+    var model = context.read<SavedTweetModel>();
 
-      return PagedListView<int?, SavedTweet>(
-        padding: EdgeInsets.zero,
-        addAutomaticKeepAlives: false,
-        state: _pagingState,
-        fetchNextPage: _fetchNextPage,
-        builderDelegate: PagedChildBuilderDelegate(
-          itemBuilder: (context, savedTweet, index) => SavedTweetTile(id: savedTweet.id, content: savedTweet.content),
-          firstPageErrorIndicatorBuilder: (context) => FullPageErrorWidget(
-            error: (_pagingState.error as List)[0],
-            stackTrace: (_pagingState.error as List)[1],
-            prefix: L10n.of(context).unable_to_load_the_tweets,
-            onRetry: () => _fetchNextPage,
-          ),
-          newPageErrorIndicatorBuilder: (context) => FullPageErrorWidget(
-            error: (_pagingState.error as List)[0],
-            stackTrace: (_pagingState.error as List)[1],
-            prefix: L10n.of(context).unable_to_load_the_next_page_of_tweets,
-            onRetry: () => _fetchNextPage,
-          ),
-          noItemsFoundIndicatorBuilder: (context) {
-            return Center(
-              child: Text(
-                L10n.of(context).you_have_not_saved_any_tweets_yet,
-              ),
-            );
+    return ScopedBuilder<SavedTweetModel, List<SavedTweet>>.transition(
+      store: model,
+      onError: (_, e) => FullPageErrorWidget(
+        error: e,
+        stackTrace: null,
+        prefix: L10n.current.unable_to_load_the_tweets,
+        onRetry: () => model.listSavedTweets(),
+      ),
+      onLoading: (_) => const Center(child: CircularProgressIndicator()),
+      onState: (_, data) {
+        if (data.isEmpty) {
+          return Center(child: Text(L10n.of(context).you_have_not_saved_any_tweets_yet));
+        }
+        var savedTweets = data.where((tweet) => tweet.user == widget.user.idStr).toList();
+        return ListView.builder(
+          controller: scrollController,
+          padding: const EdgeInsets.only(top: 4),
+          itemCount: savedTweets.length,
+          itemBuilder: (context, index) {
+            var item = savedTweets[index];
+            return SavedTweetTile(id: item.id, content: item.content);
           },
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }
