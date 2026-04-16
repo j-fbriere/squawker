@@ -296,6 +296,8 @@ class Twitter {
     if (response.body.isEmpty) {
       throw TwitterError(code: 0, message: 'Response is empty', uri: uri.toString());
     }
+    //print('*** _getProfile'); // TODO remove
+    //_printAll2(response.body); // TODO remove
     var content = jsonDecode(response.body) as Map<String, dynamic>;
 
     var hasErrors = content.containsKey('errors');
@@ -334,7 +336,7 @@ class Twitter {
 
     var user = UserWithExtra.fromJson(
         {...result['legacy'], 'id_str': result['rest_id'], 'ext_is_blue_verified': result['is_blue_verified']});
-    var pins = List<String>.from(result['legacy']['pinned_tweet_ids_str']);
+    var pins = List<String>.from(result['legacy']['pinned_tweet_ids_str'] ?? []);
 
     return Profile(user, pins);
   }
@@ -938,6 +940,7 @@ class Twitter {
       return TweetStatus(chains: [], cursorBottom: null, cursorTop: null);
     }
 
+    //print('*** getUserWithProfileGraphql'); // TODO remove
     //if (type == 'media') _printAll2(response.body); // TODO remove
     return createProfileUnconversationedChainsGraphql(result, pinnedTweets, includeReplies);
   }

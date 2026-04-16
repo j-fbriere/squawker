@@ -424,7 +424,7 @@ class DownloadTypeSettingState extends State<DownloadTypeSetting> {
                   ? await Permission.storage.request()
                   : await Permission.manageExternalStorage.request();
               if (storagePermission.isGranted) {
-                String? directoryPath = await FilePicker.platform.getDirectoryPath();
+                String? directoryPath = await FilePicker.getDirectoryPath();
                 if (directoryPath == null) {
                   return;
                 }
