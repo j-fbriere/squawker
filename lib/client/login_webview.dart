@@ -6,8 +6,8 @@ import 'package:squawker/client/client_account.dart';
 import 'package:squawker/database/entities.dart';
 import 'package:squawker/database/repository.dart';
 import 'package:squawker/utils/notifiers.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_cookie_manager_plus/webview_cookie_manager_plus.dart';
 
 class TwitterLoginWebview extends StatefulWidget {

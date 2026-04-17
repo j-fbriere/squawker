@@ -85,8 +85,9 @@ const String bearerToken =
     "Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA";
 
 final Map<String, String> userAgentHeader = {
-  'user-agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
-  "Pragma": "no-cache",
-  "Cache-Control": "no-cache"
-  // "If-Modified-Since": "Sat, 1 Jan 2000 00:00:00 GMT",
+  //'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36',
+  'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Mobile Safari/537.3',
+  'Pragma': 'no-cache',
+  'Cache-Control': 'no-cache'
+  // 'If-Modified-Since': 'Sat, 1 Jan 2000 00:00:00 GMT',
 };
