@@ -28,9 +28,12 @@
         android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
+        <!-- This was to make webview_flutter work with /e/OS but it seems that flutter 3.41.1+ has resolved the issue
+             Reference: https://github.com/flutter/flutter/issues/172622
         <meta-data
             android:name="io.flutter.embedding.android.EnableImpeller"
             android:value="false" />
+        -->
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
