@@ -1,34 +1,34 @@
 import 'dart:async';
 
-import 'package:chewie/src/center_play_button.dart';
-import 'package:chewie/src/center_seek_button.dart';
+import 'package:chewie/src/animated_play_pause.dart';
 import 'package:chewie/src/chewie_player.dart';
 import 'package:chewie/src/chewie_progress_colors.dart';
 import 'package:chewie/src/helpers/utils.dart';
 import 'package:chewie/src/material/material_progress_bar.dart';
-import 'package:chewie/src/material/widgets/options_dialog.dart';
 import 'package:chewie/src/material/widgets/playback_speed_dialog.dart';
-import 'package:chewie/src/models/option_item.dart';
 import 'package:chewie/src/models/subtitle_model.dart';
 import 'package:chewie/src/notifiers/index.dart';
 import 'package:flutter/material.dart';
-import 'package:material_symbols_icons/symbols.dart';
 import 'package:provider/provider.dart';
+import 'package:squawker/generated/l10n.dart';
 import 'package:video_player/video_player.dart';
 
-class SquawkerMaterialControls extends StatefulWidget {
-  const SquawkerMaterialControls({this.showPlayButton = true, super.key});
+// This class is mostly taken directly from Chewie, which is released under the MIT License
+// https://github.com/fluttercommunity/chewie/blob/0d997f8ded29ae2151a6935668d8654a6deb8fa6/lib/src/material/material_controls.dart
+class FritterMaterialControls extends StatefulWidget {
+  const FritterMaterialControls({
+    this.showPlayButton = true,
+    super.key,
+  });
 
   final bool showPlayButton;
 
   @override
-  State<StatefulWidget> createState() {
-    return _SquawkerMaterialControlsState();
-  }
+  State<FritterMaterialControls> createState() => FritterMaterialControlsState();
+
 }
 
-class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
-    with SingleTickerProviderStateMixin {
+class FritterMaterialControlsState extends State<FritterMaterialControls> with SingleTickerProviderStateMixin {
   late PlayerNotifier notifier;
   late VideoPlayerValue _latestValue;
   double? _latestVolume;
@@ -53,8 +53,6 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
 
   @override
   void initState() {
-    // TODO remove
-    //print('*** SquawkerMaterialControls.initState');
     super.initState();
     notifier = Provider.of<PlayerNotifier>(context, listen: false);
   }
@@ -66,7 +64,13 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
             context,
             chewieController.videoPlayerController.value.errorDescription!,
           ) ??
-          const Center(child: Icon(Symbols.error, color: Colors.white, size: 42));
+          const Center(
+            child: Icon(
+              Icons.error_outline,
+              color: Colors.white,
+              size: 42,
+            ),
+          );
     }
 
     return MouseRegion(
@@ -79,12 +83,12 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
           absorbing: notifier.hideStuff,
           child: Stack(
             children: [
-              if (_displayBufferingIndicator)
-                _chewieController?.bufferingBuilder?.call(context) ??
-                    const Center(child: CircularProgressIndicator())
+              if (_displayBufferingIndicator || !_latestValue.isInitialized)
+                const Center(
+                  child: CircularProgressIndicator(),
+                )
               else
                 _buildHitArea(),
-              _buildActionBar(),
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
@@ -94,10 +98,7 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
                         0.0,
                         notifier.hideStuff ? barHeight * 0.8 : 0.0,
                       ),
-                      child: _buildSubtitles(
-                        context,
-                        chewieController.subtitle!,
-                      ),
+                      child: _buildSubtitles(context, chewieController.subtitle!),
                     ),
                   _buildBottomBar(context),
                 ],
@@ -109,20 +110,8 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
     );
   }
 
-  /*
-  @override
-  void didUpdateWidget(covariant SquawkerMaterialControls oldWidget) {
-    // TODO remove
-    print('*** SquawkerMaterialControls.didUpdateWidget');
-    // TODO: implement didUpdateWidget
-    super.didUpdateWidget(oldWidget);
-  }
-  */
-
   @override
   void dispose() {
-    // TODO remove
-    //print('*** SquawkerMaterialControls.dispose');
     _dispose();
     super.dispose();
   }
@@ -148,88 +137,13 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
     super.didChangeDependencies();
   }
 
-  Widget _buildActionBar() {
-    return Positioned(
-      top: 0,
-      right: 0,
-      child: SafeArea(
-        child: AnimatedOpacity(
-          opacity: notifier.hideStuff ? 0.0 : 1.0,
-          duration: const Duration(milliseconds: 250),
-          child: Row(
-            children: [
-              _buildSubtitleToggle(),
-              if (chewieController.showOptions) _buildOptionsButton(),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  List<OptionItem> _buildOptions(BuildContext context) {
-    final options = <OptionItem>[
-      OptionItem(
-        onTap: (context) async {
-          Navigator.pop(context);
-          _onSpeedButtonTap();
-        },
-        iconData: Icons.speed,
-        title:
-            chewieController.optionsTranslation?.playbackSpeedButtonText ??
-            'Playback speed',
-      ),
-    ];
-
-    if (chewieController.additionalOptions != null &&
-        chewieController.additionalOptions!(context).isNotEmpty) {
-      options.addAll(chewieController.additionalOptions!(context));
-    }
-    return options;
-  }
-
-  Widget _buildOptionsButton() {
-    return AnimatedOpacity(
-      opacity: notifier.hideStuff ? 0.0 : 1.0,
-      duration: const Duration(milliseconds: 250),
-      child: IconButton(
-        onPressed: () async {
-          _hideTimer?.cancel();
-
-          if (chewieController.optionsBuilder != null) {
-            await chewieController.optionsBuilder!(
-              context,
-              _buildOptions(context),
-            );
-          } else {
-            await showModalBottomSheet<OptionItem>(
-              context: context,
-              isScrollControlled: true,
-              useRootNavigator: chewieController.useRootNavigator,
-              builder: (context) => OptionsDialog(
-                options: _buildOptions(context),
-                cancelButtonText:
-                    chewieController.optionsTranslation?.cancelButtonText,
-              ),
-            );
-          }
-
-          if (_latestValue.isPlaying) {
-            _startHideTimer();
-          }
-        },
-        icon: const Icon(Symbols.more_vert, color: Colors.white),
-      ),
-    );
-  }
-
   Widget _buildSubtitles(BuildContext context, Subtitles subtitles) {
     if (!_subtitleOn) {
-      return const SizedBox();
+      return Container();
     }
     final currentSubtitle = subtitles.getByPosition(_subtitlesPosition);
     if (currentSubtitle.isEmpty) {
-      return const SizedBox();
+      return Container();
     }
 
     if (chewieController.subtitleBuilder != null) {
@@ -249,14 +163,18 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
         ),
         child: Text(
           currentSubtitle.first!.text.toString(),
-          style: const TextStyle(fontSize: 18),
+          style: const TextStyle(
+            fontSize: 18,
+          ),
           textAlign: TextAlign.center,
         ),
       ),
     );
   }
 
-  AnimatedOpacity _buildBottomBar(BuildContext context) {
+  AnimatedOpacity _buildBottomBar(
+    BuildContext context,
+  ) {
     final iconColor = Theme.of(context).textTheme.labelLarge!.color;
 
     return AnimatedOpacity(
@@ -266,48 +184,62 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
         height: barHeight + (chewieController.isFullScreen ? 10.0 : 0),
         padding: EdgeInsets.only(
           left: 20,
-          right: 20,
           bottom: !chewieController.isFullScreen ? 10.0 : 0,
         ),
-        child: SafeArea(
-          top: false,
-          bottom: chewieController.isFullScreen,
-          minimum: chewieController.controlsSafeAreaMinimum,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Flexible(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    if (chewieController.isLive)
-                      const Expanded(child: Text('LIVE'))
-                    else
-                      _buildPosition(iconColor),
-                    if (chewieController.allowMuting)
-                      _buildMuteButton(controller),
-                    const Spacer(),
-                    if (chewieController.allowFullScreen) _buildExpandButton(),
-                  ],
-                ),
+        // NOTE: Removed SafeArea so that controls don't disappear on smaller videos
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Flexible(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  if (chewieController.isLive)
+                    Expanded(child: Text(L10n.of(context).live))
+                  else
+                    _buildPosition(iconColor),
+                  if (chewieController.allowMuting) _buildMuteButton(controller),
+                  const Spacer(),
+                  _buildSubtitleToggle(),
+                  const SizedBox(
+                    width: 8.0,
+                  ),
+                  if (chewieController.allowPlaybackSpeedChanging) _buildPlaybackSpeedButton(controller),
+                  const SizedBox(
+                    width: 8.0,
+                  ),
+                  _buildDownloadButton(controller),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  if (chewieController.allowFullScreen) _buildExpandButton(),
+                ],
               ),
-              SizedBox(height: chewieController.isFullScreen ? 15.0 : 0),
-              if (!chewieController.isLive)
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(children: [_buildProgressBar()]),
+            ),
+            SizedBox(
+              height: chewieController.isFullScreen ? 15.0 : 0,
+            ),
+            if (!chewieController.isLive)
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: Row(
+                    children: [
+                      _buildProgressBar(),
+                    ],
                   ),
                 ),
-            ],
-          ),
+              ),
+          ],
         ),
       ),
     );
   }
 
-  GestureDetector _buildMuteButton(VideoPlayerController controller) {
+  GestureDetector _buildMuteButton(
+    VideoPlayerController controller,
+  ) {
     return GestureDetector(
       onTap: () {
         _cancelAndRestartTimer();
@@ -325,9 +257,59 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
         child: ClipRect(
           child: Container(
             height: barHeight,
-            padding: const EdgeInsets.only(left: 6.0),
+            padding: const EdgeInsets.only(
+              left: 6.0,
+            ),
             child: Icon(
-              _latestValue.volume > 0 ? Symbols.volume_up : Symbols.volume_off,
+              _latestValue.volume > 0 ? Icons.volume_up : Icons.volume_off,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  GestureDetector _buildPlaybackSpeedButton(
+    VideoPlayerController controller,
+  ) {
+    return GestureDetector(
+      onTap: _onSpeedButtonTap,
+      child: AnimatedOpacity(
+        opacity: notifier.hideStuff ? 0.0 : 1.0,
+        duration: const Duration(milliseconds: 300),
+        child: ClipRect(
+          child: Container(
+            height: barHeight,
+            padding: const EdgeInsets.only(
+              left: 6.0,
+            ),
+            child: Icon(
+              Icons.speed,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  GestureDetector _buildDownloadButton(
+    VideoPlayerController controller,
+  ) {
+    return GestureDetector(
+      onTap: () => chewieController.additionalOptions!(context)[0].onTap(context),
+      child: AnimatedOpacity(
+        opacity: notifier.hideStuff ? 0.0 : 1.0,
+        duration: const Duration(milliseconds: 300),
+        child: ClipRect(
+          child: Container(
+            height: barHeight,
+            padding: const EdgeInsets.only(
+              left: 6.0,
+            ),
+            child: Icon(
+              chewieController.additionalOptions!(context)[0].iconData,
               color: Colors.white,
             ),
           ),
@@ -345,12 +327,13 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
         child: Container(
           height: barHeight + (chewieController.isFullScreen ? 15.0 : 0),
           margin: const EdgeInsets.only(right: 12.0),
-          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+          padding: const EdgeInsets.only(
+            left: 8.0,
+            right: 8.0,
+          ),
           child: Center(
             child: Icon(
-              chewieController.isFullScreen
-                  ? Symbols.fullscreen_exit
-                  : Symbols.fullscreen,
+              chewieController.isFullScreen ? Icons.fullscreen_exit : Icons.fullscreen,
               color: Colors.white,
             ),
           ),
@@ -360,75 +343,35 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
   }
 
   Widget _buildHitArea() {
-    final bool isFinished =
-        (_latestValue.position >= _latestValue.duration) &&
-        _latestValue.duration.inSeconds > 0;
-    final bool showPlayButton =
-        widget.showPlayButton && !_dragging && !notifier.hideStuff;
+    final bool isFinished = _latestValue.isInitialized &&
+        _latestValue.duration > Duration.zero &&
+        _latestValue.position >= _latestValue.duration;
+    final bool showPlayButton = widget.showPlayButton && !_dragging && !notifier.hideStuff;
 
     return GestureDetector(
       onTap: () {
+        // NOTE: This has the _playPause callback removed, so tapping outside the button only hides the controls
         if (_latestValue.isPlaying) {
-          if (_chewieController?.pauseOnBackgroundTap ?? false) {
-            _playPause();
-            _cancelAndRestartTimer();
+          if (_displayTapped) {
+            setState(() {
+              notifier.hideStuff = true;
+            });
           } else {
-            if (_displayTapped) {
-              setState(() {
-                notifier.hideStuff = true;
-              });
-            } else {
-              _cancelAndRestartTimer();
-            }
+            _cancelAndRestartTimer();
           }
         } else {
-          _playPause();
-
           setState(() {
             notifier.hideStuff = true;
           });
         }
       },
-      child: Container(
-        alignment: Alignment.center,
-        color: Colors
-            .transparent, // The Gesture Detector doesn't expand to the full size of the container without this; Not sure why!
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (!isFinished && !chewieController.isLive)
-              CenterSeekButton(
-                iconData: Icons.replay_10,
-                backgroundColor: Colors.black54,
-                iconColor: Colors.white,
-                show: showPlayButton,
-                fadeDuration: chewieController.materialSeekButtonFadeDuration,
-                iconSize: chewieController.materialSeekButtonSize,
-                onPressed: _seekBackward,
-              ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: marginSize),
-              child: CenterPlayButton(
-                backgroundColor: Colors.black54,
-                iconColor: Colors.white,
-                isFinished: isFinished,
-                isPlaying: controller.value.isPlaying,
-                show: showPlayButton,
-                onPressed: _playPause,
-              ),
-            ),
-            if (!isFinished && !chewieController.isLive)
-              CenterSeekButton(
-                iconData: Icons.forward_10,
-                backgroundColor: Colors.black54,
-                iconColor: Colors.white,
-                show: showPlayButton,
-                fadeDuration: chewieController.materialSeekButtonFadeDuration,
-                iconSize: chewieController.materialSeekButtonSize,
-                onPressed: _seekForward,
-              ),
-          ],
-        ),
+      child: FritterCenterPlayButton(
+        backgroundColor: Colors.black54,
+        iconColor: Colors.white,
+        isFinished: isFinished,
+        isPlaying: controller.value.isPlaying,
+        show: showPlayButton,
+        onPressed: _playPause,
       ),
     );
   }
@@ -467,10 +410,10 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
             text: '/ ${formatDuration(duration)}',
             style: TextStyle(
               fontSize: 14.0,
-              color: Colors.white.withValues(alpha: .75),
+              color: Colors.white.withValues(alpha: 0.75),
               fontWeight: FontWeight.normal,
             ),
-          ),
+          )
         ],
         style: const TextStyle(
           fontSize: 14.0,
@@ -484,18 +427,19 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
   Widget _buildSubtitleToggle() {
     //if don't have subtitle hiden button
     if (chewieController.subtitle?.isEmpty ?? true) {
-      return const SizedBox();
+      return Container();
     }
     return GestureDetector(
       onTap: _onSubtitleTap,
       child: Container(
         height: barHeight,
         color: Colors.transparent,
-        padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+        padding: const EdgeInsets.only(
+          left: 12.0,
+          right: 12.0,
+        ),
         child: Icon(
-          _subtitleOn
-              ? Symbols.closed_caption
-              : Symbols.closed_caption_off,
+          _subtitleOn ? Icons.closed_caption : Icons.closed_caption_disabled,
           color: _subtitleOn ? Colors.white : Colors.grey[700],
         ),
       ),
@@ -519,9 +463,7 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
   }
 
   Future<void> _initialize() async {
-    _subtitleOn =
-        chewieController.showSubtitles &&
-        (chewieController.subtitle?.isNotEmpty ?? false);
+    _subtitleOn = chewieController.subtitle?.isNotEmpty ?? false;
     controller.addListener(_updateState);
 
     _updateState();
@@ -544,22 +486,15 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
       notifier.hideStuff = true;
 
       chewieController.toggleFullScreen();
-      _showAfterExpandCollapseTimer = Timer(
-        const Duration(milliseconds: 300),
-        () {
-          setState(() {
-            _cancelAndRestartTimer();
-          });
-        },
-      );
+      _showAfterExpandCollapseTimer = Timer(const Duration(milliseconds: 300), () {
+        setState(() {
+          _cancelAndRestartTimer();
+        });
+      });
     });
   }
 
   void _playPause() {
-    final bool isFinished =
-        (_latestValue.position >= _latestValue.duration) &&
-        _latestValue.duration.inSeconds > 0;
-
     setState(() {
       if (controller.value.isPlaying) {
         notifier.hideStuff = false;
@@ -573,35 +508,10 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
             controller.play();
           });
         } else {
-          if (isFinished) {
-            controller.seekTo(Duration.zero);
-          }
           controller.play();
         }
       }
     });
-  }
-
-  void _seekRelative(Duration relativeSeek) {
-    _cancelAndRestartTimer();
-    final position = _latestValue.position + relativeSeek;
-    final duration = _latestValue.duration;
-
-    if (position < Duration.zero) {
-      controller.seekTo(Duration.zero);
-    } else if (position > duration) {
-      controller.seekTo(duration);
-    } else {
-      controller.seekTo(position);
-    }
-  }
-
-  void _seekBackward() {
-    _seekRelative(const Duration(seconds: -10));
-  }
-
-  void _seekForward() {
-    _seekRelative(const Duration(seconds: 10));
   }
 
   void _startHideTimer() {
@@ -625,11 +535,9 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
   void _updateState() {
     if (!mounted) return;
 
-    final bool buffering = getIsBuffering(controller);
-
     // display the progress bar indicator only after the buffering delay if it has been set
     if (chewieController.progressIndicatorDelay != null) {
-      if (buffering) {
+      if (controller.value.isBuffering) {
         _bufferingDisplayTimer ??= Timer(
           chewieController.progressIndicatorDelay!,
           _bufferingTimerTimeout,
@@ -640,12 +548,16 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
         _displayBufferingIndicator = false;
       }
     } else {
-      _displayBufferingIndicator = buffering;
+      _displayBufferingIndicator = false;
     }
 
     setState(() {
       _latestValue = controller.value;
       _subtitlesPosition = controller.value.position;
+      if (!_latestValue.isPlaying && _latestValue.position >= _latestValue.duration) {
+        _displayBufferingIndicator = false;
+        notifier.hideStuff = false;
+      }
     });
   }
 
@@ -660,9 +572,6 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
 
           _hideTimer?.cancel();
         },
-        onDragUpdate: () {
-          _hideTimer?.cancel();
-        },
         onDragEnd: () {
           setState(() {
             _dragging = false;
@@ -670,21 +579,69 @@ class _SquawkerMaterialControlsState extends State<SquawkerMaterialControls>
 
           _startHideTimer();
         },
-        colors:
-            chewieController.materialProgressColors ??
+        colors: chewieController.materialProgressColors ??
             ChewieProgressColors(
               playedColor: Theme.of(context).colorScheme.secondary,
               handleColor: Theme.of(context).colorScheme.secondary,
-              bufferedColor: Theme.of(
-                context,
-              ).colorScheme.surface.withValues(alpha: 0.5),
-              backgroundColor: Theme.of(
-                context,
-              ).disabledColor.withValues(alpha: .5),
+              bufferedColor: Theme.of(context).colorScheme.surface.withValues(alpha: 0.5),
+              backgroundColor: Theme.of(context).disabledColor.withValues(alpha: 0.5),
             ),
-        draggableProgressBar: chewieController.draggableProgressBar,
       ),
     );
   }
 }
 
+class FritterCenterPlayButton extends StatelessWidget {
+  const FritterCenterPlayButton({
+    super.key,
+    required this.backgroundColor,
+    this.iconColor,
+    required this.show,
+    required this.isPlaying,
+    required this.isFinished,
+    this.onPressed,
+  });
+
+  final Color backgroundColor;
+  final Color? iconColor;
+  final bool show;
+  final bool isPlaying;
+  final bool isFinished;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.transparent,
+      child: Center(
+        child: AnimatedOpacity(
+          opacity: show ? 1.0 : 0.0,
+          duration: const Duration(milliseconds: 300),
+          // NOTE: GestureDetector added, so the padding around the button is tappable
+          child: GestureDetector(
+            onTap: onPressed,
+            child: Container(
+              // NOTE: Added specific sizes here, otherwise it fills the container on Flutter >3.3.2
+              width: 64,
+              height: 64,
+              decoration: BoxDecoration(
+                color: backgroundColor,
+                shape: BoxShape.circle,
+              ),
+              child: IconButton(
+                iconSize: 32,
+                icon: isFinished
+                    ? Icon(Icons.replay, color: iconColor)
+                    : AnimatedPlayPause(
+                        color: iconColor,
+                        playing: isPlaying,
+                      ),
+                onPressed: onPressed,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

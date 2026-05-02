@@ -1,9 +1,7 @@
 import 'package:chewie/chewie.dart';
 import 'package:chewie/src/center_play_button.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:material_symbols_icons/symbols.dart';
 import 'package:pref/pref.dart';
 import 'package:squawker/constants.dart';
 import 'package:squawker/generated/l10n.dart';
@@ -24,36 +22,34 @@ class TweetVideoUrls {
 }
 
 class TweetVideoMetadata {
-  final int? durationMillis;
   final double aspectRatio;
   final String? imageUrl;
   final Future<TweetVideoUrls> Function() streamUrlsBuilder;
 
-  TweetVideoMetadata(this.durationMillis, this.aspectRatio, this.imageUrl, this.streamUrlsBuilder);
+  TweetVideoMetadata(this.aspectRatio, this.imageUrl, this.streamUrlsBuilder);
 
-  factory TweetVideoMetadata.fromMedia(BuildContext context, Media media) {
-    bool downloadBestVideoQuality = PrefService.of(context).get(optionDownloadBestVideoQuality);
-    var aspectRatio = media.videoInfo?.aspectRatio == null
-        ? 1.0
-        : media.videoInfo!.aspectRatio![0] / media.videoInfo!.aspectRatio![1];
-
-    var durationMillis = media.videoInfo?.durationMillis;
-    var variants = media.videoInfo?.variants ?? [];
+  static Future<TweetVideoUrls> Function() streamUrlsBuilderFromVariants(List<Variant> variants) {
     var streamUrl = variants[0].url!;
-    var imageUrl = media.mediaUrlHttps;
-
-    // Find the MP4 video with the lowest or highest bitrate depending of the option
     var downloadUrl = variants
         .where((e) => e.bitrate != null)
         .where((e) => e.url != null)
         .where((e) => e.contentType == 'video/mp4')
-        .sorted(
-            (a, b) => downloadBestVideoQuality ? b.bitrate!.compareTo(a.bitrate!) : a.bitrate!.compareTo(b.bitrate!))
+        .sorted((a, b) => -(a.bitrate!.compareTo(b.bitrate!)))
         .map((e) => e.url)
         .firstWhereOrNull((e) => e != null);
 
-    return TweetVideoMetadata(
-        durationMillis, aspectRatio, imageUrl, () async => TweetVideoUrls(streamUrl, downloadUrl));
+    return () async => TweetVideoUrls(streamUrl, downloadUrl);
+  }
+
+  factory TweetVideoMetadata.fromMedia(Media media) {
+    var aspectRatio = media.videoInfo?.aspectRatio == null
+        ? 1.0
+        : media.videoInfo!.aspectRatio![0] / media.videoInfo!.aspectRatio![1];
+
+    var variants = media.videoInfo?.variants ?? [];
+    var imageUrl = media.mediaUrlHttps!;
+
+    return TweetVideoMetadata(aspectRatio, imageUrl, streamUrlsBuilderFromVariants(variants));
   }
 }
 
@@ -61,52 +57,59 @@ class TweetVideo extends StatefulWidget {
   final String username;
   final bool loop;
   final TweetVideoMetadata metadata;
+  final bool alwaysPlay;
+  final bool disableControls;
 
-  const TweetVideo({Key? key, required this.username, required this.loop, required this.metadata}) : super(key: key);
+  const TweetVideo({
+    super.key,
+    required this.username,
+    required this.loop,
+    required this.metadata,
+    this.alwaysPlay = false,
+    this.disableControls = false,
+  });
 
   @override
   State<StatefulWidget> createState() => _TweetVideoState();
 }
 
-class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMixin<TweetVideo> {
-  bool _showVideo = false;
-
+class _TweetVideoState extends State<TweetVideo> {
   VideoPlayerController? _videoController;
   ChewieController? _chewieController;
+  bool? _autoPlay;
+  bool _userRequestedPlay = false;
+  final GlobalKey<FritterMaterialControlsState> _controllerKey = GlobalKey();
 
-  @override
-  bool get wantKeepAlive => true;
+  Future<void> _restartVideo(bool prefLoop, prefAutoPlay, prefBackgroundPlayback, prefMixWithOthers) async {
+    try {
+      await _chewieController?.pause();
+    } catch (_) {}
+    _chewieController?.dispose();
+    await _videoController?.dispose();
 
-  Future<void> _loadVideo() async {
-    //print('*** TweetVideo._loadVideo'); // TODO remove
-
-    if (_chewieController != null) {
-      WakelockPlus.disable();
-      _chewieController!.pause();
-      _chewieController!.dispose();
+    setState(() {
       _chewieController = null;
-    }
-    if (_videoController != null) {
-      _videoController!.pause();
-      _videoController!.dispose();
       _videoController = null;
-    }
+    });
 
+    try {
+      await _loadVideo(prefLoop, prefAutoPlay, prefBackgroundPlayback, prefMixWithOthers);
+      if (mounted) {
+        setState(() {});
+      }
+    } catch (e) {
+      debugPrint('Failed to restart video: $e');
+    }
+  }
+
+  Future<void> _loadVideo(bool prefLoop, bool prefAutoPlay, bool prefBackgroundPlayback, bool prefMixWithOthers) async {
     var urls = await widget.metadata.streamUrlsBuilder();
     var streamUrl = urls.streamUrl;
     var downloadUrl = urls.downloadUrl;
-    var prefs = PrefService.of(context);
 
     _videoController = VideoPlayerController.networkUrl(Uri.parse(streamUrl),
-        videoPlayerOptions: VideoPlayerOptions(
-          allowBackgroundPlayback: prefs.get(optionMediaAllowBackgroundPlay),
-          mixWithOthers: prefs.get(optionMediaAllowBackgroundPlayOtherApps),
-        ));
-    await _videoController!.initialize();
-    if (widget.metadata.durationMillis != null) {
-      _videoController!.value =
-          _videoController!.value.copyWith(duration: Duration(milliseconds: widget.metadata.durationMillis!));
-    }
+        videoPlayerOptions:
+            VideoPlayerOptions(mixWithOthers: widget.disableControls || prefMixWithOthers, allowBackgroundPlayback: prefBackgroundPlayback));
 
     var model = context.read<VideoContextState>();
     var volume = model.isMuted ? 0.0 : _videoController!.value.volume;
@@ -114,35 +117,27 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
 
     _videoController!.addListener(() {
       model.setIsMuted(_videoController!.value.volume);
-
-      // Change wake lock screen
-      if (_chewieController!.isPlaying) {
-        WakelockPlus.enable();
-      } else {
-        WakelockPlus.disable();
-      }
     });
 
+    _autoPlay = prefAutoPlay;
+
     _chewieController = ChewieController(
-      // TODO disable full screen temporarily because of bug
-      allowFullScreen: false,
       aspectRatio: widget.metadata.aspectRatio,
       autoInitialize: true,
-      autoPlay: true,
-      allowMuting: true,
+      autoPlay: widget.alwaysPlay || _userRequestedPlay,
+      allowFullScreen: false,
+      placeholder: widget.metadata.imageUrl != null
+          ? Image.network(widget.metadata.imageUrl!, fit: BoxFit.cover)
+          : null,
+      allowMuting: !widget.disableControls,
+      showControls: !widget.disableControls,
       allowedScreenSleep: false,
-      customControls: const SquawkerMaterialControls(),
-      optionsTranslation: OptionsTranslation(
-        playbackSpeedButtonText: L10n.of(context).playback_speed,
-        subtitlesButtonText: L10n.of(context).subtitles,
-        cancelButtonText: L10n.of(context).cancel,
-      ),
+      customControls: FritterMaterialControls(key: _controllerKey),
       additionalOptions: (context) => [
         OptionItem(
-          onTap: (context) async {
+          onTap: (BuildContext _) async {
             var video = downloadUrl;
             if (video == null) {
-              ScaffoldMessenger.of(context).clearSnackBars();
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text(L10n.current.download_media_no_url),
               ));
@@ -152,8 +147,6 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
             var videoUri = Uri.parse(video);
             var fileName = '${widget.username}-${path.basename(videoUri.path)}';
 
-            Navigator.pop(context);
-
             await downloadUriToPickedFile(
               context,
               videoUri,
@@ -161,24 +154,22 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
               PrefService.of(context).get(optionDownloadType) as String,
               PrefService.of(context).get(optionDownloadPath) as String,
               onStart: () {
-                ScaffoldMessenger.of(context).clearSnackBars();
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content: Text(L10n.of(context).downloading_media),
                 ));
               },
               onSuccess: () {
-                ScaffoldMessenger.of(context).clearSnackBars();
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content: Text(L10n.of(context).successfully_saved_the_media),
                 ));
               },
             );
           },
-          iconData: Symbols.download_rounded,
+          iconData: Icons.download,
           title: L10n.of(context).download,
         )
       ],
-      looping: widget.loop,
+      looping: widget.loop || prefLoop,
       videoPlayerController: _videoController!,
       errorBuilder: (context, errorMessage) {
         return Center(
@@ -186,7 +177,7 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Icon(
-                Symbols.error_rounded,
+                Icons.error_outline,
                 color: Colors.white,
                 size: 42,
               ),
@@ -196,8 +187,6 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
         );
       },
     );
-
-    /*
     _videoController!.addListener(() {
       // Change wake lock screen
       if (_chewieController!.isPlaying) {
@@ -206,117 +195,128 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
         WakelockPlus.disable();
       }
     });
-    */
   }
 
-  Future<void> onTapPlay() async {
-    await _loadVideo();
-
-    setState(() {
-      _showVideo = true;
-    });
-  }
-
+  @override
   @override
   Widget build(BuildContext context) {
-    super.build(context);
-    // TODO: This is a bit flickery, but will do for now
-    return AspectRatio(
-      aspectRatio: widget.metadata.aspectRatio,
-      child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 150),
-        child: _showVideo
-          ? _Video(controller: _chewieController!)
-          : GestureDetector(
-              onTap: onTapPlay,
-              child: Stack(alignment: Alignment.center, children: [
-                widget.metadata.imageUrl != null
-                  ? ExtendedImage.network(widget.metadata.imageUrl!,
-                      width: double.infinity, fit: BoxFit.fitWidth, cache: true)
-                  : FittedBox(
-                      fit: BoxFit.fitWidth,
-                      child: Text(L10n.of(context).thumbnail_not_available),
-                    ),
-                Center(
-                  child: CenterPlayButton(
-                    backgroundColor: Colors.black54,
-                    iconColor: Colors.white,
-                    isFinished: false,
-                    isPlaying: false,
-                    show: true,
-                    onPressed: onTapPlay,
-                  ),
-                )
-              ]),
-            )),
+    final prefs = PrefService.of(context);
+    final prefLoop = false; //prefs.get(optionMediaDefaultLoop);
+    final prefAutoPlay = false; //prefs.get(optionMediaDefaultAutoPlay);
+    final prefBackgroundPlayback = prefs.get(optionMediaAllowBackgroundPlay);
+    final prefMixWithOthers = prefs.get(optionMediaAllowBackgroundPlayOtherApps);
+    if (!prefAutoPlay && !widget.alwaysPlay && !_userRequestedPlay) {
+      return GestureDetector(
+        onTap: () => setState(() => _userRequestedPlay = true),
+        child: AspectRatio(
+          aspectRatio: widget.metadata.aspectRatio,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              if (widget.metadata.imageUrl != null)
+                Positioned.fill(child: Image.network(widget.metadata.imageUrl!, fit: BoxFit.cover)),
+              CenterPlayButton(
+                backgroundColor: Colors.black54,
+                iconColor: Colors.white,
+                show: true,
+                isPlaying: false,
+                isFinished: false,
+                onPressed: () => setState(() => _userRequestedPlay = true),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return FutureBuilder(
+      future: _chewieController == null ? _loadVideo(prefLoop, prefAutoPlay, prefBackgroundPlayback, prefMixWithOthers) : Future.value(),
+      builder: (context, snapshot) {
+        final hasError = snapshot.hasError;
+        final isLoading = snapshot.connectionState == ConnectionState.waiting;
+        final hasVideo = _chewieController != null;
+
+        if (isLoading && !hasVideo) {
+          return AspectRatio(
+            aspectRatio: widget.metadata.aspectRatio,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                if (widget.metadata.imageUrl != null)
+                  Positioned.fill(child: Image.network(widget.metadata.imageUrl!, fit: BoxFit.cover)),
+                const CircularProgressIndicator(),
+              ],
+            ),
+          );
+        }
+
+        if (hasError && !hasVideo) {
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.error_outline, color: Colors.white, size: 48),
+                const SizedBox(height: 12),
+                const Text('Failed to load video'),
+                const SizedBox(height: 12),
+                ElevatedButton(
+                  onPressed: () => _restartVideo(prefLoop, prefAutoPlay, prefBackgroundPlayback, prefMixWithOthers),
+                  child: const Text('Restart Video Player'),
+                ),
+              ],
+            ),
+          );
+        }
+
+        return Stack(
+          alignment: Alignment.center,
+          children: [
+            AspectRatio(
+              aspectRatio: widget.metadata.aspectRatio,
+              child: hasVideo
+                  ? VisibilityDetector(
+                      key: ObjectKey(_chewieController),
+                      onVisibilityChanged: (info) {
+                        if (mounted) {
+                          if (!widget.alwaysPlay && info.visibleFraction <= 0.5 && !_chewieController!.isFullScreen) {
+                            _chewieController?.pause();
+                          }
+                          if (info.visibleFraction >= 0.75 && _autoPlay! && !_chewieController!.isPlaying) {
+                            _chewieController!.play();
+                            _controllerKey.currentState?.notifier.hideStuff = true;
+                          }
+                        }
+                      },
+                      child: Chewie(
+                        controller: _chewieController!,
+                      ))
+                  : const SizedBox.shrink(),
+            ),
+            if (hasError)
+              Positioned(
+                right: 8,
+                bottom: 8,
+                child: IconButton(
+                  icon: const Icon(Icons.refresh, color: Colors.white),
+                  onPressed: () => _restartVideo(prefLoop, prefAutoPlay, prefBackgroundPlayback, prefMixWithOthers),
+                  tooltip: 'Restart player',
+                ),
+              ),
+          ],
+        );
+      },
     );
   }
-
-  /*
-  @override
-  void didUpdateWidget(covariant TweetVideo oldWidget) {
-    // TODO remove
-    print('*** TweetVideo.didUpdateWidget');
-    // TODO: implement didUpdateWidget
-    super.didUpdateWidget(oldWidget);
-  }
-  */
 
   @override
   void dispose() {
-    // TODO remove
-    //print('*** TweetVideo.dispose');
-    /*
-    if (_chewieController == null || !_chewieController!.isFullScreen) {
-      // TODO: These now seem to get called when the video player goes fullscreen. They shouldn't though
-      _videoController?.dispose();
+    if (_chewieController?.isFullScreen ?? false) return;
+    if (mounted) {
       _chewieController?.dispose();
-
+      _videoController?.dispose();
       WakelockPlus.disable();
-    }
-    */
-    // TODO remove
-    //print('*** TweetVideo.dispose _countLoaded==0');
-    if (_chewieController != null) {
-      WakelockPlus.disable();
-      _chewieController!.pause();
-      _chewieController!.dispose();
-      _chewieController = null;
-    }
-    if (_videoController != null) {
-      _videoController!.pause();
-      _videoController!.dispose();
-      _videoController = null;
     }
     super.dispose();
-  }
-}
-
-class _Video extends StatefulWidget {
-  final ChewieController controller;
-
-  const _Video({Key? key, required this.controller}) : super(key: key);
-
-  @override
-  State<_Video> createState() => _VideoState();
-}
-
-class _VideoState extends State<_Video> {
-  @override
-  Widget build(BuildContext context) {
-    return VisibilityDetector(
-      key: UniqueKey(),
-      onVisibilityChanged: (info) {
-        if (mounted) {
-          if (info.visibleFraction == 0 && !widget.controller.isFullScreen) {
-            widget.controller.pause();
-          }
-        }
-      },
-      child: Chewie(
-        controller: widget.controller,
-      ),
-    );
   }
 }
 

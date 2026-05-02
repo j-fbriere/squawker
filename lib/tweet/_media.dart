@@ -307,9 +307,9 @@ class _TweetMediaThing extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget media;
     if (item.type == 'animated_gif') {
-      media = TweetVideo(metadata: TweetVideoMetadata.fromMedia(context, item), loop: true, username: username);
+      media = TweetVideo(metadata: TweetVideoMetadata.fromMedia(item), loop: true, username: username);
     } else if (item.type == 'video') {
-      media = TweetVideo(metadata: TweetVideoMetadata.fromMedia(context, item), loop: false, username: username);
+      media = TweetVideo(metadata: TweetVideoMetadata.fromMedia(item), loop: false, username: username);
     } else if (item.type == 'photo') {
       media = TweetPhoto(
           size: size, uri: item.mediaUrlHttps!, fit: BoxFit.contain, pullToClose: pullToClose, inPageView: inPageView);
