@@ -16,11 +16,11 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 
-version: 3.8.14+58
+version: 3.8.15+59
 
 environment:
-  sdk: ^3.12.2
-  flutter: 3.44.2
+  sdk: ^3.13.4
+  flutter: ^3.47.5
 
 dependency_overrides:
   win32: ^6.0.1
@@ -31,7 +31,6 @@ dependencies:
     sdk: flutter
 
   async_button_builder: ^3.0.0+1
-  auto_direction: ^0.0.7
   chewie: ^1.13.1
   cryptography: ^2.7.0
   dart_twitter_api: ^0.6.0

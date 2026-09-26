@@ -359,7 +359,7 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
     }
 
     // TODO: This doesn't work on iOS
-    void setDisableScreenshots(final bool secureModeEnabled) async {
+    void setDisableScreenshots(bool secureModeEnabled) async {
       if (secureModeEnabled) {
         await FlutterWindowManagerPlus.addFlags(FlutterWindowManagerPlus.FLAG_SECURE);
       } else {

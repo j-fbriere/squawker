@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
-import 'package:auto_direction/auto_direction.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -18,6 +17,7 @@ import 'package:squawker/tweet/_card.dart';
 import 'package:squawker/tweet/_context_menu.dart';
 import 'package:squawker/tweet/_entities.dart';
 import 'package:squawker/tweet/_media.dart';
+import 'package:squawker/ui/auto_direction.dart';
 import 'package:squawker/ui/dates.dart';
 import 'package:squawker/ui/errors.dart';
 import 'package:squawker/user.dart';
