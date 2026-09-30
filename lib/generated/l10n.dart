@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -144,8 +145,7 @@ class L10n {
   get something_just_went_wrong_in_fritter_and_an_error_report_has_been_generated {
     return Intl.message(
       'Something just went wrong in Squawker, and an error report has been generated. The report can be sent to the Squawker developers to help fix the problem.',
-      name:
-          'something_just_went_wrong_in_fritter_and_an_error_report_has_been_generated',
+      name: 'something_just_went_wrong_in_fritter_and_an_error_report_has_been_generated',
       desc: '',
       args: [],
     );
@@ -698,8 +698,7 @@ class L10n {
   get please_make_sure_the_data_you_wish_to_import_is_located_there_then_press_the_import_button_below {
     return Intl.message(
       'Please make sure the data you wish to import is located there, then press the import button below.',
-      name:
-          'please_make_sure_the_data_you_wish_to_import_is_located_there_then_press_the_import_button_below',
+      name: 'please_make_sure_the_data_you_wish_to_import_is_located_there_then_press_the_import_button_below',
       desc: '',
       args: [],
     );
@@ -906,8 +905,7 @@ class L10n {
   ) {
     return Intl.message(
       'Are you sure you want to delete the subscription group $name?',
-      name:
-          'are_you_sure_you_want_to_delete_the_subscription_group_name_of_group',
+      name: 'are_you_sure_you_want_to_delete_the_subscription_group_name_of_group',
       desc: '',
       args: [name],
     );
@@ -998,8 +996,7 @@ class L10n {
   get to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below {
     return Intl.message(
       'To import subscriptions from an existing Twitter/X account, enter your username below.',
-      name:
-          'to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below',
+      name: 'to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below',
       desc: '',
       args: [],
     );
@@ -1010,8 +1007,7 @@ class L10n {
   get please_note_that_the_method_fritter_uses_to_import_subscriptions_is_heavily_rate_limited_by_twitter_so_this_may_fail_if_you_have_a_lot_of_followed_accounts {
     return Intl.message(
       'Please note that the method Squawker uses to import subscriptions is heavily rate-limited by Twitter/X, so this may fail if you have a lot of followed accounts.',
-      name:
-          'please_note_that_the_method_fritter_uses_to_import_subscriptions_is_heavily_rate_limited_by_twitter_so_this_may_fail_if_you_have_a_lot_of_followed_accounts',
+      name: 'please_note_that_the_method_fritter_uses_to_import_subscriptions_is_heavily_rate_limited_by_twitter_so_this_may_fail_if_you_have_a_lot_of_followed_accounts',
       desc: '',
       args: [],
     );
@@ -1042,8 +1038,7 @@ class L10n {
   get selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already {
     return Intl.message(
       'Selecting individual accounts to import, and assigning groups are both planned for the future already!',
-      name:
-          'selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already',
+      name: 'selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already',
       desc: '',
       args: [],
     );
@@ -1176,8 +1171,7 @@ class L10n {
   get there_were_no_trends_returned_this_is_unexpected_please_report_as_a_bug_if_possible {
     return Intl.message(
       'There were no trends returned. This is unexpected! Please report as a bug, if possible.',
-      name:
-          'there_were_no_trends_returned_this_is_unexpected_please_report_as_a_bug_if_possible',
+      name: 'there_were_no_trends_returned_this_is_unexpected_please_report_as_a_bug_if_possible',
       desc: '',
       args: [],
     );
@@ -1282,8 +1276,7 @@ class L10n {
   ) {
     return Intl.message(
       'Unable to save the media. Twitter/X returned a status of $responseStatusCode',
-      name:
-          'unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode',
+      name: 'unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode',
       desc: '',
       args: [responseStatusCode],
     );
@@ -1599,8 +1592,7 @@ class L10n {
   get no_data_was_returned_which_should_never_happen_please_report_a_bug_if_possible {
     return Intl.message(
       'No data was returned, which should never happen. Please report a bug, if possible!',
-      name:
-          'no_data_was_returned_which_should_never_happen_please_report_a_bug_if_possible',
+      name: 'no_data_was_returned_which_should_never_happen_please_report_a_bug_if_possible',
       desc: '',
       args: [],
     );
@@ -2593,8 +2585,7 @@ class L10n {
   get to_import_specific_subscriptions_enter_your_comma_separated_usernames_below {
     return Intl.message(
       'To import specific subscriptions, enter your comma separated usernames below.',
-      name:
-          'to_import_specific_subscriptions_enter_your_comma_separated_usernames_below',
+      name: 'to_import_specific_subscriptions_enter_your_comma_separated_usernames_below',
       desc: '',
       args: [],
     );
@@ -2735,6 +2726,136 @@ class L10n {
     return Intl.message(
       'Set the x-client-transaction-id provider. It must be a domain name, without https. Reference: https://github.com/Teskann/x-client-transaction-id-generator',
       name: 'x_client_transaction_id_provider_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to load the video`
+  String get failed_to_load_video {
+    return Intl.message(
+      'Failed to load the video',
+      name: 'failed_to_load_video',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Restart the video player`
+  String get restart_video_player {
+    return Intl.message(
+      'Restart the video player',
+      name: 'restart_video_player',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quality`
+  String get quality {
+    return Intl.message('Quality', name: 'quality', desc: '', args: []);
+  }
+
+  /// `Image quality`
+  String get media_image_quality {
+    return Intl.message(
+      'Image quality',
+      name: 'media_image_quality',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Video quality`
+  String get media_video_quality {
+    return Intl.message(
+      'Video quality',
+      name: 'media_video_quality',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save bandwidth with smaller videos`
+  String get save_bandwidth_using_smaller_videos {
+    return Intl.message(
+      'Save bandwidth with smaller videos',
+      name: 'save_bandwidth_using_smaller_videos',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Loop videos`
+  String get loop_videos {
+    return Intl.message('Loop videos', name: 'loop_videos', desc: '', args: []);
+  }
+
+  /// `If enabled, videos will loop after completing`
+  String get loop_videos_description {
+    return Intl.message(
+      'If enabled, videos will loop after completing',
+      name: 'loop_videos_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Autoplay videos`
+  String get autoplay_videos {
+    return Intl.message(
+      'Autoplay videos',
+      name: 'autoplay_videos',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If enabled, videos will start playing without user interaction`
+  String get autoplay_videos_description {
+    return Intl.message(
+      'If enabled, videos will start playing without user interaction',
+      name: 'autoplay_videos_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Video prefetch duration`
+  String get video_prefetch {
+    return Intl.message(
+      'Video prefetch duration',
+      name: 'video_prefetch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How much of a video is loaded ahead of playback. A shorter duration saves data and memory but may cause more pauses to load on unstable connections.`
+  String get video_prefetch_description {
+    return Intl.message(
+      'How much of a video is loaded ahead of playback. A shorter duration saves data and memory but may cause more pauses to load on unstable connections.',
+      name: 'video_prefetch_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{seconds} s`
+  String video_prefetch_seconds(Object seconds) {
+    return Intl.message(
+      '$seconds s',
+      name: 'video_prefetch_seconds',
+      desc: '',
+      args: [seconds],
+    );
+  }
+
+  /// `Unlimited (default)`
+  String get video_prefetch_unlimited {
+    return Intl.message(
+      'Unlimited (default)',
+      name: 'video_prefetch_unlimited',
       desc: '',
       args: [],
     );

@@ -57,6 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0+1"
+  better_player_plus:
+    dependency: "direct main"
+    description:
+      name: better_player_plus
+      sha256: "49c02ec4d975cf0da3f55c3bf07a4eb3eeab2b417790d8fa3e29a77947cb02f1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.4.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -81,14 +89,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.4"
-  chewie:
-    dependency: "direct main"
-    description:
-      name: chewie
-      sha256: "56b6641693ddd72f0cd54ddfedf4f3e9390e6d7b7b22dc2503b7e6ad91476f7f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.17.2"
   chunked_stream:
     dependency: transitive
     description:
@@ -552,6 +552,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_widget_from_html_core:
+    dependency: transitive
+    description:
+      name: flutter_widget_from_html_core
+      sha256: "530f2e3cc57be1a00f8bfae1b0000064e8a6df0cf1fb4d48a80f85afde9b39b7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.17.4"
   flutter_windowmanager_plus:
     dependency: "direct main"
     description:
@@ -1015,10 +1023,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_apple
-      sha256: f49cb15a064ea9d974fc7fbb302099353b7b170d07284e86e264561579e5bcf8
+      sha256: "066bbbc60031b63b916a3871e7bb4b6a8c5e7cec8146dafec53d1da304eff0a5"
       url: "https://pub.dev"
     source: hosted
-    version: "9.6.1"
+    version: "9.6.2"
   permission_handler_html:
     dependency: transitive
     description:
@@ -1047,10 +1055,10 @@ packages:
     dependency: transitive
     description:
       name: petitparser
-      sha256: "91bd59303e9f769f108f8df05e371341b15d59e995e6806aefab827b58336675"
+      sha256: "2f1564aadb14215e478563b5406cb80729d022158c01dc50c96013c2f7eb4790"
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.2"
+    version: "7.1.0"
   platform:
     dependency: transitive
     description:
@@ -1365,10 +1373,10 @@ packages:
     dependency: transitive
     description:
       name: sqlite3
-      sha256: fa3fd961e83b2dca8890a7b1014ab1226831d2b5908067c0ab7f385ffb655caf
+      sha256: cc62d72dbf16bb1f6ae8954b238016de1473e53df060ed0c332eed0a41dd1848
       url: "https://pub.dev"
     source: hosted
-    version: "3.6.0"
+    version: "3.7.0"
   stack_trace:
     dependency: transitive
     description:
@@ -1586,46 +1594,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.3"
-  video_player:
-    dependency: "direct main"
-    description:
-      name: video_player
-      sha256: "8c837b570dccb9ae6ff73d2e0b03c7e708bfefd3bd1194faa7f3e7f200dfc399"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.14.0"
-  video_player_android:
-    dependency: transitive
-    description:
-      name: video_player_android
-      sha256: d27054dea34d748a44f06d433a57005d2aac69944485b0abbaed3303dbcfa3f1
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.12.2"
-  video_player_avfoundation:
-    dependency: transitive
-    description:
-      name: video_player_avfoundation
-      sha256: "2fc56e537324a19eb649fca991aa308ac961b5406292876fa657b062de461fd8"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.12.0"
-  video_player_platform_interface:
-    dependency: transitive
-    description:
-      name: video_player_platform_interface
-      sha256: "92c0fbabe20c788e71fd10d26cea998d0d253282e65d145aed0818731cf593ce"
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.9.0"
-  video_player_web:
-    dependency: transitive
-    description:
-      name: video_player_web
-      sha256: "9f3c00be2ef9b76a95d94ac5119fb843dca6f2c69e6c9968f6f2b6c9e7afbdeb"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.0"
   visibility_detector:
     dependency: "direct main"
     description:
@@ -1710,10 +1678,10 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter_wkwebview
-      sha256: fe359c7fac1002124b5b9e2ba3a41906bbb9b2d029ccb4a0067404d8f3704730
+      sha256: "0f784be1b080e5b918ef7c2c070c1f4616899fd23f1d001feb74b4978f92bdbc"
       url: "https://pub.dev"
     source: hosted
-    version: "3.26.1"
+    version: "3.26.2"
   win32:
     dependency: "direct overridden"
     description:

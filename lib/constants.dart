@@ -12,14 +12,16 @@ const optionNavigationAnimations = 'home.navigation_animations';
 const optionHomeShowTabLabels = 'home.show_tab_labels';
 
 const optionMediaSize = 'media.size';
+const optionMediaVideoQuality = 'media.video_quality';
 const optionMediaDefaultMute = 'media.mute';
-const optionMediaAllowBackgroundPlay = 'media.allow_background_play';
+const optionMediaDefaultLoop = 'media.loop';
+const optionMediaDefaultAutoPlay = 'media.auto_play';
+const optionMediaBackgroundPlayback = 'media.allow_background_play';
 const optionMediaAllowBackgroundPlayOtherApps = 'media.allow_background_play.other_apps';
+const optionMediaVideoPrefetchSeconds = 'media.video_prefetch_seconds';
 
 const optionDownloadType = 'download.type';
 const optionDownloadPath = 'download.path';
-
-const optionDownloadBestVideoQuality = 'download_best_video_quality';
 
 const optionDownloadTypeDirectory = 'directory';
 const optionDownloadTypeAsk = 'ask';

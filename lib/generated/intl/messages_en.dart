@@ -73,6 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m20(releaseVersion) =>
       "Update to ${releaseVersion} through your F-Droid client";
 
+  static String m21(seconds) => "${seconds} s";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("About"),
@@ -119,6 +121,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "app_info": MessageLookupByLibrary.simpleMessage("App Info"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Are you sure?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage("Autoplay videos"),
+    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(
+      "If enabled, videos will start playing without user interaction",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X has invalidated our access token. Please try re-opening Squawker!",
@@ -274,6 +280,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "Export your data",
     ),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(
+      "Failed to load the video",
+    ),
     "feed": MessageLookupByLibrary.simpleMessage("Feed"),
     "filters": MessageLookupByLibrary.simpleMessage("Filters"),
     "finish": MessageLookupByLibrary.simpleMessage("Finish"),
@@ -352,12 +361,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "live": MessageLookupByLibrary.simpleMessage("LIVE"),
     "logging": MessageLookupByLibrary.simpleMessage("Logging"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "loop_videos": MessageLookupByLibrary.simpleMessage("Loop videos"),
+    "loop_videos_description": MessageLookupByLibrary.simpleMessage(
+      "If enabled, videos will loop after completing",
+    ),
     "mandatory_label": MessageLookupByLibrary.simpleMessage(
       "Mandatory fields:",
     ),
     "material_3": MessageLookupByLibrary.simpleMessage("Material 3?"),
     "media": MessageLookupByLibrary.simpleMessage("Media"),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage(
+      "Image quality",
+    ),
     "media_size": MessageLookupByLibrary.simpleMessage("Media size"),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage(
+      "Video quality",
+    ),
     "medium": MessageLookupByLibrary.simpleMessage("Medium"),
     "missing_page": MessageLookupByLibrary.simpleMessage("Missing page"),
     "mute_video_description": MessageLookupByLibrary.simpleMessage(
@@ -458,6 +477,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "proxy_error": MessageLookupByLibrary.simpleMessage("Proxy Error"),
     "proxy_label": MessageLookupByLibrary.simpleMessage("Proxy"),
+    "quality": MessageLookupByLibrary.simpleMessage("Quality"),
     "regular_accounts": m12,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Released under the MIT License",
@@ -474,10 +494,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "Reset pages to default",
     ),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage(
+      "Restart the video player",
+    ),
     "retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "Save bandwidth with smaller images",
+    ),
+    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
+      "Save bandwidth with smaller videos",
     ),
     "saved": MessageLookupByLibrary.simpleMessage("Saved"),
     "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(
@@ -706,6 +732,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "username_label": MessageLookupByLibrary.simpleMessage("Username:"),
     "usernames": MessageLookupByLibrary.simpleMessage("Usernames"),
     "version": MessageLookupByLibrary.simpleMessage("Version"),
+    "video_prefetch": MessageLookupByLibrary.simpleMessage(
+      "Video prefetch duration",
+    ),
+    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(
+      "How much of a video is loaded ahead of playback. A shorter duration saves data and memory but may cause more pauses to load on unstable connections.",
+    ),
+    "video_prefetch_seconds": m21,
+    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(
+      "Unlimited (default)",
+    ),
     "warning_regular_account_unauthenticated_access_description":
         MessageLookupByLibrary.simpleMessage(
           "Twitter/X has disabled the ability to create guest accounts. You should now set regular account(s) in Settings / Account. With no account there is a partial access limited to tweets and profiles only. It\'s easy to create an anonymous regular account as explained here:",
