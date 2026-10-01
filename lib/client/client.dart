@@ -341,15 +341,15 @@ class Twitter {
     return Profile(user, pins);
   }
 
-  static Future<PaginatedUsers> friendsList(String userId, int count) async {
-    final uri = Uri.https('x.com', '/i/api/graphql/FEcMGoVOUjm0aU9BJrrGZA/Following', {
-      "variables": jsonEncode({"userId": userId, "count": count, "includePromotedContent": false, "withGrokTranslatedBio": false}),
+  static Future<PaginatedUsers> friendsList(String userId, int count, {String? cursor}) async {
+    final uri = Uri.https('x.com', '/i/api/graphql/XRzHZz4sLnhSgz55WGMCbg/Following', {
+      "variables": jsonEncode({"userId": userId, "count": count, "cursor": cursor, "includePromotedContent": false, "withGrokTranslatedBio": false}),
       "features": jsonEncode({
         "rweb_video_screen_enabled": false,
-        "payments_enabled": false,
+        "rweb_cashtags_enabled": true,
         "profile_label_improvements_pcf_label_in_post_enabled": true,
         "responsive_web_profile_redirect_enabled": false,
-        "rweb_tipjar_consumption_enabled": true,
+        "rweb_tipjar_consumption_enabled": false,
         "verified_phone_label_enabled": false,
         "creator_subscriptions_tweet_preview_api_enabled": true,
         "responsive_web_graphql_timeline_navigation_enabled": true,
@@ -359,26 +359,30 @@ class Twitter {
         "c9s_tweet_anatomy_moderator_badge_enabled": true,
         "responsive_web_grok_analyze_button_fetch_trends_enabled": false,
         "responsive_web_grok_analyze_post_followups_enabled": true,
+        "rweb_cashtags_composer_attachment_enabled": true,
         "responsive_web_jetfuel_frame": true,
         "responsive_web_grok_share_attachment_enabled": true,
+        "responsive_web_grok_annotations_enabled": true,
         "articles_preview_enabled": true,
         "responsive_web_edit_tweet_api_enabled": true,
+        "rweb_conversational_replies_downvote_enabled": false,
         "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
         "view_counts_everywhere_api_enabled": true,
         "longform_notetweets_consumption_enabled": true,
         "responsive_web_twitter_article_tweet_consumption_enabled": true,
-        "tweet_awards_web_tipping_enabled": false,
-        "responsive_web_grok_show_grok_translated_post": false,
+        "content_disclosure_indicator_enabled": true,
+        "content_disclosure_ai_generated_indicator_enabled": true,
+        "responsive_web_grok_show_grok_translated_post": true,
         "responsive_web_grok_analysis_button_from_backend": true,
-        "creator_subscriptions_quote_tweet_preview_enabled": false,
+        "post_ctas_fetch_enabled": false,
         "freedom_of_speech_not_reach_fetch_enabled": true,
         "standardized_nudges_misinfo": true,
         "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true,
         "longform_notetweets_rich_text_read_enabled": true,
-        "longform_notetweets_inline_media_enabled": true,
+        "longform_notetweets_inline_media_enabled": false,
         "responsive_web_grok_image_annotation_enabled": true,
         "responsive_web_grok_imagine_annotation_enabled": true,
-        "responsive_web_grok_community_note_auto_translation_is_enabled": false,
+        "responsive_web_grok_community_note_auto_translation_is_enabled": true,
         "responsive_web_enhance_cards_enabled": false
       })
     });
@@ -390,6 +394,16 @@ class Twitter {
       for (final instruction in instructions) {
         if (instruction["type"] != "TimelineAddEntries" || instruction["entries"] == null) continue;
         for (final entry in instruction["entries"]) {
+          // Extract cursor from entries
+          final entryId = entry["entryId"] as String? ?? "";
+          if (entryId.startsWith("cursor-bottom")) {
+            final cursorValue = entry["content"]?["value"];
+            if (cursorValue != null) {
+              users.cursor = cursorValue.toString();
+            }
+            continue;
+          }
+          
           final userResult = entry["content"]?["itemContent"]?["user_results"]?["result"];
           if (userResult == null) continue;
           var user = UserWithExtra()
@@ -406,7 +420,7 @@ class Twitter {
     });
   }
 
-  static Future<Follows> getProfileFollows(String screenName, String type, {int? cursor, int? count = 200}) async {
+  static Future<Follows> getProfileFollows(String screenName, String type, {String? cursor, int? count = 200}) async {
     var useAuthenticated = TwitterAccount.hasAccountAvailable();
     var service = useAuthenticated
         ? _twitterApi.userService
@@ -415,14 +429,21 @@ class Twitter {
     if (type == "following") {
       id = (await getProfileByScreenName(screenName)).user.idStr;
     }
-    var response = type == 'following'
-        ? await friendsList(id!, count!)
-        : await service.followersList(screenName: screenName, cursor: cursor, count: count, skipStatus: true);
-
+    
+    if (type == 'following') {
+      var paginatedUsers = await friendsList(id!, count!, cursor: cursor);
+      return Follows(
+          cursorBottom: paginatedUsers.cursor,
+          cursorTop: null,
+          users: paginatedUsers.users ?? []);
+    }
+    
+    // For followers list
+    var followersResponse = await service.followersList(screenName: screenName, cursor: cursor != null ? int.tryParse(cursor) : null, count: count, skipStatus: true);
     return Follows(
-        cursorBottom: int.parse(response.nextCursorStr ?? '-1'),
-        cursorTop: int.parse(response.previousCursorStr ?? '-1'),
-        users: response.users?.map((e) => UserWithExtra.fromJson(e.toJson())).toList() ?? []);
+        cursorBottom: followersResponse.nextCursorStr,
+        cursorTop: followersResponse.previousCursorStr,
+        users: followersResponse.users?.map((e) => UserWithExtra.fromJson(e.toJson())).toList() ?? []);
   }
 
   static List<TweetChain> createTweetChains(List<dynamic> addEntries) {
@@ -1605,9 +1626,16 @@ class TweetChain {
   }
 }
 
+class PaginatedUsers {
+  List<UserWithExtra>? users;
+  String? cursor;
+
+  PaginatedUsers({this.users, this.cursor});
+}
+
 class Follows {
-  final int? cursorBottom;
-  final int? cursorTop;
+  final String? cursorBottom;
+  final String? cursorTop;
   final List<UserWithExtra> users;
 
   Follows({required this.cursorBottom, required this.cursorTop, required this.users});

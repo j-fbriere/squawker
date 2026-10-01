@@ -19,7 +19,7 @@ class ProfileFollows extends StatefulWidget {
 }
 
 class _ProfileFollowsState extends State<ProfileFollows> with AutomaticKeepAliveClientMixin<ProfileFollows> {
-  CursorPagingState<int?, UserWithExtra, int> _pagingState = CursorPagingState();
+  CursorPagingState<int?, UserWithExtra, String> _pagingState = CursorPagingState();
 
   final int _pageSize = 200;
 
@@ -49,9 +49,10 @@ class _ProfileFollowsState extends State<ProfileFollows> with AutomaticKeepAlive
       setState(() {
         _pagingState = _pagingState.copyWithEx(
           pages: [...?_pagingState.pages, result.users],
-          keys: [...?_pagingState.keys, result.cursorBottom],
+          keys: [...?_pagingState.keys, _pagingState.pages?.length ?? 0],
           hasNextPage: hasNextPage,
           isLoading: false,
+          cursor: result.cursorBottom,
         );
       });
 

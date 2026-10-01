@@ -76,6 +76,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m20(releaseVersion) =>
       "Mise à jour vers ${releaseVersion} via votre client F-Droid";
 
+  static String m21(seconds) => "${seconds} s";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("À propos"),
@@ -124,6 +126,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "app_info": MessageLookupByLibrary.simpleMessage("Infos sur l’app"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Êtes-vous sûr ?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage(
+      "Vidéos en lecture automatique",
+    ),
+    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(
+      "Si activée, la lecture des vidéos commencera sans interaction de l\'utilisateur",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Retour"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X a invalidé le jeton d\'accès. Essayez de relancer Squawker !",
@@ -287,6 +295,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "Exporter vos données",
     ),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(
+      "Échec du chargement de la vidéo",
+    ),
     "feed": MessageLookupByLibrary.simpleMessage("Flux"),
     "filters": MessageLookupByLibrary.simpleMessage("Filtres"),
     "finish": MessageLookupByLibrary.simpleMessage("Terminer"),
@@ -369,12 +380,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "live": MessageLookupByLibrary.simpleMessage("EN DIRECT"),
     "logging": MessageLookupByLibrary.simpleMessage("Enregistrement"),
     "login": MessageLookupByLibrary.simpleMessage("Connexion"),
+    "loop_videos": MessageLookupByLibrary.simpleMessage("Vidéos en boucle"),
+    "loop_videos_description": MessageLookupByLibrary.simpleMessage(
+      "Si activé, les vidéos seront diffusées en boucle une fois terminées",
+    ),
     "mandatory_label": MessageLookupByLibrary.simpleMessage(
       "Champs obligatoires :",
     ),
     "material_3": MessageLookupByLibrary.simpleMessage("Material 3 ?"),
     "media": MessageLookupByLibrary.simpleMessage("Médias"),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage(
+      "Qualité d\'image",
+    ),
     "media_size": MessageLookupByLibrary.simpleMessage("Taille du média"),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage(
+      "Qualité de vidéo",
+    ),
     "medium": MessageLookupByLibrary.simpleMessage("Moyen"),
     "missing_page": MessageLookupByLibrary.simpleMessage("Page manquante"),
     "mute_video_description": MessageLookupByLibrary.simpleMessage(
@@ -491,6 +512,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "proxy_error": MessageLookupByLibrary.simpleMessage("Erreur Proxy"),
     "proxy_label": MessageLookupByLibrary.simpleMessage("Proxy"),
+    "quality": MessageLookupByLibrary.simpleMessage("Qualité"),
     "regular_accounts": m12,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Publié sous la licence MIT",
@@ -505,10 +527,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "Réinitialiser les pages par défaut",
     ),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage(
+      "Redémarrez le lecteur vidéo",
+    ),
     "retry": MessageLookupByLibrary.simpleMessage("Réessayer"),
     "save": MessageLookupByLibrary.simpleMessage("Enregistrer"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "Économiser de la bande passante en chargeant des images plus petites",
+    ),
+    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
+      "Économiser de la bande passante en chargeant des vidéos plus petits",
     ),
     "saved": MessageLookupByLibrary.simpleMessage("Enregistré"),
     "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(
@@ -745,6 +773,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "username_label": MessageLookupByLibrary.simpleMessage("Identifiant :"),
     "usernames": MessageLookupByLibrary.simpleMessage("Utilisateurs"),
     "version": MessageLookupByLibrary.simpleMessage("Version"),
+    "video_prefetch": MessageLookupByLibrary.simpleMessage(
+      "Durée de prélecture vidéo",
+    ),
+    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(
+      "Quelle quantité de vidéo est chargée avant la lecture. Une durée plus courte permet d\'économiser des données et de la mémoire, mais peut entraîner le chargement de davantage de pauses sur des connexions instables.",
+    ),
+    "video_prefetch_seconds": m21,
+    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(
+      "Illimitée (défaut)",
+    ),
     "warning_regular_account_unauthenticated_access_description":
         MessageLookupByLibrary.simpleMessage(
           "Twitter/X a désactivé la possibilité de créer des comptes invités. Vous pouvez maintenant configurer des comptes réguliers dans Paramètres / Compte. Sans compte, il y a un accès partiel limité aux tweets et aux profils. Il est facile de créer un compte régulier anonyme, tel qu\'expliqué ici :",

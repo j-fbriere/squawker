@@ -13,6 +13,16 @@ import 'interpolate.dart';
 import 'rotation.dart';
 import 'utils.dart';
 
+const _browserHeaders = {
+  'Accept-Language': 'en-US,en;q=0.9',
+  'Cache-Control': 'no-cache',
+  'Referer': 'https://x.com',
+  'User-Agent':
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36',
+  'X-Twitter-Active-User': 'yes',
+  'X-Twitter-Client-Language': 'en',
+};
+
 class ClientTransaction {
   final List<int> _keyBytes;
   final String _animationKey;
@@ -20,42 +30,43 @@ class ClientTransaction {
   final int _randomNumber;
 
   ClientTransaction._({
-    required List<int> keyBytes,
-    required String animationKey,
-    required String randomKeyword,
-    required int randomNumber,
-  })  : _keyBytes = keyBytes,
-        _animationKey = animationKey,
-        _randomKeyword = randomKeyword,
-        _randomNumber = randomNumber;
+    required this._keyBytes,
+    required this._animationKey,
+    required this._randomKeyword,
+    required this._randomNumber,
+  });
 
   /// Fetches x.com and initializes the transaction ID generator.
   static Future<ClientTransaction> initialize({
     String randomKeyword = defaultKeyword,
     int randomNumber = additionalRandomNumber,
   }) async {
-    final homePageResponse = await http.get(
-      Uri.https('x.com', '/'),
-      headers: {
-        'Accept-Language': 'en-US,en;q=0.9',
-        'Cache-Control': 'no-cache',
-        'Referer': 'https://x.com',
-        'User-Agent':
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36',
-        'X-Twitter-Active-User': 'yes',
-        'X-Twitter-Client-Language': 'en',
-      },
+    final (:homePageHtml, :signFileText) = await fetchSources();
+    return fromSources(
+      homePageHtml: homePageHtml,
+      signFileText: signFileText,
+      randomKeyword: randomKeyword,
+      randomNumber: randomNumber,
     );
-    final homePageHtml = homePageResponse.body;
+  }
+
+  /// Downloads the x.com page and the sign module the generator is built from.
+  static Future<({String homePageHtml, String signFileText})> fetchSources() async {
+    final homePageHtml = await _fetchText(Uri.https('x.com', '/home'));
+    final signFileText = await _fetchText(await _findSignFileUrl(homePageHtml));
+    return (homePageHtml: homePageHtml, signFileText: signFileText);
+  }
+
+  /// Builds the generator from an already fetched x.com page and sign module.
+  static ClientTransaction fromSources({
+    required String homePageHtml,
+    required String signFileText,
+    String randomKeyword = defaultKeyword,
+    int randomNumber = additionalRandomNumber,
+  }) {
     final homePageDoc = html_parser.parse(homePageHtml);
-
-    final ondemandUrl = _getOndemandFileUrl(homePageHtml);
-    final ondemandResponse = await http.get(Uri.parse(ondemandUrl));
-    final ondemandFileText = ondemandResponse.body;
-
-    final (rowIndex, keyBytesIndices) = _getIndices(ondemandFileText);
-    final key = _getKey(homePageDoc);
-    final keyBytes = _getKeyBytes(key);
+    final (rowIndex, keyBytesIndices) = _getIndices(signFileText);
+    final keyBytes = _getKeyBytes(_getKey(homePageDoc));
     final animationKey = _computeAnimationKey(
       keyBytes: keyBytes,
       rowIndex: rowIndex,
@@ -72,9 +83,9 @@ class ClientTransaction {
   }
 
   /// Generates the x-client-transaction-id for the given HTTP method and path.
-  String generateTransactionId(String method, String path) {
+  String generateTransactionId(String method, String path, {DateTime? now}) {
     final timeNow =
-        (DateTime.now().millisecondsSinceEpoch - 1682924400 * 1000) ~/ 1000;
+        ((now ?? DateTime.now()).millisecondsSinceEpoch - 1682924400 * 1000) ~/ 1000;
     final timeNowBytes = List.generate(4, (i) => (timeNow >> (i * 8)) & 0xFF);
 
     final hashInput = '$method!$path!$timeNow$_randomKeyword$_animationKey';
@@ -98,9 +109,9 @@ class ClientTransaction {
 
   // --- Private helpers (static, mirroring Python class methods) ---
 
-  static (int, List<int>) _getIndices(String ondemandFileText) {
+  static (int, List<int>) _getIndices(String signFileText) {
     final indices = indicesRegex
-        .allMatches(ondemandFileText)
+        .allMatches(signFileText)
         .map((m) => int.parse(m.group(2)!))
         .toList();
     if (indices.isEmpty) throw Exception("Couldn't get KEY_BYTE indices");
@@ -119,15 +130,21 @@ class ClientTransaction {
 
   static List<int> _getKeyBytes(String key) => base64.decode(key).toList();
 
-  static String _getOndemandFileUrl(String html) {
-    final indexMatch = onDemandFileRegex.firstMatch(html);
-    if (indexMatch == null) throw Exception("Couldn't find ondemand file index");
-    final fileIndex = indexMatch.group(1)!;
-    final hashRegex = RegExp(',${RegExp.escape(fileIndex)}:"([0-9a-f]+)"');
-    final hashMatch = hashRegex.firstMatch(html);
-    if (hashMatch == null) throw Exception("Couldn't find ondemand file hash");
-    final filename = hashMatch.group(1)!;
-    return onDemandFileUrlTemplate.replaceAll('{filename}', filename);
+  static Future<String> _fetchText(Uri uri) async =>
+      (await http.get(uri, headers: _browserHeaders)).body;
+
+  static Future<Uri> _findSignFileUrl(String homePageHtml) async {
+    final entryUrl = _resolveImport(Uri.https('x.com', '/'), homePageHtml, entryScriptRegex, 'entry script');
+    final entryText = await _fetchText(entryUrl);
+    final importerUrl = _resolveImport(entryUrl, entryText, signImporterRegex, 'sign module importer');
+    final importerText = await _fetchText(importerUrl);
+    return _resolveImport(importerUrl, importerText, signFileRegex, 'sign module');
+  }
+
+  static Uri _resolveImport(Uri base, String text, RegExp regex, String what) {
+    final match = regex.firstMatch(text);
+    if (match == null) throw Exception("Couldn't find the $what");
+    return base.resolve(match.group(1)!);
   }
 
   static List<List<int>> _get2dArray(

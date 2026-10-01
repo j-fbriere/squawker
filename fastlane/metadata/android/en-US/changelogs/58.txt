@@ -1,0 +1,1 @@
+* Fix the error getting x-client-transaction-id (thanks to @Teskann)

@@ -40,11 +40,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m8(date) => "Bergabung ${date}";
 
+  static String m9(nbrGuestAccounts) =>
+      "Terdapat ${nbrGuestAccounts} akun tamu";
+
   static String m10(num, numFormatted) =>
       "${Intl.plural(num, zero: 'Tidak ada pemilihan', one: 'Satu pemilihan', two: 'Dua pemilihan', few: '${numFormatted} pemilihan', many: '${numFormatted} pemilihan', other: '${numFormatted} pemilihan')}";
 
   static String m11(errorMessage) =>
       "Mohon periksa koneksi Internet Anda.\n\n${errorMessage}";
+
+  static String m12(nbrRegularAccounts) =>
+      "Akun reguler (${nbrRegularAccounts}):";
 
   static String m13(releaseVersion) =>
       "Ketuk untuk mengunduh ${releaseVersion}";
@@ -72,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("Tentang"),
+    "account": MessageLookupByLibrary.simpleMessage("Akun"),
     "account_suspended": MessageLookupByLibrary.simpleMessage(
       "Akun ditangguhkan",
     ),
@@ -83,21 +90,42 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Aktifkan mode bias non-konfirmasi",
         ),
+    "add_account": MessageLookupByLibrary.simpleMessage("Tambah akun"),
+    "add_account_title": MessageLookupByLibrary.simpleMessage("Tambah Akun"),
+    "add_subscriptions": MessageLookupByLibrary.simpleMessage(
+      "Tambahkan Langganan",
+    ),
+    "add_to_feed": MessageLookupByLibrary.simpleMessage("Tambahkan ke beranda"),
     "add_to_group": MessageLookupByLibrary.simpleMessage("Tambah ke grup"),
     "all": MessageLookupByLibrary.simpleMessage("Semua"),
     "all_the_great_software_used_by_fritter":
         MessageLookupByLibrary.simpleMessage(
           "Semua perangkat lunak hebat yang digunakan oleh Squawker",
         ),
+    "allow_background_play_description": MessageLookupByLibrary.simpleMessage(
+      "Izinkan untuk pemutaran di latar belakang",
+    ),
+    "allow_background_play_label": MessageLookupByLibrary.simpleMessage(
+      "Pemutaran latar belakang",
+    ),
+    "allow_background_play_other_apps_description":
+        MessageLookupByLibrary.simpleMessage(
+          "Izinkan aplikasi lain memutar di latar belakang",
+        ),
+    "allow_background_play_other_apps_label":
+        MessageLookupByLibrary.simpleMessage("Aplikasi lain di latar belakang"),
     "an_update_for_fritter_is_available": MessageLookupByLibrary.simpleMessage(
       "Pembaruan untuk Squawker tersedia! 🚀",
     ),
+    "api_key": MessageLookupByLibrary.simpleMessage("Kunci API"),
+    "app_info": MessageLookupByLibrary.simpleMessage("Info Aplikasi"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Apakah Anda yakin?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
     "back": MessageLookupByLibrary.simpleMessage("Kembali"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X telah membatalkan token akses kami. Coba buka ulang Squawker!",
     ),
+    "beta": MessageLookupByLibrary.simpleMessage("BETA"),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
           "Tema biru berdasarkan pada skema warna Twitter/X",
@@ -109,6 +137,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "choose": MessageLookupByLibrary.simpleMessage("Pilih"),
     "choose_pages": MessageLookupByLibrary.simpleMessage("Pilih halaman"),
     "close": MessageLookupByLibrary.simpleMessage("Tutup"),
+    "community_notes_title": MessageLookupByLibrary.simpleMessage(
+      "Konteks yang ditambahkan pembaca",
+    ),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Apakah Anda yakin ingin menutup Squawker?",
     ),
@@ -142,6 +173,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "date_subscribed": MessageLookupByLibrary.simpleMessage(
       "Tanggal Berlangganan",
     ),
+    "default_subscription_tab": MessageLookupByLibrary.simpleMessage(
+      "Tab langganan default",
+    ),
     "default_tab": MessageLookupByLibrary.simpleMessage("Bilah baku"),
     "delete": MessageLookupByLibrary.simpleMessage("Hapus"),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
@@ -151,6 +185,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Cegah tangkapan layar untuk diambil. Ini mungkin tidak bekerja pada semua perangkat.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("Dinonaktifkan"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(
+      "Squawker tidak berfungsi tanpa akun",
+    ),
     "donate": MessageLookupByLibrary.simpleMessage("Donasi"),
     "download": MessageLookupByLibrary.simpleMessage("Unduh"),
     "download_handling": MessageLookupByLibrary.simpleMessage(
@@ -169,16 +206,59 @@ class MessageLookup extends MessageLookupByLibrary {
       "Tidak bisa mengunduh. Media ini hanya tersedia sebagai siaran, yang Squawker belum bisa mengunduhnya.",
     ),
     "download_path": MessageLookupByLibrary.simpleMessage("Jalur unduhan"),
+    "download_video_best_quality_description":
+        MessageLookupByLibrary.simpleMessage(
+          "Unduh video dengan kualitas terbaik yang tersedia",
+        ),
+    "download_video_best_quality_label": MessageLookupByLibrary.simpleMessage(
+      "Unduh video dengan kualitas terbaik",
+    ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
       "Mengunduh media…",
     ),
+    "edit_account_title": MessageLookupByLibrary.simpleMessage("Ubah akun"),
+    "email_label": MessageLookupByLibrary.simpleMessage("Surel:"),
     "enable_": MessageLookupByLibrary.simpleMessage("Aktifkan ?"),
     "ended_timeago_format_endsAt_allowFromNow_true": m3,
     "ends_timeago_format_endsAt_allowFromNow_true": m4,
+    "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(
+      "Permintaan yang ditingkatkan untuk feed (tetapi dengan batas laju yang lebih rendah)",
+    ),
+    "enhanced_feeds_label": MessageLookupByLibrary.simpleMessage(
+      "Feed yang ditingkatkan",
+    ),
+    "enhanced_profile_description": MessageLookupByLibrary.simpleMessage(
+      "Permintaan yang ditingkatkan untuk profil",
+    ),
+    "enhanced_profile_label": MessageLookupByLibrary.simpleMessage(
+      "Profil yang ditingkatkan",
+    ),
+    "enhanced_searches_description": MessageLookupByLibrary.simpleMessage(
+      "Permintaan yang ditingkatkan untuk pencarian (tetapi dengan batas laju yang lebih rendah)",
+    ),
+    "enhanced_searches_label": MessageLookupByLibrary.simpleMessage(
+      "Pencarian yang ditingkatkan",
+    ),
+    "enter_comma_separated_twitter_usernames":
+        MessageLookupByLibrary.simpleMessage(
+          "Masukkan nama pengguna Twitter/X berbatas koma",
+        ),
     "enter_your_twitter_username": MessageLookupByLibrary.simpleMessage(
       "Masukkan nama pengguna Twitter/X Anda",
     ),
+    "error_from_twitter": MessageLookupByLibrary.simpleMessage(
+      "Galat Dari Twitter/X",
+    ),
+    "exclusions_feed_description": MessageLookupByLibrary.simpleMessage(
+      "Daftar nama pengguna yang dikecualikan dari feed",
+    ),
+    "exclusions_feed_label": MessageLookupByLibrary.simpleMessage(
+      "Dikecualikan dari beranda",
+    ),
     "export": MessageLookupByLibrary.simpleMessage("Ekspor"),
+    "export_guest_accounts": MessageLookupByLibrary.simpleMessage(
+      "Ekspor akun tamu?",
+    ),
     "export_settings": MessageLookupByLibrary.simpleMessage(
       "Ekspor pengaturan?",
     ),
@@ -192,11 +272,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Ekspor langganan?",
     ),
     "export_tweets": MessageLookupByLibrary.simpleMessage("Ekspor cuitan?"),
+    "export_twitter_tokens": MessageLookupByLibrary.simpleMessage(
+      "Ekspor token Twitter/X?",
+    ),
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "Ekspor data Anda",
     ),
     "feed": MessageLookupByLibrary.simpleMessage("Umpan"),
     "filters": MessageLookupByLibrary.simpleMessage("Filter"),
+    "finish": MessageLookupByLibrary.simpleMessage("Selesai"),
     "finished_with_snapshotData_users": m5,
     "followers": MessageLookupByLibrary.simpleMessage("Pengikut"),
     "following": MessageLookupByLibrary.simpleMessage("Mengikuti"),
@@ -205,7 +289,11 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "fritter": MessageLookupByLibrary.simpleMessage("Squawker"),
     "fritter_blue": MessageLookupByLibrary.simpleMessage("Squawker biru"),
+    "functionality_unsupported": MessageLookupByLibrary.simpleMessage(
+      "Fungsi ini tidak lagi didukung oleh Twitter/X!",
+    ),
     "general": MessageLookupByLibrary.simpleMessage("Umum"),
+    "generic_username": MessageLookupByLibrary.simpleMessage("Pengguna"),
     "group_name": m6,
     "groups": MessageLookupByLibrary.simpleMessage("Grup"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
@@ -238,11 +326,23 @@ class MessageLookup extends MessageLookupByLibrary {
       "Sertakan cuit ulang",
     ),
     "joined": m8,
+    "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
+      "Offset timeline dipertahankan untuk feed saat aplikasi dimulai ulang",
+    ),
+    "keep_feed_offset_label": MessageLookupByLibrary.simpleMessage(
+      "Pertahankan offset feed",
+    ),
     "language": MessageLookupByLibrary.simpleMessage("Bahasa"),
     "language_subtitle": MessageLookupByLibrary.simpleMessage(
       "Memerlukan pemulaian ulang",
     ),
     "large": MessageLookupByLibrary.simpleMessage("Besar"),
+    "leaner_feeds_description": MessageLookupByLibrary.simpleMessage(
+      "Pratinjau tautan tidak ditampilkan dalam tweet dari feed",
+    ),
+    "leaner_feeds_label": MessageLookupByLibrary.simpleMessage(
+      "Beranda yang lebih ramping",
+    ),
     "legacy_android_import": MessageLookupByLibrary.simpleMessage(
       "Impor Android Lawas",
     ),
@@ -250,16 +350,31 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Biarkan pengembang tahu jika ada sesuatu yang rusak",
         ),
+    "libre_translate_host": MessageLookupByLibrary.simpleMessage(
+      "Host LibreTranslate",
+    ),
     "licenses": MessageLookupByLibrary.simpleMessage("Lisensi"),
     "light": MessageLookupByLibrary.simpleMessage("Terang"),
     "live": MessageLookupByLibrary.simpleMessage("LANGSUNG"),
     "logging": MessageLookupByLibrary.simpleMessage("Log"),
+    "login": MessageLookupByLibrary.simpleMessage("Masuk"),
+    "mandatory_label": MessageLookupByLibrary.simpleMessage(
+      "Kolom wajib diisi:",
+    ),
+    "material_3": MessageLookupByLibrary.simpleMessage("Material 3?"),
     "media": MessageLookupByLibrary.simpleMessage("Media"),
     "media_size": MessageLookupByLibrary.simpleMessage("Ukuran media"),
     "medium": MessageLookupByLibrary.simpleMessage("Sedang"),
     "missing_page": MessageLookupByLibrary.simpleMessage("Halaman hilang"),
+    "mute_video_description": MessageLookupByLibrary.simpleMessage(
+      "Apakah video harus dibisukan secara default",
+    ),
+    "mute_videos": MessageLookupByLibrary.simpleMessage("Bisukan video"),
     "name": MessageLookupByLibrary.simpleMessage("Nama"),
+    "name_label": MessageLookupByLibrary.simpleMessage("Nama:"),
+    "nbr_guest_accounts": m9,
     "newTrans": MessageLookupByLibrary.simpleMessage("Baru"),
+    "next": MessageLookupByLibrary.simpleMessage("Berikutnya"),
     "no": MessageLookupByLibrary.simpleMessage("Tidak"),
     "no_data_was_returned_which_should_never_happen_please_report_a_bug_if_possible":
         MessageLookupByLibrary.simpleMessage(
@@ -273,6 +388,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Tidak ada langganan. Coba mencari atau mengimpor beberapa!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage("Belum masuk"),
     "not_set": MessageLookupByLibrary.simpleMessage("Tidak diatur"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
@@ -290,12 +406,34 @@ class MessageLookup extends MessageLookupByLibrary {
     "open_app_settings": MessageLookupByLibrary.simpleMessage(
       "Buka pengaturan aplikasi",
     ),
+    "open_in_browser": MessageLookupByLibrary.simpleMessage("Buka di peramban"),
+    "option_confirm_close_description": MessageLookupByLibrary.simpleMessage(
+      "Minta konfirmasi saat menutup aplikasi",
+    ),
+    "option_confirm_close_label": MessageLookupByLibrary.simpleMessage(
+      "Konfirmasi saat menutup",
+    ),
+    "option_navigation_animations_description":
+        MessageLookupByLibrary.simpleMessage("Aktifkan animasi navigasi"),
+    "option_navigation_animations_label": MessageLookupByLibrary.simpleMessage(
+      "Animasi navigasi",
+    ),
+    "option_show_navigation_labels_description":
+        MessageLookupByLibrary.simpleMessage(
+          "Tampilkan label dari ikon bilah navigasi",
+        ),
+    "option_show_navigation_labels_label": MessageLookupByLibrary.simpleMessage(
+      "Label bilah navigasi",
+    ),
+    "optional_label": MessageLookupByLibrary.simpleMessage("Kolom opsional:"),
     "page_not_found": MessageLookupByLibrary.simpleMessage(
       "Twitter/X mengatakan halaman ini tidak ada, tetapi mungkin itu tidak benar",
     ),
+    "password_label": MessageLookupByLibrary.simpleMessage("Kata sandi:"),
     "permission_not_granted": MessageLookupByLibrary.simpleMessage(
       "Izin tidak diberikan. Coba lagi setelah memberikannya!",
     ),
+    "phone_label": MessageLookupByLibrary.simpleMessage("Nomor telepon:"),
     "pick_a_color": MessageLookupByLibrary.simpleMessage("Pilih sebuah warna!"),
     "pick_an_icon": MessageLookupByLibrary.simpleMessage("Pilih ikon!"),
     "pinned_tweet": MessageLookupByLibrary.simpleMessage(
@@ -327,9 +465,16 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "prefix": MessageLookupByLibrary.simpleMessage("awalan"),
     "private_profile": MessageLookupByLibrary.simpleMessage("Profil privat"),
+    "proxy_description": MessageLookupByLibrary.simpleMessage(
+      "Proxy untuk semua permintaan",
+    ),
+    "proxy_error": MessageLookupByLibrary.simpleMessage("Kesalahan Proxy"),
+    "proxy_label": MessageLookupByLibrary.simpleMessage("Proxy"),
+    "regular_accounts": m12,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Dirilis di bawah Lisensi MIT",
     ),
+    "remove_from_feed": MessageLookupByLibrary.simpleMessage("Hapus dari feed"),
     "replying_to": MessageLookupByLibrary.simpleMessage("Membalas ke"),
     "report": MessageLookupByLibrary.simpleMessage("Lapor"),
     "report_a_bug": MessageLookupByLibrary.simpleMessage("Laporkan masalah"),
@@ -356,6 +501,16 @@ class MessageLookup extends MessageLookupByLibrary {
           "Memilih akun individu untuk diimpor, dan menetapkan grup sudah direncanakan untuk masa mendatang!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("Kirim"),
+    "settings": MessageLookupByLibrary.simpleMessage("Pengaturan"),
+    "share_base_url": MessageLookupByLibrary.simpleMessage(
+      "URL berbagi kustom",
+    ),
+    "share_base_url_description": MessageLookupByLibrary.simpleMessage(
+      "Gunakan URL dasar kustom saat berbagi",
+    ),
+    "share_tweet_as_image": MessageLookupByLibrary.simpleMessage(
+      "Bagikan cuitan sebagai gambar",
+    ),
     "share_tweet_content": MessageLookupByLibrary.simpleMessage(
       "Bagi konten cuitan",
     ),
@@ -431,20 +586,54 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "thread": MessageLookupByLibrary.simpleMessage("Utas"),
     "thumbnail": MessageLookupByLibrary.simpleMessage("Keluku"),
+    "thumbnail_not_available": MessageLookupByLibrary.simpleMessage(
+      "Keluku tidak tersedia",
+    ),
     "timed_out": MessageLookupByLibrary.simpleMessage("Waktu habis"),
+    "to_import_specific_subscriptions_enter_your_comma_separated_usernames_below":
+        MessageLookupByLibrary.simpleMessage(
+          "Untuk mengimpor langganan secara spesifik, masukkan nama pengguna yang diberi batas koma di bawah.",
+        ),
     "to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below":
         MessageLookupByLibrary.simpleMessage(
           "Untuk mengimpor langganan dari akun Twitter/X yang ada, masukkan nama pengguna Anda di bawah ini.",
         ),
     "toggle_all": MessageLookupByLibrary.simpleMessage("Alih Semua"),
+    "translator_label": MessageLookupByLibrary.simpleMessage("Pengalih bahasa"),
+    "translators_description": MessageLookupByLibrary.simpleMessage(
+      "Gunakan instance LibreTranslate kustom",
+    ),
+    "translators_label": MessageLookupByLibrary.simpleMessage(
+      "Pengalih bahasa",
+    ),
     "trending": MessageLookupByLibrary.simpleMessage("Tren"),
     "trends": MessageLookupByLibrary.simpleMessage("Tren"),
     "true_black": MessageLookupByLibrary.simpleMessage("Hitam Pekat?"),
+    "tweet_font_size_description": MessageLookupByLibrary.simpleMessage(
+      "Ukuran font pada cuitan",
+    ),
+    "tweet_font_size_label": MessageLookupByLibrary.simpleMessage(
+      "Ukuran Font",
+    ),
     "tweets": MessageLookupByLibrary.simpleMessage("Cuitan"),
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Cuitan & Balasan",
     ),
     "tweets_number": m17,
+    "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(
+      "Tamu dan reguler",
+    ),
+    "twitter_account_types_description": MessageLookupByLibrary.simpleMessage(
+      "Jenis akun untuk digunakan",
+    ),
+    "twitter_account_types_label": MessageLookupByLibrary.simpleMessage(
+      "Jenis akun",
+    ),
+    "twitter_account_types_only_regular": MessageLookupByLibrary.simpleMessage(
+      "Hanya reguler",
+    ),
+    "twitter_account_types_priority_to_regular":
+        MessageLookupByLibrary.simpleMessage("Prioritaskan akun biasa"),
     "two_home_pages_required": MessageLookupByLibrary.simpleMessage(
       "Kamu perlu setidaknya 2 halaman beranda.",
     ),
@@ -531,7 +720,20 @@ class MessageLookup extends MessageLookupByLibrary {
       "Pengguna tidak ditemukan",
     ),
     "username": MessageLookupByLibrary.simpleMessage("Nama pengguna"),
+    "username_exclude": MessageLookupByLibrary.simpleMessage(
+      "Nama pengguna untuk dikecualikan",
+    ),
+    "username_label": MessageLookupByLibrary.simpleMessage("Nama pengguna:"),
+    "usernames": MessageLookupByLibrary.simpleMessage("Nama pengguna"),
     "version": MessageLookupByLibrary.simpleMessage("Versi"),
+    "warning_regular_account_unauthenticated_access_description":
+        MessageLookupByLibrary.simpleMessage(
+          "Twitter/X telah menonaktifkan kemampuan untuk membuat akun tamu. Sekarang Anda harus menyiapkan akun reguler di Pengaturan / Akun. Tanpa akun, hanya ada akses sebagian yang terbatas pada tweet dan profil saja. Sangat mudah membuat akun reguler anonim seperti dijelaskan di sini:",
+        ),
+    "warning_regular_account_unauthenticated_access_title":
+        MessageLookupByLibrary.simpleMessage(
+          "Akun reguler dan akses tanpa autentikasi",
+        ),
     "when_a_new_app_update_is_available": MessageLookupByLibrary.simpleMessage(
       "Ketika pembaruan aplikasi baru tersedia",
     ),
@@ -547,9 +749,21 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Bilah mana yang ditampilkan ketika aplikasi dibuka",
         ),
+    "which_tab_is_shown_when_the_subscription_opens":
+        MessageLookupByLibrary.simpleMessage(
+          "Tab mana yang ditampilkan saat langganan dibuka",
+        ),
     "would_you_like_to_enable_automatic_error_reporting":
         MessageLookupByLibrary.simpleMessage(
           "Apakah Anda ingin mengaktifkan pelaporan galat otomatis?",
+        ),
+    "x_api": MessageLookupByLibrary.simpleMessage("API X"),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "Penyedia x-client-transaction-id",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(
+          "Tetapkan penyedia x-client-transaction-id. Harus berupa nama domain, tanpa https. Referensi: https://github.com/Teskann/x-client-transaction-id-generator",
         ),
     "yes": MessageLookupByLibrary.simpleMessage("Ya"),
     "yes_please": MessageLookupByLibrary.simpleMessage("Ya, silakan"),
@@ -558,7 +772,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "you_must_have_at_least_2_home_screen_pages":
         MessageLookupByLibrary.simpleMessage(
-          "Anda harus paling tidak memiliki dua halaman beranda",
+          "Anda harus memiliki setidaknya dua halaman layar beranda",
         ),
     "your_profile_must_be_public_otherwise_the_import_will_not_work":
         MessageLookupByLibrary.simpleMessage(

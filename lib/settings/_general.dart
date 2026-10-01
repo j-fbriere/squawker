@@ -277,41 +277,88 @@ class SettingsGeneralFragment extends StatelessWidget {
             leading: const Icon(Symbols.image),
             children: [
               PrefDropdown(
-                  fullWidth: false,
-                  title: Text(L10n.of(context).media_size),
-                  subtitle: Text(
-                    L10n.of(context).save_bandwidth_using_smaller_images,
+                fullWidth: false,
+                title: Text(L10n.of(context).media_image_quality),
+                subtitle: Text(
+                  L10n.of(context).save_bandwidth_using_smaller_images,
+                ),
+                pref: optionMediaSize,
+                items: [
+                  DropdownMenuItem(
+                    value: 'thumb',
+                    child: Text(L10n.of(context).thumbnail),
                   ),
-                  pref: optionMediaSize,
-                  items: [
-                    DropdownMenuItem(
-                      value: 'disabled',
-                      child: Text(L10n.of(context).disabled),
-                    ),
-                    DropdownMenuItem(
-                      value: 'thumb',
-                      child: Text(L10n.of(context).thumbnail),
-                    ),
-                    DropdownMenuItem(
-                      value: 'small',
-                      child: Text(L10n.of(context).small),
-                    ),
-                    DropdownMenuItem(
-                      value: 'medium',
-                      child: Text(L10n.of(context).medium),
-                    ),
-                    DropdownMenuItem(
-                      value: 'large',
-                      child: Text(L10n.of(context).large),
-                    ),
-                  ]),
+                  DropdownMenuItem(
+                    value: 'small',
+                    child: Text(L10n.of(context).small),
+                  ),
+                  DropdownMenuItem(
+                    value: 'medium',
+                    child: Text(L10n.of(context).medium),
+                  ),
+                  DropdownMenuItem(
+                    value: 'large',
+                    child: Text(L10n.of(context).large),
+                  ),
+                ]),
+              PrefDropdown(
+                fullWidth: false,
+                title: Text(L10n.of(context).media_video_quality),
+                subtitle: Text(
+                  L10n.of(context).save_bandwidth_using_smaller_videos,
+                ),
+                pref: optionMediaVideoQuality,
+                items: [
+                  DropdownMenuItem(
+                    value: 'thumb',
+                    child: Text(L10n.of(context).thumbnail),
+                  ),
+                  DropdownMenuItem(
+                    value: 'small',
+                    child: Text(L10n.of(context).small),
+                  ),
+                  DropdownMenuItem(
+                    value: 'medium',
+                    child: Text(L10n.of(context).medium),
+                  ),
+                  DropdownMenuItem(
+                    value: 'large',
+                    child: Text(L10n.of(context).large),
+                  ),
+                ]),
               PrefSwitch(
                 pref: optionMediaDefaultMute,
                 title: Text(L10n.of(context).mute_videos),
                 subtitle: Text(L10n.of(context).mute_video_description),
               ),
               PrefSwitch(
-                pref: optionMediaAllowBackgroundPlay,
+                pref: optionMediaDefaultLoop,
+                title: Text(L10n.of(context).loop_videos),
+                subtitle: Text(L10n.of(context).loop_videos_description),
+              ),
+              PrefSwitch(
+                pref: optionMediaDefaultAutoPlay,
+                title: Text(L10n.of(context).autoplay_videos),
+                subtitle: Text(L10n.of(context).autoplay_videos_description),
+              ),
+              PrefDropdown(
+                fullWidth: false,
+                title: Text(L10n.of(context).video_prefetch),
+                subtitle: Text(L10n.of(context).video_prefetch_description),
+                pref: optionMediaVideoPrefetchSeconds,
+                items: [
+                  DropdownMenuItem(
+                    value: 0,
+                    child: Text(L10n.of(context).video_prefetch_unlimited),
+                  ),
+                  for (var seconds in [1, 5, 15, 30, 60])
+                    DropdownMenuItem(
+                      value: seconds,
+                      child: Text(L10n.of(context).video_prefetch_seconds(seconds)),
+                    ),
+                ]),
+              PrefSwitch(
+                pref: optionMediaBackgroundPlayback,
                 title: Text(L10n.of(context).allow_background_play_label),
                 subtitle: Text(L10n.of(context).allow_background_play_description),
               ),
@@ -321,11 +368,6 @@ class SettingsGeneralFragment extends StatelessWidget {
                 subtitle: Text(L10n.of(context).allow_background_play_other_apps_description),
               ),
               const DownloadTypeSetting(),
-              PrefSwitch(
-                title: Text(L10n.of(context).download_video_best_quality_label),
-                pref: optionDownloadBestVideoQuality,
-                subtitle: Text(L10n.of(context).download_video_best_quality_description),
-              ),
             ],
           ),
           ExpansionTile(

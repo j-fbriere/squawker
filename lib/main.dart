@@ -197,11 +197,14 @@ Future<void> main() async {
     optionHomeShowTabLabels: true,
     optionSubscriptionInitialTab: 'tweets',
     optionMediaSize: 'medium',
+    optionMediaVideoQuality: 'medium',
     optionMediaDefaultMute: true,
-    optionMediaAllowBackgroundPlay: true,
+    optionMediaDefaultLoop: false,
+    optionMediaDefaultAutoPlay: false,
+    optionMediaBackgroundPlayback: true,
     optionMediaAllowBackgroundPlayOtherApps: true,
+    optionMediaVideoPrefetchSeconds: 0,
     optionNonConfirmationBiasMode: false,
-    optionDownloadBestVideoQuality: false,
     optionShouldCheckForUpdates: (getFlavor() != 'play' && getFlavor() != 'fdroid') ? true : false,
     optionSubscriptionGroupsOrderByAscending: true,
     optionSubscriptionGroupsOrderByField: 'name',
@@ -359,7 +362,7 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
     }
 
     // TODO: This doesn't work on iOS
-    void setDisableScreenshots(final bool secureModeEnabled) async {
+    void setDisableScreenshots(bool secureModeEnabled) async {
       if (secureModeEnabled) {
         await FlutterWindowManagerPlus.addFlags(FlutterWindowManagerPlus.FLAG_SECURE);
       } else {

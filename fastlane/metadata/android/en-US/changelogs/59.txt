@@ -1,0 +1,1 @@
+* Fix X server on demand file index issues for getting x-client-transaction-id (thanks to @Teskann)

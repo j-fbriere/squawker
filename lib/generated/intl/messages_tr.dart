@@ -75,6 +75,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m20(releaseVersion) =>
       "F-Droid istemciniz aracılığıyla ${releaseVersion} sürümüne güncelleyin";
 
+  static String m21(seconds) => "${seconds} sn";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("Hakkında"),
@@ -119,6 +121,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "app_info": MessageLookupByLibrary.simpleMessage("Uygulama Bilgisi"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Emin misiniz?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage(
+      "Videoları otomatik oynat",
+    ),
+    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(
+      "Etkinleştirildiğinde, videolar kullanıcı etkileşimi olmadan oynatılmaya başlayacaktır",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Geri"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X erişim belirtecimizi geçersiz kıldı. Lütfen Squawker\'ı yeniden açmayı deneyin!",
@@ -170,9 +178,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Abone Olunan Tarih",
     ),
     "default_subscription_tab": MessageLookupByLibrary.simpleMessage(
-      "Varsayılan abonelik sekmesi",
+      "Öntanımlı abonelik sekmesi",
     ),
-    "default_tab": MessageLookupByLibrary.simpleMessage("Varsayılan sekme"),
+    "default_tab": MessageLookupByLibrary.simpleMessage("Öntanımlı sekme"),
     "delete": MessageLookupByLibrary.simpleMessage("Sil"),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "Ekran görüntülerini devre dışı bırak",
@@ -278,6 +286,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "Verilerinizi dışa aktarın",
     ),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(
+      "Video yüklenemedi",
+    ),
     "feed": MessageLookupByLibrary.simpleMessage("Akış"),
     "filters": MessageLookupByLibrary.simpleMessage("Filtreler"),
     "finish": MessageLookupByLibrary.simpleMessage("Bitir"),
@@ -360,10 +371,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "live": MessageLookupByLibrary.simpleMessage("CANLI"),
     "logging": MessageLookupByLibrary.simpleMessage("Günlük tutma"),
     "login": MessageLookupByLibrary.simpleMessage("Oturum aç"),
+    "loop_videos": MessageLookupByLibrary.simpleMessage("Videoları döngüye al"),
+    "loop_videos_description": MessageLookupByLibrary.simpleMessage(
+      "Etkinleştirildiğinde, videolar bittiğinde tekrar oynatılacaktır",
+    ),
     "mandatory_label": MessageLookupByLibrary.simpleMessage("Zorunlu alanlar:"),
     "material_3": MessageLookupByLibrary.simpleMessage("Material 3?"),
     "media": MessageLookupByLibrary.simpleMessage("Medya"),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage(
+      "Resim kalitesi",
+    ),
     "media_size": MessageLookupByLibrary.simpleMessage("Medya boyutu"),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage(
+      "Video kalitesi",
+    ),
     "medium": MessageLookupByLibrary.simpleMessage("Orta"),
     "missing_page": MessageLookupByLibrary.simpleMessage("Eksik sayfa"),
     "mute_video_description": MessageLookupByLibrary.simpleMessage(
@@ -470,6 +491,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "proxy_error": MessageLookupByLibrary.simpleMessage("Vekil Hatası"),
     "proxy_label": MessageLookupByLibrary.simpleMessage("Vekil"),
+    "quality": MessageLookupByLibrary.simpleMessage("Kalite"),
     "regular_accounts": m12,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "MIT Lisansı altında yayınlandı",
@@ -484,10 +506,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "Sayfaları öntanımlı olana sıfırla",
     ),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage(
+      "Video oynatıcıyı yeniden başlat",
+    ),
     "retry": MessageLookupByLibrary.simpleMessage("Yeniden dene"),
     "save": MessageLookupByLibrary.simpleMessage("Kaydet"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "Daha küçük görüntülerle bant genişliğinden tasarruf edin",
+    ),
+    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
+      "Daha küçük videolarla bant genişliğinden tasarruf edin",
     ),
     "saved": MessageLookupByLibrary.simpleMessage("Kaydedilmiş"),
     "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(
@@ -726,6 +754,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "username_label": MessageLookupByLibrary.simpleMessage("Kullanıcı adı:"),
     "usernames": MessageLookupByLibrary.simpleMessage("Kullanıcı adları"),
     "version": MessageLookupByLibrary.simpleMessage("Sürüm"),
+    "video_prefetch": MessageLookupByLibrary.simpleMessage(
+      "Video önbelleğe alma süresi",
+    ),
+    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(
+      "Oynatımdan önce videonun ne kadarının önceden yükleneceği. Daha kısa bir süre, veri ve bellek tasarrufu sağlar ancak kararsız bağlantılarda yükleme nedeniyle daha fazla duraklamaya neden olabilir.",
+    ),
+    "video_prefetch_seconds": m21,
+    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(
+      "Sınırsız (öntanımlı)",
+    ),
     "warning_regular_account_unauthenticated_access_description":
         MessageLookupByLibrary.simpleMessage(
           "Twitter/X, misafir hesabı oluşturma özelliğini devre dışı bıraktı. Artık Ayarlar / Hesap bölümünde normal hesap(lar) ayarlamalısınız. Hesap olmadan yalnızca tweetler ve profillerle sınırlı kısmi bir erişim vardır. Burada açıklandığı gibi anonim bir normal hesap oluşturmak kolaydır:",

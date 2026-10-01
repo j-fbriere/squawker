@@ -66,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m20(releaseVersion) => "从 F-Droid 客户端更新 ${releaseVersion}";
 
+  static String m21(seconds) => "${seconds} 秒";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("关于"),
@@ -98,6 +100,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "app_info": MessageLookupByLibrary.simpleMessage("应用程序信息"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("你确定吗？"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage("自动播放视频"),
+    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(
+      "如启用，无需用户操作视频就将开始播放",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("返回"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X 使我们的访问令牌无效。请尝试重新打开 Squawker！",
@@ -213,6 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "导出 Twitter/X 令牌？",
     ),
     "export_your_data": MessageLookupByLibrary.simpleMessage("导出您的数据"),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage("加载视频失败"),
     "feed": MessageLookupByLibrary.simpleMessage("最新"),
     "filters": MessageLookupByLibrary.simpleMessage("过滤器"),
     "finish": MessageLookupByLibrary.simpleMessage("完毕"),
@@ -277,12 +284,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "live": MessageLookupByLibrary.simpleMessage("LIVE"),
     "logging": MessageLookupByLibrary.simpleMessage("日志"),
     "login": MessageLookupByLibrary.simpleMessage("登录"),
+    "loop_videos": MessageLookupByLibrary.simpleMessage("视频循环"),
+    "loop_videos_description": MessageLookupByLibrary.simpleMessage(
+      "如启用，播完视频后将循环播放",
+    ),
     "mandatory_label": MessageLookupByLibrary.simpleMessage("强制字段："),
     "material_3": MessageLookupByLibrary.simpleMessage(
       "使用第3版Material Design界面？",
     ),
     "media": MessageLookupByLibrary.simpleMessage("媒体"),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage("图像质量"),
     "media_size": MessageLookupByLibrary.simpleMessage("媒体尺寸"),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage("视频质量"),
     "medium": MessageLookupByLibrary.simpleMessage("中"),
     "missing_page": MessageLookupByLibrary.simpleMessage("缺失的页面"),
     "mute_video_description": MessageLookupByLibrary.simpleMessage(
@@ -361,6 +374,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "proxy_description": MessageLookupByLibrary.simpleMessage("所有请求的代理"),
     "proxy_error": MessageLookupByLibrary.simpleMessage("代理出错"),
     "proxy_label": MessageLookupByLibrary.simpleMessage("代理"),
+    "quality": MessageLookupByLibrary.simpleMessage("画质"),
     "regular_accounts": m12,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "以 MIT 许可证发布",
@@ -371,10 +385,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "report_a_bug": MessageLookupByLibrary.simpleMessage("报告 Bug 🐞"),
     "reporting_an_error": MessageLookupByLibrary.simpleMessage("发送错误报告"),
     "reset_home_pages": MessageLookupByLibrary.simpleMessage("将页面重置为默认值"),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage("重启视频播放器"),
     "retry": MessageLookupByLibrary.simpleMessage("重试"),
     "save": MessageLookupByLibrary.simpleMessage("保存"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "使用较小的图像以节省带宽",
+    ),
+    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
+      "用较小的视频节省带宽",
     ),
     "saved": MessageLookupByLibrary.simpleMessage("书签"),
     "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(
@@ -547,6 +565,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "username_label": MessageLookupByLibrary.simpleMessage("用户名："),
     "usernames": MessageLookupByLibrary.simpleMessage("用户名"),
     "version": MessageLookupByLibrary.simpleMessage("版本"),
+    "video_prefetch": MessageLookupByLibrary.simpleMessage("视频预览持续时长"),
+    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(
+      "播放前加载多少时间的视频。较短时长节省数据和内存，但在不稳定的连接上可能导致更多的加载暂停。",
+    ),
+    "video_prefetch_seconds": m21,
+    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(
+      "不限制 （默认）",
+    ),
     "warning_regular_account_unauthenticated_access_description":
         MessageLookupByLibrary.simpleMessage(
           "Twitter/X 已经禁止了创建来宾账户的能力。你应该在“设置/账户”下配置常规账户。没有常规账户，只能访问推文和个人资料页。创建匿名的常规账户并不难，步骤见：",

@@ -41,7 +41,7 @@ class _SubscriptionImportScreenState extends State<SubscriptionImportScreen> {
 
       _streamController?.add(0);
 
-      int? cursor;
+      String? cursor;
       int total = 0;
 
       // TODO: Test this still works
@@ -80,7 +80,7 @@ class _SubscriptionImportScreenState extends State<SubscriptionImportScreen> {
 
           _streamController?.add(total);
 
-          if (cursor == 0 || cursor == -1) {
+          if (cursor == null || cursor == '0' || cursor == '-1' || cursor!.isEmpty) {
             break;
           }
         }
