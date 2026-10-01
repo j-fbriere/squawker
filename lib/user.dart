@@ -81,8 +81,9 @@ class UserAvatar extends StatelessWidget {
 
 class UserTile extends StatelessWidget {
   final Subscription user;
+  final VoidCallback? onLongPress;
 
-  const UserTile({Key? key, required this.user}) : super(key: key);
+  const UserTile({Key? key, required this.user, this.onLongPress}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +105,7 @@ class UserTile extends StatelessWidget {
       onTap: () {
         pushNamedRoute(context, routeProfile, ProfileScreenArguments(user.id, user.screenName));
       },
+      onLongPress: onLongPress,
     );
   }
 }

@@ -621,6 +621,84 @@
     "@x_client_transaction_id_provider": {},
     "x_client_transaction_id_provider_description": "Set the x-client-transaction-id provider. It must be a domain name, without https. Reference: https://github.com/Teskann/x-client-transaction-id-generator",
     "@x_client_transaction_id_provider_description": {},
+    "download": "Download",
+    "@download": {},
+    "download_tweet": "Download tweet",
+    "@download_tweet": {},
+    "download_this_tweet": "Download this tweet",
+    "@download_this_tweet": {},
+    "download_all_tweets": "Download all tweets",
+    "@download_all_tweets": {},
+    "download_settings": "Download Settings",
+    "@download_settings": {},
+    "download_mode": "Download Mode",
+    "@download_mode": {},
+    "download_mode_full_scan": "Full Scan",
+    "@download_mode_full_scan": {},
+    "download_mode_fast": "Fast (T=3)",
+    "@download_mode_fast": {},
+    "download_mode_safe": "Safe (T=20)",
+    "@download_mode_safe": {},
+    "download_started": "Download started...",
+    "@download_started": {},
+    "download_completed": "Download completed!",
+    "@download_completed": {},
+    "download_failed": "Download failed",
+    "@download_failed": {},
+    "api_server": "API Server",
+    "@api_server": {},
+    "about_download": "About",
+    "@about_download": {},
+    "about_download_description": "Download tweets using gallery-dl backend",
+    "@about_download_description": {},
+    "settings_saved": "Settings saved",
+    "@settings_saved": {},
+    "api_server_address": "API Server Address",
+    "@api_server_address": {},
+    "cancel": "Cancel",
+    "@cancel": {},
+    "save": "Save",
+    "@save": {},
+    "selected_count": "{count} selected",
+    "@selected_count": {
+      "placeholders": {
+        "count": {
+          "type": "int"
+        }
+      }
+    },
+    "select_all": "Select all",
+    "@select_all": {},
+    "deselect_all": "Deselect all",
+    "@deselect_all": {},
+    "invert_selection": "Invert selection",
+    "@invert_selection": {},
+    "batch_unsubscribe": "Batch Unsubscribe",
+    "@batch_unsubscribe": {},
+    "batch_unsubscribe_confirm": "Are you sure you want to unsubscribe from {count} users?",
+    "@batch_unsubscribe_confirm": {
+      "placeholders": {
+        "count": {
+          "type": "int"
+        }
+      }
+    },
+    "batch_add_to_group": "Batch Add to Group",
+    "@batch_add_to_group": {},
+    "batch_remove_from_feed": "Batch Remove from Feed",
+    "@batch_remove_from_feed": {},
+    "batch_remove_from_feed_confirm": "Are you sure you want to remove {count} users from the feed?",
+    "@batch_remove_from_feed_confirm": {
+      "placeholders": {
+        "count": {
+          "type": "int"
+        }
+      }
+    },
+    "select_groups": "Select Groups",
+    "@select_groups": {},
+    "confirm": "Confirm",
+    "@confirm": {}
     "failed_to_load_video": "Failed to load the video",
     "@failed_to_load_video": {},
     "restart_video_player": "Restart the video player",
