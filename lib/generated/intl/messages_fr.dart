@@ -781,7 +781,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "video_prefetch_seconds": m21,
     "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(
-      "Illimitée (défault)",
+      "Illimitée (défaut)",
     ),
     "warning_regular_account_unauthenticated_access_description":
         MessageLookupByLibrary.simpleMessage(
