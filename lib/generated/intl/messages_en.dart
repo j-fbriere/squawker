@@ -23,6 +23,12 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(name) =>
       "Are you sure you want to delete the subscription group ${name}?";
 
+  static String m21(count) =>
+      "Are you sure you want to remove ${count} users from the feed?";
+
+  static String m22(count) =>
+      "Are you sure you want to unsubscribe from ${count} users?";
+
   static String m1(fileName) => "Data exported to ${fileName}";
 
   static String m2(fullPath) => "Data exported to ${fullPath}";
@@ -51,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m12(nbrRegularAccounts) =>
       "Regular accounts (${nbrRegularAccounts}):";
 
+  static String m23(count) => "${count} selected";
+
   static String m13(releaseVersion) => "Tap to download ${releaseVersion}";
 
   static String m14(getMediaType) => "Tap to show ${getMediaType}";
@@ -73,11 +81,15 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m20(releaseVersion) =>
       "Update to ${releaseVersion} through your F-Droid client";
 
-  static String m21(seconds) => "${seconds} s";
+  static String m24(seconds) => "${seconds} s";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("About"),
+    "about_download": MessageLookupByLibrary.simpleMessage("About"),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(
+      "Download tweets using gallery-dl backend",
+    ),
     "account": MessageLookupByLibrary.simpleMessage("Account"),
     "account_suspended": MessageLookupByLibrary.simpleMessage(
       "Account suspended",
@@ -118,6 +130,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "An update for Squawker is available! 🚀",
     ),
     "api_key": MessageLookupByLibrary.simpleMessage("API key"),
+    "api_server": MessageLookupByLibrary.simpleMessage("API Server"),
+    "api_server_address": MessageLookupByLibrary.simpleMessage(
+      "API Server Address",
+    ),
     "app_info": MessageLookupByLibrary.simpleMessage("App Info"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Are you sure?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
@@ -129,6 +145,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X has invalidated our access token. Please try re-opening Squawker!",
     ),
+    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(
+      "Batch Add to Group",
+    ),
+    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(
+      "Batch Remove from Feed",
+    ),
+    "batch_remove_from_feed_confirm": m21,
+    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(
+      "Batch Unsubscribe",
+    ),
+    "batch_unsubscribe_confirm": m22,
     "beta": MessageLookupByLibrary.simpleMessage("BETA"),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
@@ -144,6 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "community_notes_title": MessageLookupByLibrary.simpleMessage(
       "Readers added context",
     ),
+    "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to close Squawker?",
     ),
@@ -180,6 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "default_tab": MessageLookupByLibrary.simpleMessage("Default tab"),
     "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+    "deselect_all": MessageLookupByLibrary.simpleMessage("Deselect all"),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "Disable screenshots",
     ),
@@ -192,6 +221,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "donate": MessageLookupByLibrary.simpleMessage("Donate"),
     "download": MessageLookupByLibrary.simpleMessage("Download"),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage(
+      "Download all tweets",
+    ),
+    "download_completed": MessageLookupByLibrary.simpleMessage(
+      "Download completed!",
+    ),
+    "download_failed": MessageLookupByLibrary.simpleMessage("Download failed"),
     "download_handling": MessageLookupByLibrary.simpleMessage(
       "Download handling",
     ),
@@ -207,7 +243,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "Unable to download. This media may only be available as a stream, which Squawker cannot yet download.",
     ),
+    "download_mode": MessageLookupByLibrary.simpleMessage("Download Mode"),
+    "download_mode_fast": MessageLookupByLibrary.simpleMessage("Fast (T=3)"),
+    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(
+      "Full Scan",
+    ),
+    "download_mode_safe": MessageLookupByLibrary.simpleMessage("Safe (T=20)"),
     "download_path": MessageLookupByLibrary.simpleMessage("Download path"),
+    "download_settings": MessageLookupByLibrary.simpleMessage(
+      "Download Settings",
+    ),
+    "download_started": MessageLookupByLibrary.simpleMessage(
+      "Download started...",
+    ),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage(
+      "Download this tweet",
+    ),
+    "download_tweet": MessageLookupByLibrary.simpleMessage("Download tweet"),
     "download_video_best_quality_description":
         MessageLookupByLibrary.simpleMessage(
           "Download videos in best available quality",
@@ -329,6 +381,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "include_replies": MessageLookupByLibrary.simpleMessage("Include replies"),
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "Include retweets",
+    ),
+    "invert_selection": MessageLookupByLibrary.simpleMessage(
+      "Invert selection",
     ),
     "joined": m8,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
@@ -512,12 +567,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "search_term": MessageLookupByLibrary.simpleMessage("Search term"),
     "select": MessageLookupByLibrary.simpleMessage("Select"),
+    "select_all": MessageLookupByLibrary.simpleMessage("Select all"),
+    "select_groups": MessageLookupByLibrary.simpleMessage("Select Groups"),
+    "selected_count": m23,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "Selecting individual accounts to import, and assigning groups are both planned for the future already!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "settings_saved": MessageLookupByLibrary.simpleMessage("Settings saved"),
     "share_base_url": MessageLookupByLibrary.simpleMessage("Custom share URL"),
     "share_base_url_description": MessageLookupByLibrary.simpleMessage(
       "Use a custom base URL when sharing",
@@ -738,7 +797,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "video_prefetch_description": MessageLookupByLibrary.simpleMessage(
       "How much of a video is loaded ahead of playback. A shorter duration saves data and memory but may cause more pauses to load on unstable connections.",
     ),
-    "video_prefetch_seconds": m21,
+    "video_prefetch_seconds": m24,
     "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(
       "Unlimited (default)",
     ),

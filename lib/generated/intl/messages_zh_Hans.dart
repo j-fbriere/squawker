@@ -22,6 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(name) => "您确定要删除订阅组 ${name} 吗？";
 
+  static String m21(count) => "确定要从时间轴移除 ${count} 个用户吗？";
+
+  static String m22(count) => "确定要取消订阅 ${count} 个用户吗？";
+
   static String m1(fileName) => "导出数据至文件 ${fileName}";
 
   static String m2(fullPath) => "导出数据至路径 ${fullPath}";
@@ -47,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m12(nbrRegularAccounts) => "常规账户 （${nbrRegularAccounts}）：";
 
+  static String m23(count) => "已选择 ${count} 项";
+
   static String m13(releaseVersion) => "点击下载 ${releaseVersion}";
 
   static String m14(getMediaType) => "点击 ${getMediaType} 显示";
@@ -66,11 +72,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m20(releaseVersion) => "从 F-Droid 客户端更新 ${releaseVersion}";
 
-  static String m21(seconds) => "${seconds} 秒";
+  static String m24(seconds) => "${seconds} 秒";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("关于"),
+    "about_download": MessageLookupByLibrary.simpleMessage("关于"),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(
+      "使用 gallery-dl 后端下载推文",
+    ),
     "account": MessageLookupByLibrary.simpleMessage("账户"),
     "account_suspended": MessageLookupByLibrary.simpleMessage("账号已被冻结"),
     "activate_non_confirmation_bias_mode_description":
@@ -97,6 +107,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Squawker 有新版本 🚀",
     ),
     "api_key": MessageLookupByLibrary.simpleMessage("API 密钥"),
+    "api_server": MessageLookupByLibrary.simpleMessage("API 服务器"),
+    "api_server_address": MessageLookupByLibrary.simpleMessage("API 服务器地址"),
     "app_info": MessageLookupByLibrary.simpleMessage("应用程序信息"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("你确定吗？"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
@@ -108,6 +120,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X 使我们的访问令牌无效。请尝试重新打开 Squawker！",
     ),
+    "batch_add_to_group": MessageLookupByLibrary.simpleMessage("批量添加到订阅组"),
+    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage("批量从时间轴移除"),
+    "batch_remove_from_feed_confirm": m21,
+    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage("批量取消订阅"),
+    "batch_unsubscribe_confirm": m22,
     "beta": MessageLookupByLibrary.simpleMessage("测试版"),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage("基于 Twitter/X 配色方案的蓝色主题"),
@@ -117,6 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "choose_pages": MessageLookupByLibrary.simpleMessage("选择页面"),
     "close": MessageLookupByLibrary.simpleMessage("关闭"),
     "community_notes_title": MessageLookupByLibrary.simpleMessage("读者添加了上下文"),
+    "confirm": MessageLookupByLibrary.simpleMessage("确认"),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "确定要关闭 Squawker 吗？",
     ),
@@ -147,6 +165,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "default_subscription_tab": MessageLookupByLibrary.simpleMessage("关注页默认标签"),
     "default_tab": MessageLookupByLibrary.simpleMessage("默认页面"),
     "delete": MessageLookupByLibrary.simpleMessage("删除"),
+    "deselect_all": MessageLookupByLibrary.simpleMessage("取消全选"),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage("禁用截屏"),
     "disable_screenshots_hint": MessageLookupByLibrary.simpleMessage(
       "防止截屏。可能不适用于所有设备。",
@@ -157,6 +176,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "donate": MessageLookupByLibrary.simpleMessage("捐赠"),
     "download": MessageLookupByLibrary.simpleMessage("下载"),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage("下载所有推文"),
+    "download_completed": MessageLookupByLibrary.simpleMessage("下载完成！"),
+    "download_failed": MessageLookupByLibrary.simpleMessage("下载失败"),
     "download_handling": MessageLookupByLibrary.simpleMessage("下载处理"),
     "download_handling_description": MessageLookupByLibrary.simpleMessage(
       "下载应该如何工作",
@@ -168,7 +190,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "无法下载。 此媒体可能仅作为在线流提供，Squawker 尚无法下载。",
     ),
+    "download_mode": MessageLookupByLibrary.simpleMessage("下载模式"),
+    "download_mode_fast": MessageLookupByLibrary.simpleMessage("快速 (T=3)"),
+    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage("全量扫描"),
+    "download_mode_safe": MessageLookupByLibrary.simpleMessage("稳健 (T=20)"),
     "download_path": MessageLookupByLibrary.simpleMessage("下载路径"),
+    "download_settings": MessageLookupByLibrary.simpleMessage("下载设置"),
+    "download_started": MessageLookupByLibrary.simpleMessage("下载已开始..."),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage("下载此推文"),
+    "download_tweet": MessageLookupByLibrary.simpleMessage("下载推文"),
     "download_video_best_quality_description":
         MessageLookupByLibrary.simpleMessage("以可用的最高质量下载视频"),
     "download_video_best_quality_label": MessageLookupByLibrary.simpleMessage(
@@ -257,6 +287,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "imported_snapshot_data_users_so_far": m7,
     "include_replies": MessageLookupByLibrary.simpleMessage("包括回复"),
     "include_retweets": MessageLookupByLibrary.simpleMessage("包括转推"),
+    "invert_selection": MessageLookupByLibrary.simpleMessage("反选"),
     "joined": m8,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
       "应用重启时，会保持时间轴的滚动位置不变",
@@ -401,10 +432,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("搜索"),
     "search_term": MessageLookupByLibrary.simpleMessage("搜索词"),
     "select": MessageLookupByLibrary.simpleMessage("选择"),
+    "select_all": MessageLookupByLibrary.simpleMessage("全选"),
+    "select_groups": MessageLookupByLibrary.simpleMessage("选择订阅组"),
+    "selected_count": m23,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage("未来我们会支持导入单个账号到指定组！"),
     "send": MessageLookupByLibrary.simpleMessage("发送"),
     "settings": MessageLookupByLibrary.simpleMessage("设置"),
+    "settings_saved": MessageLookupByLibrary.simpleMessage("设置已保存"),
     "share_base_url": MessageLookupByLibrary.simpleMessage("自定义分享 URL"),
     "share_base_url_description": MessageLookupByLibrary.simpleMessage(
       "分享时使用自定义的基 URL",
@@ -569,7 +604,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "video_prefetch_description": MessageLookupByLibrary.simpleMessage(
       "播放前加载多少时间的视频。较短时长节省数据和内存，但在不稳定的连接上可能导致更多的加载暂停。",
     ),
-    "video_prefetch_seconds": m21,
+    "video_prefetch_seconds": m24,
     "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(
       "不限制 （默认）",
     ),

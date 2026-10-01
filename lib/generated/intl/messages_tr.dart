@@ -75,7 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m20(releaseVersion) =>
       "F-Droid istemciniz aracılığıyla ${releaseVersion} sürümüne güncelleyin";
 
-  static String m21(seconds) => "${seconds} sn";
+  static String m24(seconds) => "${seconds} sn";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -760,7 +760,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "video_prefetch_description": MessageLookupByLibrary.simpleMessage(
       "Oynatımdan önce videonun ne kadarının önceden yükleneceği. Daha kısa bir süre, veri ve bellek tasarrufu sağlar ancak kararsız bağlantılarda yükleme nedeniyle daha fazla duraklamaya neden olabilir.",
     ),
-    "video_prefetch_seconds": m21,
+    "video_prefetch_seconds": m24,
     "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(
       "Sınırsız (öntanımlı)",
     ),

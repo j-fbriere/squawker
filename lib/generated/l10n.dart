@@ -2731,6 +2731,256 @@ class L10n {
     );
   }
 
+  /// `Download tweet`
+  String get download_tweet {
+    return Intl.message(
+      'Download tweet',
+      name: 'download_tweet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Download this tweet`
+  String get download_this_tweet {
+    return Intl.message(
+      'Download this tweet',
+      name: 'download_this_tweet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Download all tweets`
+  String get download_all_tweets {
+    return Intl.message(
+      'Download all tweets',
+      name: 'download_all_tweets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Download Settings`
+  String get download_settings {
+    return Intl.message(
+      'Download Settings',
+      name: 'download_settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Download Mode`
+  String get download_mode {
+    return Intl.message(
+      'Download Mode',
+      name: 'download_mode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Scan`
+  String get download_mode_full_scan {
+    return Intl.message(
+      'Full Scan',
+      name: 'download_mode_full_scan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fast (T=3)`
+  String get download_mode_fast {
+    return Intl.message(
+      'Fast (T=3)',
+      name: 'download_mode_fast',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Safe (T=20)`
+  String get download_mode_safe {
+    return Intl.message(
+      'Safe (T=20)',
+      name: 'download_mode_safe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Download started...`
+  String get download_started {
+    return Intl.message(
+      'Download started...',
+      name: 'download_started',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Download completed!`
+  String get download_completed {
+    return Intl.message(
+      'Download completed!',
+      name: 'download_completed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Download failed`
+  String get download_failed {
+    return Intl.message(
+      'Download failed',
+      name: 'download_failed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `API Server`
+  String get api_server {
+    return Intl.message('API Server', name: 'api_server', desc: '', args: []);
+  }
+
+  /// `About`
+  String get about_download {
+    return Intl.message('About', name: 'about_download', desc: '', args: []);
+  }
+
+  /// `Download tweets using gallery-dl backend`
+  String get about_download_description {
+    return Intl.message(
+      'Download tweets using gallery-dl backend',
+      name: 'about_download_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings saved`
+  String get settings_saved {
+    return Intl.message(
+      'Settings saved',
+      name: 'settings_saved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `API Server Address`
+  String get api_server_address {
+    return Intl.message(
+      'API Server Address',
+      name: 'api_server_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{count} selected`
+  String selected_count(Object count) {
+    return Intl.message(
+      '$count selected',
+      name: 'selected_count',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Select all`
+  String get select_all {
+    return Intl.message('Select all', name: 'select_all', desc: '', args: []);
+  }
+
+  /// `Deselect all`
+  String get deselect_all {
+    return Intl.message(
+      'Deselect all',
+      name: 'deselect_all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invert selection`
+  String get invert_selection {
+    return Intl.message(
+      'Invert selection',
+      name: 'invert_selection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Batch Unsubscribe`
+  String get batch_unsubscribe {
+    return Intl.message(
+      'Batch Unsubscribe',
+      name: 'batch_unsubscribe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to unsubscribe from {count} users?`
+  String batch_unsubscribe_confirm(Object count) {
+    return Intl.message(
+      'Are you sure you want to unsubscribe from $count users?',
+      name: 'batch_unsubscribe_confirm',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Batch Add to Group`
+  String get batch_add_to_group {
+    return Intl.message(
+      'Batch Add to Group',
+      name: 'batch_add_to_group',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Batch Remove from Feed`
+  String get batch_remove_from_feed {
+    return Intl.message(
+      'Batch Remove from Feed',
+      name: 'batch_remove_from_feed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to remove {count} users from the feed?`
+  String batch_remove_from_feed_confirm(Object count) {
+    return Intl.message(
+      'Are you sure you want to remove $count users from the feed?',
+      name: 'batch_remove_from_feed_confirm',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Select Groups`
+  String get select_groups {
+    return Intl.message(
+      'Select Groups',
+      name: 'select_groups',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
+  }
+
   /// `Failed to load the video`
   String get failed_to_load_video {
     return Intl.message(

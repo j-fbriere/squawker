@@ -655,18 +655,8 @@
     "@settings_saved": {},
     "api_server_address": "API Server Address",
     "@api_server_address": {},
-    "cancel": "Cancel",
-    "@cancel": {},
-    "save": "Save",
-    "@save": {},
     "selected_count": "{count} selected",
-    "@selected_count": {
-      "placeholders": {
-        "count": {
-          "type": "int"
-        }
-      }
-    },
+    "@selected_count": {},
     "select_all": "Select all",
     "@select_all": {},
     "deselect_all": "Deselect all",
@@ -676,29 +666,17 @@
     "batch_unsubscribe": "Batch Unsubscribe",
     "@batch_unsubscribe": {},
     "batch_unsubscribe_confirm": "Are you sure you want to unsubscribe from {count} users?",
-    "@batch_unsubscribe_confirm": {
-      "placeholders": {
-        "count": {
-          "type": "int"
-        }
-      }
-    },
+    "@batch_unsubscribe_confirm": {},
     "batch_add_to_group": "Batch Add to Group",
     "@batch_add_to_group": {},
     "batch_remove_from_feed": "Batch Remove from Feed",
     "@batch_remove_from_feed": {},
     "batch_remove_from_feed_confirm": "Are you sure you want to remove {count} users from the feed?",
-    "@batch_remove_from_feed_confirm": {
-      "placeholders": {
-        "count": {
-          "type": "int"
-        }
-      }
-    },
+    "@batch_remove_from_feed_confirm": {},
     "select_groups": "Select Groups",
     "@select_groups": {},
     "confirm": "Confirm",
-    "@confirm": {}
+    "@confirm": {},
     "failed_to_load_video": "Failed to load the video",
     "@failed_to_load_video": {},
     "restart_video_player": "Restart the video player",
