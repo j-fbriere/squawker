@@ -677,6 +677,6 @@
     "@video_prefetch_description": {},
     "video_prefetch_seconds": "{seconds} s",
     "@video_prefetch_seconds": {},
-    "video_prefetch_unlimited": "Illimitée (défault)",
+    "video_prefetch_unlimited": "Illimitée (défaut)",
     "@video_prefetch_unlimited": {}
 }
