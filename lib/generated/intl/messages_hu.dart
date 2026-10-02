@@ -23,61 +23,71 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(name) =>
       "Biztos benne, hogy letörli a ${name} feliratkozási csoportot?";
 
-  static String m1(fileName) => "Adatok exportálva ${fileName} néven";
+  static String m1(count) => "";
 
-  static String m2(fullPath) => "Adatok exportálva a ${fullPath} mappába";
+  static String m2(count) => "";
 
-  static String m3(timeagoFormat) => "Befejeződött ${timeagoFormat} ideje";
+  static String m3(fileName) => "Adatok exportálva ${fileName} néven";
 
-  static String m4(timeagoFormat) => "Befejeződik ${timeagoFormat} időben";
+  static String m4(fullPath) => "Adatok exportálva a ${fullPath} mappába";
 
-  static String m5(snapshotData) =>
+  static String m5(timeagoFormat) => "Befejeződött ${timeagoFormat} ideje";
+
+  static String m6(timeagoFormat) => "Befejeződik ${timeagoFormat} időben";
+
+  static String m7(snapshotData) =>
       "${snapshotData} felhasználó sikeresen importálva";
 
-  static String m6(name) => "${name}";
+  static String m8(name) => "${name}";
 
-  static String m7(snapshotData) => "Eddig ${snapshotData} került importálásra";
+  static String m9(snapshotData) => "Eddig ${snapshotData} került importálásra";
 
-  static String m8(date) => "Csatlakozva ${date}";
+  static String m10(date) => "Csatlakozva ${date}";
 
-  static String m9(nbrGuestAccounts) =>
+  static String m11(nbrGuestAccounts) =>
       "Jelenleg ${nbrGuestAccounts} vendég fiók van";
 
-  static String m10(num, numFormatted) =>
+  static String m12(num, numFormatted) =>
       "{számú, többes, nulla{No votes} egy{One vote} kettő{Two votes} néhány{${numFormatted} votes} sok{${numFormatted} vote} más{${numFormatted} votes}}";
 
-  static String m11(errorMessage) =>
+  static String m13(errorMessage) =>
       "Ellenőrizze internet kapcsolatát.\n\n${errorMessage}";
 
-  static String m12(nbrRegularAccounts) => "Sima fiók (${nbrRegularAccounts}):";
+  static String m14(nbrRegularAccounts) => "Sima fiók (${nbrRegularAccounts}):";
 
-  static String m13(releaseVersion) =>
+  static String m15(count) => "";
+
+  static String m16(releaseVersion) =>
       "Nyomjon rá a ${releaseVersion} letöltéséhez";
 
-  static String m14(getMediaType) =>
+  static String m17(getMediaType) =>
       "Nyomjon rá, hogy látszódjon a ${getMediaType}";
 
-  static String m15(filePath) =>
+  static String m18(filePath) =>
       "A fájl nem létezik. Győződjön meg róla, hogy a ${filePath} helyen található";
 
-  static String m16(thisTweetUserName, timeAgo) =>
+  static String m19(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} újratweetelte ${timeAgo} idővel ezelőtt";
 
-  static String m17(num, numFormatted) =>
+  static String m20(num, numFormatted) =>
       "{számú, többes, nulla{no tweets} egy{one tweet} kettő{two tweets} néhány{${numFormatted} tweets} sok{${numFormatted} tweet} más{${numFormatted} tweets}}";
 
-  static String m18(widgetPlaceName) =>
+  static String m21(widgetPlaceName) =>
       "Nem tölthetőek be a trendek a ${widgetPlaceName}-hez";
 
-  static String m19(responseStatusCode) =>
+  static String m22(responseStatusCode) =>
       "Média nem menthető. A Twitter/X ${responseStatusCode} kódú hibát adott.";
 
-  static String m20(releaseVersion) =>
+  static String m23(releaseVersion) =>
       "Frissítsen a ${releaseVersion} verzióra az F-Droid kliensben";
+
+  static String m24(seconds) => "";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("Névjegy"),
+    "about_download": MessageLookupByLibrary.simpleMessage(""),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(""),
     "account": MessageLookupByLibrary.simpleMessage("Fiók"),
     "account_suspended": MessageLookupByLibrary.simpleMessage(
       "Fiók felfüggesztve",
@@ -123,13 +133,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "an_update_for_fritter_is_available": MessageLookupByLibrary.simpleMessage(
       "Frissítés elérhető a Squawker-hez! 🚀",
     ),
+    "api_key": MessageLookupByLibrary.simpleMessage(""),
+    "api_server": MessageLookupByLibrary.simpleMessage(""),
+    "api_server_address": MessageLookupByLibrary.simpleMessage(""),
     "app_info": MessageLookupByLibrary.simpleMessage("App Infó"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Biztos benne?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage(""),
+    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "back": MessageLookupByLibrary.simpleMessage("Vissza"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "A Twitter/X érvénytelenítette a belépő tokent. Próbálja meg újraindítani a Squawker-t!",
     ),
+    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed_confirm": m1,
+    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(""),
+    "batch_unsubscribe_confirm": m2,
     "beta": MessageLookupByLibrary.simpleMessage("BÉTA"),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
@@ -142,6 +162,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "choose": MessageLookupByLibrary.simpleMessage("Választás"),
     "choose_pages": MessageLookupByLibrary.simpleMessage("Válasszon oldalakat"),
     "close": MessageLookupByLibrary.simpleMessage("Bezár"),
+    "community_notes_title": MessageLookupByLibrary.simpleMessage(""),
+    "confirm": MessageLookupByLibrary.simpleMessage(""),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Biztos benne, hogy be akarja zárni a Squawker-t?",
     ),
@@ -166,8 +188,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("Ország"),
     "dark": MessageLookupByLibrary.simpleMessage("Sötét"),
     "data": MessageLookupByLibrary.simpleMessage("Adat"),
-    "data_exported_to_fileName": m1,
-    "data_exported_to_fullPath": m2,
+    "data_exported_to_fileName": m3,
+    "data_exported_to_fullPath": m4,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "Adatok sikeresen importálásra kerültek",
     ),
@@ -180,6 +202,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "default_tab": MessageLookupByLibrary.simpleMessage("Alap fül"),
     "delete": MessageLookupByLibrary.simpleMessage("Törlés"),
+    "deselect_all": MessageLookupByLibrary.simpleMessage(""),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "Képernyőkép tiltása",
     ),
@@ -187,8 +210,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Képernyőkép készítésének tiltása. Ez nem minden eszköznél működhet.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("Kikapcsolva"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(""),
     "donate": MessageLookupByLibrary.simpleMessage("Támogatás"),
     "download": MessageLookupByLibrary.simpleMessage("Letöltés"),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage(""),
+    "download_completed": MessageLookupByLibrary.simpleMessage(""),
+    "download_failed": MessageLookupByLibrary.simpleMessage(""),
     "download_handling": MessageLookupByLibrary.simpleMessage(
       "Kezelés letöltése",
     ),
@@ -204,7 +231,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "Nem tölthető le. A média csak közvetítésként elérhető, amit még a Squawker nem tud letölteni.",
     ),
+    "download_mode": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_fast": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_safe": MessageLookupByLibrary.simpleMessage(""),
     "download_path": MessageLookupByLibrary.simpleMessage("Letöltési útvonal"),
+    "download_settings": MessageLookupByLibrary.simpleMessage(""),
+    "download_started": MessageLookupByLibrary.simpleMessage(""),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_tweet": MessageLookupByLibrary.simpleMessage(""),
     "download_video_best_quality_description":
         MessageLookupByLibrary.simpleMessage(
           "Videók letöltése a legjobb elérhető minőségben",
@@ -220,8 +255,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email_label": MessageLookupByLibrary.simpleMessage("Email:"),
     "enable_": MessageLookupByLibrary.simpleMessage("Bekapcsolás ?"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m3,
-    "ends_timeago_format_endsAt_allowFromNow_true": m4,
+    "ended_timeago_format_endsAt_allowFromNow_true": m5,
+    "ends_timeago_format_endsAt_allowFromNow_true": m6,
     "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(
       "Javított kérések a hírfolyamokhoz (csak kevesebb ráta korlátozással)",
     ),
@@ -281,10 +316,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "Adatai exportálása",
     ),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(""),
     "feed": MessageLookupByLibrary.simpleMessage("Hírfolyam"),
     "filters": MessageLookupByLibrary.simpleMessage("Szűrők"),
     "finish": MessageLookupByLibrary.simpleMessage("Befejezés"),
-    "finished_with_snapshotData_users": m5,
+    "finished_with_snapshotData_users": m7,
     "followers": MessageLookupByLibrary.simpleMessage("Követők"),
     "following": MessageLookupByLibrary.simpleMessage("Bekövetve"),
     "forbidden": MessageLookupByLibrary.simpleMessage(
@@ -297,7 +333,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "general": MessageLookupByLibrary.simpleMessage("Általános"),
     "generic_username": MessageLookupByLibrary.simpleMessage("Felhasználó"),
-    "group_name": m6,
+    "group_name": m8,
     "groups": MessageLookupByLibrary.simpleMessage("Csoportok"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "Tedd még jobbá a Squawker-t",
@@ -323,14 +359,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "import_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Feliratkozások Importálása",
     ),
-    "imported_snapshot_data_users_so_far": m7,
+    "imported_snapshot_data_users_so_far": m9,
     "include_replies": MessageLookupByLibrary.simpleMessage(
       "Válaszok mutatása",
     ),
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "Retweet-ek mutatása",
     ),
-    "joined": m8,
+    "invert_selection": MessageLookupByLibrary.simpleMessage(""),
+    "joined": m10,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
       "Az idővonal eltolása megmarad a hírfolyamok számára app újraindítás után is",
     ),
@@ -355,16 +392,22 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Tudassa a fejlesztőkkel ha valami hiba jelentkezik",
         ),
+    "libre_translate_host": MessageLookupByLibrary.simpleMessage(""),
     "licenses": MessageLookupByLibrary.simpleMessage("Licenszek"),
     "light": MessageLookupByLibrary.simpleMessage("Világos"),
     "live": MessageLookupByLibrary.simpleMessage("ÉLŐ"),
     "logging": MessageLookupByLibrary.simpleMessage("Naplózás"),
+    "login": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "mandatory_label": MessageLookupByLibrary.simpleMessage(
       "Kitöltendő rubrikák:",
     ),
     "material_3": MessageLookupByLibrary.simpleMessage("Material 3?"),
     "media": MessageLookupByLibrary.simpleMessage("Média"),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage(""),
     "media_size": MessageLookupByLibrary.simpleMessage("Média méret"),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage(""),
     "medium": MessageLookupByLibrary.simpleMessage("Közepes"),
     "missing_page": MessageLookupByLibrary.simpleMessage("Hiányzó oldal"),
     "mute_video_description": MessageLookupByLibrary.simpleMessage(
@@ -373,7 +416,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mute_videos": MessageLookupByLibrary.simpleMessage("Videók némítása"),
     "name": MessageLookupByLibrary.simpleMessage("Név"),
     "name_label": MessageLookupByLibrary.simpleMessage("Név:"),
-    "nbr_guest_accounts": m9,
+    "nbr_guest_accounts": m11,
     "newTrans": MessageLookupByLibrary.simpleMessage("Új"),
     "next": MessageLookupByLibrary.simpleMessage("Következő"),
     "no": MessageLookupByLibrary.simpleMessage("Nem"),
@@ -389,12 +432,13 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Nincs feliratkozás. Próbáljon keresni vagy importálni néhányat!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage(""),
     "not_set": MessageLookupByLibrary.simpleMessage("Nincs beállítva"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
           "Megjegyzés: A Twitter/X limitációk miatt nem minden tweet jelenik meg",
         ),
-    "numberFormat_format_total_votes": m10,
+    "numberFormat_format_total_votes": m12,
     "ok": MessageLookupByLibrary.simpleMessage("Rendben"),
     "only_public_subscriptions_can_be_imported":
         MessageLookupByLibrary.simpleMessage(
@@ -414,6 +458,16 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "option_confirm_close_label": MessageLookupByLibrary.simpleMessage(
       "Bezárás megerősítése",
+    ),
+    "option_navigation_animations_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "option_navigation_animations_label": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "option_show_navigation_labels_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "option_show_navigation_labels_label": MessageLookupByLibrary.simpleMessage(
+      "",
     ),
     "optional_label": MessageLookupByLibrary.simpleMessage(
       "Kitölthető rubrikák:",
@@ -436,7 +490,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playback_speed": MessageLookupByLibrary.simpleMessage(
       "Visszajátszási sebesség",
     ),
-    "please_check_your_internet_connection_error_message": m11,
+    "please_check_your_internet_connection_error_message": m13,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage(
       "Kérem adjon meg egy nevet",
     ),
@@ -464,7 +518,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "proxy_error": MessageLookupByLibrary.simpleMessage("Proxy Hiba"),
     "proxy_label": MessageLookupByLibrary.simpleMessage("Proxy"),
-    "regular_accounts": m12,
+    "quality": MessageLookupByLibrary.simpleMessage(""),
+    "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Megjelenés az MIT Licensz alatt",
     ),
@@ -482,10 +537,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "Oldalak visszaállítása alapra",
     ),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage(""),
     "retry": MessageLookupByLibrary.simpleMessage("Újra"),
     "save": MessageLookupByLibrary.simpleMessage("Mentés"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "Sávszél megtakarítás kisebb képekkel",
+    ),
+    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
+      "",
     ),
     "saved": MessageLookupByLibrary.simpleMessage("Mentett"),
     "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(
@@ -494,12 +553,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("Keresés"),
     "search_term": MessageLookupByLibrary.simpleMessage("Kifejezés keresése"),
     "select": MessageLookupByLibrary.simpleMessage("Kiválasztás"),
+    "select_all": MessageLookupByLibrary.simpleMessage(""),
+    "select_groups": MessageLookupByLibrary.simpleMessage(""),
+    "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "Mind a fiókok egyenkénti kijelölése, mind a külön csoportkohoz való hozzárendelés egy tervben levő funkció a jövőre nézve!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("Küldés"),
     "settings": MessageLookupByLibrary.simpleMessage("Beállítások"),
+    "settings_saved": MessageLookupByLibrary.simpleMessage(""),
     "share_base_url": MessageLookupByLibrary.simpleMessage(
       "Egyéni megosztási URL",
     ),
@@ -544,12 +607,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Média lementve!",
     ),
     "system": MessageLookupByLibrary.simpleMessage("Rendszer"),
-    "tap_to_download_release_version": m13,
-    "tap_to_show_getMediaType_item_type": m14,
+    "tap_to_download_release_version": m16,
+    "tap_to_show_getMediaType_item_type": m17,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "Köszönjük, hogy segít a Squawker-nek! 💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "GitHub-os probléma (#143)",
     ),
@@ -574,7 +637,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "A tweet nem elérhető. Feltételezhetően törlésre került.",
     ),
-    "this_tweet_user_name_retweeted": m16,
+    "this_tweet_user_name_retweeted": m19,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "Ez a felhasználó nem követ senkit!",
     ),
@@ -597,6 +660,9 @@ class MessageLookup extends MessageLookupByLibrary {
           "Már létező Twitter/X fiókból való feliratkozások importálásához adja meg a felhasználónevét.",
         ),
     "toggle_all": MessageLookupByLibrary.simpleMessage("Mind ki/be jelölése"),
+    "translator_label": MessageLookupByLibrary.simpleMessage(""),
+    "translators_description": MessageLookupByLibrary.simpleMessage(""),
+    "translators_label": MessageLookupByLibrary.simpleMessage(""),
     "trending": MessageLookupByLibrary.simpleMessage("Felkapott"),
     "trends": MessageLookupByLibrary.simpleMessage("Trendek"),
     "true_black": MessageLookupByLibrary.simpleMessage("Teljesen Fekete?"),
@@ -608,7 +674,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Tweet-ek & válaszok",
     ),
-    "tweets_number": m17,
+    "tweets_number": m20,
     "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(
       "Vendég és sima",
     ),
@@ -669,7 +735,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "Keresési eredmények nem tölthetőek be.",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m18,
+    "unable_to_load_the_trends_for_widget_place_name": m21,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "Nem sikerült betölteni a tweet-et",
     ),
@@ -688,7 +754,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "Nem futtatható az adatbázis migráció",
         ),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m19,
+        m22,
     "unable_to_stream_the_trend_location_preference":
         MessageLookupByLibrary.simpleMessage(
           "Nem közvetíthető a trend hely preferencia",
@@ -699,7 +765,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unsupported_url": MessageLookupByLibrary.simpleMessage(
       "Nem támogatott URL",
     ),
-    "update_to_release_version_through_your_fdroid_client": m20,
+    "update_to_release_version_through_your_fdroid_client": m23,
     "updates": MessageLookupByLibrary.simpleMessage("Frissítések"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage(
@@ -715,6 +781,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "username_label": MessageLookupByLibrary.simpleMessage("Felhasználónév:"),
     "usernames": MessageLookupByLibrary.simpleMessage("Felhasználónevek"),
     "version": MessageLookupByLibrary.simpleMessage("Verzió"),
+    "video_prefetch": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_seconds": m24,
+    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(""),
     "warning_regular_account_unauthenticated_access_description":
         MessageLookupByLibrary.simpleMessage(
           "A Twitter/X kikapcsolta a vendég fiókok létrehozását. Be tudja állítani sima fiókját(jait) a Beállítások > Fiók részben. Fiók nélkül csak korlátozottan érhetőek el a tweet-ek és profilok. Könnyen létre tud hozni egy névtelen sima fiókot az alábbiak alapján:",
@@ -747,6 +817,11 @@ class MessageLookup extends MessageLookupByLibrary {
           "Be akarja kapcsolni az automata hiba jelentés küldést?",
         ),
     "x_api": MessageLookupByLibrary.simpleMessage("X API"),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(""),
     "yes": MessageLookupByLibrary.simpleMessage("Igen"),
     "yes_please": MessageLookupByLibrary.simpleMessage("Igen, kérem"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(

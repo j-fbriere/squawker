@@ -23,62 +23,62 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(name) =>
       "Are you sure you want to delete the subscription group ${name}?";
 
-  static String m21(count) =>
+  static String m1(count) =>
       "Are you sure you want to remove ${count} users from the feed?";
 
-  static String m22(count) =>
+  static String m2(count) =>
       "Are you sure you want to unsubscribe from ${count} users?";
 
-  static String m1(fileName) => "Data exported to ${fileName}";
+  static String m3(fileName) => "Data exported to ${fileName}";
 
-  static String m2(fullPath) => "Data exported to ${fullPath}";
+  static String m4(fullPath) => "Data exported to ${fullPath}";
 
-  static String m3(timeagoFormat) => "Ended ${timeagoFormat}";
+  static String m5(timeagoFormat) => "Ended ${timeagoFormat}";
 
-  static String m4(timeagoFormat) => "Ends ${timeagoFormat}";
+  static String m6(timeagoFormat) => "Ends ${timeagoFormat}";
 
-  static String m5(snapshotData) => "Finished with ${snapshotData} users";
+  static String m7(snapshotData) => "Finished with ${snapshotData} users";
 
-  static String m6(name) => "${name}";
+  static String m8(name) => "${name}";
 
-  static String m7(snapshotData) => "${snapshotData} users imported so far";
+  static String m9(snapshotData) => "${snapshotData} users imported so far";
 
-  static String m8(date) => "Joined ${date}";
+  static String m10(date) => "Joined ${date}";
 
-  static String m9(nbrGuestAccounts) =>
+  static String m11(nbrGuestAccounts) =>
       "There are ${nbrGuestAccounts} guest accounts";
 
-  static String m10(num, numFormatted) =>
+  static String m12(num, numFormatted) =>
       "${Intl.plural(num, zero: 'No votes', one: 'One vote', two: 'Two votes', few: '${numFormatted} votes', many: '${numFormatted} vote', other: '${numFormatted} votes')}";
 
-  static String m11(errorMessage) =>
+  static String m13(errorMessage) =>
       "Please check your Internet connection.\n\n${errorMessage}";
 
-  static String m12(nbrRegularAccounts) =>
+  static String m14(nbrRegularAccounts) =>
       "Regular accounts (${nbrRegularAccounts}):";
 
-  static String m23(count) => "${count} selected";
+  static String m15(count) => "${count} selected";
 
-  static String m13(releaseVersion) => "Tap to download ${releaseVersion}";
+  static String m16(releaseVersion) => "Tap to download ${releaseVersion}";
 
-  static String m14(getMediaType) => "Tap to show ${getMediaType}";
+  static String m17(getMediaType) => "Tap to show ${getMediaType}";
 
-  static String m15(filePath) =>
+  static String m18(filePath) =>
       "The file does not exist. Please ensure it is located at ${filePath}";
 
-  static String m16(thisTweetUserName, timeAgo) =>
+  static String m19(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} retweeted ${timeAgo}";
 
-  static String m17(num, numFormatted) =>
+  static String m20(num, numFormatted) =>
       "${Intl.plural(num, zero: 'no tweets', one: 'one tweet', two: 'two tweets', few: '${numFormatted} tweets', many: '${numFormatted} tweet', other: '${numFormatted} tweets')}";
 
-  static String m18(widgetPlaceName) =>
+  static String m21(widgetPlaceName) =>
       "Unable to load the trends for ${widgetPlaceName}";
 
-  static String m19(responseStatusCode) =>
+  static String m22(responseStatusCode) =>
       "Unable to save the media. Twitter/X returned a status of ${responseStatusCode}";
 
-  static String m20(releaseVersion) =>
+  static String m23(releaseVersion) =>
       "Update to ${releaseVersion} through your F-Droid client";
 
   static String m24(seconds) => "${seconds} s";
@@ -151,11 +151,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(
       "Batch Remove from Feed",
     ),
-    "batch_remove_from_feed_confirm": m21,
+    "batch_remove_from_feed_confirm": m1,
     "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(
       "Batch Unsubscribe",
     ),
-    "batch_unsubscribe_confirm": m22,
+    "batch_unsubscribe_confirm": m2,
     "beta": MessageLookupByLibrary.simpleMessage("BETA"),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
@@ -196,8 +196,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("Country"),
     "dark": MessageLookupByLibrary.simpleMessage("Dark"),
     "data": MessageLookupByLibrary.simpleMessage("Data"),
-    "data_exported_to_fileName": m1,
-    "data_exported_to_fullPath": m2,
+    "data_exported_to_fileName": m3,
+    "data_exported_to_fullPath": m4,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "Data imported successfully",
     ),
@@ -275,8 +275,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email_label": MessageLookupByLibrary.simpleMessage("Email:"),
     "enable_": MessageLookupByLibrary.simpleMessage("Enable ?"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m3,
-    "ends_timeago_format_endsAt_allowFromNow_true": m4,
+    "ended_timeago_format_endsAt_allowFromNow_true": m5,
+    "ends_timeago_format_endsAt_allowFromNow_true": m6,
     "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(
       "Enhanced requests for feeds (but with lower rate limits)",
     ),
@@ -338,7 +338,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "feed": MessageLookupByLibrary.simpleMessage("Feed"),
     "filters": MessageLookupByLibrary.simpleMessage("Filters"),
     "finish": MessageLookupByLibrary.simpleMessage("Finish"),
-    "finished_with_snapshotData_users": m5,
+    "finished_with_snapshotData_users": m7,
     "followers": MessageLookupByLibrary.simpleMessage("Followers"),
     "following": MessageLookupByLibrary.simpleMessage("Following"),
     "forbidden": MessageLookupByLibrary.simpleMessage(
@@ -351,7 +351,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "general": MessageLookupByLibrary.simpleMessage("General"),
     "generic_username": MessageLookupByLibrary.simpleMessage("User"),
-    "group_name": m6,
+    "group_name": m8,
     "groups": MessageLookupByLibrary.simpleMessage("Groups"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "Help make Squawker even better",
@@ -377,7 +377,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "import_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Import subscriptions",
     ),
-    "imported_snapshot_data_users_so_far": m7,
+    "imported_snapshot_data_users_so_far": m9,
     "include_replies": MessageLookupByLibrary.simpleMessage("Include replies"),
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "Include retweets",
@@ -385,7 +385,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invert_selection": MessageLookupByLibrary.simpleMessage(
       "Invert selection",
     ),
-    "joined": m8,
+    "joined": m10,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
       "The timeline offset is kept for feeds when the app restarts",
     ),
@@ -440,7 +440,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mute_videos": MessageLookupByLibrary.simpleMessage("Mute videos"),
     "name": MessageLookupByLibrary.simpleMessage("Name"),
     "name_label": MessageLookupByLibrary.simpleMessage("Name:"),
-    "nbr_guest_accounts": m9,
+    "nbr_guest_accounts": m11,
     "newTrans": MessageLookupByLibrary.simpleMessage("New"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "no": MessageLookupByLibrary.simpleMessage("No"),
@@ -460,7 +460,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Note: Due to a Twitter/X limitation, not all tweets may be included",
         ),
-    "numberFormat_format_total_votes": m10,
+    "numberFormat_format_total_votes": m12,
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "only_public_subscriptions_can_be_imported":
         MessageLookupByLibrary.simpleMessage(
@@ -504,7 +504,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pick_an_icon": MessageLookupByLibrary.simpleMessage("Pick an icon!"),
     "pinned_tweet": MessageLookupByLibrary.simpleMessage("Pinned tweet"),
     "playback_speed": MessageLookupByLibrary.simpleMessage("Playback speed"),
-    "please_check_your_internet_connection_error_message": m11,
+    "please_check_your_internet_connection_error_message": m13,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage(
       "Please enter a name",
     ),
@@ -533,7 +533,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "proxy_error": MessageLookupByLibrary.simpleMessage("Proxy Error"),
     "proxy_label": MessageLookupByLibrary.simpleMessage("Proxy"),
     "quality": MessageLookupByLibrary.simpleMessage("Quality"),
-    "regular_accounts": m12,
+    "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Released under the MIT License",
     ),
@@ -569,7 +569,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "select": MessageLookupByLibrary.simpleMessage("Select"),
     "select_all": MessageLookupByLibrary.simpleMessage("Select all"),
     "select_groups": MessageLookupByLibrary.simpleMessage("Select Groups"),
-    "selected_count": m23,
+    "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "Selecting individual accounts to import, and assigning groups are both planned for the future already!",
@@ -619,12 +619,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Saved the media!",
     ),
     "system": MessageLookupByLibrary.simpleMessage("System"),
-    "tap_to_download_release_version": m13,
-    "tap_to_show_getMediaType_item_type": m14,
+    "tap_to_download_release_version": m16,
+    "tap_to_show_getMediaType_item_type": m17,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "Thanks for helping Squawker! 💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "the GitHub issue (#143)",
     ),
@@ -649,7 +649,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "This tweet is unavailable. It was probably deleted.",
     ),
-    "this_tweet_user_name_retweeted": m16,
+    "this_tweet_user_name_retweeted": m19,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "This user does not follow anyone!",
     ),
@@ -688,7 +688,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Tweets & Replies",
     ),
-    "tweets_number": m17,
+    "tweets_number": m20,
     "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(
       "Guest and regular",
     ),
@@ -749,7 +749,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "Unable to load the search results.",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m18,
+    "unable_to_load_the_trends_for_widget_place_name": m21,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "Unable to load the tweet",
     ),
@@ -768,7 +768,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "Unable to run the database migrations",
         ),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m19,
+        m22,
     "unable_to_stream_the_trend_location_preference":
         MessageLookupByLibrary.simpleMessage(
           "Unable to stream the trend location preference",
@@ -777,7 +777,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unsave": MessageLookupByLibrary.simpleMessage("Unsave"),
     "unsubscribe": MessageLookupByLibrary.simpleMessage("Unsubscribe"),
     "unsupported_url": MessageLookupByLibrary.simpleMessage("Unsupported URL"),
-    "update_to_release_version_through_your_fdroid_client": m20,
+    "update_to_release_version_through_your_fdroid_client": m23,
     "updates": MessageLookupByLibrary.simpleMessage("Updates"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage(

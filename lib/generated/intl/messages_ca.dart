@@ -23,54 +23,69 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(name) =>
       "Estàs segur que vols suprimir el grup de subscripcions ${name}?";
 
-  static String m1(fileName) => "Dades exportades a ${fileName}";
+  static String m1(count) => "";
 
-  static String m2(fullPath) => "Dades exportades a ${fullPath}";
+  static String m2(count) => "";
 
-  static String m3(timeagoFormat) => "Acabat ${timeagoFormat}";
+  static String m3(fileName) => "Dades exportades a ${fileName}";
 
-  static String m4(timeagoFormat) => "Acaba ${timeagoFormat}";
+  static String m4(fullPath) => "Dades exportades a ${fullPath}";
 
-  static String m5(snapshotData) => "Finalitzat amb ${snapshotData} usuaris";
+  static String m5(timeagoFormat) => "Acabat ${timeagoFormat}";
 
-  static String m6(name) => "Grup: ${name}";
+  static String m6(timeagoFormat) => "Acaba ${timeagoFormat}";
 
-  static String m7(snapshotData) => "${snapshotData} usuaris importats per ara";
+  static String m7(snapshotData) => "Finalitzat amb ${snapshotData} usuaris";
 
-  static String m8(date) => "Es va unir el ${date}";
+  static String m8(name) => "Grup: ${name}";
 
-  static String m10(num, numFormatted) =>
+  static String m9(snapshotData) => "${snapshotData} usuaris importats per ara";
+
+  static String m10(date) => "Es va unir el ${date}";
+
+  static String m11(nbrGuestAccounts) => "";
+
+  static String m12(num, numFormatted) =>
       "${Intl.plural(num, zero: 'Cap vot', one: 'Un vot', two: 'Dos vots', few: '${numFormatted} vots', many: '${numFormatted} vot', other: '${numFormatted} vots')}";
 
-  static String m11(errorMessage) =>
+  static String m13(errorMessage) =>
       "Comprova la connexió a Internet.\n\n${errorMessage}";
 
-  static String m13(releaseVersion) =>
+  static String m14(nbrRegularAccounts) => "";
+
+  static String m15(count) => "";
+
+  static String m16(releaseVersion) =>
       "Fes un toc per descarregar ${releaseVersion}";
 
-  static String m14(getMediaType) => "Fes un toc per mostrar ${getMediaType}";
+  static String m17(getMediaType) => "Fes un toc per mostrar ${getMediaType}";
 
-  static String m15(filePath) =>
+  static String m18(filePath) =>
       "El fitxer no existeix. Assegureu-vos que es troba a ${filePath}";
 
-  static String m16(thisTweetUserName, timeAgo) =>
+  static String m19(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} retuitejat ${timeAgo}";
 
-  static String m17(num, numFormatted) =>
+  static String m20(num, numFormatted) =>
       "${Intl.plural(num, zero: 'cap tweets', one: 'un tweet', two: 'dos tweets', few: '${numFormatted} tweets', many: '${numFormatted} tweet', other: '${numFormatted} tweets')}";
 
-  static String m18(widgetPlaceName) =>
+  static String m21(widgetPlaceName) =>
       "No s\'han pogut carregar les tendències per ${widgetPlaceName}";
 
-  static String m19(responseStatusCode) =>
+  static String m22(responseStatusCode) =>
       "No s\'ha pogut desar el suport. Twitter/X ha retornat un estat de ${responseStatusCode}";
 
-  static String m20(releaseVersion) =>
+  static String m23(releaseVersion) =>
       "Actualitza-ho a ${releaseVersion} a través del client de F-Droid";
+
+  static String m24(seconds) => "";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("Quant a"),
+    "about_download": MessageLookupByLibrary.simpleMessage(""),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(""),
+    "account": MessageLookupByLibrary.simpleMessage(""),
     "account_suspended": MessageLookupByLibrary.simpleMessage("Compte suspés"),
     "activate_non_confirmation_bias_mode_description":
         MessageLookupByLibrary.simpleMessage(
@@ -80,21 +95,45 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Activa el mode de biaix de no confirmació",
         ),
+    "add_account": MessageLookupByLibrary.simpleMessage(""),
+    "add_account_title": MessageLookupByLibrary.simpleMessage(""),
+    "add_subscriptions": MessageLookupByLibrary.simpleMessage(""),
+    "add_to_feed": MessageLookupByLibrary.simpleMessage(""),
     "add_to_group": MessageLookupByLibrary.simpleMessage("Afegir al grup"),
     "all": MessageLookupByLibrary.simpleMessage("Tot"),
     "all_the_great_software_used_by_fritter":
         MessageLookupByLibrary.simpleMessage(
           "Tot el genial programari utilitzat per Squawker",
         ),
+    "allow_background_play_description": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "allow_background_play_label": MessageLookupByLibrary.simpleMessage(""),
+    "allow_background_play_other_apps_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "allow_background_play_other_apps_label":
+        MessageLookupByLibrary.simpleMessage(""),
     "an_update_for_fritter_is_available": MessageLookupByLibrary.simpleMessage(
       "Hi ha disponible una actualització per Squawker! 🚀",
     ),
+    "api_key": MessageLookupByLibrary.simpleMessage(""),
+    "api_server": MessageLookupByLibrary.simpleMessage(""),
+    "api_server_address": MessageLookupByLibrary.simpleMessage(""),
+    "app_info": MessageLookupByLibrary.simpleMessage(""),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("N\'estàs segur?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage(""),
+    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "back": MessageLookupByLibrary.simpleMessage("Enrere"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "El Twitter/X ha invalidat el testimoni d\'accés. Si us plau, proveu de tornar a obrir Squawker!",
     ),
+    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed_confirm": m1,
+    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(""),
+    "batch_unsubscribe_confirm": m2,
+    "beta": MessageLookupByLibrary.simpleMessage(""),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
           "Tema blau basat en l\'esquema de colors de Twitter/X",
@@ -104,7 +143,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Error catastròfic",
     ),
     "choose": MessageLookupByLibrary.simpleMessage("Tria"),
+    "choose_pages": MessageLookupByLibrary.simpleMessage(""),
     "close": MessageLookupByLibrary.simpleMessage("Tanca"),
+    "community_notes_title": MessageLookupByLibrary.simpleMessage(""),
+    "confirm": MessageLookupByLibrary.simpleMessage(""),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Segur que vols tancar Squawker?",
     ),
@@ -129,8 +171,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("País"),
     "dark": MessageLookupByLibrary.simpleMessage("Fosc"),
     "data": MessageLookupByLibrary.simpleMessage("Dades"),
-    "data_exported_to_fileName": m1,
-    "data_exported_to_fullPath": m2,
+    "data_exported_to_fileName": m3,
+    "data_exported_to_fullPath": m4,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "Dades importades correctament",
     ),
@@ -138,8 +180,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "date_subscribed": MessageLookupByLibrary.simpleMessage(
       "Data de Subscripció",
     ),
+    "default_subscription_tab": MessageLookupByLibrary.simpleMessage(""),
     "default_tab": MessageLookupByLibrary.simpleMessage("Pestanya per defecte"),
     "delete": MessageLookupByLibrary.simpleMessage("Eliminar"),
+    "deselect_all": MessageLookupByLibrary.simpleMessage(""),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "Deshabilita captures de pantalla",
     ),
@@ -147,8 +191,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Evita que es prenguin captures de pantalla. Pot ser que això no funcioni en tots els dispositius.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("Deshabilitat"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(""),
     "donate": MessageLookupByLibrary.simpleMessage("Donar"),
     "download": MessageLookupByLibrary.simpleMessage("Descarregar"),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage(""),
+    "download_completed": MessageLookupByLibrary.simpleMessage(""),
+    "download_failed": MessageLookupByLibrary.simpleMessage(""),
     "download_handling": MessageLookupByLibrary.simpleMessage(
       "Gestió de baixades",
     ),
@@ -164,17 +212,44 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "No s\'ha pogut descarregar. Aquest mitjà només pot estar disponible com a flux, cosa que Squawker encara no pot descarregar.",
     ),
+    "download_mode": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_fast": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_safe": MessageLookupByLibrary.simpleMessage(""),
     "download_path": MessageLookupByLibrary.simpleMessage("Ruta de descàrrega"),
+    "download_settings": MessageLookupByLibrary.simpleMessage(""),
+    "download_started": MessageLookupByLibrary.simpleMessage(""),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_video_best_quality_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "download_video_best_quality_label": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
       "Descarregant suports…",
     ),
+    "edit_account_title": MessageLookupByLibrary.simpleMessage(""),
+    "email_label": MessageLookupByLibrary.simpleMessage(""),
     "enable_": MessageLookupByLibrary.simpleMessage("Habilitar ?"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m3,
-    "ends_timeago_format_endsAt_allowFromNow_true": m4,
+    "ended_timeago_format_endsAt_allowFromNow_true": m5,
+    "ends_timeago_format_endsAt_allowFromNow_true": m6,
+    "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_feeds_label": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_profile_description": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_profile_label": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_searches_description": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_searches_label": MessageLookupByLibrary.simpleMessage(""),
+    "enter_comma_separated_twitter_usernames":
+        MessageLookupByLibrary.simpleMessage(""),
     "enter_your_twitter_username": MessageLookupByLibrary.simpleMessage(
       "Introdeix el teu nom d\'usuari de Twitter/X",
     ),
+    "error_from_twitter": MessageLookupByLibrary.simpleMessage(""),
+    "exclusions_feed_description": MessageLookupByLibrary.simpleMessage(""),
+    "exclusions_feed_label": MessageLookupByLibrary.simpleMessage(""),
     "export": MessageLookupByLibrary.simpleMessage("Exportar"),
+    "export_guest_accounts": MessageLookupByLibrary.simpleMessage(""),
     "export_settings": MessageLookupByLibrary.simpleMessage(
       "Exportar la configuració?",
     ),
@@ -188,12 +263,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Exportar les subscripcions?",
     ),
     "export_tweets": MessageLookupByLibrary.simpleMessage("Exportar tuits?"),
+    "export_twitter_tokens": MessageLookupByLibrary.simpleMessage(""),
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "Expotar les teves dades",
     ),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(""),
     "feed": MessageLookupByLibrary.simpleMessage("Continguts"),
     "filters": MessageLookupByLibrary.simpleMessage("Filtres"),
-    "finished_with_snapshotData_users": m5,
+    "finish": MessageLookupByLibrary.simpleMessage(""),
+    "finished_with_snapshotData_users": m7,
     "followers": MessageLookupByLibrary.simpleMessage("Seguidors"),
     "following": MessageLookupByLibrary.simpleMessage("Seguint"),
     "forbidden": MessageLookupByLibrary.simpleMessage(
@@ -201,8 +279,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "fritter": MessageLookupByLibrary.simpleMessage("Squawker"),
     "fritter_blue": MessageLookupByLibrary.simpleMessage("Squawker blau"),
+    "functionality_unsupported": MessageLookupByLibrary.simpleMessage(""),
     "general": MessageLookupByLibrary.simpleMessage("General"),
-    "group_name": m6,
+    "generic_username": MessageLookupByLibrary.simpleMessage(""),
+    "group_name": m8,
     "groups": MessageLookupByLibrary.simpleMessage("Grups"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "Ajuda a fer que Squawker sigui encara millor",
@@ -228,19 +308,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "import_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Importar subscripcions",
     ),
-    "imported_snapshot_data_users_so_far": m7,
+    "imported_snapshot_data_users_so_far": m9,
     "include_replies": MessageLookupByLibrary.simpleMessage(
       "Incloure respostes",
     ),
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "Incloure retuits",
     ),
-    "joined": m8,
+    "invert_selection": MessageLookupByLibrary.simpleMessage(""),
+    "joined": m10,
+    "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(""),
+    "keep_feed_offset_label": MessageLookupByLibrary.simpleMessage(""),
     "language": MessageLookupByLibrary.simpleMessage("Idioma"),
     "language_subtitle": MessageLookupByLibrary.simpleMessage(
       "Requereix reiniciar",
     ),
     "large": MessageLookupByLibrary.simpleMessage("Gran"),
+    "leaner_feeds_description": MessageLookupByLibrary.simpleMessage(""),
+    "leaner_feeds_label": MessageLookupByLibrary.simpleMessage(""),
     "legacy_android_import": MessageLookupByLibrary.simpleMessage(
       "Importa de Legacy Android",
     ),
@@ -248,15 +333,29 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Fes saber als desenvolupadors si alguna cosa s\'ha trencat",
         ),
+    "libre_translate_host": MessageLookupByLibrary.simpleMessage(""),
     "licenses": MessageLookupByLibrary.simpleMessage("Llicències"),
     "light": MessageLookupByLibrary.simpleMessage("Clar"),
     "live": MessageLookupByLibrary.simpleMessage("DIRECTE"),
     "logging": MessageLookupByLibrary.simpleMessage("Enregistrament"),
+    "login": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos_description": MessageLookupByLibrary.simpleMessage(""),
+    "mandatory_label": MessageLookupByLibrary.simpleMessage(""),
+    "material_3": MessageLookupByLibrary.simpleMessage(""),
     "media": MessageLookupByLibrary.simpleMessage("Mèdia"),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage(""),
     "media_size": MessageLookupByLibrary.simpleMessage("Tamany de mèdia"),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage(""),
     "medium": MessageLookupByLibrary.simpleMessage("Mitjà"),
+    "missing_page": MessageLookupByLibrary.simpleMessage(""),
+    "mute_video_description": MessageLookupByLibrary.simpleMessage(""),
+    "mute_videos": MessageLookupByLibrary.simpleMessage(""),
     "name": MessageLookupByLibrary.simpleMessage("Nom"),
+    "name_label": MessageLookupByLibrary.simpleMessage(""),
+    "nbr_guest_accounts": m11,
     "newTrans": MessageLookupByLibrary.simpleMessage("Nou"),
+    "next": MessageLookupByLibrary.simpleMessage(""),
     "no": MessageLookupByLibrary.simpleMessage("No"),
     "no_data_was_returned_which_should_never_happen_please_report_a_bug_if_possible":
         MessageLookupByLibrary.simpleMessage(
@@ -268,32 +367,53 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "No hi ha subscripcions. Prova de cercar-ne o importar-ne alguna!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage(""),
     "not_set": MessageLookupByLibrary.simpleMessage("No establert"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
           "Nota: A causa d\'una limitació de Twitter/X, no es poden incloure tots els tuits",
         ),
-    "numberFormat_format_total_votes": m10,
+    "numberFormat_format_total_votes": m12,
     "ok": MessageLookupByLibrary.simpleMessage("D\'acord"),
+    "only_public_subscriptions_can_be_imported":
+        MessageLookupByLibrary.simpleMessage(""),
     "oops_something_went_wrong": MessageLookupByLibrary.simpleMessage(
       "Ui! Alguna cosa ha anat malament 🥲",
     ),
     "open_app_settings": MessageLookupByLibrary.simpleMessage(
       "Obre la configuració de l\'aplicació",
     ),
+    "open_in_browser": MessageLookupByLibrary.simpleMessage(""),
+    "option_confirm_close_description": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "option_confirm_close_label": MessageLookupByLibrary.simpleMessage(""),
+    "option_navigation_animations_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "option_navigation_animations_label": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "option_show_navigation_labels_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "option_show_navigation_labels_label": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "optional_label": MessageLookupByLibrary.simpleMessage(""),
     "page_not_found": MessageLookupByLibrary.simpleMessage(
       "Twitter/X diu que la pàgina no existeix, però pot ser que no sigui veritat",
     ),
+    "password_label": MessageLookupByLibrary.simpleMessage(""),
     "permission_not_granted": MessageLookupByLibrary.simpleMessage(
       "No s\'ha concedit el permís. Torneu-ho a provar després de concedir-lo!",
     ),
+    "phone_label": MessageLookupByLibrary.simpleMessage(""),
     "pick_a_color": MessageLookupByLibrary.simpleMessage("Tria un color!"),
     "pick_an_icon": MessageLookupByLibrary.simpleMessage("Escull una icona!"),
     "pinned_tweet": MessageLookupByLibrary.simpleMessage("Tuit ancorat"),
     "playback_speed": MessageLookupByLibrary.simpleMessage(
       "Velocitat de reproducció",
     ),
-    "please_check_your_internet_connection_error_message": m11,
+    "please_check_your_internet_connection_error_message": m13,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage(
       "Si us plau introdueix un nom",
     ),
@@ -316,9 +436,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "prefix": MessageLookupByLibrary.simpleMessage("prefix"),
     "private_profile": MessageLookupByLibrary.simpleMessage("Perfil privat"),
+    "proxy_description": MessageLookupByLibrary.simpleMessage(""),
+    "proxy_error": MessageLookupByLibrary.simpleMessage(""),
+    "proxy_label": MessageLookupByLibrary.simpleMessage(""),
+    "quality": MessageLookupByLibrary.simpleMessage(""),
+    "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Llançat sota la llicència MIT",
     ),
+    "remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
     "replying_to": MessageLookupByLibrary.simpleMessage("Responent a"),
     "report": MessageLookupByLibrary.simpleMessage("Reportar"),
     "report_a_bug": MessageLookupByLibrary.simpleMessage(
@@ -330,20 +456,33 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "Reinicia a les pàgines per defecte",
     ),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage(""),
     "retry": MessageLookupByLibrary.simpleMessage("Reintentar"),
     "save": MessageLookupByLibrary.simpleMessage("Desa"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "Estalviar amplada de banda amb imatges més petites",
     ),
+    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
     "saved": MessageLookupByLibrary.simpleMessage("Desat"),
+    "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(""),
     "search": MessageLookupByLibrary.simpleMessage("Cerca"),
     "search_term": MessageLookupByLibrary.simpleMessage("Terme de cerca"),
     "select": MessageLookupByLibrary.simpleMessage("Selecciona"),
+    "select_all": MessageLookupByLibrary.simpleMessage(""),
+    "select_groups": MessageLookupByLibrary.simpleMessage(""),
+    "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "La selecció de comptes individuals per importar i l\'assignació de grups ja estan planificats per al futur!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("Enviar"),
+    "settings": MessageLookupByLibrary.simpleMessage(""),
+    "settings_saved": MessageLookupByLibrary.simpleMessage(""),
+    "share_base_url": MessageLookupByLibrary.simpleMessage(""),
+    "share_base_url_description": MessageLookupByLibrary.simpleMessage(""),
+    "share_tweet_as_image": MessageLookupByLibrary.simpleMessage(""),
     "share_tweet_content": MessageLookupByLibrary.simpleMessage(
       "Compartir el contingut del tuit",
     ),
@@ -379,12 +518,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Suport desat!",
     ),
     "system": MessageLookupByLibrary.simpleMessage("Sistema"),
-    "tap_to_download_release_version": m13,
-    "tap_to_show_getMediaType_item_type": m14,
+    "tap_to_download_release_version": m16,
+    "tap_to_show_getMediaType_item_type": m17,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "Gràcies per ajudar a Squawker! 💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "el problema de GitHub (#143)",
     ),
@@ -409,7 +548,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "Aquest tuit no està disponible. Provablement s\'ha eliminat.",
     ),
-    "this_tweet_user_name_retweeted": m16,
+    "this_tweet_user_name_retweeted": m19,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "Aquest usuari no segueix a ningú!",
     ),
@@ -419,20 +558,39 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "thread": MessageLookupByLibrary.simpleMessage("Fil"),
     "thumbnail": MessageLookupByLibrary.simpleMessage("Miniatura"),
+    "thumbnail_not_available": MessageLookupByLibrary.simpleMessage(""),
     "timed_out": MessageLookupByLibrary.simpleMessage("Temps excedit"),
+    "to_import_specific_subscriptions_enter_your_comma_separated_usernames_below":
+        MessageLookupByLibrary.simpleMessage(""),
     "to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below":
         MessageLookupByLibrary.simpleMessage(
           "Per importar subscripcions des d\'un compte de Twitter/X existent, introduïu el vostre nom d\'usuari a continuació.",
         ),
     "toggle_all": MessageLookupByLibrary.simpleMessage("Commuta-ho tot"),
+    "translator_label": MessageLookupByLibrary.simpleMessage(""),
+    "translators_description": MessageLookupByLibrary.simpleMessage(""),
+    "translators_label": MessageLookupByLibrary.simpleMessage(""),
     "trending": MessageLookupByLibrary.simpleMessage("Tendències"),
     "trends": MessageLookupByLibrary.simpleMessage("Tendències"),
     "true_black": MessageLookupByLibrary.simpleMessage("Veritablement Fosc?"),
+    "tweet_font_size_description": MessageLookupByLibrary.simpleMessage(""),
+    "tweet_font_size_label": MessageLookupByLibrary.simpleMessage(""),
     "tweets": MessageLookupByLibrary.simpleMessage("Tuits"),
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Tweets i Respostes",
     ),
-    "tweets_number": m17,
+    "tweets_number": m20,
+    "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(""),
+    "twitter_account_types_description": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "twitter_account_types_label": MessageLookupByLibrary.simpleMessage(""),
+    "twitter_account_types_only_regular": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "twitter_account_types_priority_to_regular":
+        MessageLookupByLibrary.simpleMessage(""),
+    "two_home_pages_required": MessageLookupByLibrary.simpleMessage(""),
     "unable_to_find_the_available_trend_locations":
         MessageLookupByLibrary.simpleMessage(
           "No s\'han pogut trobar les ubicacions de tendència disponibles.",
@@ -476,7 +634,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "No s\'han pogut carregar els resultats de la cerca.",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m18,
+    "unable_to_load_the_trends_for_widget_place_name": m21,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "No s\'ha pogut carregat el tuit",
     ),
@@ -495,7 +653,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "No s\'han pogut executar les migracions de la base de dades",
         ),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m19,
+        m22,
     "unable_to_stream_the_trend_location_preference":
         MessageLookupByLibrary.simpleMessage(
           "No s\'ha pogut transmetre la preferència d\'ubicació de la tendència",
@@ -503,7 +661,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "unknown": MessageLookupByLibrary.simpleMessage("Desconegut"),
     "unsave": MessageLookupByLibrary.simpleMessage("Desfés"),
     "unsubscribe": MessageLookupByLibrary.simpleMessage("Anul·lar subscripció"),
-    "update_to_release_version_through_your_fdroid_client": m20,
+    "unsupported_url": MessageLookupByLibrary.simpleMessage(""),
+    "update_to_release_version_through_your_fdroid_client": m23,
     "updates": MessageLookupByLibrary.simpleMessage("Actualitzacions"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage(
@@ -511,7 +670,18 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "user_not_found": MessageLookupByLibrary.simpleMessage("Usuari no trobat"),
     "username": MessageLookupByLibrary.simpleMessage("Nom d\'usuari"),
+    "username_exclude": MessageLookupByLibrary.simpleMessage(""),
+    "username_label": MessageLookupByLibrary.simpleMessage(""),
+    "usernames": MessageLookupByLibrary.simpleMessage(""),
     "version": MessageLookupByLibrary.simpleMessage("Versió"),
+    "video_prefetch": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_seconds": m24,
+    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(""),
+    "warning_regular_account_unauthenticated_access_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "warning_regular_account_unauthenticated_access_title":
+        MessageLookupByLibrary.simpleMessage(""),
     "when_a_new_app_update_is_available": MessageLookupByLibrary.simpleMessage(
       "Quan hi ha disponible una nova actualització d\'una aplicació",
     ),
@@ -527,10 +697,18 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Quina pestanya es mostra quan s\'obre l\'aplicació",
         ),
+    "which_tab_is_shown_when_the_subscription_opens":
+        MessageLookupByLibrary.simpleMessage(""),
     "would_you_like_to_enable_automatic_error_reporting":
         MessageLookupByLibrary.simpleMessage(
           "Voleu habilitar l\'informe automàtic d\'errors?",
         ),
+    "x_api": MessageLookupByLibrary.simpleMessage(""),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(""),
     "yes": MessageLookupByLibrary.simpleMessage("Sí"),
     "yes_please": MessageLookupByLibrary.simpleMessage("Sí, si us plau"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(

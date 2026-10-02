@@ -23,54 +23,74 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(name) =>
       "Vai tiešām vēlaties dzēst ${name} abonementu grupu?";
 
-  static String m1(fileName) => "Dati izgūti ${fileName} datnē";
+  static String m1(count) => "";
 
-  static String m2(fullPath) => "Dati izgūti ${fullPath} mapē";
+  static String m2(count) => "";
 
-  static String m3(timeagoFormat) => "Pabeigts ${timeagoFormat}";
+  static String m3(fileName) => "Dati izgūti ${fileName} datnē";
 
-  static String m4(timeagoFormat) => "Pabeigs pēc ${timeagoFormat}";
+  static String m4(fullPath) => "Dati izgūti ${fullPath} mapē";
 
-  static String m5(snapshotData) => "Pabeigts ar ${snapshotData} lietotājiem";
+  static String m5(timeagoFormat) => "Pabeigts ${timeagoFormat}";
 
-  static String m6(name) => "Grupa: ${name}";
+  static String m6(timeagoFormat) => "Pabeigs pēc ${timeagoFormat}";
 
-  static String m7(snapshotData) =>
+  static String m7(snapshotData) => "Pabeigts ar ${snapshotData} lietotājiem";
+
+  static String m8(name) => "Grupa: ${name}";
+
+  static String m9(snapshotData) =>
       "${snapshotData} lietotāji ievietoti līdz šim";
 
-  static String m8(date) => "Pievienojās ${date}";
+  static String m10(date) => "Pievienojās ${date}";
 
-  static String m9(nbrGuestAccounts) => "Ir ${nbrGuestAccounts} viesu konti";
+  static String m11(nbrGuestAccounts) => "Ir ${nbrGuestAccounts} viesu konti";
 
-  static String m11(errorMessage) =>
+  static String m12(num, numFormatted) => "";
+
+  static String m13(errorMessage) =>
       "Lūdzu, pārbaudiet savu interneta savienojumu.\n\n${errorMessage}";
 
-  static String m13(releaseVersion) =>
+  static String m14(nbrRegularAccounts) => "";
+
+  static String m15(count) => "";
+
+  static String m16(releaseVersion) =>
       "Nospiediet, lai lejupielādētu ${releaseVersion} versiju";
 
-  static String m14(getMediaType) => "Nospiediet, lai parādītu ${getMediaType}";
+  static String m17(getMediaType) => "Nospiediet, lai parādītu ${getMediaType}";
 
-  static String m15(filePath) =>
+  static String m18(filePath) =>
       "Datne neeksistē. Lūdzu, pārliecinieties, ka tā atrodas ${filePath}";
 
-  static String m16(thisTweetUserName, timeAgo) =>
+  static String m19(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} retvītoja ${timeAgo}";
 
-  static String m18(widgetPlaceName) =>
+  static String m20(num, numFormatted) => "";
+
+  static String m21(widgetPlaceName) =>
       "Nevar ielādēt pašreiz populārs ${widgetPlaceName}";
 
-  static String m19(responseStatusCode) =>
+  static String m22(responseStatusCode) =>
       "Nevar saglabāt multimedijas datni. Twitter/X atgrieza šādu statusa kodu: ${responseStatusCode}";
+
+  static String m23(releaseVersion) => "";
+
+  static String m24(seconds) => "";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("Par lietotni"),
+    "about_download": MessageLookupByLibrary.simpleMessage(""),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(""),
     "account": MessageLookupByLibrary.simpleMessage("Konts"),
     "account_suspended": MessageLookupByLibrary.simpleMessage("Konts apturēts"),
     "activate_non_confirmation_bias_mode_description":
         MessageLookupByLibrary.simpleMessage(
           "Slēpt tvītu autorus. Izvairīties no apstiprinājuma aizspriedumiem, kuru pamatā ir autoritatīvi argumenti.",
         ),
+    "activate_non_confirmation_bias_mode_label":
+        MessageLookupByLibrary.simpleMessage(""),
     "add_account": MessageLookupByLibrary.simpleMessage("Pievienot kontu"),
     "add_account_title": MessageLookupByLibrary.simpleMessage(
       "Pievienot kontu",
@@ -91,17 +111,33 @@ class MessageLookup extends MessageLookupByLibrary {
     "allow_background_play_label": MessageLookupByLibrary.simpleMessage(
       "Atskaņošana fonā",
     ),
+    "allow_background_play_other_apps_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "allow_background_play_other_apps_label":
+        MessageLookupByLibrary.simpleMessage(""),
     "an_update_for_fritter_is_available": MessageLookupByLibrary.simpleMessage(
       "Ir pieejams Squawker atjauninājums! 🚀",
     ),
     "api_key": MessageLookupByLibrary.simpleMessage("API atslēga"),
+    "api_server": MessageLookupByLibrary.simpleMessage(""),
+    "api_server_address": MessageLookupByLibrary.simpleMessage(""),
     "app_info": MessageLookupByLibrary.simpleMessage("Lietotnes informācija"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage(
       "Vai esiet pārliecināti?",
     ),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage(""),
+    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "back": MessageLookupByLibrary.simpleMessage("Atpakaļ"),
+    "bad_guest_token": MessageLookupByLibrary.simpleMessage(""),
+    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed_confirm": m1,
+    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(""),
+    "batch_unsubscribe_confirm": m2,
     "beta": MessageLookupByLibrary.simpleMessage("BETA"),
+    "blue_theme_based_on_the_twitter_color_scheme":
+        MessageLookupByLibrary.simpleMessage(""),
     "cancel": MessageLookupByLibrary.simpleMessage("Atcelt"),
     "catastrophic_failure": MessageLookupByLibrary.simpleMessage(
       "Katastrofāla kļūda",
@@ -112,6 +148,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "community_notes_title": MessageLookupByLibrary.simpleMessage(
       "Lasītāji pievienoja kontekstu",
     ),
+    "confirm": MessageLookupByLibrary.simpleMessage(""),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Vai tiešām vēlaties aizvērt Squawker?",
     ),
@@ -136,8 +173,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("Valsts"),
     "dark": MessageLookupByLibrary.simpleMessage("Tumšs"),
     "data": MessageLookupByLibrary.simpleMessage("Dati"),
-    "data_exported_to_fileName": m1,
-    "data_exported_to_fullPath": m2,
+    "data_exported_to_fileName": m3,
+    "data_exported_to_fullPath": m4,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "Dati veiksmīgi ievietoti",
     ),
@@ -150,15 +187,22 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "default_tab": MessageLookupByLibrary.simpleMessage("Noklusētā cilne"),
     "delete": MessageLookupByLibrary.simpleMessage("Dzēst"),
+    "deselect_all": MessageLookupByLibrary.simpleMessage(""),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "Atslēgt ekrānattēlus",
     ),
+    "disable_screenshots_hint": MessageLookupByLibrary.simpleMessage(""),
     "disabled": MessageLookupByLibrary.simpleMessage("Atspējots"),
     "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(
       "Squawker nav lietojams bez konta",
     ),
     "donate": MessageLookupByLibrary.simpleMessage("Ziedot"),
     "download": MessageLookupByLibrary.simpleMessage("Lejupielādēt"),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage(""),
+    "download_completed": MessageLookupByLibrary.simpleMessage(""),
+    "download_failed": MessageLookupByLibrary.simpleMessage(""),
+    "download_handling": MessageLookupByLibrary.simpleMessage(""),
+    "download_handling_description": MessageLookupByLibrary.simpleMessage(""),
     "download_handling_type_ask": MessageLookupByLibrary.simpleMessage(
       "Vienmēr jautāt",
     ),
@@ -168,7 +212,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "Nevar lejupielādēt. Šī multimedijas datne ir pieejama tikai kā straume, kuru Squawker vēl nav spējīgs lejupielādēt.",
     ),
+    "download_mode": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_fast": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_safe": MessageLookupByLibrary.simpleMessage(""),
     "download_path": MessageLookupByLibrary.simpleMessage("Lejupielādes ceļš"),
+    "download_settings": MessageLookupByLibrary.simpleMessage(""),
+    "download_started": MessageLookupByLibrary.simpleMessage(""),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_tweet": MessageLookupByLibrary.simpleMessage(""),
     "download_video_best_quality_description":
         MessageLookupByLibrary.simpleMessage(
           "Lejupielādēt video labākajā kvalitātē",
@@ -182,8 +234,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "edit_account_title": MessageLookupByLibrary.simpleMessage("Rediģēt kontu"),
     "email_label": MessageLookupByLibrary.simpleMessage("E-pasts:"),
     "enable_": MessageLookupByLibrary.simpleMessage("Iespējot ?"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m3,
-    "ends_timeago_format_endsAt_allowFromNow_true": m4,
+    "ended_timeago_format_endsAt_allowFromNow_true": m5,
+    "ends_timeago_format_endsAt_allowFromNow_true": m6,
+    "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_feeds_label": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_profile_description": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_profile_label": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_searches_description": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_searches_label": MessageLookupByLibrary.simpleMessage(""),
     "enter_comma_separated_twitter_usernames":
         MessageLookupByLibrary.simpleMessage(
           "Ievadiet ar komatu atdalītus Twitter/X lietotājvārdus",
@@ -223,12 +281,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "Izgūst jūsu datus",
     ),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(""),
     "feed": MessageLookupByLibrary.simpleMessage("Ziņu plūsma"),
     "filters": MessageLookupByLibrary.simpleMessage("Atlase"),
     "finish": MessageLookupByLibrary.simpleMessage("Pabeigt"),
-    "finished_with_snapshotData_users": m5,
+    "finished_with_snapshotData_users": m7,
     "followers": MessageLookupByLibrary.simpleMessage("Sekotāji"),
     "following": MessageLookupByLibrary.simpleMessage("Seko"),
+    "forbidden": MessageLookupByLibrary.simpleMessage(""),
     "fritter": MessageLookupByLibrary.simpleMessage("Squawker"),
     "fritter_blue": MessageLookupByLibrary.simpleMessage("Squawker zils"),
     "functionality_unsupported": MessageLookupByLibrary.simpleMessage(
@@ -236,7 +296,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "general": MessageLookupByLibrary.simpleMessage("Vispārīgie"),
     "generic_username": MessageLookupByLibrary.simpleMessage("Lietotājs"),
-    "group_name": m6,
+    "group_name": m8,
     "groups": MessageLookupByLibrary.simpleMessage("Grupas"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "Palīdziet padarīt Squawker vēl labāku",
@@ -262,12 +322,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "import_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Ievietot abonementus",
     ),
-    "imported_snapshot_data_users_so_far": m7,
+    "imported_snapshot_data_users_so_far": m9,
     "include_replies": MessageLookupByLibrary.simpleMessage("Iekļaut atbildes"),
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "Iekļaut retvītus",
     ),
-    "joined": m8,
+    "invert_selection": MessageLookupByLibrary.simpleMessage(""),
+    "joined": m10,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
       "Saglabā ziņu plūsmu laika skalas nobīdi, kad atver pa jaunu lietotni",
     ),
@@ -282,6 +343,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "leaner_feeds_description": MessageLookupByLibrary.simpleMessage(
       "Priekšskatījuma saites tvītos netiek rādītas",
     ),
+    "leaner_feeds_label": MessageLookupByLibrary.simpleMessage(""),
     "legacy_android_import": MessageLookupByLibrary.simpleMessage(
       "Vecas (Legacy) Android versijas importēšana",
     ),
@@ -296,12 +358,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "light": MessageLookupByLibrary.simpleMessage("Gaišs"),
     "live": MessageLookupByLibrary.simpleMessage("Tiešraide"),
     "logging": MessageLookupByLibrary.simpleMessage("Žurnāla reģistrēšana"),
+    "login": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "mandatory_label": MessageLookupByLibrary.simpleMessage("Obligātie lauki:"),
     "material_3": MessageLookupByLibrary.simpleMessage(
       "Vai izmantot Material 3 dizainu?",
     ),
     "media": MessageLookupByLibrary.simpleMessage("Multimediji"),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage(""),
     "media_size": MessageLookupByLibrary.simpleMessage("Multimediju izmērs"),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage(""),
     "medium": MessageLookupByLibrary.simpleMessage("Vidējs"),
     "missing_page": MessageLookupByLibrary.simpleMessage("Trūkstoša lapa"),
     "mute_video_description": MessageLookupByLibrary.simpleMessage(
@@ -310,21 +377,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "mute_videos": MessageLookupByLibrary.simpleMessage("Apklusināt video"),
     "name": MessageLookupByLibrary.simpleMessage("Nosaukums"),
     "name_label": MessageLookupByLibrary.simpleMessage("Nosaukums:"),
-    "nbr_guest_accounts": m9,
+    "nbr_guest_accounts": m11,
     "newTrans": MessageLookupByLibrary.simpleMessage("Izveidot jaunu grupu"),
     "next": MessageLookupByLibrary.simpleMessage("Nākamais"),
     "no": MessageLookupByLibrary.simpleMessage("Nē"),
+    "no_data_was_returned_which_should_never_happen_please_report_a_bug_if_possible":
+        MessageLookupByLibrary.simpleMessage(""),
     "no_results": MessageLookupByLibrary.simpleMessage("Nekas nav atrasts"),
     "no_results_for": MessageLookupByLibrary.simpleMessage("Nav rezultātu:"),
     "no_subscriptions_try_searching_or_importing_some":
         MessageLookupByLibrary.simpleMessage(
           "Nav abonementu. Mēģiniet meklēt vai ievietot dažus!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage(""),
     "not_set": MessageLookupByLibrary.simpleMessage("Nav iestatīts"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
           "Piezīme: Twitter/X ierobežojuma dēļ ne visi tvīti var tikt iekļauti",
         ),
+    "numberFormat_format_total_votes": m12,
     "ok": MessageLookupByLibrary.simpleMessage("Labi"),
     "only_public_subscriptions_can_be_imported":
         MessageLookupByLibrary.simpleMessage(
@@ -358,7 +429,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "optional_label": MessageLookupByLibrary.simpleMessage(
       "Neobligātie lauki:",
     ),
+    "page_not_found": MessageLookupByLibrary.simpleMessage(""),
     "password_label": MessageLookupByLibrary.simpleMessage("Parole:"),
+    "permission_not_granted": MessageLookupByLibrary.simpleMessage(""),
     "phone_label": MessageLookupByLibrary.simpleMessage("Tālrunis:"),
     "pick_a_color": MessageLookupByLibrary.simpleMessage("Atlasiet krāsu!"),
     "pick_an_icon": MessageLookupByLibrary.simpleMessage("Atlasiet ikonu!"),
@@ -366,7 +439,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playback_speed": MessageLookupByLibrary.simpleMessage(
       "Atskaņošanas ātrums",
     ),
-    "please_check_your_internet_connection_error_message": m11,
+    "please_check_your_internet_connection_error_message": m13,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage(
       "Lūdzu, ievadiet nosaukumu",
     ),
@@ -384,6 +457,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "possibly_sensitive_profile": MessageLookupByLibrary.simpleMessage(
       "Šis profils var ietvert potenciāli sensitīvus attēlus, valodu vai citu saturu. Vai tiešām vēlaties to apskatīt?",
     ),
+    "possibly_sensitive_tweet": MessageLookupByLibrary.simpleMessage(""),
     "prefix": MessageLookupByLibrary.simpleMessage("prefikss"),
     "private_profile": MessageLookupByLibrary.simpleMessage("Privāts profils"),
     "proxy_description": MessageLookupByLibrary.simpleMessage(
@@ -393,6 +467,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Starpniekservera kļūda",
     ),
     "proxy_label": MessageLookupByLibrary.simpleMessage("Starpniekserveris"),
+    "quality": MessageLookupByLibrary.simpleMessage(""),
+    "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Publicēta izmantojot MIT licenci",
     ),
@@ -408,21 +484,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "Atiestatīt navigācijas ciļņu joslu uz noklusējuma iestatījumu",
     ),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage(""),
     "retry": MessageLookupByLibrary.simpleMessage("Mēģināt vēlreiz"),
     "save": MessageLookupByLibrary.simpleMessage("Saglabāt"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "Ietaupīt datu izmantošanu, izmantojot mazākas izšķirtspējas attēlus",
     ),
+    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
     "saved": MessageLookupByLibrary.simpleMessage("Saglabātie"),
+    "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(""),
     "search": MessageLookupByLibrary.simpleMessage("Meklēt"),
     "search_term": MessageLookupByLibrary.simpleMessage("Meklēšanas vaicājums"),
     "select": MessageLookupByLibrary.simpleMessage("Atlasīt"),
+    "select_all": MessageLookupByLibrary.simpleMessage(""),
+    "select_groups": MessageLookupByLibrary.simpleMessage(""),
+    "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "Individuālu kontu atlases ievietošana un grupu piešķiršana jau ir nākotnes plānos!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("Nosūtīt"),
     "settings": MessageLookupByLibrary.simpleMessage("Iestatījumi"),
+    "settings_saved": MessageLookupByLibrary.simpleMessage(""),
+    "share_base_url": MessageLookupByLibrary.simpleMessage(""),
+    "share_base_url_description": MessageLookupByLibrary.simpleMessage(""),
     "share_tweet_as_image": MessageLookupByLibrary.simpleMessage(
       "Kopīgot tvītu kā attēlu",
     ),
@@ -446,6 +533,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "something_broke_in_fritter": MessageLookupByLibrary.simpleMessage(
       "Squawker kaut kas nogāja greizi.",
     ),
+    "something_just_went_wrong_in_fritter_and_an_error_report_has_been_generated":
+        MessageLookupByLibrary.simpleMessage(""),
+    "sorry_the_replied_tweet_could_not_be_found":
+        MessageLookupByLibrary.simpleMessage(""),
     "subscribe": MessageLookupByLibrary.simpleMessage("Abonēt"),
     "subscriptions": MessageLookupByLibrary.simpleMessage("Abonementi"),
     "subtitles": MessageLookupByLibrary.simpleMessage("Subtitri"),
@@ -453,23 +544,29 @@ class MessageLookup extends MessageLookupByLibrary {
       "Multimedija saglabāta!",
     ),
     "system": MessageLookupByLibrary.simpleMessage("Sistēmas"),
-    "tap_to_download_release_version": m13,
-    "tap_to_show_getMediaType_item_type": m14,
+    "tap_to_download_release_version": m16,
+    "tap_to_show_getMediaType_item_type": m17,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "Paldies, ka palīdziet Squawker! 💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "GitHub (#143) problēmas tematā",
     ),
+    "the_tweet_did_not_contain_any_text_this_is_unexpected":
+        MessageLookupByLibrary.simpleMessage(""),
     "theme": MessageLookupByLibrary.simpleMessage("Motīvs"),
     "theme_mode": MessageLookupByLibrary.simpleMessage("Motīva izskats"),
+    "there_were_no_trends_returned_this_is_unexpected_please_report_as_a_bug_if_possible":
+        MessageLookupByLibrary.simpleMessage(""),
     "this_group_contains_no_subscriptions":
         MessageLookupByLibrary.simpleMessage("Šajā grupā nav abonementu!"),
+    "this_took_too_long_to_load_please_check_your_network_connection":
+        MessageLookupByLibrary.simpleMessage(""),
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "Šis tvīts nepieejams. Iespējams, tas tika dzēsts.",
     ),
-    "this_tweet_user_name_retweeted": m16,
+    "this_tweet_user_name_retweeted": m19,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "Šis lietotājs neseko nevienam!",
     ),
@@ -512,8 +609,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Tvīti un atbildes",
     ),
+    "tweets_number": m20,
+    "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(""),
+    "twitter_account_types_description": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
     "twitter_account_types_label": MessageLookupByLibrary.simpleMessage(
       "Konta tips",
+    ),
+    "twitter_account_types_only_regular": MessageLookupByLibrary.simpleMessage(
+      "",
     ),
     "twitter_account_types_priority_to_regular":
         MessageLookupByLibrary.simpleMessage(
@@ -522,6 +627,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "two_home_pages_required": MessageLookupByLibrary.simpleMessage(
       "Nepieciešams, lai būtu atlasīti vismaz 2 navigācijas ciļņu joslas vienumi.",
     ),
+    "unable_to_find_the_available_trend_locations":
+        MessageLookupByLibrary.simpleMessage(""),
     "unable_to_find_your_saved_tweets": MessageLookupByLibrary.simpleMessage(
       "Nevar atrast jūsu saglabātos tvītus.",
     ),
@@ -557,7 +664,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "Nevar ielādēt meklēšanas rezultātus.",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m18,
+    "unable_to_load_the_trends_for_widget_place_name": m21,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "Nevar ielādēt tvītu",
     ),
@@ -572,11 +679,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_run_the_database_migrations":
         MessageLookupByLibrary.simpleMessage("Nevar veikt datubāzes migrāciju"),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m19,
+        m22,
+    "unable_to_stream_the_trend_location_preference":
+        MessageLookupByLibrary.simpleMessage(""),
     "unknown": MessageLookupByLibrary.simpleMessage("Nezināms"),
     "unsave": MessageLookupByLibrary.simpleMessage("Atcelt saglabāšanu"),
     "unsubscribe": MessageLookupByLibrary.simpleMessage("Pārtraukt abonementu"),
     "unsupported_url": MessageLookupByLibrary.simpleMessage("Neatbalstīts URL"),
+    "update_to_release_version_through_your_fdroid_client": m23,
     "updates": MessageLookupByLibrary.simpleMessage("Atjauninājumi"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage(
@@ -592,9 +702,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "username_label": MessageLookupByLibrary.simpleMessage("Lietotājvārds:"),
     "usernames": MessageLookupByLibrary.simpleMessage("Lietotājvārdi"),
     "version": MessageLookupByLibrary.simpleMessage("Versija"),
+    "video_prefetch": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_seconds": m24,
+    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(""),
+    "warning_regular_account_unauthenticated_access_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "warning_regular_account_unauthenticated_access_title":
+        MessageLookupByLibrary.simpleMessage(""),
     "when_a_new_app_update_is_available": MessageLookupByLibrary.simpleMessage(
       "Tiklīdz ir pieejams jauns lietotnes atjauninājums",
     ),
+    "whether_errors_should_be_reported_to_":
+        MessageLookupByLibrary.simpleMessage(""),
+    "whether_to_hide_tweets_marked_as_sensitive":
+        MessageLookupByLibrary.simpleMessage(""),
     "which_tab_is_shown_when_the_app_opens":
         MessageLookupByLibrary.simpleMessage(
           "Kuru cilni rāda, kad atver lietotni",
@@ -611,6 +733,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
       "x-client-transaction-id pakalpojumu sniedzējs",
     ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(""),
     "yes": MessageLookupByLibrary.simpleMessage("Jā"),
     "yes_please": MessageLookupByLibrary.simpleMessage("Jā, lūdzu"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(
@@ -624,5 +748,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Jūsu profilam jābūt publiskam, citādi ievietošana nedarbosies",
         ),
+    "your_report_will_be_sent_to_fritter__project":
+        MessageLookupByLibrary.simpleMessage(""),
   };
 }

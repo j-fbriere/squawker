@@ -22,55 +22,70 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(name) => "Slett ${name}-abonnementsgruppen?";
 
-  static String m1(fileName) => "Data eksportert til ${fileName}";
+  static String m1(count) => "";
 
-  static String m2(fullPath) => "Data eksportert til ${fullPath}";
+  static String m2(count) => "";
 
-  static String m3(timeagoFormat) => "Sluttet ${timeagoFormat}";
+  static String m3(fileName) => "Data eksportert til ${fileName}";
 
-  static String m4(timeagoFormat) => "Slutter ${timeagoFormat}";
+  static String m4(fullPath) => "Data eksportert til ${fullPath}";
 
-  static String m5(snapshotData) => "Fullført med ${snapshotData} brukere";
+  static String m5(timeagoFormat) => "Sluttet ${timeagoFormat}";
 
-  static String m6(name) => "Gruppe: ${name}";
+  static String m6(timeagoFormat) => "Slutter ${timeagoFormat}";
 
-  static String m7(snapshotData) =>
+  static String m7(snapshotData) => "Fullført med ${snapshotData} brukere";
+
+  static String m8(name) => "Gruppe: ${name}";
+
+  static String m9(snapshotData) =>
       "${snapshotData} brukere importert så langt";
 
-  static String m8(date) => "Tok del ${date}";
+  static String m10(date) => "Tok del ${date}";
 
-  static String m10(num, numFormatted) =>
+  static String m11(nbrGuestAccounts) => "";
+
+  static String m12(num, numFormatted) =>
       "${Intl.plural(num, zero: 'ingen stemmer', one: 'én stemme', two: 'to stemmer', few: '${numFormatted} stemmer', many: '${numFormatted} stemme', other: '${numFormatted} stemmer')}";
 
-  static String m11(errorMessage) =>
+  static String m13(errorMessage) =>
       "Sjekk at du er tilkoblet Internett.\n\n${errorMessage}";
 
-  static String m13(releaseVersion) =>
+  static String m14(nbrRegularAccounts) => "";
+
+  static String m15(count) => "";
+
+  static String m16(releaseVersion) =>
       "Trykk for å laste ned ${releaseVersion}";
 
-  static String m14(getMediaType) => "Trykk for å vise ${getMediaType}";
+  static String m17(getMediaType) => "Trykk for å vise ${getMediaType}";
 
-  static String m15(filePath) =>
+  static String m18(filePath) =>
       "Filen finnes ikke. Sørg for at den er å finne i ${filePath}";
 
-  static String m16(thisTweetUserName, timeAgo) =>
+  static String m19(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} re-tvitret ${timeAgo}";
 
-  static String m17(num, numFormatted) =>
+  static String m20(num, numFormatted) =>
       "${Intl.plural(num, zero: 'ingen tvitringer', one: 'én tvitring', two: 'to tvitringer', few: '${numFormatted} tvitringer', many: '${numFormatted} tvitringer', other: '${numFormatted} tvitringer')}";
 
-  static String m18(widgetPlaceName) =>
+  static String m21(widgetPlaceName) =>
       "Kunne ikke laste ned tendenser for ${widgetPlaceName}";
 
-  static String m19(responseStatusCode) =>
+  static String m22(responseStatusCode) =>
       "Kunne ikke lagre mediafilen. Twitter/X svarte med ${responseStatusCode}";
 
-  static String m20(releaseVersion) =>
+  static String m23(releaseVersion) =>
       "Oppgrader til ${releaseVersion} med din F-Droid-klient";
+
+  static String m24(seconds) => "";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("Om"),
+    "about_download": MessageLookupByLibrary.simpleMessage(""),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(""),
+    "account": MessageLookupByLibrary.simpleMessage(""),
     "account_suspended": MessageLookupByLibrary.simpleMessage(
       "Kontoen er suspendert",
     ),
@@ -80,6 +95,8 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "activate_non_confirmation_bias_mode_label":
         MessageLookupByLibrary.simpleMessage("Forhindre bekreftelsesbias"),
+    "add_account": MessageLookupByLibrary.simpleMessage(""),
+    "add_account_title": MessageLookupByLibrary.simpleMessage(""),
     "add_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Legg til abonnementer",
     ),
@@ -92,16 +109,34 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "All den flotte programvaren som brukes av Squawker",
         ),
+    "allow_background_play_description": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "allow_background_play_label": MessageLookupByLibrary.simpleMessage(""),
+    "allow_background_play_other_apps_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "allow_background_play_other_apps_label":
+        MessageLookupByLibrary.simpleMessage(""),
     "an_update_for_fritter_is_available": MessageLookupByLibrary.simpleMessage(
       "En oppdatering for Squawker er tilgjengelig! 🚀",
     ),
+    "api_key": MessageLookupByLibrary.simpleMessage(""),
+    "api_server": MessageLookupByLibrary.simpleMessage(""),
+    "api_server_address": MessageLookupByLibrary.simpleMessage(""),
     "app_info": MessageLookupByLibrary.simpleMessage("Programinfo"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Er du sikker?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage(""),
+    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "back": MessageLookupByLibrary.simpleMessage("Tilbake"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "X har ugyldiggjort vårt tilgangssymbol. Åpne Squawker på ny!",
     ),
+    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed_confirm": m1,
+    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(""),
+    "batch_unsubscribe_confirm": m2,
     "beta": MessageLookupByLibrary.simpleMessage("Beta"),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
@@ -114,6 +149,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "choose": MessageLookupByLibrary.simpleMessage("Velg"),
     "choose_pages": MessageLookupByLibrary.simpleMessage("Velg sider"),
     "close": MessageLookupByLibrary.simpleMessage("Lukk"),
+    "community_notes_title": MessageLookupByLibrary.simpleMessage(""),
+    "confirm": MessageLookupByLibrary.simpleMessage(""),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Lukk Squawker?",
     ),
@@ -138,8 +175,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("Land"),
     "dark": MessageLookupByLibrary.simpleMessage("Mørk"),
     "data": MessageLookupByLibrary.simpleMessage("Data"),
-    "data_exported_to_fileName": m1,
-    "data_exported_to_fullPath": m2,
+    "data_exported_to_fileName": m3,
+    "data_exported_to_fullPath": m4,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "Data importert",
     ),
@@ -150,6 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "default_tab": MessageLookupByLibrary.simpleMessage("Forvalgt fane"),
     "delete": MessageLookupByLibrary.simpleMessage("Slett"),
+    "deselect_all": MessageLookupByLibrary.simpleMessage(""),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "Skru av skjermavbildninger",
     ),
@@ -157,8 +195,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Forhindre skjermavbildninger. Trenger ikke å fungere på alle enheter.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("Avskrudd"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(""),
     "donate": MessageLookupByLibrary.simpleMessage("Doner"),
     "download": MessageLookupByLibrary.simpleMessage("Last ned"),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage(""),
+    "download_completed": MessageLookupByLibrary.simpleMessage(""),
+    "download_failed": MessageLookupByLibrary.simpleMessage(""),
     "download_handling": MessageLookupByLibrary.simpleMessage(
       "Nedlastingshåndtering",
     ),
@@ -174,7 +216,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "Kunne ikke laste ned. Media kan være kun tilgjengelig som strøm, som Squawker ikke kan laste ned enda.",
     ),
+    "download_mode": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_fast": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_safe": MessageLookupByLibrary.simpleMessage(""),
     "download_path": MessageLookupByLibrary.simpleMessage("Nedlastingssti"),
+    "download_settings": MessageLookupByLibrary.simpleMessage(""),
+    "download_started": MessageLookupByLibrary.simpleMessage(""),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_tweet": MessageLookupByLibrary.simpleMessage(""),
     "download_video_best_quality_description":
         MessageLookupByLibrary.simpleMessage(
           "Last ned videoer i best tilgjengelige kvalitet",
@@ -185,9 +235,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "downloading_media": MessageLookupByLibrary.simpleMessage(
       "Laster ned media…",
     ),
+    "edit_account_title": MessageLookupByLibrary.simpleMessage(""),
+    "email_label": MessageLookupByLibrary.simpleMessage(""),
     "enable_": MessageLookupByLibrary.simpleMessage("Vil du aktivere ?"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m3,
-    "ends_timeago_format_endsAt_allowFromNow_true": m4,
+    "ended_timeago_format_endsAt_allowFromNow_true": m5,
+    "ends_timeago_format_endsAt_allowFromNow_true": m6,
     "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(
       "Forbedrede forespørsler for informasjonsstrømmer (men med lavere bruksgrense)",
     ),
@@ -206,9 +258,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "enhanced_searches_label": MessageLookupByLibrary.simpleMessage(
       "Forbedrede søk",
     ),
+    "enter_comma_separated_twitter_usernames":
+        MessageLookupByLibrary.simpleMessage(""),
     "enter_your_twitter_username": MessageLookupByLibrary.simpleMessage(
       "Skriv inn ditt Twitter/X-brukernavn",
     ),
+    "error_from_twitter": MessageLookupByLibrary.simpleMessage(""),
+    "exclusions_feed_description": MessageLookupByLibrary.simpleMessage(""),
+    "exclusions_feed_label": MessageLookupByLibrary.simpleMessage(""),
     "export": MessageLookupByLibrary.simpleMessage("Eksporter"),
     "export_guest_accounts": MessageLookupByLibrary.simpleMessage(
       "Eksporter gjestekontoer?",
@@ -228,13 +285,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_tweets": MessageLookupByLibrary.simpleMessage(
       "Eksporter tvitringer?",
     ),
+    "export_twitter_tokens": MessageLookupByLibrary.simpleMessage(""),
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "Eksporter dataen din",
     ),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(""),
     "feed": MessageLookupByLibrary.simpleMessage("Informasjonsstrøm"),
     "filters": MessageLookupByLibrary.simpleMessage("Filtre"),
     "finish": MessageLookupByLibrary.simpleMessage("Fullfør"),
-    "finished_with_snapshotData_users": m5,
+    "finished_with_snapshotData_users": m7,
     "followers": MessageLookupByLibrary.simpleMessage("Følgere"),
     "following": MessageLookupByLibrary.simpleMessage("Følger"),
     "forbidden": MessageLookupByLibrary.simpleMessage(
@@ -247,7 +306,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "general": MessageLookupByLibrary.simpleMessage("Generelt"),
     "generic_username": MessageLookupByLibrary.simpleMessage("Bruker"),
-    "group_name": m6,
+    "group_name": m8,
     "groups": MessageLookupByLibrary.simpleMessage("Grupper"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "Hjelp til å gjøre Squawker enda bedre",
@@ -273,12 +332,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "import_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Importer abonnementer",
     ),
-    "imported_snapshot_data_users_so_far": m7,
+    "imported_snapshot_data_users_so_far": m9,
     "include_replies": MessageLookupByLibrary.simpleMessage("Ta med svar"),
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "Inkluder retweets",
     ),
-    "joined": m8,
+    "invert_selection": MessageLookupByLibrary.simpleMessage(""),
+    "joined": m10,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
       "Tidslinjeforskyvelsen beholdes for informasjonsstrømmer når programmet startes på ny",
     ),
@@ -301,13 +361,20 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Gi beskjed til utviklerne hvis noe er ødelagt",
         ),
+    "libre_translate_host": MessageLookupByLibrary.simpleMessage(""),
     "licenses": MessageLookupByLibrary.simpleMessage("Lisenser"),
     "light": MessageLookupByLibrary.simpleMessage("Lys"),
     "live": MessageLookupByLibrary.simpleMessage("DIREKTE"),
     "logging": MessageLookupByLibrary.simpleMessage("Loggføring"),
+    "login": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos_description": MessageLookupByLibrary.simpleMessage(""),
+    "mandatory_label": MessageLookupByLibrary.simpleMessage(""),
     "material_3": MessageLookupByLibrary.simpleMessage("Materiell 3?"),
     "media": MessageLookupByLibrary.simpleMessage("Media"),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage(""),
     "media_size": MessageLookupByLibrary.simpleMessage("Mediastørrelse"),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage(""),
     "medium": MessageLookupByLibrary.simpleMessage("Middels"),
     "missing_page": MessageLookupByLibrary.simpleMessage("Manglende side"),
     "mute_video_description": MessageLookupByLibrary.simpleMessage(
@@ -315,6 +382,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "mute_videos": MessageLookupByLibrary.simpleMessage("Forstum videoer"),
     "name": MessageLookupByLibrary.simpleMessage("Navn"),
+    "name_label": MessageLookupByLibrary.simpleMessage(""),
+    "nbr_guest_accounts": m11,
     "newTrans": MessageLookupByLibrary.simpleMessage("Ny"),
     "next": MessageLookupByLibrary.simpleMessage("Neste"),
     "no": MessageLookupByLibrary.simpleMessage("Nei"),
@@ -330,12 +399,13 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Ingen abonnementer. Prøv å søke eller importere noen!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage(""),
     "not_set": MessageLookupByLibrary.simpleMessage("Ikke satt"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
           "Merk: På grunn av en Twitter/X-begrensning kan det hende at ikke alle tweets er inkludert",
         ),
-    "numberFormat_format_total_votes": m10,
+    "numberFormat_format_total_votes": m12,
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "only_public_subscriptions_can_be_imported":
         MessageLookupByLibrary.simpleMessage(
@@ -354,19 +424,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "option_confirm_close_label": MessageLookupByLibrary.simpleMessage(
       "Bekreft lukking",
     ),
+    "option_navigation_animations_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "option_navigation_animations_label": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "option_show_navigation_labels_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "option_show_navigation_labels_label": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "optional_label": MessageLookupByLibrary.simpleMessage(""),
     "page_not_found": MessageLookupByLibrary.simpleMessage(
       "X sier at siden ikke finnes, men det trenger ikke å stemme",
     ),
+    "password_label": MessageLookupByLibrary.simpleMessage(""),
     "permission_not_granted": MessageLookupByLibrary.simpleMessage(
       "Tilgang ikke innvilget. Prøv igjen etter innvilgelse!",
     ),
+    "phone_label": MessageLookupByLibrary.simpleMessage(""),
     "pick_a_color": MessageLookupByLibrary.simpleMessage("Velg en farge!"),
     "pick_an_icon": MessageLookupByLibrary.simpleMessage("Velg et ikon!"),
     "pinned_tweet": MessageLookupByLibrary.simpleMessage("Festet tvitring"),
     "playback_speed": MessageLookupByLibrary.simpleMessage(
       "Avspillingshastighet",
     ),
-    "please_check_your_internet_connection_error_message": m11,
+    "please_check_your_internet_connection_error_message": m13,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage(
       "Vennligst skriv inn et navn",
     ),
@@ -389,6 +472,11 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "prefix": MessageLookupByLibrary.simpleMessage("prefiks"),
     "private_profile": MessageLookupByLibrary.simpleMessage("Privat profil"),
+    "proxy_description": MessageLookupByLibrary.simpleMessage(""),
+    "proxy_error": MessageLookupByLibrary.simpleMessage(""),
+    "proxy_label": MessageLookupByLibrary.simpleMessage(""),
+    "quality": MessageLookupByLibrary.simpleMessage(""),
+    "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Utgitt under MIT-lisensen",
     ),
@@ -404,10 +492,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "Tilbakestill sider til forvalg",
     ),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage(""),
     "retry": MessageLookupByLibrary.simpleMessage("Prøv på nytt"),
     "save": MessageLookupByLibrary.simpleMessage("Lagre"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "Spar båndbredde ved å bruke mindre bilder",
+    ),
+    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
+      "",
     ),
     "saved": MessageLookupByLibrary.simpleMessage("Lagret"),
     "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(
@@ -416,18 +508,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("Søk"),
     "search_term": MessageLookupByLibrary.simpleMessage("Søkebegrep"),
     "select": MessageLookupByLibrary.simpleMessage("Velg"),
+    "select_all": MessageLookupByLibrary.simpleMessage(""),
+    "select_groups": MessageLookupByLibrary.simpleMessage(""),
+    "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "Valg av individuelle kontoer og importere, samt tildeling av grupper er allerede planlagt!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "settings": MessageLookupByLibrary.simpleMessage("Innstillinger"),
+    "settings_saved": MessageLookupByLibrary.simpleMessage(""),
     "share_base_url": MessageLookupByLibrary.simpleMessage(
       "Egendefinert delingsnettadresse",
     ),
     "share_base_url_description": MessageLookupByLibrary.simpleMessage(
       "Bruk egendefinert grunn-nettadresse ved deling",
     ),
+    "share_tweet_as_image": MessageLookupByLibrary.simpleMessage(""),
     "share_tweet_content": MessageLookupByLibrary.simpleMessage(
       "Del tvitringsinnhold",
     ),
@@ -459,12 +556,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Media lagret!",
     ),
     "system": MessageLookupByLibrary.simpleMessage("System"),
-    "tap_to_download_release_version": m13,
-    "tap_to_show_getMediaType_item_type": m14,
+    "tap_to_download_release_version": m16,
+    "tap_to_show_getMediaType_item_type": m17,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "Takk for at du hjelper Squawker. 💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "GitHub-feilrapport (#143)",
     ),
@@ -489,7 +586,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "Denne tweeten er utilgjengelig. Det ble sannsynligvis slettet.",
     ),
-    "this_tweet_user_name_retweeted": m16,
+    "this_tweet_user_name_retweeted": m19,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "Denne brukeren følger ingen!",
     ),
@@ -503,11 +600,16 @@ class MessageLookup extends MessageLookupByLibrary {
       "Miniatyrbilde ikke tilgjengelig",
     ),
     "timed_out": MessageLookupByLibrary.simpleMessage("Tidsavbrudd"),
+    "to_import_specific_subscriptions_enter_your_comma_separated_usernames_below":
+        MessageLookupByLibrary.simpleMessage(""),
     "to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below":
         MessageLookupByLibrary.simpleMessage(
           "Skriv inn brukernavnet ditt nedenfor hvis du vil importere abonnementer fra en eksisterende Twitter/X-konto.",
         ),
     "toggle_all": MessageLookupByLibrary.simpleMessage("Veksle alt"),
+    "translator_label": MessageLookupByLibrary.simpleMessage(""),
+    "translators_description": MessageLookupByLibrary.simpleMessage(""),
+    "translators_label": MessageLookupByLibrary.simpleMessage(""),
     "trending": MessageLookupByLibrary.simpleMessage("Trender"),
     "trends": MessageLookupByLibrary.simpleMessage("Trender"),
     "true_black": MessageLookupByLibrary.simpleMessage("Helt svart?"),
@@ -521,7 +623,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Tvitringer og svar",
     ),
-    "tweets_number": m17,
+    "tweets_number": m20,
+    "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(""),
+    "twitter_account_types_description": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "twitter_account_types_label": MessageLookupByLibrary.simpleMessage(""),
+    "twitter_account_types_only_regular": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "twitter_account_types_priority_to_regular":
+        MessageLookupByLibrary.simpleMessage(""),
     "two_home_pages_required": MessageLookupByLibrary.simpleMessage(
       "Du må ha minst to hjemmeskjermssider.",
     ),
@@ -568,7 +680,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "Kan ikke laste søkeresultatene.",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m18,
+    "unable_to_load_the_trends_for_widget_place_name": m21,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "Kan ikke laste tweeten",
     ),
@@ -587,7 +699,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "Kunne ikke kjøre databaseflytting",
         ),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m19,
+        m22,
     "unable_to_stream_the_trend_location_preference":
         MessageLookupByLibrary.simpleMessage(
           "Kunne ikke strømme tendensposisjonsvalg",
@@ -600,7 +712,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unsupported_url": MessageLookupByLibrary.simpleMessage(
       "Ustøttet nettadresse",
     ),
-    "update_to_release_version_through_your_fdroid_client": m20,
+    "update_to_release_version_through_your_fdroid_client": m23,
     "updates": MessageLookupByLibrary.simpleMessage("Oppdateringer"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage("Bruk svart drakt for mørkt valg"),
@@ -608,7 +720,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "Bruker ikke funnet",
     ),
     "username": MessageLookupByLibrary.simpleMessage("Brukernavn"),
+    "username_exclude": MessageLookupByLibrary.simpleMessage(""),
+    "username_label": MessageLookupByLibrary.simpleMessage(""),
+    "usernames": MessageLookupByLibrary.simpleMessage(""),
     "version": MessageLookupByLibrary.simpleMessage("Versjon"),
+    "video_prefetch": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_seconds": m24,
+    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(""),
+    "warning_regular_account_unauthenticated_access_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "warning_regular_account_unauthenticated_access_title":
+        MessageLookupByLibrary.simpleMessage(""),
     "when_a_new_app_update_is_available": MessageLookupByLibrary.simpleMessage(
       "Når en ny appoppdatering er tilgjengelig",
     ),
@@ -631,6 +754,11 @@ class MessageLookup extends MessageLookupByLibrary {
           "Vil du aktivere automatisk feilrapportering?",
         ),
     "x_api": MessageLookupByLibrary.simpleMessage("X-API"),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(""),
     "yes": MessageLookupByLibrary.simpleMessage("Ja"),
     "yes_please": MessageLookupByLibrary.simpleMessage("Ja"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(

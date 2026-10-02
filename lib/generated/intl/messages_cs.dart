@@ -22,54 +22,69 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(name) => "Opravdu chcete odstranit skupinu ${name}?";
 
-  static String m1(fileName) => "Data exportována do ${fileName}";
+  static String m1(count) => "";
 
-  static String m2(fullPath) => "Data exportována do ${fullPath}";
+  static String m2(count) => "";
 
-  static String m3(timeagoFormat) => "Ukončeno ${timeagoFormat}";
+  static String m3(fileName) => "Data exportována do ${fileName}";
 
-  static String m4(timeagoFormat) => "Končí za ${timeagoFormat}";
+  static String m4(fullPath) => "Data exportována do ${fullPath}";
 
-  static String m5(snapshotData) => "Dokončeno s ${snapshotData} uživateli";
+  static String m5(timeagoFormat) => "Ukončeno ${timeagoFormat}";
 
-  static String m6(name) => "Skupina: ${name}";
+  static String m6(timeagoFormat) => "Končí za ${timeagoFormat}";
 
-  static String m7(snapshotData) =>
+  static String m7(snapshotData) => "Dokončeno s ${snapshotData} uživateli";
+
+  static String m8(name) => "Skupina: ${name}";
+
+  static String m9(snapshotData) =>
       "Zatím importováno ${snapshotData} uživatelů";
 
-  static String m8(date) => "Připojen/a ${date}";
+  static String m10(date) => "Připojen/a ${date}";
 
-  static String m10(num, numFormatted) =>
+  static String m11(nbrGuestAccounts) => "";
+
+  static String m12(num, numFormatted) =>
       "${Intl.plural(num, zero: 'Žádné hlasy', one: 'Jeden hlas', two: 'Dva hlasy', few: '${numFormatted} hlasy', many: '${numFormatted} hlasů', other: '${numFormatted} hlasů')}";
 
-  static String m11(errorMessage) =>
+  static String m13(errorMessage) =>
       "Zkontrolujte prosím vaše připojení k internetu.\n\n${errorMessage}";
 
-  static String m13(releaseVersion) => "Ťukněte pro stažení ${releaseVersion}";
+  static String m14(nbrRegularAccounts) => "";
 
-  static String m14(getMediaType) => "Ťukněte pro zobrazení ${getMediaType}";
+  static String m15(count) => "";
 
-  static String m15(filePath) =>
+  static String m16(releaseVersion) => "Ťukněte pro stažení ${releaseVersion}";
+
+  static String m17(getMediaType) => "Ťukněte pro zobrazení ${getMediaType}";
+
+  static String m18(filePath) =>
       "Soubor neexistuje. Ujistěte se, že se nachází v ${filePath}";
 
-  static String m16(thisTweetUserName, timeAgo) =>
+  static String m19(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} retweetnul ${timeAgo}";
 
-  static String m17(num, numFormatted) =>
+  static String m20(num, numFormatted) =>
       "${Intl.plural(num, zero: 'žádné tweety', one: 'jeden tweet', two: 'dva tweety', few: '${numFormatted} tweety', many: '${numFormatted} tweetů', other: '${numFormatted} tweetů')}";
 
-  static String m18(widgetPlaceName) =>
+  static String m21(widgetPlaceName) =>
       "Nepodařilo se načíst trendy pro ${widgetPlaceName}";
 
-  static String m19(responseStatusCode) =>
+  static String m22(responseStatusCode) =>
       "Nepodařilo se uložit média. Twitter/X vrátil stav ${responseStatusCode}";
 
-  static String m20(releaseVersion) =>
+  static String m23(releaseVersion) =>
       "Aktualizovat na ${releaseVersion} pomocí F-Droidu";
+
+  static String m24(seconds) => "";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("O aplikaci"),
+    "about_download": MessageLookupByLibrary.simpleMessage(""),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(""),
+    "account": MessageLookupByLibrary.simpleMessage(""),
     "account_suspended": MessageLookupByLibrary.simpleMessage(
       "Účet pozastaven",
     ),
@@ -81,22 +96,45 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Aktivovat režim zkreslení bez potvrzení",
         ),
+    "add_account": MessageLookupByLibrary.simpleMessage(""),
+    "add_account_title": MessageLookupByLibrary.simpleMessage(""),
     "add_subscriptions": MessageLookupByLibrary.simpleMessage("Přidat odběry"),
+    "add_to_feed": MessageLookupByLibrary.simpleMessage(""),
     "add_to_group": MessageLookupByLibrary.simpleMessage("Přidat do skupiny"),
     "all": MessageLookupByLibrary.simpleMessage("Vše"),
     "all_the_great_software_used_by_fritter":
         MessageLookupByLibrary.simpleMessage(
           "Všechen úžasný software používaný Squawkerem",
         ),
+    "allow_background_play_description": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "allow_background_play_label": MessageLookupByLibrary.simpleMessage(""),
+    "allow_background_play_other_apps_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "allow_background_play_other_apps_label":
+        MessageLookupByLibrary.simpleMessage(""),
     "an_update_for_fritter_is_available": MessageLookupByLibrary.simpleMessage(
       "Je dostupná aktualizace Squawkeru! 🚀",
     ),
+    "api_key": MessageLookupByLibrary.simpleMessage(""),
+    "api_server": MessageLookupByLibrary.simpleMessage(""),
+    "api_server_address": MessageLookupByLibrary.simpleMessage(""),
+    "app_info": MessageLookupByLibrary.simpleMessage(""),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Opravdu?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage(""),
+    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "back": MessageLookupByLibrary.simpleMessage("Zpět"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X zneplatnil náš přístupový token. Zkuste prosím znovu otevřít Squawker!",
     ),
+    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed_confirm": m1,
+    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(""),
+    "batch_unsubscribe_confirm": m2,
+    "beta": MessageLookupByLibrary.simpleMessage(""),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
           "Modré téma založené na barevném schématu Twitter/Xu",
@@ -108,6 +146,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "choose": MessageLookupByLibrary.simpleMessage("Vybrat"),
     "choose_pages": MessageLookupByLibrary.simpleMessage("Vybrat stránky"),
     "close": MessageLookupByLibrary.simpleMessage("Zavřít"),
+    "community_notes_title": MessageLookupByLibrary.simpleMessage(""),
+    "confirm": MessageLookupByLibrary.simpleMessage(""),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Opravdu chcete zavřít Squawker?",
     ),
@@ -132,15 +172,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("Země"),
     "dark": MessageLookupByLibrary.simpleMessage("Tmavé"),
     "data": MessageLookupByLibrary.simpleMessage("Data"),
-    "data_exported_to_fileName": m1,
-    "data_exported_to_fullPath": m2,
+    "data_exported_to_fileName": m3,
+    "data_exported_to_fullPath": m4,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "Data úspěšně importována",
     ),
     "date_created": MessageLookupByLibrary.simpleMessage("Datum vytvoření"),
     "date_subscribed": MessageLookupByLibrary.simpleMessage("Datum odběru"),
+    "default_subscription_tab": MessageLookupByLibrary.simpleMessage(""),
     "default_tab": MessageLookupByLibrary.simpleMessage("Výchozí karta"),
     "delete": MessageLookupByLibrary.simpleMessage("Odstranit"),
+    "deselect_all": MessageLookupByLibrary.simpleMessage(""),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "Zakázat snímky obrazovky",
     ),
@@ -148,8 +190,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Zabránit pořizování snímků obrazovky. Nemusí fungovat na všech zařízeních.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("Zakázáno"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(""),
     "donate": MessageLookupByLibrary.simpleMessage("Přispět"),
     "download": MessageLookupByLibrary.simpleMessage("Stáhnout"),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage(""),
+    "download_completed": MessageLookupByLibrary.simpleMessage(""),
+    "download_failed": MessageLookupByLibrary.simpleMessage(""),
     "download_handling": MessageLookupByLibrary.simpleMessage(
       "Způsob stahování",
     ),
@@ -165,17 +211,44 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "Nepodařilo se stáhnout média. Možná jsou dostupná jen jako stream, který Squawker zatím nedokáže stáhnout.",
     ),
+    "download_mode": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_fast": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_safe": MessageLookupByLibrary.simpleMessage(""),
     "download_path": MessageLookupByLibrary.simpleMessage("Cesta pro stažené"),
+    "download_settings": MessageLookupByLibrary.simpleMessage(""),
+    "download_started": MessageLookupByLibrary.simpleMessage(""),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_video_best_quality_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "download_video_best_quality_label": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
       "Stahování médií…",
     ),
+    "edit_account_title": MessageLookupByLibrary.simpleMessage(""),
+    "email_label": MessageLookupByLibrary.simpleMessage(""),
     "enable_": MessageLookupByLibrary.simpleMessage("Povolit ?"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m3,
-    "ends_timeago_format_endsAt_allowFromNow_true": m4,
+    "ended_timeago_format_endsAt_allowFromNow_true": m5,
+    "ends_timeago_format_endsAt_allowFromNow_true": m6,
+    "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_feeds_label": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_profile_description": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_profile_label": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_searches_description": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_searches_label": MessageLookupByLibrary.simpleMessage(""),
+    "enter_comma_separated_twitter_usernames":
+        MessageLookupByLibrary.simpleMessage(""),
     "enter_your_twitter_username": MessageLookupByLibrary.simpleMessage(
       "Zadejte vaše uživatelské jméno na Twitter/Xu",
     ),
+    "error_from_twitter": MessageLookupByLibrary.simpleMessage(""),
+    "exclusions_feed_description": MessageLookupByLibrary.simpleMessage(""),
+    "exclusions_feed_label": MessageLookupByLibrary.simpleMessage(""),
     "export": MessageLookupByLibrary.simpleMessage("Exportovat"),
+    "export_guest_accounts": MessageLookupByLibrary.simpleMessage(""),
     "export_settings": MessageLookupByLibrary.simpleMessage(
       "Exportovat nastavení?",
     ),
@@ -189,13 +262,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Exportovat odběry?",
     ),
     "export_tweets": MessageLookupByLibrary.simpleMessage("Exportovat tweety?"),
+    "export_twitter_tokens": MessageLookupByLibrary.simpleMessage(""),
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "Exportovat vaše data",
     ),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(""),
     "feed": MessageLookupByLibrary.simpleMessage("Zdroj"),
     "filters": MessageLookupByLibrary.simpleMessage("Filtry"),
     "finish": MessageLookupByLibrary.simpleMessage("Dokončit"),
-    "finished_with_snapshotData_users": m5,
+    "finished_with_snapshotData_users": m7,
     "followers": MessageLookupByLibrary.simpleMessage("Sledující"),
     "following": MessageLookupByLibrary.simpleMessage("Sledování"),
     "forbidden": MessageLookupByLibrary.simpleMessage(
@@ -207,7 +282,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Tato funkce již není podporována Twitter/Xem!",
     ),
     "general": MessageLookupByLibrary.simpleMessage("Obecné"),
-    "group_name": m6,
+    "generic_username": MessageLookupByLibrary.simpleMessage(""),
+    "group_name": m8,
     "groups": MessageLookupByLibrary.simpleMessage("Skupiny"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "Pomozte vylepšit Squawker",
@@ -233,19 +309,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "import_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Importovat odběry",
     ),
-    "imported_snapshot_data_users_so_far": m7,
+    "imported_snapshot_data_users_so_far": m9,
     "include_replies": MessageLookupByLibrary.simpleMessage(
       "Zahrnout odpovědi",
     ),
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "Zahrnout retweety",
     ),
-    "joined": m8,
+    "invert_selection": MessageLookupByLibrary.simpleMessage(""),
+    "joined": m10,
+    "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(""),
+    "keep_feed_offset_label": MessageLookupByLibrary.simpleMessage(""),
     "language": MessageLookupByLibrary.simpleMessage("Jazyk"),
     "language_subtitle": MessageLookupByLibrary.simpleMessage(
       "Vyžaduje restart",
     ),
     "large": MessageLookupByLibrary.simpleMessage("Velký"),
+    "leaner_feeds_description": MessageLookupByLibrary.simpleMessage(""),
+    "leaner_feeds_label": MessageLookupByLibrary.simpleMessage(""),
     "legacy_android_import": MessageLookupByLibrary.simpleMessage(
       "Import ze starších Androidů",
     ),
@@ -253,12 +334,20 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Dejte vývojářům vědět, že je něco rozbité",
         ),
+    "libre_translate_host": MessageLookupByLibrary.simpleMessage(""),
     "licenses": MessageLookupByLibrary.simpleMessage("Licence"),
     "light": MessageLookupByLibrary.simpleMessage("Světlé"),
     "live": MessageLookupByLibrary.simpleMessage("ŽIVĚ"),
     "logging": MessageLookupByLibrary.simpleMessage("Protokolování"),
+    "login": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos_description": MessageLookupByLibrary.simpleMessage(""),
+    "mandatory_label": MessageLookupByLibrary.simpleMessage(""),
+    "material_3": MessageLookupByLibrary.simpleMessage(""),
     "media": MessageLookupByLibrary.simpleMessage("Média"),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage(""),
     "media_size": MessageLookupByLibrary.simpleMessage("Velikost médií"),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage(""),
     "medium": MessageLookupByLibrary.simpleMessage("Střední"),
     "missing_page": MessageLookupByLibrary.simpleMessage("Chybějící stránka"),
     "mute_video_description": MessageLookupByLibrary.simpleMessage(
@@ -266,6 +355,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "mute_videos": MessageLookupByLibrary.simpleMessage("Ztlumit videa"),
     "name": MessageLookupByLibrary.simpleMessage("Název"),
+    "name_label": MessageLookupByLibrary.simpleMessage(""),
+    "nbr_guest_accounts": m11,
     "newTrans": MessageLookupByLibrary.simpleMessage("Nová"),
     "next": MessageLookupByLibrary.simpleMessage("Další"),
     "no": MessageLookupByLibrary.simpleMessage("Ne"),
@@ -281,12 +372,13 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Žádné odběry. Zkuste nějaké vyhledat nebo importovat!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage(""),
     "not_set": MessageLookupByLibrary.simpleMessage("Nenastaveno"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
           "Poznámka: kvuli imitaci Twitter/Xu nemusí byt zahrnuty všechny tweety",
         ),
-    "numberFormat_format_total_votes": m10,
+    "numberFormat_format_total_votes": m12,
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "only_public_subscriptions_can_be_imported":
         MessageLookupByLibrary.simpleMessage(
@@ -298,19 +390,37 @@ class MessageLookup extends MessageLookupByLibrary {
     "open_app_settings": MessageLookupByLibrary.simpleMessage(
       "Otevřít nastavení aplikace",
     ),
+    "open_in_browser": MessageLookupByLibrary.simpleMessage(""),
+    "option_confirm_close_description": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "option_confirm_close_label": MessageLookupByLibrary.simpleMessage(""),
+    "option_navigation_animations_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "option_navigation_animations_label": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "option_show_navigation_labels_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "option_show_navigation_labels_label": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "optional_label": MessageLookupByLibrary.simpleMessage(""),
     "page_not_found": MessageLookupByLibrary.simpleMessage(
       "Twitter/X říká, že stránka neexistuje, nemusí to ale být pravda",
     ),
+    "password_label": MessageLookupByLibrary.simpleMessage(""),
     "permission_not_granted": MessageLookupByLibrary.simpleMessage(
       "Oprávnění nebylo uděleno. Zkuste to prosím znovu po jeho udělení!",
     ),
+    "phone_label": MessageLookupByLibrary.simpleMessage(""),
     "pick_a_color": MessageLookupByLibrary.simpleMessage("Vyberte si barvu!"),
     "pick_an_icon": MessageLookupByLibrary.simpleMessage("Vyberte si ikonu!"),
     "pinned_tweet": MessageLookupByLibrary.simpleMessage("Připnutý tweet"),
     "playback_speed": MessageLookupByLibrary.simpleMessage(
       "Rychlost přehrávání",
     ),
-    "please_check_your_internet_connection_error_message": m11,
+    "please_check_your_internet_connection_error_message": m13,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage(
       "Zadejte prosím název",
     ),
@@ -333,9 +443,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "prefix": MessageLookupByLibrary.simpleMessage("předpona"),
     "private_profile": MessageLookupByLibrary.simpleMessage("Soukromý profil"),
+    "proxy_description": MessageLookupByLibrary.simpleMessage(""),
+    "proxy_error": MessageLookupByLibrary.simpleMessage(""),
+    "proxy_label": MessageLookupByLibrary.simpleMessage(""),
+    "quality": MessageLookupByLibrary.simpleMessage(""),
+    "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Vydáno pod licencí MIT",
     ),
+    "remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
     "replying_to": MessageLookupByLibrary.simpleMessage("Odpověď uživateli"),
     "report": MessageLookupByLibrary.simpleMessage("Nahlásit"),
     "report_a_bug": MessageLookupByLibrary.simpleMessage("Nahlásit chybu"),
@@ -345,10 +461,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "Obnovit výchozí nastavení stránek",
     ),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage(""),
     "retry": MessageLookupByLibrary.simpleMessage("Zkusit znovu"),
     "save": MessageLookupByLibrary.simpleMessage("Uložit"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "Ušetřete data s menšími obrázky",
+    ),
+    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
+      "",
     ),
     "saved": MessageLookupByLibrary.simpleMessage("Uloženo"),
     "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(
@@ -357,17 +477,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("Hledat"),
     "search_term": MessageLookupByLibrary.simpleMessage("Hledaný výraz"),
     "select": MessageLookupByLibrary.simpleMessage("Vybrat"),
+    "select_all": MessageLookupByLibrary.simpleMessage(""),
+    "select_groups": MessageLookupByLibrary.simpleMessage(""),
+    "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "Vybírání individuálních účtů pro import a přidělování skupin jsou již v plánu!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("Odeslat"),
+    "settings": MessageLookupByLibrary.simpleMessage(""),
+    "settings_saved": MessageLookupByLibrary.simpleMessage(""),
     "share_base_url": MessageLookupByLibrary.simpleMessage(
       "Vlastní adresa URL sdílení",
     ),
     "share_base_url_description": MessageLookupByLibrary.simpleMessage(
       "Použít vlastní základní adresu URL při sdílení",
     ),
+    "share_tweet_as_image": MessageLookupByLibrary.simpleMessage(""),
     "share_tweet_content": MessageLookupByLibrary.simpleMessage(
       "Sdílet obsah tweetu",
     ),
@@ -403,12 +529,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Média uložena!",
     ),
     "system": MessageLookupByLibrary.simpleMessage("Systémové"),
-    "tap_to_download_release_version": m13,
-    "tap_to_show_getMediaType_item_type": m14,
+    "tap_to_download_release_version": m16,
+    "tap_to_show_getMediaType_item_type": m17,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "Děkujeme za pomoc Squawkeru! 💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "problém na GitHubu (#143)",
     ),
@@ -433,7 +559,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "Tento tweet je nedostupný. Nejspíš byl odstraněn.",
     ),
-    "this_tweet_user_name_retweeted": m16,
+    "this_tweet_user_name_retweeted": m19,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "Tento uživatel nikoho nesleduje!",
     ),
@@ -443,20 +569,38 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "thread": MessageLookupByLibrary.simpleMessage("Vlákno"),
     "thumbnail": MessageLookupByLibrary.simpleMessage("Náhled"),
+    "thumbnail_not_available": MessageLookupByLibrary.simpleMessage(""),
     "timed_out": MessageLookupByLibrary.simpleMessage("Vypršel čas"),
+    "to_import_specific_subscriptions_enter_your_comma_separated_usernames_below":
+        MessageLookupByLibrary.simpleMessage(""),
     "to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below":
         MessageLookupByLibrary.simpleMessage(
           "Pro import odběrů z existujícího Twitter/X účtu zadejte níže vaše uživatelské jméno.",
         ),
     "toggle_all": MessageLookupByLibrary.simpleMessage("Přepnout vše"),
+    "translator_label": MessageLookupByLibrary.simpleMessage(""),
+    "translators_description": MessageLookupByLibrary.simpleMessage(""),
+    "translators_label": MessageLookupByLibrary.simpleMessage(""),
     "trending": MessageLookupByLibrary.simpleMessage("Trendy"),
     "trends": MessageLookupByLibrary.simpleMessage("Trendy"),
     "true_black": MessageLookupByLibrary.simpleMessage("Pravá černá?"),
+    "tweet_font_size_description": MessageLookupByLibrary.simpleMessage(""),
+    "tweet_font_size_label": MessageLookupByLibrary.simpleMessage(""),
     "tweets": MessageLookupByLibrary.simpleMessage("Tweety"),
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Tweety a odpovědi",
     ),
-    "tweets_number": m17,
+    "tweets_number": m20,
+    "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(""),
+    "twitter_account_types_description": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "twitter_account_types_label": MessageLookupByLibrary.simpleMessage(""),
+    "twitter_account_types_only_regular": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "twitter_account_types_priority_to_regular":
+        MessageLookupByLibrary.simpleMessage(""),
     "two_home_pages_required": MessageLookupByLibrary.simpleMessage(
       "Musíte mít alespoň 2 stránky domovské obrazovky.",
     ),
@@ -503,7 +647,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "Nepodařilo se načíst výsledky hledání.",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m18,
+    "unable_to_load_the_trends_for_widget_place_name": m21,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "Nepodařilo se načíst tweet",
     ),
@@ -522,7 +666,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "Nepodařilo se spustit migrace databáze",
         ),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m19,
+        m22,
     "unable_to_stream_the_trend_location_preference":
         MessageLookupByLibrary.simpleMessage(
           "Nepodařilo se stremovat předvolbu umístění trendů",
@@ -533,7 +677,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unsupported_url": MessageLookupByLibrary.simpleMessage(
       "Nepodporovaná adresa URL",
     ),
-    "update_to_release_version_through_your_fdroid_client": m20,
+    "update_to_release_version_through_your_fdroid_client": m23,
     "updates": MessageLookupByLibrary.simpleMessage("Aktualizace"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage(
@@ -543,7 +687,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "Uživatel nenalezen",
     ),
     "username": MessageLookupByLibrary.simpleMessage("Uživatelské jméno"),
+    "username_exclude": MessageLookupByLibrary.simpleMessage(""),
+    "username_label": MessageLookupByLibrary.simpleMessage(""),
+    "usernames": MessageLookupByLibrary.simpleMessage(""),
     "version": MessageLookupByLibrary.simpleMessage("Verze"),
+    "video_prefetch": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_seconds": m24,
+    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(""),
+    "warning_regular_account_unauthenticated_access_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "warning_regular_account_unauthenticated_access_title":
+        MessageLookupByLibrary.simpleMessage(""),
     "when_a_new_app_update_is_available": MessageLookupByLibrary.simpleMessage(
       "Když je dostupná aktualizace aplikace",
     ),
@@ -559,10 +714,18 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Karta, která bude zobrazena při otevření aplikace",
         ),
+    "which_tab_is_shown_when_the_subscription_opens":
+        MessageLookupByLibrary.simpleMessage(""),
     "would_you_like_to_enable_automatic_error_reporting":
         MessageLookupByLibrary.simpleMessage(
           "Chcete povolit automatické nahlašování?",
         ),
+    "x_api": MessageLookupByLibrary.simpleMessage(""),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(""),
     "yes": MessageLookupByLibrary.simpleMessage("Ano"),
     "yes_please": MessageLookupByLibrary.simpleMessage("Ano, prosím"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(

@@ -23,54 +23,69 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(name) =>
       "Ĉu vi certas, vi volas forigi la grupon de abonoj ${name}?";
 
-  static String m1(fileName) => "Datumoj eksportiĝis al ${fileName}";
+  static String m1(count) => "";
 
-  static String m2(fullPath) => "Datumoj eksportiĝis al ${fullPath}";
+  static String m2(count) => "";
 
-  static String m3(timeagoFormat) => "Finiĝis ${timeagoFormat}";
+  static String m3(fileName) => "Datumoj eksportiĝis al ${fileName}";
 
-  static String m4(timeagoFormat) => "Finiĝos ${timeagoFormat}";
+  static String m4(fullPath) => "Datumoj eksportiĝis al ${fullPath}";
 
-  static String m5(snapshotData) => "Finiĝis kun ${snapshotData} uzantoj";
+  static String m5(timeagoFormat) => "Finiĝis ${timeagoFormat}";
 
-  static String m6(name) => "Grupo: ${name}";
+  static String m6(timeagoFormat) => "Finiĝos ${timeagoFormat}";
 
-  static String m7(snapshotData) =>
+  static String m7(snapshotData) => "Finiĝis kun ${snapshotData} uzantoj";
+
+  static String m8(name) => "Grupo: ${name}";
+
+  static String m9(snapshotData) =>
       "${snapshotData} uzantoj importiĝis ĝis nun";
 
-  static String m8(date) => "Membriĝis je ${date}";
+  static String m10(date) => "Membriĝis je ${date}";
 
-  static String m10(num, numFormatted) =>
+  static String m11(nbrGuestAccounts) => "";
+
+  static String m12(num, numFormatted) =>
       "${Intl.plural(num, zero: 'Ne voĉoj', one: 'Unu voĉo', two: 'Du voĉoj', few: '${numFormatted} voĉoj', many: '${numFormatted} voĉoj', other: '${numFormatted} voĉoj')}";
 
-  static String m11(errorMessage) =>
+  static String m13(errorMessage) =>
       "Bonvolu kontroli vian konekton Interretan.\n\n${errorMessage}";
 
-  static String m13(releaseVersion) => "Premu por elŝuti ${releaseVersion}";
+  static String m14(nbrRegularAccounts) => "";
 
-  static String m14(getMediaType) => "Premu por vidi ${getMediaType}";
+  static String m15(count) => "";
 
-  static String m15(filePath) =>
+  static String m16(releaseVersion) => "Premu por elŝuti ${releaseVersion}";
+
+  static String m17(getMediaType) => "Premu por vidi ${getMediaType}";
+
+  static String m18(filePath) =>
       "La dosiero ne ekzistas. Bonvolu certigi ĝin loke ĉe ${filePath}";
 
-  static String m16(thisTweetUserName, timeAgo) =>
+  static String m19(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} repepis ${timeAgo}";
 
-  static String m17(num, numFormatted) =>
+  static String m20(num, numFormatted) =>
       "${Intl.plural(num, zero: 'ne pepoj', one: 'unu pepo', two: 'du pepoj', few: '${numFormatted} pepoj', many: '${numFormatted} pepoj', other: '${numFormatted} pepoj')}";
 
-  static String m18(widgetPlaceName) =>
+  static String m21(widgetPlaceName) =>
       "Ne eblas ŝarĝi la tendencaĵojn el ${widgetPlaceName}";
 
-  static String m19(responseStatusCode) =>
+  static String m22(responseStatusCode) =>
       "Ne eblas konservi la plurmedion. Twitter/X revenigis staton de ${responseStatusCode}";
 
-  static String m20(releaseVersion) =>
+  static String m23(releaseVersion) =>
       "Ĝisdatigu al ${releaseVersion} per via kliento de F-Droid";
+
+  static String m24(seconds) => "";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("Pri Squawker"),
+    "about_download": MessageLookupByLibrary.simpleMessage(""),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(""),
+    "account": MessageLookupByLibrary.simpleMessage(""),
     "account_suspended": MessageLookupByLibrary.simpleMessage("Konto haltiĝis"),
     "activate_non_confirmation_bias_mode_description":
         MessageLookupByLibrary.simpleMessage(
@@ -80,21 +95,45 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Ŝalti reĝimon de biaso de nekonfirmo",
         ),
+    "add_account": MessageLookupByLibrary.simpleMessage(""),
+    "add_account_title": MessageLookupByLibrary.simpleMessage(""),
+    "add_subscriptions": MessageLookupByLibrary.simpleMessage(""),
+    "add_to_feed": MessageLookupByLibrary.simpleMessage(""),
     "add_to_group": MessageLookupByLibrary.simpleMessage("Aldoni al grupo"),
     "all": MessageLookupByLibrary.simpleMessage("Ĉio"),
     "all_the_great_software_used_by_fritter":
         MessageLookupByLibrary.simpleMessage(
           "Ĉiu el la programaro bonega uzate per Squawker",
         ),
+    "allow_background_play_description": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "allow_background_play_label": MessageLookupByLibrary.simpleMessage(""),
+    "allow_background_play_other_apps_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "allow_background_play_other_apps_label":
+        MessageLookupByLibrary.simpleMessage(""),
     "an_update_for_fritter_is_available": MessageLookupByLibrary.simpleMessage(
       "Ĝisdatigo por Squawker estas disponebla! 🚀",
     ),
+    "api_key": MessageLookupByLibrary.simpleMessage(""),
+    "api_server": MessageLookupByLibrary.simpleMessage(""),
+    "api_server_address": MessageLookupByLibrary.simpleMessage(""),
+    "app_info": MessageLookupByLibrary.simpleMessage(""),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Ĉu vi certas?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage(""),
+    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "back": MessageLookupByLibrary.simpleMessage("Antaŭen"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X malvalidigis la ĵetonon de atingo. Bonvolu provi remalfermi Squawker-on!",
     ),
+    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed_confirm": m1,
+    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(""),
+    "batch_unsubscribe_confirm": m2,
+    "beta": MessageLookupByLibrary.simpleMessage(""),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
           "Blua temo bazite de la kolorskemo de Twitter/X",
@@ -106,6 +145,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "choose": MessageLookupByLibrary.simpleMessage("Elekti"),
     "choose_pages": MessageLookupByLibrary.simpleMessage("Elekti paĝojn"),
     "close": MessageLookupByLibrary.simpleMessage("Fermi"),
+    "community_notes_title": MessageLookupByLibrary.simpleMessage(""),
+    "confirm": MessageLookupByLibrary.simpleMessage(""),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Ĉu vi certas, vi volas fermi Squawker-on?",
     ),
@@ -130,15 +171,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("Lando"),
     "dark": MessageLookupByLibrary.simpleMessage("Malhela"),
     "data": MessageLookupByLibrary.simpleMessage("Datumoj"),
-    "data_exported_to_fileName": m1,
-    "data_exported_to_fullPath": m2,
+    "data_exported_to_fileName": m3,
+    "data_exported_to_fullPath": m4,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "Datumoj importiĝis sukcese",
     ),
     "date_created": MessageLookupByLibrary.simpleMessage("Dato de kreo"),
     "date_subscribed": MessageLookupByLibrary.simpleMessage("Dato de ekabono"),
+    "default_subscription_tab": MessageLookupByLibrary.simpleMessage(""),
     "default_tab": MessageLookupByLibrary.simpleMessage("Langeto komenca"),
     "delete": MessageLookupByLibrary.simpleMessage("Forigi"),
+    "deselect_all": MessageLookupByLibrary.simpleMessage(""),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "Malŝalti ekrankopiojn",
     ),
@@ -146,8 +189,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Eviti ekrankopiojn farote. Eble ne funkcii kun ĉiuj aparatoj.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("Malŝaltita"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(""),
     "donate": MessageLookupByLibrary.simpleMessage("Donaci"),
     "download": MessageLookupByLibrary.simpleMessage("Elŝuti"),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage(""),
+    "download_completed": MessageLookupByLibrary.simpleMessage(""),
+    "download_failed": MessageLookupByLibrary.simpleMessage(""),
     "download_handling": MessageLookupByLibrary.simpleMessage(
       "Trakto de elŝutoj",
     ),
@@ -163,19 +210,46 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "Ne eblas elŝuti. Tiu ĉi plurmedio eble nur estas disponebla kiel fluo, kiun Squawker ne ankoraŭ eblas elŝuti.",
     ),
+    "download_mode": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_fast": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_safe": MessageLookupByLibrary.simpleMessage(""),
     "download_path": MessageLookupByLibrary.simpleMessage(
       "Dosiervojo de elŝutado",
+    ),
+    "download_settings": MessageLookupByLibrary.simpleMessage(""),
+    "download_started": MessageLookupByLibrary.simpleMessage(""),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_video_best_quality_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "download_video_best_quality_label": MessageLookupByLibrary.simpleMessage(
+      "",
     ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
       "Elŝutas plurmedion…",
     ),
+    "edit_account_title": MessageLookupByLibrary.simpleMessage(""),
+    "email_label": MessageLookupByLibrary.simpleMessage(""),
     "enable_": MessageLookupByLibrary.simpleMessage("Ĉu ŝalti -on?"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m3,
-    "ends_timeago_format_endsAt_allowFromNow_true": m4,
+    "ended_timeago_format_endsAt_allowFromNow_true": m5,
+    "ends_timeago_format_endsAt_allowFromNow_true": m6,
+    "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_feeds_label": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_profile_description": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_profile_label": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_searches_description": MessageLookupByLibrary.simpleMessage(""),
+    "enhanced_searches_label": MessageLookupByLibrary.simpleMessage(""),
+    "enter_comma_separated_twitter_usernames":
+        MessageLookupByLibrary.simpleMessage(""),
     "enter_your_twitter_username": MessageLookupByLibrary.simpleMessage(
       "Enigi vian uzantnomon de Twitter/X",
     ),
+    "error_from_twitter": MessageLookupByLibrary.simpleMessage(""),
+    "exclusions_feed_description": MessageLookupByLibrary.simpleMessage(""),
+    "exclusions_feed_label": MessageLookupByLibrary.simpleMessage(""),
     "export": MessageLookupByLibrary.simpleMessage("Eksporti"),
+    "export_guest_accounts": MessageLookupByLibrary.simpleMessage(""),
     "export_settings": MessageLookupByLibrary.simpleMessage(
       "Ĉu eksporti la agordojn?",
     ),
@@ -191,13 +265,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_tweets": MessageLookupByLibrary.simpleMessage(
       "Ĉu eksporti pepojn?",
     ),
+    "export_twitter_tokens": MessageLookupByLibrary.simpleMessage(""),
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "Eksporti viajn datumojn",
     ),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(""),
     "feed": MessageLookupByLibrary.simpleMessage("Fluo"),
     "filters": MessageLookupByLibrary.simpleMessage("Filtriloj"),
     "finish": MessageLookupByLibrary.simpleMessage("Fini"),
-    "finished_with_snapshotData_users": m5,
+    "finished_with_snapshotData_users": m7,
     "followers": MessageLookupByLibrary.simpleMessage("Abonantoj"),
     "following": MessageLookupByLibrary.simpleMessage("Abonoj"),
     "forbidden": MessageLookupByLibrary.simpleMessage(
@@ -205,8 +281,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "fritter": MessageLookupByLibrary.simpleMessage("Squawker"),
     "fritter_blue": MessageLookupByLibrary.simpleMessage("Squawker blua"),
+    "functionality_unsupported": MessageLookupByLibrary.simpleMessage(""),
     "general": MessageLookupByLibrary.simpleMessage("Ĝenerala"),
-    "group_name": m6,
+    "generic_username": MessageLookupByLibrary.simpleMessage(""),
+    "group_name": m8,
     "groups": MessageLookupByLibrary.simpleMessage("Grupoj"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "Helpi plibonigi Squawker-on",
@@ -232,19 +310,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "import_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Importi abonojn",
     ),
-    "imported_snapshot_data_users_so_far": m7,
+    "imported_snapshot_data_users_so_far": m9,
     "include_replies": MessageLookupByLibrary.simpleMessage(
       "Ampleksi respondojn",
     ),
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "Ampleksi repepojn",
     ),
-    "joined": m8,
+    "invert_selection": MessageLookupByLibrary.simpleMessage(""),
+    "joined": m10,
+    "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(""),
+    "keep_feed_offset_label": MessageLookupByLibrary.simpleMessage(""),
     "language": MessageLookupByLibrary.simpleMessage("Lingvo"),
     "language_subtitle": MessageLookupByLibrary.simpleMessage(
       "Bezonas rekomencon",
     ),
     "large": MessageLookupByLibrary.simpleMessage("Granda"),
+    "leaner_feeds_description": MessageLookupByLibrary.simpleMessage(""),
+    "leaner_feeds_label": MessageLookupByLibrary.simpleMessage(""),
     "legacy_android_import": MessageLookupByLibrary.simpleMessage(
       "Importo de Android malnova",
     ),
@@ -252,12 +335,20 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Konigi al programistojn, se io estas difektita",
         ),
+    "libre_translate_host": MessageLookupByLibrary.simpleMessage(""),
     "licenses": MessageLookupByLibrary.simpleMessage("Licencoj"),
     "light": MessageLookupByLibrary.simpleMessage("Hela"),
     "live": MessageLookupByLibrary.simpleMessage("REKTE"),
     "logging": MessageLookupByLibrary.simpleMessage("Protokolado"),
+    "login": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos_description": MessageLookupByLibrary.simpleMessage(""),
+    "mandatory_label": MessageLookupByLibrary.simpleMessage(""),
+    "material_3": MessageLookupByLibrary.simpleMessage(""),
     "media": MessageLookupByLibrary.simpleMessage("Plurmedio"),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage(""),
     "media_size": MessageLookupByLibrary.simpleMessage("Grando de plurmedio"),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage(""),
     "medium": MessageLookupByLibrary.simpleMessage("Mezgranda"),
     "missing_page": MessageLookupByLibrary.simpleMessage("Paĝo manka"),
     "mute_video_description": MessageLookupByLibrary.simpleMessage(
@@ -265,6 +356,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "mute_videos": MessageLookupByLibrary.simpleMessage("Mutigi videojn"),
     "name": MessageLookupByLibrary.simpleMessage("Nomo"),
+    "name_label": MessageLookupByLibrary.simpleMessage(""),
+    "nbr_guest_accounts": m11,
     "newTrans": MessageLookupByLibrary.simpleMessage("Nova"),
     "next": MessageLookupByLibrary.simpleMessage("Sekven"),
     "no": MessageLookupByLibrary.simpleMessage("Ne"),
@@ -278,12 +371,13 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Ne abonoj. Provu serĉi aŭ importi iujn!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage(""),
     "not_set": MessageLookupByLibrary.simpleMessage("Ne agordita"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
           "Noto: Pro limigo de Twitter/X, ne ĉiuj pepoj eble estas ampleksitaj",
         ),
-    "numberFormat_format_total_votes": m10,
+    "numberFormat_format_total_votes": m12,
     "ok": MessageLookupByLibrary.simpleMessage("Bone"),
     "only_public_subscriptions_can_be_imported":
         MessageLookupByLibrary.simpleMessage(
@@ -295,19 +389,37 @@ class MessageLookup extends MessageLookupByLibrary {
     "open_app_settings": MessageLookupByLibrary.simpleMessage(
       "Montri agordojn de la apo",
     ),
+    "open_in_browser": MessageLookupByLibrary.simpleMessage(""),
+    "option_confirm_close_description": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "option_confirm_close_label": MessageLookupByLibrary.simpleMessage(""),
+    "option_navigation_animations_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "option_navigation_animations_label": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "option_show_navigation_labels_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "option_show_navigation_labels_label": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "optional_label": MessageLookupByLibrary.simpleMessage(""),
     "page_not_found": MessageLookupByLibrary.simpleMessage(
       "Twitter/X diras, la paĝo ne ekzistas, sed tio eble ne estas vere",
     ),
+    "password_label": MessageLookupByLibrary.simpleMessage(""),
     "permission_not_granted": MessageLookupByLibrary.simpleMessage(
       "Permeso ne doniĝis. Bonvolu provi ree post permesado!",
     ),
+    "phone_label": MessageLookupByLibrary.simpleMessage(""),
     "pick_a_color": MessageLookupByLibrary.simpleMessage("Elekti koloron!"),
     "pick_an_icon": MessageLookupByLibrary.simpleMessage("Elekti ikonon!"),
     "pinned_tweet": MessageLookupByLibrary.simpleMessage("Alpinglita pepo"),
     "playback_speed": MessageLookupByLibrary.simpleMessage(
       "Rapido de reproduktado",
     ),
-    "please_check_your_internet_connection_error_message": m11,
+    "please_check_your_internet_connection_error_message": m13,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage(
       "Bonvolu enigi nomon",
     ),
@@ -328,9 +440,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "prefix": MessageLookupByLibrary.simpleMessage("prefikso"),
     "private_profile": MessageLookupByLibrary.simpleMessage("Profilo privata"),
+    "proxy_description": MessageLookupByLibrary.simpleMessage(""),
+    "proxy_error": MessageLookupByLibrary.simpleMessage(""),
+    "proxy_label": MessageLookupByLibrary.simpleMessage(""),
+    "quality": MessageLookupByLibrary.simpleMessage(""),
+    "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Eldonis per la licenco MIT-a",
     ),
+    "remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
     "replying_to": MessageLookupByLibrary.simpleMessage("Respondas al"),
     "report": MessageLookupByLibrary.simpleMessage("Raporti"),
     "report_a_bug": MessageLookupByLibrary.simpleMessage("Raporti cimon"),
@@ -340,10 +458,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "Reagordi paĝojn defaŭlten",
     ),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage(""),
     "retry": MessageLookupByLibrary.simpleMessage("Reprovi"),
     "save": MessageLookupByLibrary.simpleMessage("Konservi"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "Konservi bendlarĝon per pli malgrandaj bildoj",
+    ),
+    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
+      "",
     ),
     "saved": MessageLookupByLibrary.simpleMessage("Konservitaĵoj"),
     "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(
@@ -352,17 +474,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("Serĉi"),
     "search_term": MessageLookupByLibrary.simpleMessage("Termino de serĉo"),
     "select": MessageLookupByLibrary.simpleMessage("Elekti"),
+    "select_all": MessageLookupByLibrary.simpleMessage(""),
+    "select_groups": MessageLookupByLibrary.simpleMessage(""),
+    "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "Elektado de kontoj individuaj por importi, kaj asignado de grupoj estas ambaŭ planite estontece jam!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("Sendi"),
+    "settings": MessageLookupByLibrary.simpleMessage(""),
+    "settings_saved": MessageLookupByLibrary.simpleMessage(""),
     "share_base_url": MessageLookupByLibrary.simpleMessage(
       "URL kunhavanta propra",
     ),
     "share_base_url_description": MessageLookupByLibrary.simpleMessage(
       "Uzi URL-on bazan propran kiam kunhavigi",
     ),
+    "share_tweet_as_image": MessageLookupByLibrary.simpleMessage(""),
     "share_tweet_content": MessageLookupByLibrary.simpleMessage(
       "Kunhavigi la enhavon de la pepo",
     ),
@@ -398,12 +526,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Konservis la plurmedion!",
     ),
     "system": MessageLookupByLibrary.simpleMessage("Sistema"),
-    "tap_to_download_release_version": m13,
-    "tap_to_show_getMediaType_item_type": m14,
+    "tap_to_download_release_version": m16,
+    "tap_to_show_getMediaType_item_type": m17,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "Dankon pro helpi Squawker! 💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "la problemo ĉe GitHub (#143)",
     ),
@@ -426,7 +554,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "Tiu ĉi pepo estas maldisponebla. Ĝi probable foriĝis.",
     ),
-    "this_tweet_user_name_retweeted": m16,
+    "this_tweet_user_name_retweeted": m19,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "Tiu ĉi uzanto ne observas iun ajn!",
     ),
@@ -436,20 +564,38 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "thread": MessageLookupByLibrary.simpleMessage("Diskutfadeno"),
     "thumbnail": MessageLookupByLibrary.simpleMessage("Miniaturo"),
+    "thumbnail_not_available": MessageLookupByLibrary.simpleMessage(""),
     "timed_out": MessageLookupByLibrary.simpleMessage("Tempolimiĝis"),
+    "to_import_specific_subscriptions_enter_your_comma_separated_usernames_below":
+        MessageLookupByLibrary.simpleMessage(""),
     "to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below":
         MessageLookupByLibrary.simpleMessage(
           "Por importi abonojn el ekzistanta Twitter/X-konto, enigi vian uzantnomon sube.",
         ),
     "toggle_all": MessageLookupByLibrary.simpleMessage("Baskuli ĉiun"),
+    "translator_label": MessageLookupByLibrary.simpleMessage(""),
+    "translators_description": MessageLookupByLibrary.simpleMessage(""),
+    "translators_label": MessageLookupByLibrary.simpleMessage(""),
     "trending": MessageLookupByLibrary.simpleMessage("Tendencaĵoj"),
     "trends": MessageLookupByLibrary.simpleMessage("Tendencaĵoj"),
     "true_black": MessageLookupByLibrary.simpleMessage("Nigro vera?"),
+    "tweet_font_size_description": MessageLookupByLibrary.simpleMessage(""),
+    "tweet_font_size_label": MessageLookupByLibrary.simpleMessage(""),
     "tweets": MessageLookupByLibrary.simpleMessage("Pepoj"),
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Pepoj k. Respondoj",
     ),
-    "tweets_number": m17,
+    "tweets_number": m20,
+    "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(""),
+    "twitter_account_types_description": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "twitter_account_types_label": MessageLookupByLibrary.simpleMessage(""),
+    "twitter_account_types_only_regular": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "twitter_account_types_priority_to_regular":
+        MessageLookupByLibrary.simpleMessage(""),
     "two_home_pages_required": MessageLookupByLibrary.simpleMessage(
       "Vi bezonas havi malpleje 2 paĝojn de hejmekrano.",
     ),
@@ -496,7 +642,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "Ne eblas ŝarĝi la rezultojn de la serĉo.",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m18,
+    "unable_to_load_the_trends_for_widget_place_name": m21,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "Ne eblas ŝarĝi la pepon",
     ),
@@ -515,7 +661,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "Ne eblas ruli migradojn de la datumbazo",
         ),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m19,
+        m22,
     "unable_to_stream_the_trend_location_preference":
         MessageLookupByLibrary.simpleMessage(
           "Ne eblas fluigi la agordon de loko de tendencoj",
@@ -524,7 +670,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unsave": MessageLookupByLibrary.simpleMessage("Malkonservi"),
     "unsubscribe": MessageLookupByLibrary.simpleMessage("Malaboni"),
     "unsupported_url": MessageLookupByLibrary.simpleMessage("URL malsubtenita"),
-    "update_to_release_version_through_your_fdroid_client": m20,
+    "update_to_release_version_through_your_fdroid_client": m23,
     "updates": MessageLookupByLibrary.simpleMessage("Ĝisdatigoj"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage(
@@ -534,7 +680,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "Uzanto ne troviĝis",
     ),
     "username": MessageLookupByLibrary.simpleMessage("Uzantnomo"),
+    "username_exclude": MessageLookupByLibrary.simpleMessage(""),
+    "username_label": MessageLookupByLibrary.simpleMessage(""),
+    "usernames": MessageLookupByLibrary.simpleMessage(""),
     "version": MessageLookupByLibrary.simpleMessage("Versio"),
+    "video_prefetch": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_seconds": m24,
+    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(""),
+    "warning_regular_account_unauthenticated_access_description":
+        MessageLookupByLibrary.simpleMessage(""),
+    "warning_regular_account_unauthenticated_access_title":
+        MessageLookupByLibrary.simpleMessage(""),
     "when_a_new_app_update_is_available": MessageLookupByLibrary.simpleMessage(
       "Kiam ĝisdatigo de la apo estas disponebla",
     ),
@@ -548,10 +705,18 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Kiu langeto vidiĝus kiam la apo malfermiĝus",
         ),
+    "which_tab_is_shown_when_the_subscription_opens":
+        MessageLookupByLibrary.simpleMessage(""),
     "would_you_like_to_enable_automatic_error_reporting":
         MessageLookupByLibrary.simpleMessage(
           "Ĉu vi volus ŝalti eraroraportadon aŭtomatan?",
         ),
+    "x_api": MessageLookupByLibrary.simpleMessage(""),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(""),
     "yes": MessageLookupByLibrary.simpleMessage("Jes"),
     "yes_please": MessageLookupByLibrary.simpleMessage("Jes, bonvolu"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(

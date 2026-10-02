@@ -23,58 +23,68 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(name) =>
       "האם אתה בטוח שברצונך למחוק את קבוצת המנויים ${name}?";
 
-  static String m1(fileName) => "נתונים נשמרו בשם ${fileName}";
+  static String m1(count) => "";
 
-  static String m2(fullPath) => "נתונים נשמרו ב ${fullPath}";
+  static String m2(count) => "";
 
-  static String m3(timeagoFormat) => "הסתיים ${timeagoFormat}";
+  static String m3(fileName) => "נתונים נשמרו בשם ${fileName}";
 
-  static String m4(timeagoFormat) => "מסתיים ${timeagoFormat}";
+  static String m4(fullPath) => "נתונים נשמרו ב ${fullPath}";
 
-  static String m5(snapshotData) => "הסתיים עם משתמשי ${snapshotData}";
+  static String m5(timeagoFormat) => "הסתיים ${timeagoFormat}";
 
-  static String m6(name) => "${name}";
+  static String m6(timeagoFormat) => "מסתיים ${timeagoFormat}";
 
-  static String m7(snapshotData) => "משתמשי ${snapshotData} יובאו עד כה";
+  static String m7(snapshotData) => "הסתיים עם משתמשי ${snapshotData}";
 
-  static String m8(date) => "הצטרף ב-${date}";
+  static String m8(name) => "${name}";
 
-  static String m9(nbrGuestAccounts) =>
+  static String m9(snapshotData) => "משתמשי ${snapshotData} יובאו עד כה";
+
+  static String m10(date) => "הצטרף ב-${date}";
+
+  static String m11(nbrGuestAccounts) =>
       "ישנם ${nbrGuestAccounts} חשבונות אורחים";
 
-  static String m10(num, numFormatted) =>
+  static String m12(num, numFormatted) =>
       "${Intl.plural(num, zero: 'אין הצבעות', one: 'הצבעה אחת', two: 'שתי הצבעות', few: '${numFormatted} הצבעות', many: '${numFormatted} הצבעות', other: '${numFormatted} הצבעות')}";
 
-  static String m11(errorMessage) =>
+  static String m13(errorMessage) =>
       "אנא בדוק את חיבור האינטרנט שלך.\n\n${errorMessage}";
 
-  static String m12(nbrRegularAccounts) =>
+  static String m14(nbrRegularAccounts) =>
       "חשבונות רגילים (${nbrRegularAccounts}):";
 
-  static String m13(releaseVersion) => "הקש כדי להוריד את ${releaseVersion}";
+  static String m15(count) => "";
 
-  static String m14(getMediaType) => "הקש כדי להציג את ${getMediaType}";
+  static String m16(releaseVersion) => "הקש כדי להוריד את ${releaseVersion}";
 
-  static String m15(filePath) => "הקובץ לא קיים. ודא שהוא ממוקם ב-${filePath}";
+  static String m17(getMediaType) => "הקש כדי להציג את ${getMediaType}";
 
-  static String m16(thisTweetUserName, timeAgo) =>
+  static String m18(filePath) => "הקובץ לא קיים. ודא שהוא ממוקם ב-${filePath}";
+
+  static String m19(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} צייץ מחדש ${timeAgo}";
 
-  static String m17(num, numFormatted) =>
+  static String m20(num, numFormatted) =>
       "${Intl.plural(num, zero: 'אין ציוצים', one: 'ציוץ', two: 'שתי ציוצים', few: '${numFormatted} ציוצים', many: '${numFormatted} ציוצים', other: '${numFormatted} tweets')}";
 
-  static String m18(widgetPlaceName) =>
+  static String m21(widgetPlaceName) =>
       "לא ניתן לטעון את הפוסטים פופולארי עבור ${widgetPlaceName}";
 
-  static String m19(responseStatusCode) =>
+  static String m22(responseStatusCode) =>
       "לא ניתן לשמור את המדיה. Twitter/X החזיר סטטוס של ${responseStatusCode}";
 
-  static String m20(releaseVersion) =>
+  static String m23(releaseVersion) =>
       "עדכן ל-${releaseVersion} דרך לקוח ה-F-Droid שלך";
+
+  static String m24(seconds) => "";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("אודות"),
+    "about_download": MessageLookupByLibrary.simpleMessage(""),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(""),
     "account": MessageLookupByLibrary.simpleMessage("חשבון"),
     "account_suspended": MessageLookupByLibrary.simpleMessage("החשבון הושעה"),
     "activate_non_confirmation_bias_mode_description":
@@ -109,13 +119,22 @@ class MessageLookup extends MessageLookupByLibrary {
       "עדכון Squawker זמין! 🚀",
     ),
     "api_key": MessageLookupByLibrary.simpleMessage("מפתח API"),
+    "api_server": MessageLookupByLibrary.simpleMessage(""),
+    "api_server_address": MessageLookupByLibrary.simpleMessage(""),
     "app_info": MessageLookupByLibrary.simpleMessage("מידע על האפליקציה"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("אתה בטוח?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage(""),
+    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "back": MessageLookupByLibrary.simpleMessage("חזרה"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X ביטל את מפתח הגישה שלנו. אנא נסה לפתוח מחדש את Squawker!",
     ),
+    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed_confirm": m1,
+    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(""),
+    "batch_unsubscribe_confirm": m2,
     "beta": MessageLookupByLibrary.simpleMessage("בטא"),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
@@ -131,6 +150,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "community_notes_title": MessageLookupByLibrary.simpleMessage(
       "תוכן שקוראים הוסיפו",
     ),
+    "confirm": MessageLookupByLibrary.simpleMessage(""),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "האם אתה בטוח שברצונך לסגור את Squawker?",
     ),
@@ -155,8 +175,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("מדינה"),
     "dark": MessageLookupByLibrary.simpleMessage("כהה"),
     "data": MessageLookupByLibrary.simpleMessage("נתונים"),
-    "data_exported_to_fileName": m1,
-    "data_exported_to_fullPath": m2,
+    "data_exported_to_fileName": m3,
+    "data_exported_to_fullPath": m4,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "הנתונים יובאו בהצלחה",
     ),
@@ -167,6 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "default_tab": MessageLookupByLibrary.simpleMessage("כרטיסיית ברירת מחדל"),
     "delete": MessageLookupByLibrary.simpleMessage("מחק"),
+    "deselect_all": MessageLookupByLibrary.simpleMessage(""),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "השבת צילומי מסך",
     ),
@@ -179,6 +200,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "donate": MessageLookupByLibrary.simpleMessage("תרום"),
     "download": MessageLookupByLibrary.simpleMessage("הורדה"),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage(""),
+    "download_completed": MessageLookupByLibrary.simpleMessage(""),
+    "download_failed": MessageLookupByLibrary.simpleMessage(""),
     "download_handling": MessageLookupByLibrary.simpleMessage("טיפול בהורדות"),
     "download_handling_description": MessageLookupByLibrary.simpleMessage(
       "איך הורדה צריכה לעבוד",
@@ -192,7 +216,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "לא ניתן להוריד. מדיה זו עשויה להיות זמינה רק כזרם, ש-Squawker עדיין לא יכול להוריד.",
     ),
+    "download_mode": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_fast": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_safe": MessageLookupByLibrary.simpleMessage(""),
     "download_path": MessageLookupByLibrary.simpleMessage("נתיב הורדה"),
+    "download_settings": MessageLookupByLibrary.simpleMessage(""),
+    "download_started": MessageLookupByLibrary.simpleMessage(""),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_tweet": MessageLookupByLibrary.simpleMessage(""),
     "download_video_best_quality_description":
         MessageLookupByLibrary.simpleMessage(
           "הורד סרטונים באיכות הטובה והזמינה ביותר",
@@ -204,8 +236,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "edit_account_title": MessageLookupByLibrary.simpleMessage("שנה חשבון"),
     "email_label": MessageLookupByLibrary.simpleMessage("אימייל:"),
     "enable_": MessageLookupByLibrary.simpleMessage("לאפשר?"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m3,
-    "ends_timeago_format_endsAt_allowFromNow_true": m4,
+    "ended_timeago_format_endsAt_allowFromNow_true": m5,
+    "ends_timeago_format_endsAt_allowFromNow_true": m6,
     "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(
       "בקשות משופרות לעידכונים (אך עם מגבלות תעריף נמוכות יותר)",
     ),
@@ -261,10 +293,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "ייצא את הנתונים שלך",
     ),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(""),
     "feed": MessageLookupByLibrary.simpleMessage("פיד"),
     "filters": MessageLookupByLibrary.simpleMessage("פילטרים"),
     "finish": MessageLookupByLibrary.simpleMessage("סיים"),
-    "finished_with_snapshotData_users": m5,
+    "finished_with_snapshotData_users": m7,
     "followers": MessageLookupByLibrary.simpleMessage("עוקבים"),
     "following": MessageLookupByLibrary.simpleMessage("במעקב"),
     "forbidden": MessageLookupByLibrary.simpleMessage("הגישה חסומה"),
@@ -275,7 +308,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "general": MessageLookupByLibrary.simpleMessage("כללי"),
     "generic_username": MessageLookupByLibrary.simpleMessage("משתמש"),
-    "group_name": m6,
+    "group_name": m8,
     "groups": MessageLookupByLibrary.simpleMessage("קבוצות"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "עזור להפוך את Squawker לאפילו יותר טוב",
@@ -299,12 +332,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "ייבוא מטוויטר/X",
     ),
     "import_subscriptions": MessageLookupByLibrary.simpleMessage("ייבא מנויים"),
-    "imported_snapshot_data_users_so_far": m7,
+    "imported_snapshot_data_users_so_far": m9,
     "include_replies": MessageLookupByLibrary.simpleMessage("כלול תגובות"),
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "כלול ציוצים מחדש",
     ),
-    "joined": m8,
+    "invert_selection": MessageLookupByLibrary.simpleMessage(""),
+    "joined": m10,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
       "היסט ציר הזמן נשמר עבור עדכונים כאשר האפליקציה מופעלת מחדש",
     ),
@@ -333,10 +367,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "live": MessageLookupByLibrary.simpleMessage("שידור חי"),
     "logging": MessageLookupByLibrary.simpleMessage("רישום"),
     "login": MessageLookupByLibrary.simpleMessage("התחבר"),
+    "loop_videos": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "mandatory_label": MessageLookupByLibrary.simpleMessage("שדות חובה:"),
     "material_3": MessageLookupByLibrary.simpleMessage("חומר 3?"),
     "media": MessageLookupByLibrary.simpleMessage("מדיה"),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage(""),
     "media_size": MessageLookupByLibrary.simpleMessage("גודל מדיה"),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage(""),
     "medium": MessageLookupByLibrary.simpleMessage("בינוני"),
     "missing_page": MessageLookupByLibrary.simpleMessage("דף חסר"),
     "mute_video_description": MessageLookupByLibrary.simpleMessage(
@@ -345,7 +383,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mute_videos": MessageLookupByLibrary.simpleMessage("השתקת סרטונים"),
     "name": MessageLookupByLibrary.simpleMessage("שם"),
     "name_label": MessageLookupByLibrary.simpleMessage("שם:"),
-    "nbr_guest_accounts": m9,
+    "nbr_guest_accounts": m11,
     "newTrans": MessageLookupByLibrary.simpleMessage("חדש"),
     "next": MessageLookupByLibrary.simpleMessage("הבא"),
     "no": MessageLookupByLibrary.simpleMessage("לא"),
@@ -365,7 +403,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "הערה: עקב מגבלה של Twitter/X, ייתכן שלא כל הציוצים ייכללו",
         ),
-    "numberFormat_format_total_votes": m10,
+    "numberFormat_format_total_votes": m12,
     "ok": MessageLookupByLibrary.simpleMessage("בסדר"),
     "only_public_subscriptions_can_be_imported":
         MessageLookupByLibrary.simpleMessage(
@@ -409,7 +447,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pick_an_icon": MessageLookupByLibrary.simpleMessage("בחר סמל!"),
     "pinned_tweet": MessageLookupByLibrary.simpleMessage("ציוץ מוצמד"),
     "playback_speed": MessageLookupByLibrary.simpleMessage("מהירות השמעה"),
-    "please_check_your_internet_connection_error_message": m11,
+    "please_check_your_internet_connection_error_message": m13,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage("נא הקלד שם"),
     "please_make_sure_the_data_you_wish_to_import_is_located_there_then_press_the_import_button_below":
         MessageLookupByLibrary.simpleMessage(
@@ -435,7 +473,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "proxy_error": MessageLookupByLibrary.simpleMessage("שגיאת פרוקסי"),
     "proxy_label": MessageLookupByLibrary.simpleMessage("פרוקסי"),
-    "regular_accounts": m12,
+    "quality": MessageLookupByLibrary.simpleMessage(""),
+    "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "שוחרר תחת רישיון MIT",
     ),
@@ -449,10 +488,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "איפוס דפים לברירת המחדל",
     ),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage(""),
     "retry": MessageLookupByLibrary.simpleMessage("נסה שוב"),
     "save": MessageLookupByLibrary.simpleMessage("שמור"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "חסוך ברוחב פס עם תמונות קטנות יותר",
+    ),
+    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
+      "",
     ),
     "saved": MessageLookupByLibrary.simpleMessage("נשמר"),
     "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(
@@ -461,12 +504,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("חיפוש"),
     "search_term": MessageLookupByLibrary.simpleMessage("מונח חיפוש"),
     "select": MessageLookupByLibrary.simpleMessage("בחר"),
+    "select_all": MessageLookupByLibrary.simpleMessage(""),
+    "select_groups": MessageLookupByLibrary.simpleMessage(""),
+    "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "בחירת חשבונות בודדים לייבוא והקצאת קבוצות שניהם בתכנון כבר!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("שלח"),
     "settings": MessageLookupByLibrary.simpleMessage("הגדרות"),
+    "settings_saved": MessageLookupByLibrary.simpleMessage(""),
     "share_base_url": MessageLookupByLibrary.simpleMessage(
       "כתובת אתר לשיתוף מותאם אישית",
     ),
@@ -509,12 +556,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "מדיה נשמרה!",
     ),
     "system": MessageLookupByLibrary.simpleMessage("מערכת"),
-    "tap_to_download_release_version": m13,
-    "tap_to_show_getMediaType_item_type": m14,
+    "tap_to_download_release_version": m16,
+    "tap_to_show_getMediaType_item_type": m17,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "תודה שעזרת לSquawker! 💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "בעיית GitHub (#143)",
     ),
@@ -537,7 +584,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "הציוץ הזה אינו זמין. הוא כנראה נמחק.",
     ),
-    "this_tweet_user_name_retweeted": m16,
+    "this_tweet_user_name_retweeted": m19,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "המשתמש לא עוקב אחרי אף אחד!",
     ),
@@ -574,7 +621,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "ציוצים ותגובות",
     ),
-    "tweets_number": m17,
+    "tweets_number": m20,
     "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(
       "אורח וקבוע",
     ),
@@ -633,7 +680,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "לא ניתן לטעון את תוצאות החיפוש.",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m18,
+    "unable_to_load_the_trends_for_widget_place_name": m21,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "לא ניתן לטעון את הציוץ",
     ),
@@ -652,7 +699,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "לא ניתן להפעיל את מיזוג מסד הנתונים",
         ),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m19,
+        m22,
     "unable_to_stream_the_trend_location_preference":
         MessageLookupByLibrary.simpleMessage(
           "לא ניתן להזרים את העדפת מיקום הפופולארים",
@@ -661,7 +708,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unsave": MessageLookupByLibrary.simpleMessage("לא נשמר"),
     "unsubscribe": MessageLookupByLibrary.simpleMessage("בטל רישום"),
     "unsupported_url": MessageLookupByLibrary.simpleMessage("קישור לא נתמך"),
-    "update_to_release_version_through_your_fdroid_client": m20,
+    "update_to_release_version_through_your_fdroid_client": m23,
     "updates": MessageLookupByLibrary.simpleMessage("עידכונים"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage(
@@ -675,6 +722,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "username_label": MessageLookupByLibrary.simpleMessage("שם משתמש:"),
     "usernames": MessageLookupByLibrary.simpleMessage("שמות משתמשים"),
     "version": MessageLookupByLibrary.simpleMessage("גירסה"),
+    "video_prefetch": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_seconds": m24,
+    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(""),
     "warning_regular_account_unauthenticated_access_description":
         MessageLookupByLibrary.simpleMessage(
           "Twitter/X השביתה את היכולת ליצור חשבונות אורחים. כעת עליך להגדיר חשבונות רגילים בהגדרות / חשבון. ללא חשבון יש גישה חלקית מוגבלת לציוצים ולפרופילים בלבד. קל ליצור חשבון רגיל אנונימי כפי שמוסבר כאן:",

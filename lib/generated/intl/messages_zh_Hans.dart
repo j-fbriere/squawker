@@ -22,55 +22,55 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(name) => "您确定要删除订阅组 ${name} 吗？";
 
-  static String m21(count) => "确定要从时间轴移除 ${count} 个用户吗？";
+  static String m1(count) => "确定要从时间轴移除 ${count} 个用户吗？";
 
-  static String m22(count) => "确定要取消订阅 ${count} 个用户吗？";
+  static String m2(count) => "确定要取消订阅 ${count} 个用户吗？";
 
-  static String m1(fileName) => "导出数据至文件 ${fileName}";
+  static String m3(fileName) => "导出数据至文件 ${fileName}";
 
-  static String m2(fullPath) => "导出数据至路径 ${fullPath}";
+  static String m4(fullPath) => "导出数据至路径 ${fullPath}";
 
-  static String m3(timeagoFormat) => "${timeagoFormat} 已结束";
+  static String m5(timeagoFormat) => "${timeagoFormat} 已结束";
 
-  static String m4(timeagoFormat) => "${timeagoFormat} 结束";
+  static String m6(timeagoFormat) => "${timeagoFormat} 结束";
 
-  static String m5(snapshotData) => "${snapshotData} 个用户已导入完成";
+  static String m7(snapshotData) => "${snapshotData} 个用户已导入完成";
 
-  static String m6(name) => "组：${name}";
+  static String m8(name) => "组：${name}";
 
-  static String m7(snapshotData) => "已导入 ${snapshotData} 名用户";
+  static String m9(snapshotData) => "已导入 ${snapshotData} 名用户";
 
-  static String m8(date) => "加入于 ${date}";
+  static String m10(date) => "加入于 ${date}";
 
-  static String m9(nbrGuestAccounts) => "有 ${nbrGuestAccounts} 个来宾账户";
+  static String m11(nbrGuestAccounts) => "有 ${nbrGuestAccounts} 个来宾账户";
 
-  static String m10(num, numFormatted) =>
+  static String m12(num, numFormatted) =>
       "${Intl.plural(num, zero: '0 票', one: '1 票', two: '2 票', few: '${numFormatted} 票', many: '${numFormatted} 票', other: '${numFormatted} 票')}";
 
-  static String m11(errorMessage) => "请检查您的网络连接。\n\n${errorMessage}";
+  static String m13(errorMessage) => "请检查您的网络连接。\n\n${errorMessage}";
 
-  static String m12(nbrRegularAccounts) => "常规账户 （${nbrRegularAccounts}）：";
+  static String m14(nbrRegularAccounts) => "常规账户 （${nbrRegularAccounts}）：";
 
-  static String m23(count) => "已选择 ${count} 项";
+  static String m15(count) => "已选择 ${count} 项";
 
-  static String m13(releaseVersion) => "点击下载 ${releaseVersion}";
+  static String m16(releaseVersion) => "点击下载 ${releaseVersion}";
 
-  static String m14(getMediaType) => "点击 ${getMediaType} 显示";
+  static String m17(getMediaType) => "点击 ${getMediaType} 显示";
 
-  static String m15(filePath) => "文件不存在。请确保它位于 ${filePath} 的位置";
+  static String m18(filePath) => "文件不存在。请确保它位于 ${filePath} 的位置";
 
-  static String m16(thisTweetUserName, timeAgo) =>
+  static String m19(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} 于 ${timeAgo} 前转推了";
 
-  static String m17(num, numFormatted) =>
+  static String m20(num, numFormatted) =>
       "${Intl.plural(num, zero: '0 推文', one: '1 推文', two: '2 推文', few: '${numFormatted} 推文', many: '${numFormatted} 推文', other: '${numFormatted}推文')}";
 
-  static String m18(widgetPlaceName) => "无法加载 ${widgetPlaceName} 的趋势";
+  static String m21(widgetPlaceName) => "无法加载 ${widgetPlaceName} 的趋势";
 
-  static String m19(responseStatusCode) =>
+  static String m22(responseStatusCode) =>
       "无法保存媒体。Twitter/X 返回的状态是 ${responseStatusCode}";
 
-  static String m20(releaseVersion) => "从 F-Droid 客户端更新 ${releaseVersion}";
+  static String m23(releaseVersion) => "从 F-Droid 客户端更新 ${releaseVersion}";
 
   static String m24(seconds) => "${seconds} 秒";
 
@@ -122,9 +122,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "batch_add_to_group": MessageLookupByLibrary.simpleMessage("批量添加到订阅组"),
     "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage("批量从时间轴移除"),
-    "batch_remove_from_feed_confirm": m21,
+    "batch_remove_from_feed_confirm": m1,
     "batch_unsubscribe": MessageLookupByLibrary.simpleMessage("批量取消订阅"),
-    "batch_unsubscribe_confirm": m22,
+    "batch_unsubscribe_confirm": m2,
     "beta": MessageLookupByLibrary.simpleMessage("测试版"),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage("基于 Twitter/X 配色方案的蓝色主题"),
@@ -155,8 +155,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("国家"),
     "dark": MessageLookupByLibrary.simpleMessage("暗色主题"),
     "data": MessageLookupByLibrary.simpleMessage("数据"),
-    "data_exported_to_fileName": m1,
-    "data_exported_to_fullPath": m2,
+    "data_exported_to_fileName": m3,
+    "data_exported_to_fullPath": m4,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "数据导入成功",
     ),
@@ -208,8 +208,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "edit_account_title": MessageLookupByLibrary.simpleMessage("修改账户"),
     "email_label": MessageLookupByLibrary.simpleMessage("电子邮箱："),
     "enable_": MessageLookupByLibrary.simpleMessage("启用 ？"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m3,
-    "ends_timeago_format_endsAt_allowFromNow_true": m4,
+    "ended_timeago_format_endsAt_allowFromNow_true": m5,
+    "ends_timeago_format_endsAt_allowFromNow_true": m6,
     "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(
       "获取时间轴时使用增强版接口（但有更严格的请求速率限制）",
     ),
@@ -253,7 +253,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "feed": MessageLookupByLibrary.simpleMessage("最新"),
     "filters": MessageLookupByLibrary.simpleMessage("过滤器"),
     "finish": MessageLookupByLibrary.simpleMessage("完毕"),
-    "finished_with_snapshotData_users": m5,
+    "finished_with_snapshotData_users": m7,
     "followers": MessageLookupByLibrary.simpleMessage("关注者"),
     "following": MessageLookupByLibrary.simpleMessage("正在关注"),
     "forbidden": MessageLookupByLibrary.simpleMessage("Twitter/X 表示禁止访问此内容"),
@@ -264,7 +264,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "general": MessageLookupByLibrary.simpleMessage("通用"),
     "generic_username": MessageLookupByLibrary.simpleMessage("用户"),
-    "group_name": m6,
+    "group_name": m8,
     "groups": MessageLookupByLibrary.simpleMessage("订阅组"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "一起改进 Squawker，让它变得更好😉",
@@ -284,11 +284,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "从 Twitter/X 导入",
     ),
     "import_subscriptions": MessageLookupByLibrary.simpleMessage("导入订阅"),
-    "imported_snapshot_data_users_so_far": m7,
+    "imported_snapshot_data_users_so_far": m9,
     "include_replies": MessageLookupByLibrary.simpleMessage("包括回复"),
     "include_retweets": MessageLookupByLibrary.simpleMessage("包括转推"),
     "invert_selection": MessageLookupByLibrary.simpleMessage("反选"),
-    "joined": m8,
+    "joined": m10,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
       "应用重启时，会保持时间轴的滚动位置不变",
     ),
@@ -335,7 +335,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mute_videos": MessageLookupByLibrary.simpleMessage("将视频静音"),
     "name": MessageLookupByLibrary.simpleMessage("取个名字"),
     "name_label": MessageLookupByLibrary.simpleMessage("名称："),
-    "nbr_guest_accounts": m9,
+    "nbr_guest_accounts": m11,
     "newTrans": MessageLookupByLibrary.simpleMessage("新的"),
     "next": MessageLookupByLibrary.simpleMessage("下一条"),
     "no": MessageLookupByLibrary.simpleMessage("不"),
@@ -349,7 +349,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "not_set": MessageLookupByLibrary.simpleMessage("未设置"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage("注：由于 Twitter/X 的限制，可能不会包含所有推文"),
-    "numberFormat_format_total_votes": m10,
+    "numberFormat_format_total_votes": m12,
     "ok": MessageLookupByLibrary.simpleMessage("确定"),
     "only_public_subscriptions_can_be_imported":
         MessageLookupByLibrary.simpleMessage("只能从公开的个人资料页导入订阅"),
@@ -385,7 +385,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pick_an_icon": MessageLookupByLibrary.simpleMessage("挑选图标！"),
     "pinned_tweet": MessageLookupByLibrary.simpleMessage("置顶推文"),
     "playback_speed": MessageLookupByLibrary.simpleMessage("播放速度"),
-    "please_check_your_internet_connection_error_message": m11,
+    "please_check_your_internet_connection_error_message": m13,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage("请输入订阅组名称"),
     "please_make_sure_the_data_you_wish_to_import_is_located_there_then_press_the_import_button_below":
         MessageLookupByLibrary.simpleMessage("请确保您要导入的数据位于此处，然后点击下方的导入按钮。"),
@@ -406,7 +406,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "proxy_error": MessageLookupByLibrary.simpleMessage("代理出错"),
     "proxy_label": MessageLookupByLibrary.simpleMessage("代理"),
     "quality": MessageLookupByLibrary.simpleMessage("画质"),
-    "regular_accounts": m12,
+    "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "以 MIT 许可证发布",
     ),
@@ -434,7 +434,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "select": MessageLookupByLibrary.simpleMessage("选择"),
     "select_all": MessageLookupByLibrary.simpleMessage("全选"),
     "select_groups": MessageLookupByLibrary.simpleMessage("选择订阅组"),
-    "selected_count": m23,
+    "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage("未来我们会支持导入单个账号到指定组！"),
     "send": MessageLookupByLibrary.simpleMessage("发送"),
@@ -472,12 +472,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "已保存媒体文件！",
     ),
     "system": MessageLookupByLibrary.simpleMessage("跟随系统"),
-    "tap_to_download_release_version": m13,
-    "tap_to_show_getMediaType_item_type": m14,
+    "tap_to_download_release_version": m16,
+    "tap_to_show_getMediaType_item_type": m17,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "感谢您帮助 Squawker！💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "GitHub Issue (#143)",
     ),
@@ -494,7 +494,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "此推文不可用。它可能已被删除。",
     ),
-    "this_tweet_user_name_retweeted": m16,
+    "this_tweet_user_name_retweeted": m19,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "该用户没有关注任何人！",
     ),
@@ -525,7 +525,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tweet_font_size_label": MessageLookupByLibrary.simpleMessage("字体大小"),
     "tweets": MessageLookupByLibrary.simpleMessage("推文"),
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage("推文和回复"),
-    "tweets_number": m17,
+    "tweets_number": m20,
     "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(
       "来宾和常规账户",
     ),
@@ -570,7 +570,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "无法载入搜索结果。",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m18,
+    "unable_to_load_the_trends_for_widget_place_name": m21,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "无法载入这条推文",
     ),
@@ -583,14 +583,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_run_the_database_migrations":
         MessageLookupByLibrary.simpleMessage("无法进行数据迁移"),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m19,
+        m22,
     "unable_to_stream_the_trend_location_preference":
         MessageLookupByLibrary.simpleMessage("无法传输趋势位置首选项"),
     "unknown": MessageLookupByLibrary.simpleMessage("未知"),
     "unsave": MessageLookupByLibrary.simpleMessage("取消保存"),
     "unsubscribe": MessageLookupByLibrary.simpleMessage("取消订阅"),
     "unsupported_url": MessageLookupByLibrary.simpleMessage("不受支持的 URL"),
-    "update_to_release_version_through_your_fdroid_client": m20,
+    "update_to_release_version_through_your_fdroid_client": m23,
     "updates": MessageLookupByLibrary.simpleMessage("更新"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage("在暗色主题中使用纯黑"),

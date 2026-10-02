@@ -23,60 +23,70 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(name) =>
       "Czy na pewno chcesz usunąć grupę subskrypcji ${name}?";
 
-  static String m1(fileName) => "Dane wyeksportowano do ${fileName}";
+  static String m1(count) => "";
 
-  static String m2(fullPath) => "Dane wyeksportowano do ${fullPath}";
+  static String m2(count) => "";
 
-  static String m3(timeagoFormat) => "Zakończono ${timeagoFormat}";
+  static String m3(fileName) => "Dane wyeksportowano do ${fileName}";
 
-  static String m4(timeagoFormat) => "Kończy się za ${timeagoFormat}";
+  static String m4(fullPath) => "Dane wyeksportowano do ${fullPath}";
 
-  static String m5(snapshotData) => "Ukończono z ${snapshotData} użytkownikami";
+  static String m5(timeagoFormat) => "Zakończono ${timeagoFormat}";
 
-  static String m6(name) => "Grupa: ${name}";
+  static String m6(timeagoFormat) => "Kończy się za ${timeagoFormat}";
 
-  static String m7(snapshotData) =>
+  static String m7(snapshotData) => "Ukończono z ${snapshotData} użytkownikami";
+
+  static String m8(name) => "Grupa: ${name}";
+
+  static String m9(snapshotData) =>
       "Do tej pory zaimportowano ${snapshotData} użytkowników";
 
-  static String m8(date) => "Dołączył(a) ${date}";
+  static String m10(date) => "Dołączył(a) ${date}";
 
-  static String m9(nbrGuestAccounts) =>
+  static String m11(nbrGuestAccounts) =>
       "Istnieje ${nbrGuestAccounts} kont gości";
 
-  static String m10(num, numFormatted) =>
+  static String m12(num, numFormatted) =>
       "${Intl.plural(num, zero: 'Brak głosów', one: '1 głos', two: '2 głosy', few: '${numFormatted} głosy', many: '${numFormatted} głosów', other: '${numFormatted} głosów')}";
 
-  static String m11(errorMessage) =>
+  static String m13(errorMessage) =>
       "Sprawdź swoje połączenie internetowe.\n\n${errorMessage}";
 
-  static String m12(nbrRegularAccounts) =>
+  static String m14(nbrRegularAccounts) =>
       "Konta zwykłe (${nbrRegularAccounts}):";
 
-  static String m13(releaseVersion) => "Naciśnij, aby pobrać ${releaseVersion}";
+  static String m15(count) => "";
 
-  static String m14(getMediaType) => "Naciśnij, aby wyświetlić ${getMediaType}";
+  static String m16(releaseVersion) => "Naciśnij, aby pobrać ${releaseVersion}";
 
-  static String m15(filePath) =>
+  static String m17(getMediaType) => "Naciśnij, aby wyświetlić ${getMediaType}";
+
+  static String m18(filePath) =>
       "Plik nie istnieje. Upewnij się, że znajduje się w ${filePath}";
 
-  static String m16(thisTweetUserName, timeAgo) =>
+  static String m19(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} podał(a) dalej tweeta ${timeAgo}";
 
-  static String m17(num, numFormatted) =>
+  static String m20(num, numFormatted) =>
       "${Intl.plural(num, zero: 'brak tweetów', one: '1 tweet', two: '2 tweety', few: '${numFormatted} tweety', many: '${numFormatted} tweetów', other: '${numFormatted} tweetów')}";
 
-  static String m18(widgetPlaceName) =>
+  static String m21(widgetPlaceName) =>
       "Nie można załadować trendów dla ${widgetPlaceName}";
 
-  static String m19(responseStatusCode) =>
+  static String m22(responseStatusCode) =>
       "Nie można zapisać multimediów. Twitter/X zwrócił status ${responseStatusCode}";
 
-  static String m20(releaseVersion) =>
+  static String m23(releaseVersion) =>
       "Zaktualizuj do ${releaseVersion} przez klienta F-Droid";
+
+  static String m24(seconds) => "";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("O aplikacji"),
+    "about_download": MessageLookupByLibrary.simpleMessage(""),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(""),
     "account": MessageLookupByLibrary.simpleMessage("Konto"),
     "account_suspended": MessageLookupByLibrary.simpleMessage(
       "Konto zawieszone",
@@ -117,13 +127,22 @@ class MessageLookup extends MessageLookupByLibrary {
       "Dostępna jest aktualizacja Squawkera! 🚀",
     ),
     "api_key": MessageLookupByLibrary.simpleMessage("Klucz API"),
+    "api_server": MessageLookupByLibrary.simpleMessage(""),
+    "api_server_address": MessageLookupByLibrary.simpleMessage(""),
     "app_info": MessageLookupByLibrary.simpleMessage("Informacje o aplikacji"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Czy na pewno?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage(""),
+    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "back": MessageLookupByLibrary.simpleMessage("Wstecz"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X unieważnił nasz token dostępu. Spróbuj ponownie otworzyć Squawkera!",
     ),
+    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed_confirm": m1,
+    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(""),
+    "batch_unsubscribe_confirm": m2,
     "beta": MessageLookupByLibrary.simpleMessage("BETA"),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
@@ -139,6 +158,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "community_notes_title": MessageLookupByLibrary.simpleMessage(
       "Czytelnicy dodali kontekst",
     ),
+    "confirm": MessageLookupByLibrary.simpleMessage(""),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Czy na pewno chcesz zamknąć Squawkera?",
     ),
@@ -163,8 +183,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("Kraj"),
     "dark": MessageLookupByLibrary.simpleMessage("Ciemny"),
     "data": MessageLookupByLibrary.simpleMessage("Dane"),
-    "data_exported_to_fileName": m1,
-    "data_exported_to_fullPath": m2,
+    "data_exported_to_fileName": m3,
+    "data_exported_to_fullPath": m4,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "Dane zostały zaimportowane",
     ),
@@ -175,6 +195,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "default_tab": MessageLookupByLibrary.simpleMessage("Domyślna karta"),
     "delete": MessageLookupByLibrary.simpleMessage("Usuń"),
+    "deselect_all": MessageLookupByLibrary.simpleMessage(""),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "Wyłącz zrzuty ekranu",
     ),
@@ -182,8 +203,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Zapobiegaj robieniu zrzutów ekranu. Może to nie działać na wszystkich urządzeniach.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("Wyłączone"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(""),
     "donate": MessageLookupByLibrary.simpleMessage("Przekaż datek"),
     "download": MessageLookupByLibrary.simpleMessage("Pobierz"),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage(""),
+    "download_completed": MessageLookupByLibrary.simpleMessage(""),
+    "download_failed": MessageLookupByLibrary.simpleMessage(""),
     "download_handling": MessageLookupByLibrary.simpleMessage(
       "Obsługa pobierania",
     ),
@@ -199,7 +224,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "Nie można pobrać. Te multimedia mogą być dostępne tylko jako strumień, którego Squawker jeszcze nie obsługuje.",
     ),
+    "download_mode": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_fast": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_safe": MessageLookupByLibrary.simpleMessage(""),
     "download_path": MessageLookupByLibrary.simpleMessage("Ścieżka pobierania"),
+    "download_settings": MessageLookupByLibrary.simpleMessage(""),
+    "download_started": MessageLookupByLibrary.simpleMessage(""),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_tweet": MessageLookupByLibrary.simpleMessage(""),
     "download_video_best_quality_description":
         MessageLookupByLibrary.simpleMessage(
           "Pobieraj filmy w najlepszej dostępnej jakości",
@@ -215,8 +248,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email_label": MessageLookupByLibrary.simpleMessage("Email:"),
     "enable_": MessageLookupByLibrary.simpleMessage("Włączyć ?"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m3,
-    "ends_timeago_format_endsAt_allowFromNow_true": m4,
+    "ended_timeago_format_endsAt_allowFromNow_true": m5,
+    "ends_timeago_format_endsAt_allowFromNow_true": m6,
     "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(
       "Ulepszone żądania dotyczące kanałów (ale z niższymi limitami szybkości)",
     ),
@@ -276,10 +309,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "Wyeksportuj swoje dane",
     ),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(""),
     "feed": MessageLookupByLibrary.simpleMessage("Główna"),
     "filters": MessageLookupByLibrary.simpleMessage("Filtry"),
     "finish": MessageLookupByLibrary.simpleMessage("Zakończ"),
-    "finished_with_snapshotData_users": m5,
+    "finished_with_snapshotData_users": m7,
     "followers": MessageLookupByLibrary.simpleMessage("Obserwujący"),
     "following": MessageLookupByLibrary.simpleMessage("Obserwowani"),
     "forbidden": MessageLookupByLibrary.simpleMessage(
@@ -292,7 +326,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "general": MessageLookupByLibrary.simpleMessage("Ogólne"),
     "generic_username": MessageLookupByLibrary.simpleMessage("Użytkownik"),
-    "group_name": m6,
+    "group_name": m8,
     "groups": MessageLookupByLibrary.simpleMessage("Grupy"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "Pomóż uczynić Squawker jeszcze lepszym",
@@ -318,14 +352,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "import_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Importuj subskrypcje",
     ),
-    "imported_snapshot_data_users_so_far": m7,
+    "imported_snapshot_data_users_so_far": m9,
     "include_replies": MessageLookupByLibrary.simpleMessage(
       "Uwzględniaj odpowiedzi",
     ),
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "Uwzględniaj tweety podane dalej",
     ),
-    "joined": m8,
+    "invert_selection": MessageLookupByLibrary.simpleMessage(""),
+    "joined": m10,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
       "Przesunięcie osi czasu jest zachowywane dla kanałów po ponownym uruchomieniu aplikacji",
     ),
@@ -357,12 +392,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "light": MessageLookupByLibrary.simpleMessage("Jasny"),
     "live": MessageLookupByLibrary.simpleMessage("NA ŻYWO"),
     "logging": MessageLookupByLibrary.simpleMessage("Zbieranie danych"),
+    "login": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "mandatory_label": MessageLookupByLibrary.simpleMessage(
       "Pola obowiązkowe:",
     ),
     "material_3": MessageLookupByLibrary.simpleMessage("Material 3?"),
     "media": MessageLookupByLibrary.simpleMessage("Multimedia"),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage(""),
     "media_size": MessageLookupByLibrary.simpleMessage("Rozmiar multimediów"),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage(""),
     "medium": MessageLookupByLibrary.simpleMessage("Średnie"),
     "missing_page": MessageLookupByLibrary.simpleMessage("Brakująca karta"),
     "mute_video_description": MessageLookupByLibrary.simpleMessage(
@@ -371,7 +411,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mute_videos": MessageLookupByLibrary.simpleMessage("Wyciszaj wideo"),
     "name": MessageLookupByLibrary.simpleMessage("Nazwa"),
     "name_label": MessageLookupByLibrary.simpleMessage("Nazwa:"),
-    "nbr_guest_accounts": m9,
+    "nbr_guest_accounts": m11,
     "newTrans": MessageLookupByLibrary.simpleMessage("Nowa"),
     "next": MessageLookupByLibrary.simpleMessage("Dalej"),
     "no": MessageLookupByLibrary.simpleMessage("Nie"),
@@ -385,12 +425,13 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Brak subskrypcji. Spróbuj wyszukać lub zaimportować trochę!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage(""),
     "not_set": MessageLookupByLibrary.simpleMessage("Nie ustawiono"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
           "Uwaga: Ze względu na ograniczenia Twitter/Xa nie wszystkie tweety mogą zostać uwzględnione",
         ),
-    "numberFormat_format_total_votes": m10,
+    "numberFormat_format_total_votes": m12,
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "only_public_subscriptions_can_be_imported":
         MessageLookupByLibrary.simpleMessage(
@@ -438,7 +479,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playback_speed": MessageLookupByLibrary.simpleMessage(
       "Prędkość odtwarzania",
     ),
-    "please_check_your_internet_connection_error_message": m11,
+    "please_check_your_internet_connection_error_message": m13,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage(
       "Wprowadź nazwę",
     ),
@@ -466,7 +507,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "proxy_error": MessageLookupByLibrary.simpleMessage("Błąd serwera proxy"),
     "proxy_label": MessageLookupByLibrary.simpleMessage("Serwer proxy"),
-    "regular_accounts": m12,
+    "quality": MessageLookupByLibrary.simpleMessage(""),
+    "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Wydany na licencji MIT",
     ),
@@ -480,10 +522,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "Przywróć domyślne",
     ),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage(""),
     "retry": MessageLookupByLibrary.simpleMessage("Ponów"),
     "save": MessageLookupByLibrary.simpleMessage("Zapisz"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "Oszczędzaj transfer dzięki mniejszym obrazom",
+    ),
+    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
+      "",
     ),
     "saved": MessageLookupByLibrary.simpleMessage("Zapisane"),
     "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(
@@ -492,12 +538,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("Szukaj"),
     "search_term": MessageLookupByLibrary.simpleMessage("Fraza wyszukiwania"),
     "select": MessageLookupByLibrary.simpleMessage("Wybierz"),
+    "select_all": MessageLookupByLibrary.simpleMessage(""),
+    "select_groups": MessageLookupByLibrary.simpleMessage(""),
+    "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "Wybieranie poszczególnych kont do zaimportowania i przypisywanie grup są już zaplanowane na przyszłość!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("Wyślij"),
     "settings": MessageLookupByLibrary.simpleMessage("Ustawienia"),
+    "settings_saved": MessageLookupByLibrary.simpleMessage(""),
     "share_base_url": MessageLookupByLibrary.simpleMessage(
       "Niestandardowy URL udostępniania",
     ),
@@ -542,12 +592,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Zapisano multimedia!",
     ),
     "system": MessageLookupByLibrary.simpleMessage("Systemowy"),
-    "tap_to_download_release_version": m13,
-    "tap_to_show_getMediaType_item_type": m14,
+    "tap_to_download_release_version": m16,
+    "tap_to_show_getMediaType_item_type": m17,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "Dzięki za pomoc Squawkerowi! 💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "zgłoszeniu (#143) na GitHubie",
     ),
@@ -572,7 +622,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "Ten tweet jest niedostępny. Prawdopodobnie został usunięty.",
     ),
-    "this_tweet_user_name_retweeted": m16,
+    "this_tweet_user_name_retweeted": m19,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "Ten użytkownik nikogo nie obserwuje!",
     ),
@@ -615,7 +665,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Tweety i odpowiedzi",
     ),
-    "tweets_number": m17,
+    "tweets_number": m20,
     "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(
       "Gość i stały",
     ),
@@ -676,7 +726,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "Nie można załadować wyników wyszukiwania.",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m18,
+    "unable_to_load_the_trends_for_widget_place_name": m21,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "Nie można załadować tweeta",
     ),
@@ -695,7 +745,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "Nie można uruchomić migracji bazy danych",
         ),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m19,
+        m22,
     "unable_to_stream_the_trend_location_preference":
         MessageLookupByLibrary.simpleMessage(
           "Nie można przesłać strumieniowo preferencji lokalizacji trendu",
@@ -706,7 +756,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unsupported_url": MessageLookupByLibrary.simpleMessage(
       "Nieobsługiwany adres URL",
     ),
-    "update_to_release_version_through_your_fdroid_client": m20,
+    "update_to_release_version_through_your_fdroid_client": m23,
     "updates": MessageLookupByLibrary.simpleMessage("Aktualizacje"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage(
@@ -724,6 +774,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "usernames": MessageLookupByLibrary.simpleMessage("Nazwy użytkowników"),
     "version": MessageLookupByLibrary.simpleMessage("Wersja"),
+    "video_prefetch": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_seconds": m24,
+    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(""),
     "warning_regular_account_unauthenticated_access_description":
         MessageLookupByLibrary.simpleMessage(
           "Twitter/X wyłączył możliwość tworzenia kont gości. Powinieneś teraz ustawić zwykłe konto w Ustawienia / Konto. Bez konta dostęp częściowy jest ograniczony wyłącznie do tweetów i profili. Utworzenie anonimowego zwykłego konta jest łatwe, jak wyjaśniono tutaj:",
@@ -754,6 +808,11 @@ class MessageLookup extends MessageLookupByLibrary {
           "Czy chcesz włączyć automatyczne raportowanie błędów?",
         ),
     "x_api": MessageLookupByLibrary.simpleMessage("API X"),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(""),
     "yes": MessageLookupByLibrary.simpleMessage("Tak"),
     "yes_please": MessageLookupByLibrary.simpleMessage("Tak, proszę"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(

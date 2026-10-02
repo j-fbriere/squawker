@@ -23,65 +23,65 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(name) =>
       "Voulez-vous vraiment supprimer le groupe d\'abonnement ${name} ?";
 
-  static String m21(count) =>
+  static String m1(count) =>
       "Are you sure you want to remove ${count} users from the feed?";
 
-  static String m22(count) =>
+  static String m2(count) =>
       "Voulez-vous vous désabonner de ${count} utilisateur?";
 
-  static String m1(fileName) => "Données exportées vers ${fileName}";
+  static String m3(fileName) => "Données exportées vers ${fileName}";
 
-  static String m2(fullPath) => "Données exportées vers ${fullPath}";
+  static String m4(fullPath) => "Données exportées vers ${fullPath}";
 
-  static String m3(timeagoFormat) => "Terminé ${timeagoFormat}";
+  static String m5(timeagoFormat) => "Terminé ${timeagoFormat}";
 
-  static String m4(timeagoFormat) => "Fin ${timeagoFormat}";
-
-  static String m5(snapshotData) =>
-      "Terminé avec les utilisateurs ${snapshotData}";
-
-  static String m6(name) => "Groupe : ${name}";
+  static String m6(timeagoFormat) => "Fin ${timeagoFormat}";
 
   static String m7(snapshotData) =>
+      "Terminé avec les utilisateurs ${snapshotData}";
+
+  static String m8(name) => "Groupe : ${name}";
+
+  static String m9(snapshotData) =>
       "${snapshotData} utilisateurs importés jusqu\'à présent";
 
-  static String m8(date) => "S\'est inscrit(e) le ${date}";
+  static String m10(date) => "S\'est inscrit(e) le ${date}";
 
-  static String m9(nbrGuestAccounts) =>
+  static String m11(nbrGuestAccounts) =>
       "Il y a ${nbrGuestAccounts} comptes invités";
 
-  static String m10(num, numFormatted) =>
+  static String m12(num, numFormatted) =>
       "${Intl.plural(num, zero: 'Aucun vote', one: 'Un vote', two: 'Deux votes', few: '${numFormatted} votes', many: '${numFormatted} vote', other: '${numFormatted} votes')}";
 
-  static String m11(errorMessage) =>
+  static String m13(errorMessage) =>
       "Veuillez vérifier votre connexion Internet.\n\n${errorMessage}";
 
-  static String m12(nbrRegularAccounts) =>
+  static String m14(nbrRegularAccounts) =>
       "Comptes Standards (${nbrRegularAccounts}) :";
 
-  static String m23(count) => "${count} sélectionnés";
+  static String m15(count) => "${count} sélectionnés";
 
-  static String m13(releaseVersion) =>
+  static String m16(releaseVersion) =>
       "Appuyez pour télécharger ${releaseVersion}";
 
-  static String m14(getMediaType) => "Appuyer pour afficher ${getMediaType}";
+  static String m17(getMediaType) => "Appuyer pour afficher ${getMediaType}";
 
-  static String m15(filePath) =>
+  static String m18(filePath) =>
       "Le fichier n’existe pas. Veuillez vous assurer qu’il se trouve à ${filePath}";
 
-  static String m16(thisTweetUserName, timeAgo) =>
+  static String m19(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} a retweeté ${timeAgo}";
 
-  static String m17(num, numFormatted) =>
+  static String m20(num, numFormatted) =>
       "${Intl.plural(num, zero: 'no tweets', one: 'un tweet', two: 'deux tweets', few: '${numFormatted} tweets', many: '${numFormatted} tweet', other: '${numFormatted} tweets')}";
 
-  static String m18(widgetPlaceName) =>
+  static String m21(widgetPlaceName) =>
       "Impossible de charger les tendances pour ${widgetPlaceName}";
 
-  static String m19(responseStatusCode) =>
+  static String m22(responseStatusCode) =>
       "Impossible d\'enregistrer le média. Twitter/X a renvoyé un statut de ${responseStatusCode}";
 
-  static String m20(releaseVersion) =>
+  static String m23(releaseVersion) =>
       "Mise à jour vers ${releaseVersion} via votre client F-Droid";
 
   static String m24(seconds) => "${seconds} s";
@@ -158,11 +158,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(
       "Supprimer en lot de Flux",
     ),
-    "batch_remove_from_feed_confirm": m21,
+    "batch_remove_from_feed_confirm": m1,
     "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(
       "Se désabonner en lot",
     ),
-    "batch_unsubscribe_confirm": m22,
+    "batch_unsubscribe_confirm": m2,
     "beta": MessageLookupByLibrary.simpleMessage("BÊTA"),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
@@ -203,8 +203,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("Pays"),
     "dark": MessageLookupByLibrary.simpleMessage("Sombre"),
     "data": MessageLookupByLibrary.simpleMessage("Données"),
-    "data_exported_to_fileName": m1,
-    "data_exported_to_fullPath": m2,
+    "data_exported_to_fileName": m3,
+    "data_exported_to_fullPath": m4,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "Données importées avec succès",
     ),
@@ -292,8 +292,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email_label": MessageLookupByLibrary.simpleMessage("Courriel :"),
     "enable_": MessageLookupByLibrary.simpleMessage("Activer ?"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m3,
-    "ends_timeago_format_endsAt_allowFromNow_true": m4,
+    "ended_timeago_format_endsAt_allowFromNow_true": m5,
+    "ends_timeago_format_endsAt_allowFromNow_true": m6,
     "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(
       "Requêtes améliorés pour les flux (mais avec des limites plus basses de fréquence)",
     ),
@@ -359,7 +359,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "feed": MessageLookupByLibrary.simpleMessage("Flux"),
     "filters": MessageLookupByLibrary.simpleMessage("Filtres"),
     "finish": MessageLookupByLibrary.simpleMessage("Terminer"),
-    "finished_with_snapshotData_users": m5,
+    "finished_with_snapshotData_users": m7,
     "followers": MessageLookupByLibrary.simpleMessage("Abonnés"),
     "following": MessageLookupByLibrary.simpleMessage("Abonnements"),
     "forbidden": MessageLookupByLibrary.simpleMessage(
@@ -372,7 +372,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "general": MessageLookupByLibrary.simpleMessage("Général"),
     "generic_username": MessageLookupByLibrary.simpleMessage("Utilisateur"),
-    "group_name": m6,
+    "group_name": m8,
     "groups": MessageLookupByLibrary.simpleMessage("Groupes"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "Contribuer à l\'amélioration de Squawker",
@@ -398,7 +398,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "import_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Importer des abonnements",
     ),
-    "imported_snapshot_data_users_so_far": m7,
+    "imported_snapshot_data_users_so_far": m9,
     "include_replies": MessageLookupByLibrary.simpleMessage(
       "Inclure les réponses",
     ),
@@ -408,7 +408,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invert_selection": MessageLookupByLibrary.simpleMessage(
       "Inverser la sélection",
     ),
-    "joined": m8,
+    "joined": m10,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
       "Retenir la position des flux lors de la réouverture d\'appli",
     ),
@@ -467,7 +467,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "name": MessageLookupByLibrary.simpleMessage("Nom"),
     "name_label": MessageLookupByLibrary.simpleMessage("Nom :"),
-    "nbr_guest_accounts": m9,
+    "nbr_guest_accounts": m11,
     "newTrans": MessageLookupByLibrary.simpleMessage("Nouveau"),
     "next": MessageLookupByLibrary.simpleMessage("Suivant"),
     "no": MessageLookupByLibrary.simpleMessage("Non"),
@@ -489,7 +489,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Note : En raison d\'une limitation de Twitter/X, tous les tweets peuvent ne pas être inclus",
         ),
-    "numberFormat_format_total_votes": m10,
+    "numberFormat_format_total_votes": m12,
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "only_public_subscriptions_can_be_imported":
         MessageLookupByLibrary.simpleMessage(
@@ -545,7 +545,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playback_speed": MessageLookupByLibrary.simpleMessage(
       "Vitesse de lecture",
     ),
-    "please_check_your_internet_connection_error_message": m11,
+    "please_check_your_internet_connection_error_message": m13,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage(
       "Veuillez entrer un nom",
     ),
@@ -574,7 +574,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "proxy_error": MessageLookupByLibrary.simpleMessage("Erreur Proxy"),
     "proxy_label": MessageLookupByLibrary.simpleMessage("Proxy"),
     "quality": MessageLookupByLibrary.simpleMessage("Qualité"),
-    "regular_accounts": m12,
+    "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Publié sous la licence MIT",
     ),
@@ -610,7 +610,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "select_groups": MessageLookupByLibrary.simpleMessage(
       "Sélectionner Groupes",
     ),
-    "selected_count": m23,
+    "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "La sélection de comptes individuels à importer et l’affectation de groupes sont déjà en cours de développement !",
@@ -664,12 +664,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Le média est sauvegardé !",
     ),
     "system": MessageLookupByLibrary.simpleMessage("Système"),
-    "tap_to_download_release_version": m13,
-    "tap_to_show_getMediaType_item_type": m14,
+    "tap_to_download_release_version": m16,
+    "tap_to_show_getMediaType_item_type": m17,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "Merci d\'avoir aidé Squawker ! 💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "le problème GitHub (nº143)",
     ),
@@ -694,7 +694,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "Ce tweet n’est pas disponible Il a probablement été supprimé.",
     ),
-    "this_tweet_user_name_retweeted": m16,
+    "this_tweet_user_name_retweeted": m19,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "Cet utilisateur ne suit personne !",
     ),
@@ -735,7 +735,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Tweets & Réponses",
     ),
-    "tweets_number": m17,
+    "tweets_number": m20,
     "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(
       "Invité et standard",
     ),
@@ -796,7 +796,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "Impossible de charger les résultats de la recherche.",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m18,
+    "unable_to_load_the_trends_for_widget_place_name": m21,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "Impossible de charger le tweet",
     ),
@@ -815,7 +815,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "Impossible d\'exécuter les migrations de la base de données",
         ),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m19,
+        m22,
     "unable_to_stream_the_trend_location_preference":
         MessageLookupByLibrary.simpleMessage(
           "Impossible de diffuser la préférence de localisation de la tendance",
@@ -826,7 +826,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unsupported_url": MessageLookupByLibrary.simpleMessage(
       "URL non pris en charge",
     ),
-    "update_to_release_version_through_your_fdroid_client": m20,
+    "update_to_release_version_through_your_fdroid_client": m23,
     "updates": MessageLookupByLibrary.simpleMessage("Mises à jour"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage(

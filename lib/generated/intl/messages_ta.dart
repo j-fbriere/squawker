@@ -22,60 +22,70 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(name) => "சந்தா குழுவை ${name} நீக்க விரும்புகிறீர்களா?";
 
-  static String m1(fileName) => "தரவு ${fileName} க்கு ஏற்றுமதி செய்யப்பட்டது";
+  static String m1(count) => "";
 
-  static String m2(fullPath) => "தரவு ${fullPath} க்கு ஏற்றுமதி செய்யப்பட்டது";
+  static String m2(count) => "";
 
-  static String m3(timeagoFormat) => "முடிவடைந்தது ${timeagoFormat}";
+  static String m3(fileName) => "தரவு ${fileName} க்கு ஏற்றுமதி செய்யப்பட்டது";
 
-  static String m4(timeagoFormat) => "முடிவடைகிறது ${timeagoFormat}";
+  static String m4(fullPath) => "தரவு ${fullPath} க்கு ஏற்றுமதி செய்யப்பட்டது";
 
-  static String m5(snapshotData) => "${snapshotData} பயனர்களுடன் முடிந்தது";
+  static String m5(timeagoFormat) => "முடிவடைந்தது ${timeagoFormat}";
 
-  static String m6(name) => "${name}";
+  static String m6(timeagoFormat) => "முடிவடைகிறது ${timeagoFormat}";
 
-  static String m7(snapshotData) =>
+  static String m7(snapshotData) => "${snapshotData} பயனர்களுடன் முடிந்தது";
+
+  static String m8(name) => "${name}";
+
+  static String m9(snapshotData) =>
       "${snapshotData} இதுவரை இறக்குமதி செய்யப்பட்ட பயனர்கள்";
 
-  static String m8(date) => "இணைந்தது ${date}";
+  static String m10(date) => "இணைந்தது ${date}";
 
-  static String m9(nbrGuestAccounts) =>
+  static String m11(nbrGuestAccounts) =>
       "${nbrGuestAccounts} விருந்தினர் கணக்குகள் உள்ளன";
 
-  static String m10(num, numFormatted) =>
+  static String m12(num, numFormatted) =>
       "${Intl.plural(num, zero: 'வாக்குகள் இல்லை', one: 'ஒரு வாக்கு', two: 'இரண்டு வாக்குகள்', few: '${numFormatted} வாக்குகள்', many: '${numFormatted} வாக்கு', other: '${numFormatted} வாக்குகள்')}";
 
-  static String m11(errorMessage) =>
+  static String m13(errorMessage) =>
       "உங்கள் இணைய இணைப்பை சரிபார்க்கவும்.\n\n ${errorMessage}";
 
-  static String m12(nbrRegularAccounts) =>
+  static String m14(nbrRegularAccounts) =>
       "வழக்கமான கணக்கு (${nbrRegularAccounts}):";
 
-  static String m13(releaseVersion) => "பதிவிறக்க ${releaseVersion}";
+  static String m15(count) => "";
 
-  static String m14(getMediaType) => "${getMediaType} காட்ட தட்டவும்";
+  static String m16(releaseVersion) => "பதிவிறக்க ${releaseVersion}";
 
-  static String m15(filePath) =>
+  static String m17(getMediaType) => "${getMediaType} காட்ட தட்டவும்";
+
+  static String m18(filePath) =>
       "கோப்பு இல்லை. இது ${filePath} இல் அமைந்துள்ளது என்பதை உறுதிப்படுத்தவும்";
 
-  static String m16(thisTweetUserName, timeAgo) =>
+  static String m19(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} மறு ட்வீட் செய்யப்பட்ட ${timeAgo}";
 
-  static String m17(num, numFormatted) =>
+  static String m20(num, numFormatted) =>
       "${Intl.plural(num, zero: 'கீச்சுகள் இல்லை', one: 'ஒரு கீச்சு', two: 'இரண்டு கீச்சுகள்', few: '${numFormatted} கீச்சுகள்', many: '${numFormatted} கீச்சு', other: '${numFormatted} கீச்சுகள்')}";
 
-  static String m18(widgetPlaceName) =>
+  static String m21(widgetPlaceName) =>
       "${widgetPlaceName} க்கான போக்குகளை ஏற்ற முடியவில்லை";
 
-  static String m19(responseStatusCode) =>
+  static String m22(responseStatusCode) =>
       "ஊடகங்களைக் காப்பாற்ற முடியவில்லை. ட்விட்டர்/எக்ச் ${responseStatusCode} இன் நிலையை வழங்கியது";
 
-  static String m20(releaseVersion) =>
+  static String m23(releaseVersion) =>
       "உங்கள் எஃப்-டிராய்டு கிளையன்ட் மூலம் ${releaseVersion}க்கு புதுப்பிக்கவும்";
+
+  static String m24(seconds) => "";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("பற்றி"),
+    "about_download": MessageLookupByLibrary.simpleMessage(""),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(""),
     "account": MessageLookupByLibrary.simpleMessage("கணக்கு"),
     "account_suspended": MessageLookupByLibrary.simpleMessage(
       "கணக்கு இடைநிறுத்தப்பட்டது",
@@ -126,15 +136,24 @@ class MessageLookup extends MessageLookupByLibrary {
       "ச்குவாக்கருக்கான புதுப்பிப்பு கிடைக்கிறது! 🚀",
     ),
     "api_key": MessageLookupByLibrary.simpleMessage("பநிஇ விசை"),
+    "api_server": MessageLookupByLibrary.simpleMessage(""),
+    "api_server_address": MessageLookupByLibrary.simpleMessage(""),
     "app_info": MessageLookupByLibrary.simpleMessage("பயன்பாட்டு செய்தி"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage(
       "நீங்கள் உறுதியாக இருக்கிறீர்களா?",
     ),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage(""),
+    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "back": MessageLookupByLibrary.simpleMessage("பின்"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "ட்விட்டர்/எக்ச் எங்கள் அணுகல் கிள்ளாக்கை செல்லாது. ச்குவாக்கரை மீண்டும் திறக்க முயற்சிக்கவும்!",
     ),
+    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
+    "batch_remove_from_feed_confirm": m1,
+    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(""),
+    "batch_unsubscribe_confirm": m2,
     "beta": MessageLookupByLibrary.simpleMessage("பீட்டா"),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
@@ -152,6 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "community_notes_title": MessageLookupByLibrary.simpleMessage(
       "வாசகர்கள் சூழலைச் சேர்த்தனர்",
     ),
+    "confirm": MessageLookupByLibrary.simpleMessage(""),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "நீங்கள் ச்குவாக்கரை மூட விரும்புகிறீர்களா?",
     ),
@@ -176,8 +196,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("நாடு"),
     "dark": MessageLookupByLibrary.simpleMessage("இருண்ட"),
     "data": MessageLookupByLibrary.simpleMessage("தகவல்கள்"),
-    "data_exported_to_fileName": m1,
-    "data_exported_to_fullPath": m2,
+    "data_exported_to_fileName": m3,
+    "data_exported_to_fullPath": m4,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "தரவு வெற்றிகரமாக இறக்குமதி செய்யப்பட்டது",
     ),
@@ -190,6 +210,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "default_tab": MessageLookupByLibrary.simpleMessage("இயல்புநிலை தாவல்"),
     "delete": MessageLookupByLibrary.simpleMessage("நீக்கு"),
+    "deselect_all": MessageLookupByLibrary.simpleMessage(""),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "திரை சாட்களை முடக்கு",
     ),
@@ -197,8 +218,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "திரை சாட்கள் எடுக்கப்படுவதைத் தடுக்கவும். இது எல்லா சாதனங்களிலும் வேலை செய்யாது.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("முடக்கப்பட்டது"),
+    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(""),
     "donate": MessageLookupByLibrary.simpleMessage("நன்கொடை"),
     "download": MessageLookupByLibrary.simpleMessage("பதிவிறக்கம்"),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage(""),
+    "download_completed": MessageLookupByLibrary.simpleMessage(""),
+    "download_failed": MessageLookupByLibrary.simpleMessage(""),
     "download_handling": MessageLookupByLibrary.simpleMessage(
       "கையாளுதல் பதிவிறக்கவும்",
     ),
@@ -214,7 +239,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "பதிவிறக்கம் செய்ய முடியவில்லை. இந்த ஊடகங்கள் ஒரு ச்ட்ரீமாக மட்டுமே கிடைக்கக்கூடும், இது ச்குவாக்கருக்கு இன்னும் பதிவிறக்கம் செய்ய முடியாது.",
     ),
+    "download_mode": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_fast": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode_safe": MessageLookupByLibrary.simpleMessage(""),
     "download_path": MessageLookupByLibrary.simpleMessage("பாதை பதிவிறக்க"),
+    "download_settings": MessageLookupByLibrary.simpleMessage(""),
+    "download_started": MessageLookupByLibrary.simpleMessage(""),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_tweet": MessageLookupByLibrary.simpleMessage(""),
     "download_video_best_quality_description":
         MessageLookupByLibrary.simpleMessage(
           "கிடைக்கக்கூடிய தரத்தில் வீடியோக்களைப் பதிவிறக்கவும்",
@@ -230,8 +263,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email_label": MessageLookupByLibrary.simpleMessage("மின்னஞ்சல்:"),
     "enable_": MessageLookupByLibrary.simpleMessage("இயக்கு?"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m3,
-    "ends_timeago_format_endsAt_allowFromNow_true": m4,
+    "ended_timeago_format_endsAt_allowFromNow_true": m5,
+    "ends_timeago_format_endsAt_allowFromNow_true": m6,
     "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(
       "ஊட்டங்களுக்கான மேம்பட்ட கோரிக்கைகள் (ஆனால் குறைந்த விகித வரம்புகளுடன்)",
     ),
@@ -291,10 +324,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "உங்கள் தரவை ஏற்றுமதி செய்யுங்கள்",
     ),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(""),
     "feed": MessageLookupByLibrary.simpleMessage("தீவனம்"),
     "filters": MessageLookupByLibrary.simpleMessage("வடிப்பான்கள்"),
     "finish": MessageLookupByLibrary.simpleMessage("முடிக்க"),
-    "finished_with_snapshotData_users": m5,
+    "finished_with_snapshotData_users": m7,
     "followers": MessageLookupByLibrary.simpleMessage("பின்தொடர்பவர்கள்"),
     "following": MessageLookupByLibrary.simpleMessage("பின்வருமாறு"),
     "forbidden": MessageLookupByLibrary.simpleMessage(
@@ -307,7 +341,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "general": MessageLookupByLibrary.simpleMessage("பொது"),
     "generic_username": MessageLookupByLibrary.simpleMessage("பயனர்"),
-    "group_name": m6,
+    "group_name": m8,
     "groups": MessageLookupByLibrary.simpleMessage("குழுக்கள்"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "ச்குவாக்கரை இன்னும் சிறப்பாக மாற்ற உதவுங்கள்",
@@ -333,14 +367,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "import_subscriptions": MessageLookupByLibrary.simpleMessage(
       "சந்தாக்களை இறக்குமதி செய்யுங்கள்",
     ),
-    "imported_snapshot_data_users_so_far": m7,
+    "imported_snapshot_data_users_so_far": m9,
     "include_replies": MessageLookupByLibrary.simpleMessage(
       "பதில்களைச் சேர்க்கவும்",
     ),
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "மறு ட்வீட் சேர்க்கவும்",
     ),
-    "joined": m8,
+    "invert_selection": MessageLookupByLibrary.simpleMessage(""),
+    "joined": m10,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
       "பயன்பாடு மறுதொடக்கம் செய்யும் போது காலவரிசை ஆஃப்செட் ஊட்டங்களுக்காக வைக்கப்படுகிறது",
     ),
@@ -372,10 +407,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "light": MessageLookupByLibrary.simpleMessage("ஒளி"),
     "live": MessageLookupByLibrary.simpleMessage("வாழ"),
     "logging": MessageLookupByLibrary.simpleMessage("பதிவு"),
+    "login": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos": MessageLookupByLibrary.simpleMessage(""),
+    "loop_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "mandatory_label": MessageLookupByLibrary.simpleMessage("கட்டாய புலங்கள்:"),
     "material_3": MessageLookupByLibrary.simpleMessage("பொருள் 3?"),
     "media": MessageLookupByLibrary.simpleMessage("ஊடகம்"),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage(""),
     "media_size": MessageLookupByLibrary.simpleMessage("ஊடக அளவு"),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage(""),
     "medium": MessageLookupByLibrary.simpleMessage("சராசரி"),
     "missing_page": MessageLookupByLibrary.simpleMessage("பக்கம் இல்லை"),
     "mute_video_description": MessageLookupByLibrary.simpleMessage(
@@ -384,7 +424,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mute_videos": MessageLookupByLibrary.simpleMessage("முடக்கு வீடியோக்கள்"),
     "name": MessageLookupByLibrary.simpleMessage("பெயர்"),
     "name_label": MessageLookupByLibrary.simpleMessage("பெயர்:"),
-    "nbr_guest_accounts": m9,
+    "nbr_guest_accounts": m11,
     "newTrans": MessageLookupByLibrary.simpleMessage("புதிய"),
     "next": MessageLookupByLibrary.simpleMessage("அடுத்தது"),
     "no": MessageLookupByLibrary.simpleMessage("இல்லை"),
@@ -400,12 +440,13 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "சந்தாக்கள் இல்லை. சிலவற்றைத் தேட அல்லது இறக்குமதி செய்ய முயற்சிக்கவும்!",
         ),
+    "not_logged_in": MessageLookupByLibrary.simpleMessage(""),
     "not_set": MessageLookupByLibrary.simpleMessage("அமைக்கப்படவில்லை"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
           "குறிப்பு: ட்விட்டர்/எக்ச் வரம்பு காரணமாக, எல்லா ட்வீட்டுகளும் சேர்க்கப்படக்கூடாது",
         ),
-    "numberFormat_format_total_votes": m10,
+    "numberFormat_format_total_votes": m12,
     "ok": MessageLookupByLibrary.simpleMessage("சரி"),
     "only_public_subscriptions_can_be_imported":
         MessageLookupByLibrary.simpleMessage(
@@ -455,7 +496,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pinned_tweet": MessageLookupByLibrary.simpleMessage("பின் ட்வீட்"),
     "playback_speed": MessageLookupByLibrary.simpleMessage("பின்னணி விரைவு"),
-    "please_check_your_internet_connection_error_message": m11,
+    "please_check_your_internet_connection_error_message": m13,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage(
       "தயவுசெய்து ஒரு பெயரை உள்ளிடவும்",
     ),
@@ -483,7 +524,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "proxy_error": MessageLookupByLibrary.simpleMessage("பதிலாள் பிழை"),
     "proxy_label": MessageLookupByLibrary.simpleMessage("பதிலாள்"),
-    "regular_accounts": m12,
+    "quality": MessageLookupByLibrary.simpleMessage(""),
+    "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "எம்ஐடி உரிமத்தின் கீழ் வெளியிடப்பட்டது",
     ),
@@ -501,10 +543,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "பக்கங்களை இயல்புநிலைக்கு மீட்டமைக்கவும்",
     ),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage(""),
     "retry": MessageLookupByLibrary.simpleMessage("மீண்டும் முயற்சிக்கவும்"),
     "save": MessageLookupByLibrary.simpleMessage("சேமி"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "சிறிய படங்களுடன் அலைவரிசையை சேமிக்கவும்",
+    ),
+    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
+      "",
     ),
     "saved": MessageLookupByLibrary.simpleMessage("சேமிக்கப்பட்டது"),
     "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(
@@ -513,12 +559,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("தேடல்"),
     "search_term": MessageLookupByLibrary.simpleMessage("தேடல் கால"),
     "select": MessageLookupByLibrary.simpleMessage("தேர்ந்தெடு"),
+    "select_all": MessageLookupByLibrary.simpleMessage(""),
+    "select_groups": MessageLookupByLibrary.simpleMessage(""),
+    "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "இறக்குமதி செய்ய தனிப்பட்ட கணக்குகளைத் தேர்ந்தெடுப்பது, மற்றும் குழுக்களை ஒதுக்குதல் இரண்டும் ஏற்கனவே எதிர்காலத்திற்காக திட்டமிடப்பட்டுள்ளன!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("அனுப்பு"),
     "settings": MessageLookupByLibrary.simpleMessage("அமைப்புகள்"),
+    "settings_saved": MessageLookupByLibrary.simpleMessage(""),
     "share_base_url": MessageLookupByLibrary.simpleMessage(
       "தனிப்பயன் பங்கு முகவரி",
     ),
@@ -563,12 +613,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "ஊடகங்களைக் காப்பாற்றியது!",
     ),
     "system": MessageLookupByLibrary.simpleMessage("மண்டலம்"),
-    "tap_to_download_release_version": m13,
-    "tap_to_show_getMediaType_item_type": m14,
+    "tap_to_download_release_version": m16,
+    "tap_to_show_getMediaType_item_type": m17,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "ச்குவாக்கருக்கு உதவியதற்கு நன்றி! 💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "அறிவிலிமையம் சிக்கல் (#143)",
     ),
@@ -591,7 +641,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "இந்த ட்வீட் கிடைக்கவில்லை. அது நீக்கப்பட்டிருக்கலாம்.",
     ),
-    "this_tweet_user_name_retweeted": m16,
+    "this_tweet_user_name_retweeted": m19,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "இந்த பயனர் யாரையும் பின்பற்றுவதில்லை!",
     ),
@@ -634,7 +684,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "ட்வீட் மற்றும் பதில்கள்",
     ),
-    "tweets_number": m17,
+    "tweets_number": m20,
     "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(
       "விருந்தினர் மற்றும் வழக்கமான",
     ),
@@ -695,7 +745,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "தேடல் முடிவுகளை ஏற்ற முடியவில்லை.",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m18,
+    "unable_to_load_the_trends_for_widget_place_name": m21,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "ட்வீட்டை ஏற்ற முடியவில்லை",
     ),
@@ -714,7 +764,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "தரவுத்தள இடம்பெயர்வுகளை இயக்க முடியவில்லை",
         ),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m19,
+        m22,
     "unable_to_stream_the_trend_location_preference":
         MessageLookupByLibrary.simpleMessage(
           "போக்கு இருப்பிட விருப்பத்தை ச்ட்ரீம் செய்ய முடியவில்லை",
@@ -725,7 +775,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unsupported_url": MessageLookupByLibrary.simpleMessage(
       "ஆதரிக்கப்படாத முகவரி",
     ),
-    "update_to_release_version_through_your_fdroid_client": m20,
+    "update_to_release_version_through_your_fdroid_client": m23,
     "updates": MessageLookupByLibrary.simpleMessage("புதுப்பிப்புகள்"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage(
@@ -741,6 +791,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "username_label": MessageLookupByLibrary.simpleMessage("பயனர்பெயர்:"),
     "usernames": MessageLookupByLibrary.simpleMessage("பயனர்பெயர்கள்"),
     "version": MessageLookupByLibrary.simpleMessage("பதிப்பு"),
+    "video_prefetch": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(""),
+    "video_prefetch_seconds": m24,
+    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(""),
     "warning_regular_account_unauthenticated_access_description":
         MessageLookupByLibrary.simpleMessage(
           "விருந்தினர் கணக்குகளை உருவாக்கும் திறனை ட்விட்டர்/எக்ச் முடக்கியுள்ளது. நீங்கள் இப்போது அமைப்புகள் / கணக்கில் வழக்கமான கணக்கு (களை) அமைக்க வேண்டும். எந்தக் கணக்கும் இல்லாமல் ட்வீட் மற்றும் சுயவிவரங்களுக்கு மட்டுமே ஒரு பகுதி அணுகல் உள்ளது. இங்கே விளக்கப்பட்டுள்ளபடி அநாமதேய வழக்கமான கணக்கை உருவாக்குவது எளிது:",
@@ -771,6 +825,11 @@ class MessageLookup extends MessageLookupByLibrary {
           "தானியங்கி பிழை அறிக்கையிடலை இயக்க விரும்புகிறீர்களா?",
         ),
     "x_api": MessageLookupByLibrary.simpleMessage("ஃச் பநிஇ"),
+    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
+      "",
+    ),
+    "x_client_transaction_id_provider_description":
+        MessageLookupByLibrary.simpleMessage(""),
     "yes": MessageLookupByLibrary.simpleMessage("ஆம்"),
     "yes_please": MessageLookupByLibrary.simpleMessage("ஆம், தயவுசெய்து"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(
