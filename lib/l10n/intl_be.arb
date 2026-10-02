@@ -361,5 +361,7 @@
     "libre_translate_host": "",
     "proxy_description": "",
     "edit_account_title": "",
-    "api_server_address": ""
+    "api_server_address": "",
+    "download_video_best_quality_description": "",
+    "leaner_feeds_description": ""
 }
