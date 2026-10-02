@@ -621,8 +621,6 @@
     "@x_client_transaction_id_provider": {},
     "x_client_transaction_id_provider_description": "Set the x-client-transaction-id provider. It must be a domain name, without https. Reference: https://github.com/Teskann/x-client-transaction-id-generator",
     "@x_client_transaction_id_provider_description": {},
-    "download": "Download",
-    "@download": {},
     "download_tweet": "Download tweet",
     "@download_tweet": {},
     "download_this_tweet": "Download this tweet",
