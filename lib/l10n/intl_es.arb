@@ -353,5 +353,8 @@
     "proxy_description": "",
     "edit_account_title": "",
     "api_server_address": "",
-    "downloading_media": ""
+    "downloading_media": "",
+    "download_video_best_quality_description": "",
+    "leaner_feeds_description": "",
+    "you_must_have_at_least_2_home_screen_pages": ""
 }
