@@ -23,9 +23,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(name) =>
       "${name} abonelik grubunu silmek istediğinizden emin misiniz?";
 
-  static String m1(count) => "";
+  static String m1(count) =>
+      "${count} kullanıcıyı akıştan kaldırmak istediğinizden emin misiniz?";
 
-  static String m2(count) => "";
+  static String m2(count) =>
+      "${count} kullanıcının aboneliğinden çıkmak istediğinizden emin misiniz?";
 
   static String m3(fileName) => "Veriler ${fileName}\'a aktarıldı";
 
@@ -56,7 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m14(nbrRegularAccounts) =>
       "Normal hesaplar (${nbrRegularAccounts}):";
 
-  static String m15(count) => "";
+  static String m15(count) => "${count} seçildi";
 
   static String m16(releaseVersion) =>
       "${releaseVersion} sürümünü indirmek için dokunun";
@@ -86,8 +88,10 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("Hakkında"),
-    "about_download": MessageLookupByLibrary.simpleMessage(""),
-    "about_download_description": MessageLookupByLibrary.simpleMessage(""),
+    "about_download": MessageLookupByLibrary.simpleMessage("Hakkında"),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(
+      "gallery-dl arka ucunu kullanarak tweetleri indir",
+    ),
     "account": MessageLookupByLibrary.simpleMessage("Hesap"),
     "account_suspended": MessageLookupByLibrary.simpleMessage(
       "Hesap askıya alındı",
@@ -126,8 +130,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Squawker için bir güncelleme mevcut! 🚀",
     ),
     "api_key": MessageLookupByLibrary.simpleMessage("API anahtarı"),
-    "api_server": MessageLookupByLibrary.simpleMessage(""),
-    "api_server_address": MessageLookupByLibrary.simpleMessage(""),
+    "api_server": MessageLookupByLibrary.simpleMessage("API Sunucusu"),
+    "api_server_address": MessageLookupByLibrary.simpleMessage(
+      "API Sunucusu Adresi",
+    ),
     "app_info": MessageLookupByLibrary.simpleMessage("Uygulama Bilgisi"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Emin misiniz?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
@@ -141,10 +147,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X erişim belirtecimizi geçersiz kıldı. Lütfen Squawker\'ı yeniden açmayı deneyin!",
     ),
-    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(""),
-    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
+    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(
+      "Toplu Olarak Gruba Ekle",
+    ),
+    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(
+      "Toplu Olarak Akıştan Kaldır",
+    ),
     "batch_remove_from_feed_confirm": m1,
-    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(""),
+    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(
+      "Toplu Abonelik İptali",
+    ),
     "batch_unsubscribe_confirm": m2,
     "beta": MessageLookupByLibrary.simpleMessage("BETA"),
     "blue_theme_based_on_the_twitter_color_scheme":
@@ -159,7 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "community_notes_title": MessageLookupByLibrary.simpleMessage(
       "Okuyucuların eklediği içerik",
     ),
-    "confirm": MessageLookupByLibrary.simpleMessage(""),
+    "confirm": MessageLookupByLibrary.simpleMessage("Onayla"),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Squawker\'ı kapatmak istediğinizden emin misiniz?",
     ),
@@ -198,7 +210,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "default_tab": MessageLookupByLibrary.simpleMessage("Öntanımlı sekme"),
     "delete": MessageLookupByLibrary.simpleMessage("Sil"),
-    "deselect_all": MessageLookupByLibrary.simpleMessage(""),
+    "deselect_all": MessageLookupByLibrary.simpleMessage(
+      "Tümünün seçimini kaldır",
+    ),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "Ekran görüntülerini devre dışı bırak",
     ),
@@ -211,9 +225,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "donate": MessageLookupByLibrary.simpleMessage("Bağış yapın"),
     "download": MessageLookupByLibrary.simpleMessage("İndir"),
-    "download_all_tweets": MessageLookupByLibrary.simpleMessage(""),
-    "download_completed": MessageLookupByLibrary.simpleMessage(""),
-    "download_failed": MessageLookupByLibrary.simpleMessage(""),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage(
+      "Tüm tweetleri indir",
+    ),
+    "download_completed": MessageLookupByLibrary.simpleMessage(
+      "İndirme tamamlandı!",
+    ),
+    "download_failed": MessageLookupByLibrary.simpleMessage(
+      "İndirme başarısız oldu",
+    ),
     "download_handling": MessageLookupByLibrary.simpleMessage(
       "İndirmelerin ele alınması",
     ),
@@ -229,15 +249,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "İndirilemiyor. Bu medya yalnızca Squawker\'ın henüz indiremediği bir akış olarak mevcut olabilir.",
     ),
-    "download_mode": MessageLookupByLibrary.simpleMessage(""),
-    "download_mode_fast": MessageLookupByLibrary.simpleMessage(""),
-    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(""),
-    "download_mode_safe": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode": MessageLookupByLibrary.simpleMessage("İndirme Modu"),
+    "download_mode_fast": MessageLookupByLibrary.simpleMessage("Hızlı (T=3)"),
+    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(
+      "Tam Tarama",
+    ),
+    "download_mode_safe": MessageLookupByLibrary.simpleMessage(
+      "Güvenli (T=20)",
+    ),
     "download_path": MessageLookupByLibrary.simpleMessage("İndirme yolu"),
-    "download_settings": MessageLookupByLibrary.simpleMessage(""),
-    "download_started": MessageLookupByLibrary.simpleMessage(""),
-    "download_this_tweet": MessageLookupByLibrary.simpleMessage(""),
-    "download_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_settings": MessageLookupByLibrary.simpleMessage(
+      "İndirme Ayarları",
+    ),
+    "download_started": MessageLookupByLibrary.simpleMessage(
+      "İndirme başlatıldı...",
+    ),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage(
+      "Bu tweeti indir",
+    ),
+    "download_tweet": MessageLookupByLibrary.simpleMessage("Tweeti indir"),
     "download_video_best_quality_description":
         MessageLookupByLibrary.simpleMessage(
           "Videoları mevcut en iyi kalitede indir",
@@ -366,7 +396,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "Retweet\'leri dahil et",
     ),
-    "invert_selection": MessageLookupByLibrary.simpleMessage(""),
+    "invert_selection": MessageLookupByLibrary.simpleMessage(
+      "Seçimi tersine çevir",
+    ),
     "joined": m10,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
       "Zaman çizelgesinin kaldığı yer, uygulama yeniden başlatıldığında beslemeler için tutulur",
@@ -553,8 +585,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("Ara"),
     "search_term": MessageLookupByLibrary.simpleMessage("Arama terimi"),
     "select": MessageLookupByLibrary.simpleMessage("Seç"),
-    "select_all": MessageLookupByLibrary.simpleMessage(""),
-    "select_groups": MessageLookupByLibrary.simpleMessage(""),
+    "select_all": MessageLookupByLibrary.simpleMessage("Tümünü seç"),
+    "select_groups": MessageLookupByLibrary.simpleMessage("Grupları Seç"),
     "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
@@ -562,7 +594,9 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "send": MessageLookupByLibrary.simpleMessage("Gönder"),
     "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
-    "settings_saved": MessageLookupByLibrary.simpleMessage(""),
+    "settings_saved": MessageLookupByLibrary.simpleMessage(
+      "Ayarlar kaydedildi",
+    ),
     "share_base_url": MessageLookupByLibrary.simpleMessage(
       "Özel paylaşım URL\'si",
     ),

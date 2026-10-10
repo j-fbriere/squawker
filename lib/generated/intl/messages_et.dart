@@ -23,9 +23,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(name) =>
       "Kas sa oled kindel, et soovid kustutada tellimuste grupi ${name}?";
 
-  static String m1(count) => "";
+  static String m1(count) =>
+      "Kas oled kindel, et soovid ${count} kasutajat uudisvoost eemaldada?";
 
-  static String m2(count) => "";
+  static String m2(count) =>
+      "Kas oled kindel, et soovid ${count} tellimust lõpetada?";
 
   static String m3(fileName) => "Andmed on eksporditud faili ${fileName}";
 
@@ -57,7 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m14(nbrRegularAccounts) =>
       "Tavakontod (${nbrRegularAccounts}):";
 
-  static String m15(count) => "";
+  static String m15(count) => "${count} on valitud";
 
   static String m16(releaseVersion) =>
       "Versiooni ${releaseVersion} allalaadimiseks klõpsi";
@@ -87,8 +89,10 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("Rakenduse teave"),
-    "about_download": MessageLookupByLibrary.simpleMessage(""),
-    "about_download_description": MessageLookupByLibrary.simpleMessage(""),
+    "about_download": MessageLookupByLibrary.simpleMessage("Teave"),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(
+      "Saad säutse alla laadida kasutades gallery-dl taustateenust",
+    ),
     "account": MessageLookupByLibrary.simpleMessage("Kasutajakonto"),
     "account_suspended": MessageLookupByLibrary.simpleMessage(
       "Kasutajakonto on ajutiselt peatatud",
@@ -129,8 +133,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Squawkeri tarkvarauuendus on saadaval! 🚀",
     ),
     "api_key": MessageLookupByLibrary.simpleMessage("API võti"),
-    "api_server": MessageLookupByLibrary.simpleMessage(""),
-    "api_server_address": MessageLookupByLibrary.simpleMessage(""),
+    "api_server": MessageLookupByLibrary.simpleMessage("API server"),
+    "api_server_address": MessageLookupByLibrary.simpleMessage(
+      "API serveri aadress",
+    ),
     "app_info": MessageLookupByLibrary.simpleMessage(
       "Rakenduse üksikasjalik teave",
     ),
@@ -146,10 +152,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X on meie juurdepääsutunnuse kehtetuks tunnistanud. Palun proovi Squawker uuesti avada!",
     ),
-    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(""),
-    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
+    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(
+      "Mitme kasutaja lisamine gruppi korraga",
+    ),
+    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(
+      "Mitme kasutaja eemaldamine uudisvoost korraga",
+    ),
     "batch_remove_from_feed_confirm": m1,
-    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(""),
+    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(
+      "Mitme tellimuste lõpetamine korraga",
+    ),
     "batch_unsubscribe_confirm": m2,
     "beta": MessageLookupByLibrary.simpleMessage("BEETA"),
     "blue_theme_based_on_the_twitter_color_scheme":
@@ -166,7 +178,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "community_notes_title": MessageLookupByLibrary.simpleMessage(
       "Järgneva sisu on lisanud lugejad",
     ),
-    "confirm": MessageLookupByLibrary.simpleMessage(""),
+    "confirm": MessageLookupByLibrary.simpleMessage("Kinnita"),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Kas sa oled kindel, et soovid Squawkeri kinni panna?",
     ),
@@ -205,7 +217,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "default_tab": MessageLookupByLibrary.simpleMessage("Vaikimisi vaade"),
     "delete": MessageLookupByLibrary.simpleMessage("Kustuta"),
-    "deselect_all": MessageLookupByLibrary.simpleMessage(""),
+    "deselect_all": MessageLookupByLibrary.simpleMessage("Eemalda kogu valik"),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "Lülita ekraanitõmmised välja",
     ),
@@ -218,9 +230,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "donate": MessageLookupByLibrary.simpleMessage("Toeta rahaliselt"),
     "download": MessageLookupByLibrary.simpleMessage("Laadi alla"),
-    "download_all_tweets": MessageLookupByLibrary.simpleMessage(""),
-    "download_completed": MessageLookupByLibrary.simpleMessage(""),
-    "download_failed": MessageLookupByLibrary.simpleMessage(""),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage(
+      "Laadi kõik säutsud alla",
+    ),
+    "download_completed": MessageLookupByLibrary.simpleMessage(
+      "Allalaadimine on lõppenud!",
+    ),
+    "download_failed": MessageLookupByLibrary.simpleMessage(
+      "Allalaadimine ei õnnestunud",
+    ),
     "download_handling": MessageLookupByLibrary.simpleMessage(
       "Allalaadimiste seadistused",
     ),
@@ -236,17 +254,27 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "Allalaadimine ei õnnestu. See meedia võib olla saadaval vaid voogedastusena ning Squawker veel ei oska teda alla laadida.",
     ),
-    "download_mode": MessageLookupByLibrary.simpleMessage(""),
-    "download_mode_fast": MessageLookupByLibrary.simpleMessage(""),
-    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(""),
-    "download_mode_safe": MessageLookupByLibrary.simpleMessage(""),
+    "download_mode": MessageLookupByLibrary.simpleMessage(
+      "Allalaadimise režiim",
+    ),
+    "download_mode_fast": MessageLookupByLibrary.simpleMessage("Kiire (T=3)"),
+    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(
+      "Täisskaneerimine",
+    ),
+    "download_mode_safe": MessageLookupByLibrary.simpleMessage("Ohutu (T=20)"),
     "download_path": MessageLookupByLibrary.simpleMessage(
       "Allalaadimiste kaust",
     ),
-    "download_settings": MessageLookupByLibrary.simpleMessage(""),
-    "download_started": MessageLookupByLibrary.simpleMessage(""),
-    "download_this_tweet": MessageLookupByLibrary.simpleMessage(""),
-    "download_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_settings": MessageLookupByLibrary.simpleMessage(
+      "Allalaadimise seadistused",
+    ),
+    "download_started": MessageLookupByLibrary.simpleMessage(
+      "Allalaadimine algas…",
+    ),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage(
+      "Laadi see säuts alla",
+    ),
+    "download_tweet": MessageLookupByLibrary.simpleMessage("Laadi säuts alla"),
     "download_video_best_quality_description":
         MessageLookupByLibrary.simpleMessage(
           "Laadi videod alla parima võimaliku kvaliteediga",
@@ -375,7 +403,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "Sealhulgas kordussäutsud",
     ),
-    "invert_selection": MessageLookupByLibrary.simpleMessage(""),
+    "invert_selection": MessageLookupByLibrary.simpleMessage(
+      "Pööra valik teistpidi",
+    ),
     "joined": m10,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
       "Asukoht säutsuvoo ajajoonel jääb rakenduse uuesti käivitamise jaoks meelde",
@@ -578,8 +608,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("Otsi"),
     "search_term": MessageLookupByLibrary.simpleMessage("Otsingusõna"),
     "select": MessageLookupByLibrary.simpleMessage("Vali"),
-    "select_all": MessageLookupByLibrary.simpleMessage(""),
-    "select_groups": MessageLookupByLibrary.simpleMessage(""),
+    "select_all": MessageLookupByLibrary.simpleMessage("Vali kõik"),
+    "select_groups": MessageLookupByLibrary.simpleMessage("Vali grupid"),
     "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
@@ -587,7 +617,9 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "send": MessageLookupByLibrary.simpleMessage("Saada"),
     "settings": MessageLookupByLibrary.simpleMessage("Seadistused"),
-    "settings_saved": MessageLookupByLibrary.simpleMessage(""),
+    "settings_saved": MessageLookupByLibrary.simpleMessage(
+      "Seadistused on salvestatud",
+    ),
     "share_base_url": MessageLookupByLibrary.simpleMessage(
       "Kohandatud URL lingi jagamiseks",
     ),
