@@ -1,2 +1,1 @@
-* Implement feature: Add multi-select for subscription batch operations (thanks to @Transwarpcom)
-* Fix subscription import more than 50 users (thanks to @Transwarpcom)
+fix the x-client-transaction-id error Couldn't find the sign module.
