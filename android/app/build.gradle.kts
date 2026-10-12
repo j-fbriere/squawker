@@ -37,7 +37,7 @@ if (!keystoreFile.isNullOrEmpty()) {
 
 android {
     namespace = "org.ca.squawker"
-    compileSdk = 37
+    compileSdk = 36
     ndkVersion = flutter.ndkVersion
     
     sourceSets {

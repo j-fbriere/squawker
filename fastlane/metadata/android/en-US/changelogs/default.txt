@@ -1,1 +1,1 @@
-fix the x-client-transaction-id error Couldn't find the sign module.
+* Fix the android-sdk version error from gradle build.
