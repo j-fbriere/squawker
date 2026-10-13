@@ -27,7 +27,7 @@
   </a>
 </p>
 <p align="center">
-  The F-Droid repository deploys updates at an extremely slow pace: days, even weeks later. The reccomended way is rather to get Squawker from Github or Obtenium.
+  The F-Droid repository deploys updates at an extremely slow pace: days, even weeks later. The recommended way is rather to get Squawker from Github or Obtenium.
 </p>
 <p align="center">
   There is also an alternate F-Droid repository that allows updates for Squawker to be available faster than on the default F-Droid repository.
