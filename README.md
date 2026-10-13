@@ -6,7 +6,8 @@
   </a>
 </p>
 <p align="center">
-  Maintaining the <a href="https://github.com/jonjomckay/fritter">Fritter</a> feed, originally by <a href="https://github.com/TheHCJ/Quacker">Quacker</a>
+  <strong>Squawker</strong> is a free, open-source, privacy-focused client for X (formerly Twitter). It is forked from <a href="https://github.com/TheHCJ/Quacker">Quacker</a>
+  and <a href="https://github.com/jonjomckay/fritter">Fritter</a>.
 </p>
 
 <p align="center">
@@ -17,9 +18,16 @@
   <a href="https://hosted.weblate.org/engage/squawker/" alt="Translation Status"><img src="https://img.shields.io/weblate/progress/squawker?label=Translated%20(squawker)&style=for-the-badge"></a>
 </p>
 <p align="center">
+  <a href="https://github.com/j-fbriere/squawker/releases"><img src="https://raw.githubusercontent.com/rubenpgrady/get-it-on-github/refs/heads/main/get-it-on-github.png" alt="Get it on GitHub" height="80"></a>
+  <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/j-fbriere/squawker" rel="nofollow"><img src="https://github.com/ImranR98/Obtainium/raw/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" height="80"></a>
+</p>
+<p align="center">
   <a href="https://f-droid.org/packages/org.ca.squawker">
     <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">
   </a>
+</p>
+<p align="center">
+  The F-Droid repository deploys updates at an extremely slow pace: days, even weeks later. The reccomended way is rather to get Squawker from Github or Obtenium.
 </p>
 <p align="center">
   There is also an alternate F-Droid repository that allows updates for Squawker to be available faster than on the default F-Droid repository.
