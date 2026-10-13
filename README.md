@@ -22,6 +22,9 @@
   <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/j-fbriere/squawker" rel="nofollow"><img src="https://github.com/ImranR98/Obtainium/raw/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" height="80"></a>
 </p>
 <p align="center">
+  To verify the downloaded APK from Github or Obtainium, use <a href=".github/certificate-fingerprints.txt">these signing certificate fingerprints</a>.
+</p>
+<p align="center">
   <a href="https://f-droid.org/packages/org.ca.squawker">
     <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">
   </a>
