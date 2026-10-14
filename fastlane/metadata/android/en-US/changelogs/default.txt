@@ -1,1 +1,1 @@
-* Fix the android-sdk version error from gradle build.
+* Fix the error x-client-transaction-id Couldn't find the sign module importer (thanks to @Transwarpcom).

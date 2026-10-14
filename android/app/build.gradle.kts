@@ -37,7 +37,7 @@ if (!keystoreFile.isNullOrEmpty()) {
 
 android {
     namespace = "org.ca.squawker"
-    compileSdk = 36
+    compileSdk = 37
     ndkVersion = flutter.ndkVersion
     
     sourceSets {
@@ -67,7 +67,7 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
-        targetSdk = 36
+        targetSdk = 37
         multiDexEnabled = true
         versionCode = flutterVersionCode.toInt()
         versionName = flutterVersionName

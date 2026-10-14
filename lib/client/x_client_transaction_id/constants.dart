@@ -11,7 +11,7 @@ final RegExp entryScriptRegex = RegExp(
 );
 
 final RegExp signImporterRegex = RegExp(
-  r'''["']([./\w-]*client-transaction-id-plugin-[\w-]+\.js)["']''',
+  r'''["']([./\w-]*(?:client-transaction-id-plugin|startup-dynamic)-[\w-]+\.js)["']''',
 );
 
 final RegExp signFileRegex = RegExp(

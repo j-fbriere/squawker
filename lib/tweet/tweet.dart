@@ -410,7 +410,7 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
       media = TweetMedia(
         sensitive: tweet.possiblySensitive,
         media: tweet.extendedEntities!.media!,
-        username: tweet.user!.screenName!,
+        username: tweet.user?.screenName ?? '',
       );
     }
 
@@ -423,7 +423,7 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
         children: [
           TextSpan(
               text: L10n.of(context)
-                  .this_tweet_user_name_retweeted(this.tweet.user!.name!, createRelativeDate(this.tweet.createdAt!)),
+                  .this_tweet_user_name_retweeted(this.tweet.user?.name ?? '', createRelativeDate(this.tweet.createdAt!)),
               style: theme.textTheme.bodySmall)
         ],
       );
@@ -646,7 +646,7 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
                               child: Row(
                                 children: [
                                   Flexible(
-                                      child: Text(tweet.user!.name!,
+                                      child: Text(tweet.user?.name ?? '',
                                           overflow: TextOverflow.ellipsis,
                                           style: const TextStyle(fontWeight: FontWeight.w500))),
                                   if (tweet.user!.verified ?? false) const SizedBox(width: 4),
