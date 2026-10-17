@@ -82,7 +82,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("Par lietotni"),
     "about_download": MessageLookupByLibrary.simpleMessage(""),
-    "about_download_description": MessageLookupByLibrary.simpleMessage(""),
+    "about_download_description": MessageLookupByLibrary.simpleMessage(
+      "Lejupielādēt tvītus ar gallery-dl",
+    ),
     "account": MessageLookupByLibrary.simpleMessage("Konts"),
     "account_suspended": MessageLookupByLibrary.simpleMessage("Konts apturēts"),
     "activate_non_confirmation_bias_mode_description":
@@ -119,14 +121,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "Ir pieejams Squawker atjauninājums! 🚀",
     ),
     "api_key": MessageLookupByLibrary.simpleMessage("API atslēga"),
-    "api_server": MessageLookupByLibrary.simpleMessage(""),
-    "api_server_address": MessageLookupByLibrary.simpleMessage(""),
+    "api_server": MessageLookupByLibrary.simpleMessage("API serveris"),
+    "api_server_address": MessageLookupByLibrary.simpleMessage(
+      "API servera adrese",
+    ),
     "app_info": MessageLookupByLibrary.simpleMessage("Lietotnes informācija"),
     "are_you_sure": MessageLookupByLibrary.simpleMessage(
       "Vai esiet pārliecināti?",
     ),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
-    "autoplay_videos": MessageLookupByLibrary.simpleMessage(""),
+    "autoplay_videos": MessageLookupByLibrary.simpleMessage(
+      "Automātiski atskaņot video",
+    ),
     "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "back": MessageLookupByLibrary.simpleMessage("Atpakaļ"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(""),
@@ -148,7 +154,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "community_notes_title": MessageLookupByLibrary.simpleMessage(
       "Lasītāji pievienoja kontekstu",
     ),
-    "confirm": MessageLookupByLibrary.simpleMessage(""),
+    "confirm": MessageLookupByLibrary.simpleMessage("Apstiprināt"),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Vai tiešām vēlaties aizvērt Squawker?",
     ),
@@ -198,8 +204,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "donate": MessageLookupByLibrary.simpleMessage("Ziedot"),
     "download": MessageLookupByLibrary.simpleMessage("Lejupielādēt"),
-    "download_all_tweets": MessageLookupByLibrary.simpleMessage(""),
-    "download_completed": MessageLookupByLibrary.simpleMessage(""),
+    "download_all_tweets": MessageLookupByLibrary.simpleMessage(
+      "Lejupielādēt visus tvītus",
+    ),
+    "download_completed": MessageLookupByLibrary.simpleMessage(
+      "Lejupielāde pabeigta!",
+    ),
     "download_failed": MessageLookupByLibrary.simpleMessage(""),
     "download_handling": MessageLookupByLibrary.simpleMessage(""),
     "download_handling_description": MessageLookupByLibrary.simpleMessage(""),
@@ -217,10 +227,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(""),
     "download_mode_safe": MessageLookupByLibrary.simpleMessage(""),
     "download_path": MessageLookupByLibrary.simpleMessage("Lejupielādes ceļš"),
-    "download_settings": MessageLookupByLibrary.simpleMessage(""),
+    "download_settings": MessageLookupByLibrary.simpleMessage(
+      "Lejupielādes iestatījumi",
+    ),
     "download_started": MessageLookupByLibrary.simpleMessage(""),
-    "download_this_tweet": MessageLookupByLibrary.simpleMessage(""),
-    "download_tweet": MessageLookupByLibrary.simpleMessage(""),
+    "download_this_tweet": MessageLookupByLibrary.simpleMessage(
+      "Lejupielādēt šo tvītu",
+    ),
+    "download_tweet": MessageLookupByLibrary.simpleMessage(
+      "Lejupielādēt tvītu",
+    ),
     "download_video_best_quality_description":
         MessageLookupByLibrary.simpleMessage(
           "Lejupielādēt video labākajā kvalitātē",
@@ -281,8 +297,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "Izgūst jūsu datus",
     ),
-    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(""),
-    "feed": MessageLookupByLibrary.simpleMessage("Ziņu plūsma"),
+    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(
+      "Neizdevās ielādēt video",
+    ),
+    "feed": MessageLookupByLibrary.simpleMessage("Jaunumu plūsma"),
     "filters": MessageLookupByLibrary.simpleMessage("Atlase"),
     "finish": MessageLookupByLibrary.simpleMessage("Pabeigt"),
     "finished_with_snapshotData_users": m7,
@@ -366,9 +384,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Vai izmantot Material 3 dizainu?",
     ),
     "media": MessageLookupByLibrary.simpleMessage("Multimediji"),
-    "media_image_quality": MessageLookupByLibrary.simpleMessage(""),
+    "media_image_quality": MessageLookupByLibrary.simpleMessage(
+      "Attēla kvalitāte",
+    ),
     "media_size": MessageLookupByLibrary.simpleMessage("Multimediju izmērs"),
-    "media_video_quality": MessageLookupByLibrary.simpleMessage(""),
+    "media_video_quality": MessageLookupByLibrary.simpleMessage(
+      "Video kvalitāte",
+    ),
     "medium": MessageLookupByLibrary.simpleMessage("Vidējs"),
     "missing_page": MessageLookupByLibrary.simpleMessage("Trūkstoša lapa"),
     "mute_video_description": MessageLookupByLibrary.simpleMessage(
@@ -467,7 +489,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Starpniekservera kļūda",
     ),
     "proxy_label": MessageLookupByLibrary.simpleMessage("Starpniekserveris"),
-    "quality": MessageLookupByLibrary.simpleMessage(""),
+    "quality": MessageLookupByLibrary.simpleMessage("Kvalitāte"),
     "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Publicēta izmantojot MIT licenci",
@@ -484,7 +506,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "Atiestatīt navigācijas ciļņu joslu uz noklusējuma iestatījumu",
     ),
-    "restart_video_player": MessageLookupByLibrary.simpleMessage(""),
+    "restart_video_player": MessageLookupByLibrary.simpleMessage(
+      "Palaist video atskaņotāju no jauna",
+    ),
     "retry": MessageLookupByLibrary.simpleMessage("Mēģināt vēlreiz"),
     "save": MessageLookupByLibrary.simpleMessage("Saglabāt"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
@@ -507,7 +531,9 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "send": MessageLookupByLibrary.simpleMessage("Nosūtīt"),
     "settings": MessageLookupByLibrary.simpleMessage("Iestatījumi"),
-    "settings_saved": MessageLookupByLibrary.simpleMessage(""),
+    "settings_saved": MessageLookupByLibrary.simpleMessage(
+      "Iestatījumi saglabāti",
+    ),
     "share_base_url": MessageLookupByLibrary.simpleMessage(""),
     "share_base_url_description": MessageLookupByLibrary.simpleMessage(""),
     "share_tweet_as_image": MessageLookupByLibrary.simpleMessage(
