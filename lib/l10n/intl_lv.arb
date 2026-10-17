@@ -1,7 +1,7 @@
 {
     "functionality_unsupported": "Šo funkciju Twitter/X vairs neatbalsta!",
     "select": "Atlasīt",
-    "feed": "Ziņu plūsma",
+    "feed": "Jaunumu plūsma",
     "subscriptions": "Abonementi",
     "app_info": "Lietotnes informācija",
     "mute_videos": "Apklusināt video",
@@ -280,7 +280,7 @@
     "media_image_quality": "Attēla kvalitāte",
     "settings_saved": "Iestatījumi saglabāti",
     "batch_unsubscribe_confirm": "",
-    "restart_video_player": "",
+    "restart_video_player": "Palaist video atskaņotāju no jauna",
     "loop_videos": "",
     "x_client_transaction_id_provider_description": "",
     "regular_accounts": "",
@@ -350,5 +350,5 @@
     "page_not_found": "",
     "enhanced_profile_label": "",
     "download_tweet": "Lejupielādēt tvītu",
-    "api_server_address": ""
+    "api_server_address": "API servera adrese"
 }
