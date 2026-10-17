@@ -66,10 +66,10 @@ Future checkForUpdates() async {
       if (map["tag_name"].compareTo('v${packageInfo.version}') > 0) {
         await requestPostNotificationsPermissions(() async {
           await FlutterLocalNotificationsPlugin().show(
-              0,
-              'An update for Squawker is available! 🚀',
-              'View version ${map["tag_name"]} on Github',
-              const NotificationDetails(
+              id: 0,
+              title: 'An update for Squawker is available! 🚀',
+              body: 'View version ${map["tag_name"]} on Github',
+              notificationDetails: const NotificationDetails(
                   android: AndroidNotificationDetails(
                     'updates',
                     'Updates',
@@ -240,7 +240,7 @@ Future<void> main() async {
   const InitializationSettings settings =
       InitializationSettings(android: AndroidInitializationSettings('@drawable/ic_notification'));
 
-  await notifications.initialize(settings, onDidReceiveNotificationResponse: (response) async {
+  await notifications.initialize(settings: settings, onDidReceiveNotificationResponse: (response) async {
     var payload = response.payload;
     if (payload != null && payload.startsWith('https://')) {
       await openUri(payload);
