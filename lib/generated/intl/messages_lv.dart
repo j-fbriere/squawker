@@ -100,7 +100,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Pievienot abonementus",
     ),
-    "add_to_feed": MessageLookupByLibrary.simpleMessage("Iekļaut ziņu plūsmā"),
+    "add_to_feed": MessageLookupByLibrary.simpleMessage(
+      "Pievienot jaunumu plūsmai",
+    ),
     "add_to_group": MessageLookupByLibrary.simpleMessage("Pievienot grupai"),
     "all": MessageLookupByLibrary.simpleMessage("Visi"),
     "all_the_great_software_used_by_fritter":
@@ -269,10 +271,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Kļūda no Twitter/X",
     ),
     "exclusions_feed_description": MessageLookupByLibrary.simpleMessage(
-      "Lietotājvārdu saraksts, ko neiekļaut ziņu plūsmā",
+      "Lietotājvārdu saraksts, ko neiekļaut jaunumu plūsmā",
     ),
     "exclusions_feed_label": MessageLookupByLibrary.simpleMessage(
-      "Neiekļaut ziņu plūsmā",
+      "Neiekļaut jaunumu plūsmā",
     ),
     "export": MessageLookupByLibrary.simpleMessage("Izgūt"),
     "export_guest_accounts": MessageLookupByLibrary.simpleMessage(
@@ -348,10 +350,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "invert_selection": MessageLookupByLibrary.simpleMessage(""),
     "joined": m10,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
-      "Saglabā ziņu plūsmu laika skalas nobīdi, kad atver pa jaunu lietotni",
+      "Saglabā jaunumu plūsmu laika skalas nobīdi, kad atver pa jaunu lietotni",
     ),
     "keep_feed_offset_label": MessageLookupByLibrary.simpleMessage(
-      "Saglabāt ziņu plūsmas nobīdi",
+      "Saglabāt jaunumu plūsmas nobīdi",
     ),
     "language": MessageLookupByLibrary.simpleMessage("Valoda"),
     "language_subtitle": MessageLookupByLibrary.simpleMessage(
@@ -495,7 +497,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Publicēta izmantojot MIT licenci",
     ),
     "remove_from_feed": MessageLookupByLibrary.simpleMessage(
-      "Neiekļaut ziņu plūsmā",
+      "Aizvākt no jaunumu plūsmas",
     ),
     "replying_to": MessageLookupByLibrary.simpleMessage("Atbildēt uz"),
     "report": MessageLookupByLibrary.simpleMessage("Ziņot"),
@@ -753,7 +755,7 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "would_you_like_to_enable_automatic_error_reporting":
         MessageLookupByLibrary.simpleMessage(
-          "Vai vēlaties iespējot automātisko problēmu kļūdas ziņošanu?",
+          "Vai vēlaties automātiski ziņot par konstatētajām problēmām?",
         ),
     "x_api": MessageLookupByLibrary.simpleMessage("X API"),
     "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
