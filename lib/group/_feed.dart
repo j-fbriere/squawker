@@ -230,10 +230,14 @@ class SubscriptionGroupFeedState extends State<SubscriptionGroupFeed> with Widge
         }
       }
       catch (rsp) {
-        if (rsp is Exception) {
-          log.severe(rsp.toString());
+        if (rsp is Response) {
+          errorResponseLst.add(rsp);
         }
-        errorResponseLst.add(rsp is Exception ? ExceptionResponse(rsp) : rsp as Response);
+        else {
+          // Errors (not only Exceptions) must not escape, or the whole feed silently ends up empty
+          log.severe(rsp.toString());
+          errorResponseLst.add(ExceptionResponse(rsp is Exception ? rsp : Exception(rsp.toString())));
+        }
         return tweets;
       }
 

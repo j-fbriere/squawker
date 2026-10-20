@@ -1139,8 +1139,8 @@ class Twitter {
     var tweetEntries = addEntries
         .where((e) => e['entryId'].contains(tweetIndicator))
         .sorted((a, b) => b['sortIndex'].compareTo(a['sortIndex']))
-        .map((e) {var res = e['content']['itemContent']['tweet_results']['result']; return res['rest_id'] ?? res['tweet']['rest_id']; })
-        .cast<String>()
+        .map((e) {var res = e['content']?['itemContent']?['tweet_results']?['result']; return res?['rest_id'] ?? res?['tweet']?['rest_id']; })
+        .whereType<String>()
         .toList();
 
     Map<String, List<TweetWithCard>> conversations =
@@ -1319,20 +1319,26 @@ class Twitter {
 
     var filteredTweets = allTweets.where(includeTweet);
 
-    var globalTweets = Map.fromEntries(filteredTweets.map((e) {
+    var globalTweets = <String, Map<String, dynamic>>{};
+    for (var e in filteredTweets) {
       var elm = e['content']['itemContent']['tweet_results']['result'];
-      if (elm['rest_id'] == null) {
-        elm = elm['tweet'];
+      if (elm?['rest_id'] == null) {
+        elm = elm?['tweet'];
       }
-      return MapEntry(elm['rest_id'] as String, elm);
-    }));
-
-    var tweets = [];
-    try {
-      tweets = globalTweets.values.map((e) => TweetWithCard.fromGraphqlJson(e, leanerFeeds: leanerFeeds)).toList();
+      if (elm?['rest_id'] != null) {
+        globalTweets[elm['rest_id'] as String] = elm;
+      }
     }
-    catch (exc) {
-      rethrow;
+
+    // One tweet that can't be parsed must not take down the whole page
+    var tweets = <TweetWithCard>[];
+    for (var e in globalTweets.values) {
+      try {
+        tweets.add(TweetWithCard.fromGraphqlJson(e, leanerFeeds: leanerFeeds));
+      }
+      catch (exc) {
+        _SquawkerTwitterClient.log.warning('Skipping tweet ${e['rest_id']} that could not be parsed: $exc');
+      }
     }
 
     return {for (var e in tweets) e.idStr!: e};
@@ -1440,18 +1446,33 @@ class TweetWithCard extends Tweet {
     return tweetWithCard;
   }
 
+  // A deleted or withheld tweet comes back as a TweetTombstone/TweetUnavailable without 'rest_id' nor 'tweet'
+  static Map<String, dynamic>? _unwrapGraphqlTweet(dynamic statusResult) {
+    var res = statusResult is Map ? statusResult['result'] : null;
+    if (res is! Map<String, dynamic>) {
+      return null;
+    }
+    if (res['rest_id'] != null) {
+      return res;
+    }
+    var tweet = res['tweet'];
+    return tweet is Map<String, dynamic> ? tweet : null;
+  }
+
   factory TweetWithCard.fromGraphqlJson(Map<String, dynamic> result, {bool leanerFeeds = false}) {
     //print('*** TweetWithCard.fromGraphqlJson result.keys=[${result.keys.join(',')}]'); // TODO remove
     //if (result['legacy'] != null) print('*** TweetWithCard.fromGraphqlJson result[legacy].keys=[${result['legacy'].keys.join(',')}]'); // TODO remove
     var resultRetweetedStatusResult = result['retweeted_status_result'] ?? (result['legacy']?['retweeted_status_result'] ?? result['legacy']?['repostedStatusResults']);
-    var retweetedStatus = resultRetweetedStatusResult?.isEmpty ?? true
+    var retweetedTweet = _unwrapGraphqlTweet(resultRetweetedStatusResult);
+    var retweetedStatus = retweetedTweet == null
         ? null
-        : TweetWithCard.fromGraphqlJson(resultRetweetedStatusResult['result']['rest_id'] == null ? resultRetweetedStatusResult['result']['tweet'] : resultRetweetedStatusResult['result']);
+        : TweetWithCard.fromGraphqlJson(retweetedTweet);
     var resultQuotedStatusResult = result['quoted_status_result'] ?? (result['quoted_status_result']?['result']?['tombstone'] ?? result['quotedPostResults']);
     //if (resultQuotedStatusResult?['result'] != null) print('*** TweetWithCard.fromGraphqlJson resultQuotedStatusResult[result].keys=[${resultQuotedStatusResult['result'].keys.join(',')}]'); // TODO remove
-    var quotedStatus = resultQuotedStatusResult?.isEmpty ?? true
+    var quotedTweet = _unwrapGraphqlTweet(resultQuotedStatusResult);
+    var quotedStatus = quotedTweet == null
         ? null
-        : TweetWithCard.fromGraphqlJson(resultQuotedStatusResult['result']['rest_id'] == null ? resultQuotedStatusResult['result']['tweet'] : resultQuotedStatusResult['result']);
+        : TweetWithCard.fromGraphqlJson(quotedTweet);
     var resCore = result['core']?['user_results']?['result'];
     resCore ??= result['core']?['user_result']?['result'];
     //if (resCore != null) print('*** TweetWithCard.fromGraphqlJson resCore.keys=[${resCore.keys.join(',')}]'); // TODO remove

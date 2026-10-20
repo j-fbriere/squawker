@@ -1,0 +1,1 @@
+* Fix the feed for deleted tweets. Also fix the display of message when an Error (instead of an Exception) is thrown in the feed (thanks to @retixo).
