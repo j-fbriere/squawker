@@ -23,71 +23,56 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(name) =>
       "Вы ўпэўненыя, што жадаеце выдаліць групу падпісак ${name}?";
 
-  static String m1(count) => "";
+  static String m1(fileName) => "Дадзеныя экспартуюцца ў ${fileName}";
 
-  static String m2(count) => "";
+  static String m2(fullPath) => "Дадзеныя экспартуюцца ў ${fullPath}";
 
-  static String m3(fileName) => "Дадзеныя экспартуюцца ў ${fileName}";
+  static String m3(timeagoFormat) => "Завершана ${timeagoFormat}";
 
-  static String m4(fullPath) => "Дадзеныя экспартуюцца ў ${fullPath}";
+  static String m4(timeagoFormat) => "Завершыцца праз ${timeagoFormat}";
 
-  static String m5(timeagoFormat) => "Завершана ${timeagoFormat}";
-
-  static String m6(timeagoFormat) => "Завершыцца праз ${timeagoFormat}";
-
-  static String m7(snapshotData) =>
+  static String m5(snapshotData) =>
       "Завершана праца з акаўнтамі ${snapshotData}";
 
-  static String m8(name) => "Група: ${name}";
+  static String m6(name) => "Група: ${name}";
 
-  static String m9(snapshotData) =>
+  static String m7(snapshotData) =>
       "Імпартавана ${snapshotData} акаўнтаў на дадзены момант";
 
-  static String m10(date) => "Рэгістрацыя: ${date}";
+  static String m8(date) => "Рэгістрацыя: ${date}";
 
-  static String m11(nbrGuestAccounts) => "";
-
-  static String m12(num, numFormatted) =>
+  static String m10(num, numFormatted) =>
       "${Intl.plural(num, zero: 'няма галасоў', one: 'голас', two: 'галасы', few: '${numFormatted} галасы', many: '${numFormatted} галасоў', other: '${numFormatted} голас')}";
 
-  static String m13(errorMessage) =>
+  static String m11(errorMessage) =>
       "Калі ласка, праверце вашае сеткавае падлучэнне.\n\n${errorMessage}";
 
-  static String m14(nbrRegularAccounts) => "";
-
-  static String m15(count) => "";
-
-  static String m16(releaseVersion) =>
+  static String m13(releaseVersion) =>
       "Націсніце, каб усталяваць ${releaseVersion}";
 
-  static String m17(getMediaType) => "Націсніце, каб паказаць ${getMediaType}";
+  static String m14(getMediaType) => "Націсніце, каб паказаць ${getMediaType}";
 
-  static String m18(filePath) =>
+  static String m15(filePath) =>
       "Файл не існуе. Калі ласка, упэўніцеся, што ён знаходзіцца па адрасе ${filePath}";
 
-  static String m19(thisTweetUserName, timeAgo) =>
+  static String m16(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} ретвітнуў(ла) ${timeAgo}";
 
-  static String m20(num, numFormatted) =>
+  static String m17(num, numFormatted) =>
       "${Intl.plural(num, zero: 'няма твітаў', one: 'твіт', two: 'твіта', few: '${numFormatted} твіты', many: '${numFormatted} твитаў', other: '${numFormatted} твит')}";
 
-  static String m21(widgetPlaceName) =>
+  static String m18(widgetPlaceName) =>
       "Немагчыма загрузіць актуальнае для ${widgetPlaceName}";
 
-  static String m22(responseStatusCode) =>
+  static String m19(responseStatusCode) =>
       "Немагчыма захаваць мэдыяфайл. Twitter/X вярнуў статус ${responseStatusCode}";
 
-  static String m23(releaseVersion) =>
+  static String m20(releaseVersion) =>
       "Абнавіць да ${releaseVersion} праз кліент F-Droid";
-
-  static String m24(seconds) => "";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("Аб праграме"),
-    "about_download": MessageLookupByLibrary.simpleMessage(""),
-    "about_download_description": MessageLookupByLibrary.simpleMessage(""),
-    "account": MessageLookupByLibrary.simpleMessage(""),
     "account_suspended": MessageLookupByLibrary.simpleMessage(
       "Уліковы запіс прыпынены",
     ),
@@ -99,45 +84,21 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Уключыць рэжым зрушэння без пацверджання",
         ),
-    "add_account": MessageLookupByLibrary.simpleMessage(""),
-    "add_account_title": MessageLookupByLibrary.simpleMessage(""),
-    "add_subscriptions": MessageLookupByLibrary.simpleMessage(""),
-    "add_to_feed": MessageLookupByLibrary.simpleMessage(""),
     "add_to_group": MessageLookupByLibrary.simpleMessage("Дадаць у групу"),
     "all": MessageLookupByLibrary.simpleMessage("Усе"),
     "all_the_great_software_used_by_fritter":
         MessageLookupByLibrary.simpleMessage(
           "Усё выдатнае праграмнае забеспячэнне, якое выкарыстоўваецца Squawker",
         ),
-    "allow_background_play_description": MessageLookupByLibrary.simpleMessage(
-      "",
-    ),
-    "allow_background_play_label": MessageLookupByLibrary.simpleMessage(""),
-    "allow_background_play_other_apps_description":
-        MessageLookupByLibrary.simpleMessage(""),
-    "allow_background_play_other_apps_label":
-        MessageLookupByLibrary.simpleMessage(""),
     "an_update_for_fritter_is_available": MessageLookupByLibrary.simpleMessage(
       "Абнаўленне Squawker даступна! 🚀",
     ),
-    "api_key": MessageLookupByLibrary.simpleMessage(""),
-    "api_server": MessageLookupByLibrary.simpleMessage(""),
-    "api_server_address": MessageLookupByLibrary.simpleMessage(""),
-    "app_info": MessageLookupByLibrary.simpleMessage(""),
     "are_you_sure": MessageLookupByLibrary.simpleMessage("Вы ўпэўнены?"),
     "are_you_sure_you_want_to_delete_the_subscription_group_name_of_group": m0,
-    "autoplay_videos": MessageLookupByLibrary.simpleMessage(""),
-    "autoplay_videos_description": MessageLookupByLibrary.simpleMessage(""),
     "back": MessageLookupByLibrary.simpleMessage("Назад"),
     "bad_guest_token": MessageLookupByLibrary.simpleMessage(
       "Twitter/X прызнаў несапраўдным наш маркер доступу. Калі ласка, паспрабуйце зноў адкрыць Squawker!",
     ),
-    "batch_add_to_group": MessageLookupByLibrary.simpleMessage(""),
-    "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
-    "batch_remove_from_feed_confirm": m1,
-    "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(""),
-    "batch_unsubscribe_confirm": m2,
-    "beta": MessageLookupByLibrary.simpleMessage(""),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
           "Сіняя тэма, заснаваная на каляровай схеме Twitter/X",
@@ -147,10 +108,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Крытычная памылка",
     ),
     "choose": MessageLookupByLibrary.simpleMessage("Выбраць"),
-    "choose_pages": MessageLookupByLibrary.simpleMessage(""),
     "close": MessageLookupByLibrary.simpleMessage("Закрыць"),
-    "community_notes_title": MessageLookupByLibrary.simpleMessage(""),
-    "confirm": MessageLookupByLibrary.simpleMessage(""),
     "confirm_close_fritter": MessageLookupByLibrary.simpleMessage(
       "Вы сапраўды хочаце закрыць Squawker?",
     ),
@@ -175,17 +133,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("Краіна"),
     "dark": MessageLookupByLibrary.simpleMessage("Цёмная"),
     "data": MessageLookupByLibrary.simpleMessage("Дадзеныя"),
-    "data_exported_to_fileName": m3,
-    "data_exported_to_fullPath": m4,
+    "data_exported_to_fileName": m1,
+    "data_exported_to_fullPath": m2,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "Дадзеныя паспяхова імпартаваны",
     ),
     "date_created": MessageLookupByLibrary.simpleMessage("Дата стварэння"),
     "date_subscribed": MessageLookupByLibrary.simpleMessage("Дата падпіскі"),
-    "default_subscription_tab": MessageLookupByLibrary.simpleMessage(""),
     "default_tab": MessageLookupByLibrary.simpleMessage("Укладка па змаўчанні"),
     "delete": MessageLookupByLibrary.simpleMessage("Выдаліць"),
-    "deselect_all": MessageLookupByLibrary.simpleMessage(""),
     "disable_screenshots": MessageLookupByLibrary.simpleMessage(
       "Адключыць скрыншоты",
     ),
@@ -193,12 +149,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Прадухіленне стварэння скрыншотаў. Гэта можа працаваць не на ўсіх прыладах.",
     ),
     "disabled": MessageLookupByLibrary.simpleMessage("Адключана"),
-    "doesnt_work_without_account": MessageLookupByLibrary.simpleMessage(""),
     "donate": MessageLookupByLibrary.simpleMessage("Падтрымаць праект"),
     "download": MessageLookupByLibrary.simpleMessage("Спампаваць"),
-    "download_all_tweets": MessageLookupByLibrary.simpleMessage(""),
-    "download_completed": MessageLookupByLibrary.simpleMessage(""),
-    "download_failed": MessageLookupByLibrary.simpleMessage(""),
     "download_handling": MessageLookupByLibrary.simpleMessage(
       "Апрацоўка загрузкі",
     ),
@@ -214,44 +166,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "download_media_no_url": MessageLookupByLibrary.simpleMessage(
       "Немагчыма загрузіць. Гэта медыя можа быць даступна толькі ў выглядзе патоку, які Squawker пакуль не можа загрузіць.",
     ),
-    "download_mode": MessageLookupByLibrary.simpleMessage(""),
-    "download_mode_fast": MessageLookupByLibrary.simpleMessage(""),
-    "download_mode_full_scan": MessageLookupByLibrary.simpleMessage(""),
-    "download_mode_safe": MessageLookupByLibrary.simpleMessage(""),
     "download_path": MessageLookupByLibrary.simpleMessage("Шлях для спампоўкі"),
-    "download_settings": MessageLookupByLibrary.simpleMessage(""),
-    "download_started": MessageLookupByLibrary.simpleMessage(""),
-    "download_this_tweet": MessageLookupByLibrary.simpleMessage(""),
-    "download_tweet": MessageLookupByLibrary.simpleMessage(""),
-    "download_video_best_quality_description":
-        MessageLookupByLibrary.simpleMessage(""),
-    "download_video_best_quality_label": MessageLookupByLibrary.simpleMessage(
-      "",
-    ),
     "downloading_media": MessageLookupByLibrary.simpleMessage(
       "Загрузка медыя…",
     ),
-    "edit_account_title": MessageLookupByLibrary.simpleMessage(""),
-    "email_label": MessageLookupByLibrary.simpleMessage(""),
     "enable_": MessageLookupByLibrary.simpleMessage("Актываваць ?"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m5,
-    "ends_timeago_format_endsAt_allowFromNow_true": m6,
-    "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(""),
-    "enhanced_feeds_label": MessageLookupByLibrary.simpleMessage(""),
-    "enhanced_profile_description": MessageLookupByLibrary.simpleMessage(""),
-    "enhanced_profile_label": MessageLookupByLibrary.simpleMessage(""),
-    "enhanced_searches_description": MessageLookupByLibrary.simpleMessage(""),
-    "enhanced_searches_label": MessageLookupByLibrary.simpleMessage(""),
-    "enter_comma_separated_twitter_usernames":
-        MessageLookupByLibrary.simpleMessage(""),
+    "ended_timeago_format_endsAt_allowFromNow_true": m3,
+    "ends_timeago_format_endsAt_allowFromNow_true": m4,
     "enter_your_twitter_username": MessageLookupByLibrary.simpleMessage(
       "Увядзіце Ваша імя карыстальніка ў Twitter/X",
     ),
-    "error_from_twitter": MessageLookupByLibrary.simpleMessage(""),
-    "exclusions_feed_description": MessageLookupByLibrary.simpleMessage(""),
-    "exclusions_feed_label": MessageLookupByLibrary.simpleMessage(""),
     "export": MessageLookupByLibrary.simpleMessage("Экспартаваць"),
-    "export_guest_accounts": MessageLookupByLibrary.simpleMessage(""),
     "export_settings": MessageLookupByLibrary.simpleMessage(
       "Экспартаваць наладкі?",
     ),
@@ -267,15 +192,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "export_tweets": MessageLookupByLibrary.simpleMessage(
       "Экспартаваць твіты?",
     ),
-    "export_twitter_tokens": MessageLookupByLibrary.simpleMessage(""),
     "export_your_data": MessageLookupByLibrary.simpleMessage(
       "Экспартаваць вашыя дадзеныя",
     ),
-    "failed_to_load_video": MessageLookupByLibrary.simpleMessage(""),
     "feed": MessageLookupByLibrary.simpleMessage("Стужка"),
     "filters": MessageLookupByLibrary.simpleMessage("Фільтры"),
-    "finish": MessageLookupByLibrary.simpleMessage(""),
-    "finished_with_snapshotData_users": m7,
+    "finished_with_snapshotData_users": m5,
     "followers": MessageLookupByLibrary.simpleMessage("Чытачы"),
     "following": MessageLookupByLibrary.simpleMessage("Чытае"),
     "forbidden": MessageLookupByLibrary.simpleMessage(
@@ -283,10 +205,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "fritter": MessageLookupByLibrary.simpleMessage("Squawker"),
     "fritter_blue": MessageLookupByLibrary.simpleMessage("Squawker blue"),
-    "functionality_unsupported": MessageLookupByLibrary.simpleMessage(""),
     "general": MessageLookupByLibrary.simpleMessage("Асноўныя"),
-    "generic_username": MessageLookupByLibrary.simpleMessage(""),
-    "group_name": m8,
+    "group_name": m6,
     "groups": MessageLookupByLibrary.simpleMessage("Групы"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "Дапамажыце зрабіць Squawker яшчэ лепш",
@@ -312,22 +232,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "import_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Імпартаваць падпіскі",
     ),
-    "imported_snapshot_data_users_so_far": m9,
+    "imported_snapshot_data_users_so_far": m7,
     "include_replies": MessageLookupByLibrary.simpleMessage("Уключаючы адказы"),
     "include_retweets": MessageLookupByLibrary.simpleMessage(
       "Уключаючы рэтвіты",
     ),
-    "invert_selection": MessageLookupByLibrary.simpleMessage(""),
-    "joined": m10,
-    "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(""),
-    "keep_feed_offset_label": MessageLookupByLibrary.simpleMessage(""),
+    "joined": m8,
     "language": MessageLookupByLibrary.simpleMessage("Мова"),
     "language_subtitle": MessageLookupByLibrary.simpleMessage(
       "Неабходны перазапуск",
     ),
     "large": MessageLookupByLibrary.simpleMessage("Вялікі"),
-    "leaner_feeds_description": MessageLookupByLibrary.simpleMessage(""),
-    "leaner_feeds_label": MessageLookupByLibrary.simpleMessage(""),
     "legacy_android_import": MessageLookupByLibrary.simpleMessage(
       "Імпарт з устарэлай версіі Android",
     ),
@@ -335,29 +250,15 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Паведаміце распрацоўшчыкам калі нешта пайшло не так",
         ),
-    "libre_translate_host": MessageLookupByLibrary.simpleMessage(""),
     "licenses": MessageLookupByLibrary.simpleMessage("Ліцэнзіі"),
     "light": MessageLookupByLibrary.simpleMessage("Светлая"),
     "live": MessageLookupByLibrary.simpleMessage("Прамы эфір"),
     "logging": MessageLookupByLibrary.simpleMessage("Журнал"),
-    "login": MessageLookupByLibrary.simpleMessage(""),
-    "loop_videos": MessageLookupByLibrary.simpleMessage(""),
-    "loop_videos_description": MessageLookupByLibrary.simpleMessage(""),
-    "mandatory_label": MessageLookupByLibrary.simpleMessage(""),
-    "material_3": MessageLookupByLibrary.simpleMessage(""),
     "media": MessageLookupByLibrary.simpleMessage("Медыя"),
-    "media_image_quality": MessageLookupByLibrary.simpleMessage(""),
     "media_size": MessageLookupByLibrary.simpleMessage("Памер медыя"),
-    "media_video_quality": MessageLookupByLibrary.simpleMessage(""),
     "medium": MessageLookupByLibrary.simpleMessage("Сярэдні"),
-    "missing_page": MessageLookupByLibrary.simpleMessage(""),
-    "mute_video_description": MessageLookupByLibrary.simpleMessage(""),
-    "mute_videos": MessageLookupByLibrary.simpleMessage(""),
     "name": MessageLookupByLibrary.simpleMessage("Імя"),
-    "name_label": MessageLookupByLibrary.simpleMessage(""),
-    "nbr_guest_accounts": m11,
     "newTrans": MessageLookupByLibrary.simpleMessage("Новыя"),
-    "next": MessageLookupByLibrary.simpleMessage(""),
     "no": MessageLookupByLibrary.simpleMessage("Не"),
     "no_data_was_returned_which_should_never_happen_please_report_a_bug_if_possible":
         MessageLookupByLibrary.simpleMessage(
@@ -371,53 +272,32 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Няма падпісак. Паспрабуйце пашукаць або імпартаваць нешта!",
         ),
-    "not_logged_in": MessageLookupByLibrary.simpleMessage(""),
     "not_set": MessageLookupByLibrary.simpleMessage("Не ўстаноўлена"),
     "note_due_to_a_twitter_limitation_not_all_tweets_may_be_included":
         MessageLookupByLibrary.simpleMessage(
           "Заўвага: У сувязі з абмежаваннем Twitter/X, не ўсе твіты могуць быць уключаны",
         ),
-    "numberFormat_format_total_votes": m12,
+    "numberFormat_format_total_votes": m10,
     "ok": MessageLookupByLibrary.simpleMessage("Добра"),
-    "only_public_subscriptions_can_be_imported":
-        MessageLookupByLibrary.simpleMessage(""),
     "oops_something_went_wrong": MessageLookupByLibrary.simpleMessage(
       "Ой! Нешта пайшло не так 🥲",
     ),
     "open_app_settings": MessageLookupByLibrary.simpleMessage(
       "Адкрыць налады прыкладання",
     ),
-    "open_in_browser": MessageLookupByLibrary.simpleMessage(""),
-    "option_confirm_close_description": MessageLookupByLibrary.simpleMessage(
-      "",
-    ),
-    "option_confirm_close_label": MessageLookupByLibrary.simpleMessage(""),
-    "option_navigation_animations_description":
-        MessageLookupByLibrary.simpleMessage(""),
-    "option_navigation_animations_label": MessageLookupByLibrary.simpleMessage(
-      "",
-    ),
-    "option_show_navigation_labels_description":
-        MessageLookupByLibrary.simpleMessage(""),
-    "option_show_navigation_labels_label": MessageLookupByLibrary.simpleMessage(
-      "",
-    ),
-    "optional_label": MessageLookupByLibrary.simpleMessage(""),
     "page_not_found": MessageLookupByLibrary.simpleMessage(
       "Twitter/X кажа, што гэтая старонка не існуе, але гэта можа быць няпраўдай",
     ),
-    "password_label": MessageLookupByLibrary.simpleMessage(""),
     "permission_not_granted": MessageLookupByLibrary.simpleMessage(
       "Дазвол не дадзены. Калі ласка, паспрабуйце яшчэ раз пасля прадастаўлення!",
     ),
-    "phone_label": MessageLookupByLibrary.simpleMessage(""),
     "pick_a_color": MessageLookupByLibrary.simpleMessage("Абярыце колер!"),
     "pick_an_icon": MessageLookupByLibrary.simpleMessage("Выберыце іконку!"),
     "pinned_tweet": MessageLookupByLibrary.simpleMessage("Замацаваны твіт"),
     "playback_speed": MessageLookupByLibrary.simpleMessage(
       "Хуткасць прайгравання",
     ),
-    "please_check_your_internet_connection_error_message": m13,
+    "please_check_your_internet_connection_error_message": m11,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage(
       "Калі ласка, увядзіце імя",
     ),
@@ -440,15 +320,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "prefix": MessageLookupByLibrary.simpleMessage("прэфікс"),
     "private_profile": MessageLookupByLibrary.simpleMessage("Прыватны профіль"),
-    "proxy_description": MessageLookupByLibrary.simpleMessage(""),
-    "proxy_error": MessageLookupByLibrary.simpleMessage(""),
-    "proxy_label": MessageLookupByLibrary.simpleMessage(""),
-    "quality": MessageLookupByLibrary.simpleMessage(""),
-    "regular_accounts": m14,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Апублікавана пад ліцэнзіяй MIT",
     ),
-    "remove_from_feed": MessageLookupByLibrary.simpleMessage(""),
     "replying_to": MessageLookupByLibrary.simpleMessage("Адказаць"),
     "report": MessageLookupByLibrary.simpleMessage("Паведаміць"),
     "report_a_bug": MessageLookupByLibrary.simpleMessage(
@@ -460,33 +334,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_home_pages": MessageLookupByLibrary.simpleMessage(
       "Скід старонак да значэнняў па змаўчанні",
     ),
-    "restart_video_player": MessageLookupByLibrary.simpleMessage(""),
     "retry": MessageLookupByLibrary.simpleMessage("Паўтарыць"),
     "save": MessageLookupByLibrary.simpleMessage("Захаваць"),
     "save_bandwidth_using_smaller_images": MessageLookupByLibrary.simpleMessage(
       "Эканомце месца на экране, з выявамі меншага памеру",
     ),
-    "save_bandwidth_using_smaller_videos": MessageLookupByLibrary.simpleMessage(
-      "",
-    ),
     "saved": MessageLookupByLibrary.simpleMessage("Захаванае"),
-    "saved_tweet_too_large": MessageLookupByLibrary.simpleMessage(""),
     "search": MessageLookupByLibrary.simpleMessage("Пошук"),
     "search_term": MessageLookupByLibrary.simpleMessage("Пошукавы запыт"),
     "select": MessageLookupByLibrary.simpleMessage("Выбраць"),
-    "select_all": MessageLookupByLibrary.simpleMessage(""),
-    "select_groups": MessageLookupByLibrary.simpleMessage(""),
-    "selected_count": m15,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "Выбар асобных акаўнтаў для імпарту і прызначэнне груп ужо запланаваны на будучыню!",
         ),
     "send": MessageLookupByLibrary.simpleMessage("Даслаць"),
-    "settings": MessageLookupByLibrary.simpleMessage(""),
-    "settings_saved": MessageLookupByLibrary.simpleMessage(""),
-    "share_base_url": MessageLookupByLibrary.simpleMessage(""),
-    "share_base_url_description": MessageLookupByLibrary.simpleMessage(""),
-    "share_tweet_as_image": MessageLookupByLibrary.simpleMessage(""),
     "share_tweet_content": MessageLookupByLibrary.simpleMessage(
       "Падзяліцца змесцівам твіту",
     ),
@@ -522,12 +383,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Файл захаваны!",
     ),
     "system": MessageLookupByLibrary.simpleMessage("Сістэмная"),
-    "tap_to_download_release_version": m16,
-    "tap_to_show_getMediaType_item_type": m17,
+    "tap_to_download_release_version": m13,
+    "tap_to_show_getMediaType_item_type": m14,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "Дзякуй за дапамогу Squawker! 💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "Прапанова GitHub (#143)",
     ),
@@ -550,7 +411,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "Гэты твіт недаступны. Магчыма ён быў выдалены.",
     ),
-    "this_tweet_user_name_retweeted": m19,
+    "this_tweet_user_name_retweeted": m16,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "Гэты карыстальнік нікога не чытае!",
     ),
@@ -560,41 +421,22 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "thread": MessageLookupByLibrary.simpleMessage("Галінка"),
     "thumbnail": MessageLookupByLibrary.simpleMessage("Мініяцюра"),
-    "thumbnail_not_available": MessageLookupByLibrary.simpleMessage(""),
     "timed_out": MessageLookupByLibrary.simpleMessage("Час выйшаў"),
-    "to_import_specific_subscriptions_enter_your_comma_separated_usernames_below":
-        MessageLookupByLibrary.simpleMessage(""),
     "to_import_subscriptions_from_an_existing_twitter_account_enter_your_username_below":
         MessageLookupByLibrary.simpleMessage(
           "Каб імпартаваць падпіскі з існуючага акаўнта Twitter/X, увядзіце сваё імя карыстальніка ніжэй.",
         ),
     "toggle_all": MessageLookupByLibrary.simpleMessage("Выбраць усе"),
-    "translator_label": MessageLookupByLibrary.simpleMessage(""),
-    "translators_description": MessageLookupByLibrary.simpleMessage(""),
-    "translators_label": MessageLookupByLibrary.simpleMessage(""),
     "trending": MessageLookupByLibrary.simpleMessage("Актуальнае"),
     "trends": MessageLookupByLibrary.simpleMessage("Актуальныя тэмы"),
     "true_black": MessageLookupByLibrary.simpleMessage(
       "Сапраўдны чорны (AMOLED)?",
     ),
-    "tweet_font_size_description": MessageLookupByLibrary.simpleMessage(""),
-    "tweet_font_size_label": MessageLookupByLibrary.simpleMessage(""),
     "tweets": MessageLookupByLibrary.simpleMessage("Твіты"),
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Твіты і Адказы",
     ),
-    "tweets_number": m20,
-    "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(""),
-    "twitter_account_types_description": MessageLookupByLibrary.simpleMessage(
-      "",
-    ),
-    "twitter_account_types_label": MessageLookupByLibrary.simpleMessage(""),
-    "twitter_account_types_only_regular": MessageLookupByLibrary.simpleMessage(
-      "",
-    ),
-    "twitter_account_types_priority_to_regular":
-        MessageLookupByLibrary.simpleMessage(""),
-    "two_home_pages_required": MessageLookupByLibrary.simpleMessage(""),
+    "tweets_number": m17,
     "unable_to_find_the_available_trend_locations":
         MessageLookupByLibrary.simpleMessage(
           "Немагчыма знайсці даступныя краіны для актуальнага.",
@@ -638,7 +480,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "Немагчыма загрузіць вынікі пошуку.",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m21,
+    "unable_to_load_the_trends_for_widget_place_name": m18,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "Не ўдаецца загрузіць твіт",
     ),
@@ -657,7 +499,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "Не ўдалося зрабіць перамяшчэнне базы даных",
         ),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m22,
+        m19,
     "unable_to_stream_the_trend_location_preference":
         MessageLookupByLibrary.simpleMessage(
           "Немагчыма выканаць перадачу мясцовых пераваг",
@@ -665,8 +507,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unknown": MessageLookupByLibrary.simpleMessage("Невядомы"),
     "unsave": MessageLookupByLibrary.simpleMessage("Адмяніць захаванне"),
     "unsubscribe": MessageLookupByLibrary.simpleMessage("Перастаць чытаць"),
-    "unsupported_url": MessageLookupByLibrary.simpleMessage(""),
-    "update_to_release_version_through_your_fdroid_client": m23,
+    "update_to_release_version_through_your_fdroid_client": m20,
     "updates": MessageLookupByLibrary.simpleMessage("Абнаўленні"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage(
@@ -676,18 +517,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Карыстальнік не знойдзены",
     ),
     "username": MessageLookupByLibrary.simpleMessage("Імя карыстальніка"),
-    "username_exclude": MessageLookupByLibrary.simpleMessage(""),
-    "username_label": MessageLookupByLibrary.simpleMessage(""),
-    "usernames": MessageLookupByLibrary.simpleMessage(""),
     "version": MessageLookupByLibrary.simpleMessage("Версія"),
-    "video_prefetch": MessageLookupByLibrary.simpleMessage(""),
-    "video_prefetch_description": MessageLookupByLibrary.simpleMessage(""),
-    "video_prefetch_seconds": m24,
-    "video_prefetch_unlimited": MessageLookupByLibrary.simpleMessage(""),
-    "warning_regular_account_unauthenticated_access_description":
-        MessageLookupByLibrary.simpleMessage(""),
-    "warning_regular_account_unauthenticated_access_title":
-        MessageLookupByLibrary.simpleMessage(""),
     "when_a_new_app_update_is_available": MessageLookupByLibrary.simpleMessage(
       "Калі новае абнаўленне даступна",
     ),
@@ -701,18 +531,10 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Якая ўкладка адлюстроўваецца пры адкрыцці дадатку",
         ),
-    "which_tab_is_shown_when_the_subscription_opens":
-        MessageLookupByLibrary.simpleMessage(""),
     "would_you_like_to_enable_automatic_error_reporting":
         MessageLookupByLibrary.simpleMessage(
           "Вы хочаце ўключыць аўтаматычнае інфармаванне аб памылках?",
         ),
-    "x_api": MessageLookupByLibrary.simpleMessage(""),
-    "x_client_transaction_id_provider": MessageLookupByLibrary.simpleMessage(
-      "",
-    ),
-    "x_client_transaction_id_provider_description":
-        MessageLookupByLibrary.simpleMessage(""),
     "yes": MessageLookupByLibrary.simpleMessage("Так"),
     "yes_please": MessageLookupByLibrary.simpleMessage("Так, калі ласка"),
     "you_have_not_saved_any_tweets_yet": MessageLookupByLibrary.simpleMessage(

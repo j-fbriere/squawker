@@ -1,1 +1,1 @@
-* Fix the x-client-transaction-id error Couldn't find the entry script (Thanks @Teskann).
+* Fix some application texts do not appear in other languages than english (Thanks @wtrh).

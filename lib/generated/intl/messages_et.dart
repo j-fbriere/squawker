@@ -23,65 +23,65 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(name) =>
       "Kas sa oled kindel, et soovid kustutada tellimuste grupi ${name}?";
 
-  static String m1(count) =>
+  static String m21(count) =>
       "Kas oled kindel, et soovid ${count} kasutajat uudisvoost eemaldada?";
 
-  static String m2(count) =>
+  static String m22(count) =>
       "Kas oled kindel, et soovid ${count} tellimust lõpetada?";
 
-  static String m3(fileName) => "Andmed on eksporditud faili ${fileName}";
+  static String m1(fileName) => "Andmed on eksporditud faili ${fileName}";
 
-  static String m4(fullPath) => "Andmed on eksporditud kausta ${fullPath}";
+  static String m2(fullPath) => "Andmed on eksporditud kausta ${fullPath}";
 
-  static String m5(timeagoFormat) => "Lõppes ${timeagoFormat}";
+  static String m3(timeagoFormat) => "Lõppes ${timeagoFormat}";
 
-  static String m6(timeagoFormat) => "Lõppeb ${timeagoFormat}";
+  static String m4(timeagoFormat) => "Lõppeb ${timeagoFormat}";
 
-  static String m7(snapshotData) =>
+  static String m5(snapshotData) =>
       "${snapshotData} kasutaja importimine on valmis";
 
-  static String m8(name) => "Grupp: ${name}";
+  static String m6(name) => "Grupp: ${name}";
 
-  static String m9(snapshotData) =>
+  static String m7(snapshotData) =>
       "Seni on imporditud ${snapshotData} kasutajat";
 
-  static String m10(date) => "Liitunud ${date}";
+  static String m8(date) => "Liitunud ${date}";
 
-  static String m11(nbrGuestAccounts) =>
+  static String m9(nbrGuestAccounts) =>
       "Kasutusel on ${nbrGuestAccounts} külaliskonto(t)";
 
-  static String m12(num, numFormatted) =>
+  static String m10(num, numFormatted) =>
       "${Intl.plural(num, zero: 'pole hääletatud', one: 'üks hääl', two: 'kaks häält', few: '${numFormatted} häält', many: '${numFormatted} häält', other: '${numFormatted} häält')}";
 
-  static String m13(errorMessage) =>
+  static String m11(errorMessage) =>
       "Palun kontrolli oma võrguühendust.\n\n${errorMessage}";
 
-  static String m14(nbrRegularAccounts) =>
+  static String m12(nbrRegularAccounts) =>
       "Tavakontod (${nbrRegularAccounts}):";
 
-  static String m15(count) => "${count} on valitud";
+  static String m23(count) => "${count} on valitud";
 
-  static String m16(releaseVersion) =>
+  static String m13(releaseVersion) =>
       "Versiooni ${releaseVersion} allalaadimiseks klõpsi";
 
-  static String m17(getMediaType) => "${getMediaType} kuvamiseks klõpsi";
+  static String m14(getMediaType) => "${getMediaType} kuvamiseks klõpsi";
 
-  static String m18(filePath) =>
+  static String m15(filePath) =>
       "Faili ei leidu. Palun kontrolli, et ta asuks siin ${filePath}";
 
-  static String m19(thisTweetUserName, timeAgo) =>
+  static String m16(thisTweetUserName, timeAgo) =>
       "${thisTweetUserName} kirjutas ${timeAgo} eest kordussäutsu";
 
-  static String m20(num, numFormatted) =>
+  static String m17(num, numFormatted) =>
       "${Intl.plural(num, zero: 'säutse pole', one: 'üks säuts', two: 'kaks säutsu', few: '${numFormatted} säutsu', many: '${numFormatted} säutsu', other: '${numFormatted} säutsu')}";
 
-  static String m21(widgetPlaceName) =>
+  static String m18(widgetPlaceName) =>
       "Ei õnnestu laadida hetkel populaarsemaid viiteid ja otsinguid riigile või piirkonnale: ${widgetPlaceName}";
 
-  static String m22(responseStatusCode) =>
+  static String m19(responseStatusCode) =>
       "Meedia salvestamine ei õnnestu. Twitter/X\'i vastus päringule: ${responseStatusCode}";
 
-  static String m23(releaseVersion) =>
+  static String m20(releaseVersion) =>
       "Uuenduseks versioonini ${releaseVersion} kasuta oma F-Droidi klienti";
 
   static String m24(seconds) => "${seconds} sek";
@@ -158,11 +158,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "batch_remove_from_feed": MessageLookupByLibrary.simpleMessage(
       "Mitme kasutaja eemaldamine uudisvoost korraga",
     ),
-    "batch_remove_from_feed_confirm": m1,
+    "batch_remove_from_feed_confirm": m21,
     "batch_unsubscribe": MessageLookupByLibrary.simpleMessage(
       "Mitme tellimuste lõpetamine korraga",
     ),
-    "batch_unsubscribe_confirm": m2,
+    "batch_unsubscribe_confirm": m22,
     "beta": MessageLookupByLibrary.simpleMessage("BEETA"),
     "blue_theme_based_on_the_twitter_color_scheme":
         MessageLookupByLibrary.simpleMessage(
@@ -203,8 +203,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "country": MessageLookupByLibrary.simpleMessage("Riik"),
     "dark": MessageLookupByLibrary.simpleMessage("Tume teema"),
     "data": MessageLookupByLibrary.simpleMessage("Andmed"),
-    "data_exported_to_fileName": m3,
-    "data_exported_to_fullPath": m4,
+    "data_exported_to_fileName": m1,
+    "data_exported_to_fullPath": m2,
     "data_imported_successfully": MessageLookupByLibrary.simpleMessage(
       "Andmete importimine õnnestus",
     ),
@@ -290,8 +290,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email_label": MessageLookupByLibrary.simpleMessage("E-posti aadress:"),
     "enable_": MessageLookupByLibrary.simpleMessage("Kas lubad kasutada \'t?"),
-    "ended_timeago_format_endsAt_allowFromNow_true": m5,
-    "ends_timeago_format_endsAt_allowFromNow_true": m6,
+    "ended_timeago_format_endsAt_allowFromNow_true": m3,
+    "ends_timeago_format_endsAt_allowFromNow_true": m4,
     "enhanced_feeds_description": MessageLookupByLibrary.simpleMessage(
       "Kasuta säutsuvoogude laadimisel tõhusamaid päringuid (aga neil on väike ajaühikus lubatud päringute arv)",
     ),
@@ -357,7 +357,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "feed": MessageLookupByLibrary.simpleMessage("Säutsuvoog"),
     "filters": MessageLookupByLibrary.simpleMessage("Filtrid"),
     "finish": MessageLookupByLibrary.simpleMessage("Lõpeta"),
-    "finished_with_snapshotData_users": m7,
+    "finished_with_snapshotData_users": m5,
     "followers": MessageLookupByLibrary.simpleMessage("Jälgijat"),
     "following": MessageLookupByLibrary.simpleMessage("Jälgitavat"),
     "forbidden": MessageLookupByLibrary.simpleMessage(
@@ -370,7 +370,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "general": MessageLookupByLibrary.simpleMessage("Üldised seadistused"),
     "generic_username": MessageLookupByLibrary.simpleMessage("Kasutaja"),
-    "group_name": m8,
+    "group_name": m6,
     "groups": MessageLookupByLibrary.simpleMessage("Grupid"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
       "Aita muuta Squawkerit veelgi paremaks",
@@ -396,7 +396,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "import_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Tellimuste import",
     ),
-    "imported_snapshot_data_users_so_far": m9,
+    "imported_snapshot_data_users_so_far": m7,
     "include_replies": MessageLookupByLibrary.simpleMessage(
       "Sealhulgas vastused",
     ),
@@ -406,7 +406,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invert_selection": MessageLookupByLibrary.simpleMessage(
       "Pööra valik teistpidi",
     ),
-    "joined": m10,
+    "joined": m8,
     "keep_feed_offset_description": MessageLookupByLibrary.simpleMessage(
       "Asukoht säutsuvoo ajajoonel jääb rakenduse uuesti käivitamise jaoks meelde",
     ),
@@ -467,7 +467,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mute_videos": MessageLookupByLibrary.simpleMessage("Summuta videote heli"),
     "name": MessageLookupByLibrary.simpleMessage("Nimi"),
     "name_label": MessageLookupByLibrary.simpleMessage("Nimi:"),
-    "nbr_guest_accounts": m11,
+    "nbr_guest_accounts": m9,
     "newTrans": MessageLookupByLibrary.simpleMessage("Uus"),
     "next": MessageLookupByLibrary.simpleMessage("Järgmine"),
     "no": MessageLookupByLibrary.simpleMessage("Ei"),
@@ -491,7 +491,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Märkus: Twitter/Xi määratud piirangute tõttu ei pruugi kõik säutsud olla kaasatud",
         ),
-    "numberFormat_format_total_votes": m12,
+    "numberFormat_format_total_votes": m10,
     "ok": MessageLookupByLibrary.simpleMessage("Sobib"),
     "only_public_subscriptions_can_be_imported":
         MessageLookupByLibrary.simpleMessage(
@@ -543,7 +543,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playback_speed": MessageLookupByLibrary.simpleMessage(
       "Taasesituse kiirus",
     ),
-    "please_check_your_internet_connection_error_message": m13,
+    "please_check_your_internet_connection_error_message": m11,
     "please_enter_a_name": MessageLookupByLibrary.simpleMessage(
       "Palun sisesta nimi",
     ),
@@ -574,7 +574,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "proxy_error": MessageLookupByLibrary.simpleMessage("Puhverserveri viga"),
     "proxy_label": MessageLookupByLibrary.simpleMessage("Puhverserver"),
     "quality": MessageLookupByLibrary.simpleMessage("Kvaliteet"),
-    "regular_accounts": m14,
+    "regular_accounts": m12,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Avaldatud MIT litsentsi alusel",
     ),
@@ -610,7 +610,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "select": MessageLookupByLibrary.simpleMessage("Vali"),
     "select_all": MessageLookupByLibrary.simpleMessage("Vali kõik"),
     "select_groups": MessageLookupByLibrary.simpleMessage("Vali grupid"),
-    "selected_count": m15,
+    "selected_count": m23,
     "selecting_individual_accounts_to_import_and_assigning_groups_are_both_planned_for_the_future_already":
         MessageLookupByLibrary.simpleMessage(
           "Nii üksikute kontode valimine importimiseks, kui gruppide määramine on kavandatud järgmiste arendustena!",
@@ -664,12 +664,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Salvestasin meedia!",
     ),
     "system": MessageLookupByLibrary.simpleMessage("Süsteemi pakutu"),
-    "tap_to_download_release_version": m16,
-    "tap_to_show_getMediaType_item_type": m17,
+    "tap_to_download_release_version": m13,
+    "tap_to_show_getMediaType_item_type": m14,
     "thanks_for_helping_fritter": MessageLookupByLibrary.simpleMessage(
       "Täname, et aitad Squawkerit! 💖",
     ),
-    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m18,
+    "the_file_does_not_exist_please_ensure_it_is_located_at_file_path": m15,
     "the_github_issue": MessageLookupByLibrary.simpleMessage(
       "veakirjeldus GitHub\'is (#143)",
     ),
@@ -692,7 +692,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "this_tweet_is_unavailable": MessageLookupByLibrary.simpleMessage(
       "See säuts pole leitav. Ilmselt on ta juba kustutatud.",
     ),
-    "this_tweet_user_name_retweeted": m19,
+    "this_tweet_user_name_retweeted": m16,
     "this_user_does_not_follow_anyone": MessageLookupByLibrary.simpleMessage(
       "See kasutaja ei jälgi mitte kedagi!",
     ),
@@ -735,7 +735,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Säutsud ja vastused",
     ),
-    "tweets_number": m20,
+    "tweets_number": m17,
     "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(
       "Külalis- ja tavakonto",
     ),
@@ -796,7 +796,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unable_to_load_the_search_results": MessageLookupByLibrary.simpleMessage(
       "Otsingutulemuste laadimine ei õnnestu.",
     ),
-    "unable_to_load_the_trends_for_widget_place_name": m21,
+    "unable_to_load_the_trends_for_widget_place_name": m18,
     "unable_to_load_the_tweet": MessageLookupByLibrary.simpleMessage(
       "Säutsu laadimine ei õnnestu",
     ),
@@ -815,7 +815,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "Squawkeri andmebaaside versiooniuuendus ei õnnestu",
         ),
     "unable_to_save_the_media_twitter_returned_a_status_of_response_statusCode":
-        m22,
+        m19,
     "unable_to_stream_the_trend_location_preference":
         MessageLookupByLibrary.simpleMessage(
           "Ei õnnestu edastada hetkel populaarsemaid viidete ja otsingute piirkondade eelistusi",
@@ -826,7 +826,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unsupported_url": MessageLookupByLibrary.simpleMessage(
       "URL ei ole toetatud",
     ),
-    "update_to_release_version_through_your_fdroid_client": m23,
+    "update_to_release_version_through_your_fdroid_client": m20,
     "updates": MessageLookupByLibrary.simpleMessage("Uuendused"),
     "use_true_black_for_the_dark_mode_theme":
         MessageLookupByLibrary.simpleMessage(

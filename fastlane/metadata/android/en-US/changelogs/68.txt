@@ -1,0 +1,1 @@
+* Fix some application texts do not appear in other languages than english (Thanks @wtrh).
