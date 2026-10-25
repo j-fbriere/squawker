@@ -1,0 +1,1 @@
+* Fix the x.com login blank page on some devices.
