@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:squawker/group/group_model.dart';
+import 'package:squawker/locale_fallback/english.dart';
 import 'package:squawker/user.dart';
 import 'package:squawker/utils/crypto_util.dart';
 import 'package:squawker/utils/misc.dart';
 import 'package:intl/intl.dart';
 
-final DateFormat sqliteDateFormat = DateFormat('yyyy-MM-dd hh:mm:ss');
+final DateFormat sqliteDateFormat = DateFormat('yyyy-MM-dd hh:mm:ss', dateLocaleFor(Intl.getCurrentLocale()));
 
 mixin ToMappable {
   Map<String, dynamic> toMap();

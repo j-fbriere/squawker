@@ -8,6 +8,7 @@ import 'package:squawker/client/client_account.dart';
 import 'package:squawker/database/entities.dart';
 import 'package:squawker/generated/l10n.dart';
 import 'package:squawker/group/group_model.dart';
+import 'package:squawker/locale_fallback/english.dart';
 import 'package:squawker/saved/saved_tweet_model.dart';
 import 'package:squawker/settings/_data.dart';
 import 'package:squawker/subscriptions/users_model.dart';
@@ -137,7 +138,7 @@ class _SettingsExportScreenState extends State<SettingsExportScreen> {
 
                 var exportData = jsonEncode(await data.toJson());
 
-                var dateFormat = DateFormat('yyyy-MM-dd');
+                var dateFormat = DateFormat('yyyy-MM-dd', dateLocaleFor(Intl.getCurrentLocale()));
                 var fileName = 'squawker-${dateFormat.format(DateTime.now())}.json';
 
                 // This platform can support the directory picker, so display it
