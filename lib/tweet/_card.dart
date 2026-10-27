@@ -8,6 +8,7 @@ import 'package:material_symbols_icons/symbols.dart';
 import 'package:squawker/client/client.dart';
 import 'package:squawker/constants.dart';
 import 'package:squawker/generated/l10n.dart';
+import 'package:squawker/locale_fallback/english.dart';
 import 'package:squawker/tweet/_media.dart';
 import 'package:squawker/tweet/_video.dart';
 import 'package:squawker/utils/urls.dart';
@@ -197,7 +198,7 @@ class TweetCard extends StatelessWidget {
   }
 
   _createVoteCard(BuildContext context, Map<String, dynamic> card, int numberOfChoices) {
-    var numberFormat = NumberFormat.decimalPattern();
+    var numberFormat = NumberFormat.decimalPattern(numberLocaleFor(Intl.getCurrentLocale()));
 
     var total = List.generate(
             numberOfChoices, (index) => double.parse(card['binding_values']['choice${++index}_count']['string_value']))
