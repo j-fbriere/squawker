@@ -10,10 +10,11 @@ final RegExp entryScriptRegex = RegExp(
   r'''["'](https://abs\.twimg\.com/[^"']+/entry-client[\w-]*\.js)["']''',
 );
 
-final RegExp signImporterRegex = RegExp(
-  r'''["']([./\w-]*(?:client-transaction-id-plugin|startup-dynamic)-[\w-]+\.js)["']''',
+final RegExp staticImportRegex = RegExp(
+  r'''from\s*["'`]([./\w-]+\.js)["'`]''',
 );
 
+/// The sign module is imported lazily, and its default export is called right away.
 final RegExp signFileRegex = RegExp(
-  r'''["'`]([./\w-]*sign\.o-[\w-]+\.js)["'`]''',
+  r'''import\(\s*["'`]([./\w-]+\.js)["'`]\s*\)\.then\(\s*\(?(\w+)\)?\s*=>\s*\2\.default\(\)\s*\)''',
 );

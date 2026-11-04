@@ -45,6 +45,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m11(errorMessage) =>
       "Lūdzu, pārbaudiet savu interneta savienojumu.\n\n${errorMessage}";
 
+  static String m12(nbrRegularAccounts) =>
+      "Parastie konti (${nbrRegularAccounts}):";
+
   static String m13(releaseVersion) =>
       "Nospiediet, lai lejupielādētu ${releaseVersion} versiju";
 
@@ -81,14 +84,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_subscriptions": MessageLookupByLibrary.simpleMessage(
       "Pievienot abonementus",
     ),
-    "add_to_feed": MessageLookupByLibrary.simpleMessage(
-      "Pievienot jaunumu plūsmai",
-    ),
+    "add_to_feed": MessageLookupByLibrary.simpleMessage("Pievienot jaunumiem"),
     "add_to_group": MessageLookupByLibrary.simpleMessage("Pievienot grupai"),
     "all": MessageLookupByLibrary.simpleMessage("Visi"),
     "all_the_great_software_used_by_fritter":
         MessageLookupByLibrary.simpleMessage(
-          "Visa fantastiskā programmatūra, ko izmanto Squawker",
+          "Visa fantastiskā programmatūra, ko Squawker izmanto",
         ),
     "allow_background_play_description": MessageLookupByLibrary.simpleMessage(
       "Atļauj atskaņot fonā",
@@ -223,10 +224,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Kļūda no Twitter/X",
     ),
     "exclusions_feed_description": MessageLookupByLibrary.simpleMessage(
-      "Lietotājvārdu saraksts, ko neiekļaut jaunumu plūsmā",
+      "Lietotājvārdu saraksts, ko neiekļaut jaunumos",
     ),
     "exclusions_feed_label": MessageLookupByLibrary.simpleMessage(
-      "Neiekļaut jaunumu plūsmā",
+      "Neiekļaut jaunumos",
     ),
     "export": MessageLookupByLibrary.simpleMessage("Izgūt"),
     "export_guest_accounts": MessageLookupByLibrary.simpleMessage(
@@ -254,7 +255,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "failed_to_load_video": MessageLookupByLibrary.simpleMessage(
       "Neizdevās ielādēt video",
     ),
-    "feed": MessageLookupByLibrary.simpleMessage("Jaunumu plūsma"),
+    "feed": MessageLookupByLibrary.simpleMessage("Jaunumi"),
     "filters": MessageLookupByLibrary.simpleMessage("Atlase"),
     "finish": MessageLookupByLibrary.simpleMessage("Pabeigt"),
     "finished_with_snapshotData_users": m5,
@@ -270,13 +271,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "group_name": m6,
     "groups": MessageLookupByLibrary.simpleMessage("Grupas"),
     "help_make_fritter_even_better": MessageLookupByLibrary.simpleMessage(
-      "Palīdziet padarīt Squawker vēl labāku",
+      "Palīdzēt padarīt Squawker vēl labāku",
     ),
     "help_support_fritters_future": MessageLookupByLibrary.simpleMessage(
       "Atbalstiet Squawker nākotni",
     ),
     "hide_sensitive_tweets": MessageLookupByLibrary.simpleMessage(
-      "Slēpt nepiedienīgus tvītus",
+      "Slēpt nepiedienīgus, sensitīvus, aizskarošus tvītus",
     ),
     "home": MessageLookupByLibrary.simpleMessage("Navigācijas ciļņu josla"),
     "if_you_have_any_feedback_on_this_feature_please_leave_it_on":
@@ -416,10 +417,13 @@ class MessageLookup extends MessageLookupByLibrary {
           "Lūdzu, ņemiet vērā, ka metode, ko Squawker izmanto, lai ievietotu abonementus, ir stipri ierobežota Twitter/X pieprasījuma skaita ierobežojuma dēļ, tāpēc tā var neizdoties, ja jūs sekojiet (esiet abonējuši) daudz kontiem.",
         ),
     "possibly_sensitive": MessageLookupByLibrary.simpleMessage(
-      "Potenciāli sensitīvs, aizskarošs",
+      "Potenciāli nepiedienīgs, sensitīvs, aizskarošs",
     ),
     "possibly_sensitive_profile": MessageLookupByLibrary.simpleMessage(
-      "Šis profils var ietvert potenciāli sensitīvus attēlus, valodu vai citu saturu. Vai tiešām vēlaties to apskatīt?",
+      "Šajā profilā var būt potenciāli nepiedienīgi, sensitīvi vai aizskaroši attēli, izteicieni vai cita veida saturs. Vai tiešām vēlaties to skatīt?",
+    ),
+    "possibly_sensitive_tweet": MessageLookupByLibrary.simpleMessage(
+      "Šis tvīts satur nepiedienīgu, sensitīvu vai aizskarošu saturu. Vai tiešām vēlaties to skatīt?",
     ),
     "prefix": MessageLookupByLibrary.simpleMessage("prefikss"),
     "private_profile": MessageLookupByLibrary.simpleMessage("Privāts profils"),
@@ -431,11 +435,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "proxy_label": MessageLookupByLibrary.simpleMessage("Starpniekserveris"),
     "quality": MessageLookupByLibrary.simpleMessage("Kvalitāte"),
+    "regular_accounts": m12,
     "released_under_the_mit_license": MessageLookupByLibrary.simpleMessage(
       "Publicēta izmantojot MIT licenci",
     ),
     "remove_from_feed": MessageLookupByLibrary.simpleMessage(
-      "Aizvākt no jaunumu plūsmas",
+      "Aizvākt no jaunumiem",
     ),
     "replying_to": MessageLookupByLibrary.simpleMessage("Atbildēt uz"),
     "report": MessageLookupByLibrary.simpleMessage("Ziņot"),
@@ -556,8 +561,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "tweets_and_replies": MessageLookupByLibrary.simpleMessage(
       "Tvīti un atbildes",
     ),
+    "twitter_account_types_both": MessageLookupByLibrary.simpleMessage(
+      "Viesa un parastais konts",
+    ),
     "twitter_account_types_label": MessageLookupByLibrary.simpleMessage(
       "Konta tips",
+    ),
+    "twitter_account_types_only_regular": MessageLookupByLibrary.simpleMessage(
+      "Tikai parastais konts",
     ),
     "twitter_account_types_priority_to_regular":
         MessageLookupByLibrary.simpleMessage(
@@ -639,6 +650,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "when_a_new_app_update_is_available": MessageLookupByLibrary.simpleMessage(
       "Tiklīdz ir pieejams jauns lietotnes atjauninājums",
     ),
+    "whether_to_hide_tweets_marked_as_sensitive":
+        MessageLookupByLibrary.simpleMessage(
+          "Slēpj tvītus ar nepiedienīgu, sensitīvu vai aizskarošu saturu",
+        ),
     "which_tab_is_shown_when_the_app_opens":
         MessageLookupByLibrary.simpleMessage(
           "Kuru cilni rāda, kad atver lietotni",

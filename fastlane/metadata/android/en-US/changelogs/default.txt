@@ -1,1 +1,1 @@
-* Fix the x.com login blank page on some devices.
+* Fix the x-client-transaction-id error Couldn't find the sign module importer (Thanks @Teskann).

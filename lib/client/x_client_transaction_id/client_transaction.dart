@@ -6,7 +6,9 @@ import 'package:crypto/crypto.dart';
 import 'package:html/dom.dart' as html_dom;
 import 'package:html/parser.dart' as html_parser;
 import 'package:http/http.dart' as http;
+import 'package:squawker/exceptions.dart';
 
+import 'client_transaction_id_exception.dart';
 import 'constants.dart';
 import 'cubic_curve.dart';
 import 'interpolate.dart';
@@ -22,6 +24,8 @@ const _browserHeaders = {
   'X-Twitter-Active-User': 'yes',
   'X-Twitter-Client-Language': 'en',
 };
+
+typedef TextFetcher = Future<String> Function(Uri uri);
 
 class ClientTransaction {
   final List<int> _keyBytes;
@@ -51,9 +55,10 @@ class ClientTransaction {
   }
 
   /// Downloads the x.com page and the sign module the generator is built from.
-  static Future<({String homePageHtml, String signFileText})> fetchSources() async {
-    final homePageHtml = await _fetchText(Uri.https('x.com', '/home'));
-    final signFileText = await _fetchText(await _findSignFileUrl(homePageHtml));
+  /// [fetch] lets the tests replay recorded files instead of using the network.
+  static Future<({String homePageHtml, String signFileText})> fetchSources({TextFetcher fetch = _fetchText}) async {
+    final homePageHtml = await fetch(Uri.https('x.com', '/home'));
+    final signFileText = await fetch(await _findSignFileUrl(homePageHtml, fetch));
     return (homePageHtml: homePageHtml, signFileText: signFileText);
   }
 
@@ -64,22 +69,31 @@ class ClientTransaction {
     String randomKeyword = defaultKeyword,
     int randomNumber = additionalRandomNumber,
   }) {
-    final homePageDoc = html_parser.parse(homePageHtml);
-    final (rowIndex, keyBytesIndices) = _getIndices(signFileText);
-    final keyBytes = _getKeyBytes(_getKey(homePageDoc));
-    final animationKey = _computeAnimationKey(
-      keyBytes: keyBytes,
-      rowIndex: rowIndex,
-      keyBytesIndices: keyBytesIndices,
-      homePageDoc: homePageDoc,
-    );
+    try {
+      final homePageDoc = html_parser.parse(homePageHtml);
+      final (rowIndex, keyBytesIndices) = _getIndices(signFileText);
+      final keyBytes = _getKeyBytes(_getKey(homePageDoc));
+      final animationKey = _computeAnimationKey(
+        keyBytes: keyBytes,
+        rowIndex: rowIndex,
+        keyBytesIndices: keyBytesIndices,
+        homePageDoc: homePageDoc,
+      );
 
-    return ClientTransaction._(
-      keyBytes: keyBytes,
-      animationKey: animationKey,
-      randomKeyword: randomKeyword,
-      randomNumber: randomNumber,
-    );
+      return ClientTransaction._(
+        keyBytes: keyBytes,
+        animationKey: animationKey,
+        randomKeyword: randomKeyword,
+        randomNumber: randomNumber,
+      );
+    } on ClientTransactionIdException {
+      rethrow;
+    } catch (error, stackTrace) {
+      Error.throwWithStackTrace(
+        ClientTransactionIdException("Couldn't read the page and the sign module: $error"),
+        stackTrace,
+      );
+    }
   }
 
   /// Generates the x-client-transaction-id for the given HTTP method and path.
@@ -114,7 +128,7 @@ class ClientTransaction {
         .allMatches(signFileText)
         .map((m) => int.parse(m.group(2)!))
         .toList();
-    if (indices.isEmpty) throw Exception("Couldn't get KEY_BYTE indices");
+    if (indices.isEmpty) throw const ClientTransactionIdException("Couldn't get KEY_BYTE indices");
     return (indices[0], indices.sublist(1));
   }
 
@@ -122,7 +136,7 @@ class ClientTransaction {
     final element =
         doc.querySelector("meta[name='twitter-site-verification']");
     if (element == null) {
-      throw Exception(
+      throw const ClientTransactionIdException(
           "Couldn't get [twitter-site-verification] key from the page source");
     }
     return element.attributes['content']!;
@@ -130,20 +144,34 @@ class ClientTransaction {
 
   static List<int> _getKeyBytes(String key) => base64.decode(key).toList();
 
-  static Future<String> _fetchText(Uri uri) async =>
-      (await http.get(uri, headers: _browserHeaders)).body;
+  /// An error page (e.g. a 503) is not a change in how X signs requests, so it
+  /// must not end up as a [ClientTransactionIdException].
+  static Future<String> _fetchText(Uri uri) async {
+    final response = await http.get(uri, headers: _browserHeaders);
+    if (response.statusCode < 200 || response.statusCode >= 300) throw HttpException(response);
+    return response.body;
+  }
 
-  static Future<Uri> _findSignFileUrl(String homePageHtml) async {
+  static Future<Uri> _findSignFileUrl(String homePageHtml, TextFetcher fetch) async {
     final entryUrl = _resolveImport(Uri.https('x.com', '/'), homePageHtml, entryScriptRegex, 'entry script');
-    final entryText = await _fetchText(entryUrl);
-    final importerUrl = _resolveImport(entryUrl, entryText, signImporterRegex, 'sign module importer');
-    final importerText = await _fetchText(importerUrl);
-    return _resolveImport(importerUrl, importerText, signFileRegex, 'sign module');
+    final entryText = await fetch(entryUrl);
+    final imports = staticImportRegex.allMatches(entryText).map((match) => entryUrl.resolve(match.group(1)!));
+    return _findSignFileImportedBy(imports, fetch);
+  }
+
+  /// X names its modules by a hash only, so the module importing the sign
+  /// module is the first one, among those of the entry script, that does.
+  static Future<Uri> _findSignFileImportedBy(Iterable<Uri> modules, TextFetcher fetch) async {
+    for (final module in modules) {
+      final match = signFileRegex.firstMatch(await fetch(module));
+      if (match != null) return module.resolve(match.group(1)!);
+    }
+    throw const ClientTransactionIdException("Couldn't find the sign module");
   }
 
   static Uri _resolveImport(Uri base, String text, RegExp regex, String what) {
     final match = regex.firstMatch(text);
-    if (match == null) throw Exception("Couldn't find the $what");
+    if (match == null) throw ClientTransactionIdException("Couldn't find the $what");
     return base.resolve(match.group(1)!);
   }
 

@@ -1,5 +1,5 @@
-// JavaScript-style Math.round: rounds half away from zero (like JS, unlike Dart's default
-// banker's rounding). Used to mirror the Python Math.round() in transaction.py.
+// JavaScript-style Math.round: rounds a half up, towards positive infinity, so -2.5 gives -2.
+// Dart's own round() rounds a half away from zero and would give -3.
 int jsRound(double num) {
   final x = num.floor();
   if (num - x >= 0.5) return num.ceil();
