@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_triple/flutter_triple.dart';
@@ -18,12 +19,12 @@ import 'package:squawker/constants.dart';
 import 'package:squawker/database/entities.dart';
 import 'package:squawker/database/repository.dart';
 import 'package:squawker/generated/l10n.dart';
+import 'package:squawker/locale_fallback/english.dart';
 import 'package:squawker/utils/crypto_util.dart';
 import 'package:squawker/utils/iterables.dart';
 import 'package:squawker/utils/misc.dart';
 import 'package:synchronized/synchronized.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-
 
 // now it is set to false. maybe forever.
 const bool try_to_create_guest_account = false;
@@ -437,7 +438,7 @@ class TwitterAccount {
         minResetSet = true;
       }
       if (rateLimitRemaining == null || (rateLimitRemaining == -1 && DateTime.now().isAfter(DateTime.fromMillisecondsSinceEpoch(rateLimitReset!))) || rateLimitRemaining >= total) {
-        log.info('*** OAuth token chosen, created ${DateFormat('yyyy-MM-dd HH:mm:ss').format(twitterToken.createdAt)}');
+        log.info('*** OAuth token chosen, created ${DateFormat('yyyy-MM-dd HH:mm:ss', dateLocaleFor(Intl.getCurrentLocale())).format(twitterToken.createdAt)}');
         return {
           'twitterToken': twitterToken,
           'minRateLimitReset': null

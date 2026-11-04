@@ -8,6 +8,7 @@ import 'package:squawker/client/client_account.dart';
 import 'package:squawker/constants.dart';
 import 'package:squawker/database/entities.dart';
 import 'package:squawker/generated/l10n.dart';
+import 'package:squawker/locale_fallback/english.dart';
 import 'package:squawker/profile/_follows.dart';
 import 'package:squawker/profile/_saved.dart';
 import 'package:squawker/profile/_tweets.dart';
@@ -130,7 +131,7 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
   bool descriptionResized = false;
   bool metadataResized = false;
 
-  NumberFormat numberFormat = NumberFormat.compact();
+  NumberFormat numberFormat = NumberFormat.compact(locale: numberLocaleFor(Intl.getCurrentLocale()));
 
   @override
   void initState() {
@@ -493,7 +494,10 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
                                                     const SizedBox(width: 4),
                                                     Text(
                                                         L10n.of(context)
-                                                            .joined(DateFormat('MMMM yyyy').format(user.createdAt!)),
+                                                            .joined(DateFormat(
+                                                              'MMMM yyyy',
+                                                              dateLocaleFor(Intl.getCurrentLocale()),
+                                                            ).format(user.createdAt!)),
                                                         style: metadataTextStyle),
                                                   ],
                                                 ),

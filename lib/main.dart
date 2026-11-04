@@ -4,11 +4,13 @@ import 'dart:io';
 //import 'package:device_preview/device_preview.dart';
 import 'package:faker/faker.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flutter/cupertino.dart' show CupertinoLocalizations;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_windowmanager_plus/flutter_windowmanager_plus.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:logging_to_logcat/logging_to_logcat.dart';
 import 'package:logging/logging.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -27,6 +29,7 @@ import 'package:squawker/group/group_screen.dart';
 import 'package:squawker/home/home_model.dart';
 import 'package:squawker/home/home_screen.dart';
 import 'package:squawker/import_data_model.dart';
+import 'package:squawker/locale_fallback/english_delegate.dart';
 import 'package:squawker/profile/profile.dart';
 import 'package:squawker/saved/saved_tweet_model.dart';
 import 'package:squawker/search/search.dart';
@@ -183,6 +186,8 @@ Future<void> main() async {
   }
 
   WidgetsFlutterBinding.ensureInitialized();
+
+  await initializeDateFormatting();
 
   setTimeagoLocales();
 
@@ -522,9 +527,9 @@ class _SquawkerAppState extends State<SquawkerApp> with WidgetsBindingObserver {
       },
       localizationsDelegates: const [
         L10n.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
+        EnglishFallbackDelegate<MaterialLocalizations>(GlobalMaterialLocalizations.delegate),
+        EnglishFallbackDelegate<WidgetsLocalizations>(GlobalWidgetsLocalizations.delegate),
+        EnglishFallbackDelegate<CupertinoLocalizations>(GlobalCupertinoLocalizations.delegate),
       ],
       supportedLocales: L10n.delegate.supportedLocales,
       locale: _locale ?? const Locale('en-US'), //DevicePreview.locale(context),
