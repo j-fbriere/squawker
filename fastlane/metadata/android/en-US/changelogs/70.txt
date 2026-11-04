@@ -1,1 +1,2 @@
 * Fix the x-client-transaction-id error Couldn't find the sign module importer (Thanks @Teskann).
+* Fix: Prevent UI breakage in Esperanto and Interlingua (Thanks @wtrh).
