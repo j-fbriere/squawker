@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:squawker/constants.dart';
 import 'package:squawker/generated/l10n.dart';
+import 'package:squawker/locale_fallback/english.dart';
 import 'package:squawker/search/search.dart';
 import 'package:squawker/trends/trends_model.dart';
 import 'package:squawker/ui/errors.dart';
@@ -54,7 +55,7 @@ class _TrendsListState extends State<TrendsList> {
           );
         }
 
-        var numberFormat = NumberFormat.compact();
+        var numberFormat = NumberFormat.compact(locale: numberLocaleFor(Intl.getCurrentLocale()));
 
         return ListView.builder(
           controller: scrollController,

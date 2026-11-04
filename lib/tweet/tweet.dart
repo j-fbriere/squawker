@@ -9,6 +9,7 @@ import 'package:squawker/client/client.dart';
 import 'package:squawker/constants.dart';
 import 'package:squawker/generated/l10n.dart';
 import 'package:squawker/import_data_model.dart';
+import 'package:squawker/locale_fallback/english.dart';
 import 'package:squawker/profile/profile.dart';
 import 'package:squawker/saved/saved_tweet_model.dart';
 import 'package:squawker/search/search.dart';
@@ -380,7 +381,7 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
     final isTweetOnSameProfile = currentUsername != null && currentUsername == tweet.user!.screenName;
     final hideAuthorInformation = !isTweetOnSameProfile && prefs.get(optionNonConfirmationBiasMode);
 
-    var numberFormat = NumberFormat.compact();
+    var numberFormat = NumberFormat.compact(locale: numberLocaleFor(Intl.getCurrentLocale()));
     var theme = Theme.of(context);
 
     if (tweet.isTombstone ?? false) {

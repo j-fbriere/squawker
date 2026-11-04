@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:squawker/locale_fallback/english.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-final absoluteDateFormat = DateFormat.yMMMd().add_Hms();
+final absoluteDateFormat = DateFormat.yMMMd(dateLocaleFor(Intl.getCurrentLocale())).add_Hms();
 
 String createRelativeDate(DateTime dateTime) {
   return timeago.format(dateTime, locale: Intl.shortLocale(Intl.getCurrentLocale()));
