@@ -177,8 +177,8 @@ class ClientTransaction {
 
   static List<List<int>> _get2dArray(
       List<int> keyBytes, html_dom.Document doc) {
-    final frames = doc.querySelectorAll('[id^="loading-x-anim"]');
-    final frame = frames[keyBytes[5] % 4];
+    // The page also has a style and a div whose ids start with loading-x-anim.
+    final frame = doc.getElementById('loading-x-anim-${keyBytes[5] % 4}')!;
     final pathElement = frame.children[0].children[1];
     final d = pathElement.attributes['d']!.substring(9);
     return d
